@@ -50,6 +50,77 @@ header h1 {
     text-shadow: 0 4px 10px rgba(0, 255, 198, 0.7);
 }
 
+/* making the words to be colored individually  */
+.word-1{
+    color: #cccccc;
+}
+.word-2{
+    color: #9355d9;
+}
+.word-3{
+    color: #d4c32d;
+}
+.word-4{
+    color: #ff690b;
+}
+.word-5{
+    color:#ff4d4d;
+}
+.word-6{
+    color: #dd433b;
+}
+.word-7{
+    color:#c50e33;
+}
+.word-8{
+    color:#610e7d;
+}
+.word-9{
+    color: #ffffff;
+}
+.word-10{
+    color: #213fd0;
+}
+.word-11{
+    color: #ff1493;
+}
+.word-12{
+    color: rgb(252, 9, 9);
+}
+.word-13{
+    color: lavender;
+}
+.word-14{
+    color: coral;
+}
+.word-15{
+    color: crimson;
+}
+.word-16{
+    color: rgb(3, 37, 51);
+}
+.word-17{
+    color: rgba(68, 35, 97, 0.551);
+}
+.word-18{
+    color: magenta;
+}
+.word-19{
+    color: rgb(235, 0, 0);
+}
+.word-20{
+    color: rgb(248, 7, 144);
+}
+.word-21{
+    color: peachpuff;
+}
+.word-22{
+    color: rgb(240, 12, 12);
+}
+.word-23{
+    color: rgb(12, 12, 240);
+}
+
 header p {
     font-size: 1.5rem;
     margin-bottom: 2rem;
@@ -64,7 +135,9 @@ header p {
     text-decoration: none;
     font-weight: bold;
     transition: transform 0.3s ease, background-color 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    /* adding glowing effect to CTA  */
+    box-shadow: 0 0 20px #fcfcfc; 
+    /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); */
 }
 
 .cta-button:hover {
