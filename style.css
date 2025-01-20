@@ -744,6 +744,90 @@
     background-color: #0056b3;
     transform: scale(1.05);
     }
+    /* Review part */
+    *{
+        margin:0;
+        padding:0;
+        box-sizing: border-box;
+    }
+    body{
+        font-family: 'Roboto';
+    }
+    .header{
+        text-align: center;
+        color: black;
+        background-color: white;
+        width: 25%;
+        margin: auto;
+        margin-top: 2.5%;
+        padding: 1rem;
+    }
+    .container{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        grid-gap:40px;
+        width:80%;
+        margin:auto;
+        margin-top: 5%;
+    }
+    .card{
+        text-align: center;
+        padding: 1rem;
+    }
+    .card-1{
+        border: 4px,solid,#ff6f61;
+    }
+    .card-2{
+        border: 4px,solid,#92a8d1;
+    }
+    .card-3{
+        border: 4px,solid,#88b04b;
+    }
+    .card-4{
+        border: 4px,solid,#f4a300;
+    }
+    .card-5{
+        border: 4px,solid,#6b5b95;
+    }
+    .card-6{
+        border: 4px,solid,#f2d0a9;
+    }
+    .card-1 i{
+        font-size: 20px;
+        margin-bottom: 10px;
+        color:#ff6f61; 
+    }
+    .card-2 i{
+        font-size: 20px;
+        margin-bottom: 10px;
+        color:#92a8d1; 
+    }
+    .card-3 i{
+        font-size: 20px;
+        margin-bottom: 10px;
+        color:#88b04b; 
+    }
+    .card-4 i{
+        font-size: 20px;
+        margin-bottom: 10px;
+        color:#f4a300; 
+    }
+    .card-5 i{
+        font-size: 20px;
+        margin-bottom: 10px;
+        color:#6b5b95; 
+    }
+    .card-6 i{
+        font-size: 20px;
+        margin-bottom: 10px;
+        color:#f2d0a9; 
+    }
+    
+    .name{
+        text-transform: uppercase;
+        font-weight: 600;
+        margin-top: 10px;
+    }
 
 
 
