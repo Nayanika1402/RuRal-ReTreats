@@ -91,6 +91,106 @@
     from { transform: translateY(-50px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
     }
+    
+
+    /* Responsiveness for mobile styling */
+    .mobile-nav
+    {
+        display: none;
+    }
+    .icon{
+       width: 2rem;
+       height: 0.3rem;
+       background-color: white;
+    }
+    .hamicon
+    {
+        display: pointer;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+    .subscribe
+    {
+        font-size: 22px;
+        color: black;
+        background-color: white;
+        border-radius: 4px;
+        font-weight: bold;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        height: 32px;
+        padding-top: 4px;
+        width: 164px;
+        margin-left: 12px;
+        text-align: center;
+    }
+    .side-container
+    {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 2px;
+        background-color: #003366;
+        width: 250px;
+        height: 100vh;
+        padding: 20px;
+        box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+        border-radius: 5px;
+        transition: left 0.3s ease-in-out;
+    }
+    .side-menu {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding-left: 24px;
+        padding-top: 24px;
+        margin-bottom: 14px;
+        /* font-size: 24px; */
+        /* color: white; */
+    }
+    .side-menu li a{
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        transition: color 0.3s ease, background-color 0.3s ease;
+        padding: 10px 15px;
+        border-radius: 5px;
+        font-size: 20px;
+    }
+    .side-menu li a:hover {
+        color: #003366;
+        background-color: white;
+        }
+    .side-container.active
+    {
+        display: block;
+    }
+    @media (max-width: 1100px)
+    {
+        .nav-container{
+            display: none;
+        }
+       .mobile-nav
+       {
+         display: flex;
+         justify-content: space-between;
+         padding: 0px 12px 0px 12px;
+       }
+       .mobile-logo a {
+        font-size: 2rem;
+        color: #ffffff;
+        font-weight: bold;
+        text-decoration: none;
+        text-shadow: 0 0 10px #5da8fe, 0 0 20px #5da8fe;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        .mobile-logo a:hover {
+        color: #0b1da6;
+        transform: scale(1.2);
+        }
+       
+    }
 
 
 

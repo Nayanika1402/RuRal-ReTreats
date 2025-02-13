@@ -67,3 +67,21 @@ document.addEventListener("DOMContentLoaded", function () {
         alert("Chat feature is under construction. Coming soon!");
     });
 });
+
+
+/* Adding event listener to Hamburger Icon to display the side-bar*/
+
+document.addEventListener("DOMContentLoaded",function(){
+    const hamIcon = document.querySelector(".hamicon");
+    const sideMenu = document.querySelector(".side-container");
+
+    hamIcon.addEventListener("click", function(){
+        sideMenu.classList.toggle("active");
+    });
+
+    document.addEventListener("click", function(event){
+        if(!hamIcon.contains(event.target) && !sideMenu.contains(event.target)){
+            sideMenu.classList.remove("active");
+        }
+    });
+});
