@@ -6,71 +6,74 @@
     <title>Contact Us - Rural Retreats</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" href="contact.css">
-    <script defer src="contact.js"></script>
+    <link rel="stylesheet" href="../CSS/contact.css">
+    <script defer src="../JS/contact.js"></script>
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="nav-container">
+ <!-- Navigation -->
+ <header>
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Hamburger Menu (Left) -->
+            <button class="hamicon" id="menu-toggle" title="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
 
-                <div class="nav-container">
-
-                <!-- HAMBURGER MENU BUTTON -->
-                <button class="hamicon" onclick="toggleMenu()" title="Toggle Menu">
-                    <div class="icon"></div>
-                    <div class="icon"></div>
-                    <div class="icon"></div>
-                </button>    
-
-                    <!-- LOGO -->
-                <div class="logo">
-                    <a href="index.html">Rural-Retreats</a>
-                </div>
-
-                    <!-- NAV MENU -->
-                    <ul class="nav-menu">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="homestays.html">HomeStays</a></li>
-                        <li><a href="faq.html">FAQs</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
-                    </ul>
-
-
-                    <div class="log-inn">
-                        <button class="login-btn" onclick="window.location.href='login.html'">Log in</button>
-                    </div>
-
-
-                <!-- SEARCH AREA -->
-                <div class="search-area">
-                    <button class="search-btn" onclick="toggleSearch()" title="Search">
-                        <i class="fas fa-search"></i>
-                    </button>
-
-                    <div class="search-box">
-                        <input type="text" id="search-input" placeholder="Search...">
-                        <button class="go-btn" onclick="handleSearch()">Go</button>
-                    </div>
-                </div>
+            <!-- Logo (Centered) -->
+            <div class="logo">
+                <a href="index.html">Rural Retreats</a>
             </div>
-        </nav>
 
-        <!-- MOBILE MENU (Hidden by Default) -->
-        <div class="mobile-menu">
-            <button class="close-btn" onclick="toggleMenu()">✖</button>
-            <ul>
+            <!-- Navigation Links (Desktop) -->
+            <ul class="nav-menu">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="services.html">Services</a></li>
+                <li class="dropdown">
+                    <a href="services.html">Services <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="services.html">Guided Tours</a></li>
+                        <li><a href="services.html">Workshops</a></li>
+                        <li><a href="services.html">Local Experiences</a></li>
+                    </ul>
+                </li>
                 <li><a href="homestays.html">HomeStays</a></li>
                 <li><a href="faq.html">FAQs</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
             </ul>
+
+            <!-- Search Bar & Auth Buttons (Right) -->
+            <div class="right-section">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search..." id="search-input">
+                    <button title="search"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="auth-buttons">
+                    <button class="login-btn" onclick="window.location.href='login.html'">Log In</button>
+                </div>
+            </div>
         </div>
-    </header>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <button class="close-btn" id="menu-close">✖</button>
+        
+        <!-- Mobile Search Bar -->
+        <div class="mobile-search-bar">
+            <input type="text" placeholder="Search..." id="mobile-search-input">
+            <button title="search"><i class="fas fa-search"></i></button>
+        </div>
+
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="homestays.html">HomeStays</a></li>
+            <li><a href="faq.html">FAQs</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+
+        
+    </div>
+</header>
 
     <!-- Contact Section -->
     <section id="contact-section">

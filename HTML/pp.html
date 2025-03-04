@@ -3,102 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms & Conditions | RURAL RETREATS</title>
+    <title>Privacy Policy | RURAL RETREATS</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">   
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" href="t&c.css">
+    <link rel="stylesheet" href="../CSS/pp.css">
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="nav-container">
+ <!-- Navigation -->
+ <header>
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Hamburger Menu (Left) -->
+            <button class="hamicon" id="menu-toggle" title="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
 
-                <div class="nav-container">
-
-                <!-- HAMBURGER MENU BUTTON -->
-                <button class="hamicon" onclick="toggleMenu()" title="Toggle Menu">
-                    <div class="icon"></div>
-                    <div class="icon"></div>
-                    <div class="icon"></div>
-                </button>    
-
-                    <!-- LOGO -->
-                <div class="logo">
-                    <a href="index.html">Rural-Retreats</a>
-                </div>
-
-                    <!-- NAV MENU -->
-                    <ul class="nav-menu">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="homestays.html">HomeStays</a></li>
-                        <li><a href="faq.html">FAQs</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
-                    </ul>
-
-
-                    <div class="log-inn">
-                        <button class="login-btn" onclick="window.location.href='login.html'">Log in</button>
-                    </div>
-
-
-                <!-- SEARCH AREA -->
-                <div class="search-area">
-                    <button class="search-btn" onclick="toggleSearch()" title="Search">
-                        <i class="fas fa-search"></i>
-                    </button>
-
-                    <div class="search-box">
-                        <input type="text" id="search-input" placeholder="Search...">
-                        <button class="go-btn" onclick="handleSearch()">Go</button>
-                    </div>
-                </div>
+            <!-- Logo (Centered) -->
+            <div class="logo">
+                <a href="index.html">Rural Retreats</a>
             </div>
-        </nav>
 
-        <!-- MOBILE MENU (Hidden by Default) -->
-        <div class="mobile-menu">
-            <button class="close-btn" onclick="toggleMenu()">✖</button>
-            <ul>
+            <!-- Navigation Links (Desktop) -->
+            <ul class="nav-menu">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="services.html">Services</a></li>
+                <li class="dropdown">
+                    <a href="services.html">Services <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="services.html">Guided Tours</a></li>
+                        <li><a href="services.html">Workshops</a></li>
+                        <li><a href="services.html">Local Experiences</a></li>
+                    </ul>
+                </li>
                 <li><a href="homestays.html">HomeStays</a></li>
                 <li><a href="faq.html">FAQs</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
             </ul>
-        </div>
-    </header>
 
-    <section class="heading">
-        <h1>Terms & Conditions</h1>
-    </section>
+            <!-- Search Bar & Auth Buttons (Right) -->
+            <div class="right-section">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search..." id="search-input">
+                    <button title="search"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="auth-buttons">
+                    <button class="login-btn" onclick="window.location.href='login.html'">Log In</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <button class="close-btn" id="menu-close">✖</button>
+        
+        <!-- Mobile Search Bar -->
+        <div class="mobile-search-bar">
+            <input type="text" placeholder="Search..." id="mobile-search-input">
+            <button title="search"><i class="fas fa-search"></i></button>
+        </div>
+
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="homestays.html">HomeStays</a></li>
+            <li><a href="faq.html">FAQs</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+
+        
+    </div>
+</header>
+
+        <section class="heading">
+            <h1>Privacy Policy</h1>
+        </section>
 
     <section class="content">
         <h2>1. Introduction</h2>
-        <p>Welcome to RURAL RETREATS! By accessing our website and using our services, you agree to comply with the following terms and conditions.</p>
+        <p>At RURAL RETREATS, we respect your privacy and are committed to protecting your personal data.</p>
 
-        <h2>2. Booking & Payments</h2>
-        <p>All bookings must be made through our official website. Payments must be completed before confirmation. We accept major credit cards, PayPal, and UPI transactions.</p>
+        <h2>2. Information We Collect</h2>
+        <p>We collect the following types of information when you use our services:</p>
+        <ul>
+            <li>Personal details (name, email, phone number)</li>
+            <li>Payment information for booking transactions</li>
+            <li>Cookies and usage data for improving our website</li>
+        </ul>
 
-        <h2>3. Cancellations & Refunds</h2>
-        <p>Cancellations made at least 7 days before the booking date will receive a full refund. Last-minute cancellations (less than 48 hours) are non-refundable.</p>
+        <h2>3. How We Use Your Information</h2>
+        <p>Your information is used for:</p>
+        <ul>
+            <li>Processing bookings and payments</li>
+            <li>Providing customer support</li>
+            <li>Sending promotional offers and travel updates</li>
+            <li>Improving our website experience</li>
+        </ul>
 
-        <h2>4. Travel Insurance</h2>
-        <p>We strongly recommend purchasing travel insurance to cover any unexpected changes or cancellations.</p>
+        <h2>4. Sharing Your Information</h2>
+        <p>We do not sell your data. Your information is shared only with:</p>
+        <ul>
+            <li>Payment processing companies</li>
+            <li>Travel partners for booking confirmation</li>
+            <li>Legal authorities if required by law</li>
+        </ul>
 
-        <h2>5. Conduct & Responsibilities</h2>
-        <p>All guests must respect the cultural and natural environment of our retreats. Any damage caused by negligence will be charged accordingly.</p>
+        <h2>5. Data Security</h2>
+        <p>We implement strong security measures to protect your data from unauthorized access.</p>
 
-        <h2>6. Privacy & Security</h2>
-        <p>Personal information provided during booking is stored securely and will not be shared with third parties without consent.</p>
+        <h2>6. Your Rights</h2>
+        <p>You have the right to request access, correction, or deletion of your personal data. To do so, email us at <a href="mailto:support@ruralretreats.com">support@ruralretreats.com</a>.</p>
 
-        <h2>7. Changes to Terms</h2>
-        <p>RURAL RETREATS reserves the right to modify these terms at any time. Updated terms will be posted on this page.</p>
+        <h2>7. Changes to Privacy Policy</h2>
+        <p>We may update this policy from time to time. Please check this page for the latest version.</p>
 
         <h2>8. Contact Us</h2>
-        <p>If you have any questions about these Terms & Conditions, please contact us at <a href="mailto:support@ruralretreats.com">support@ruralretreats.com</a>.</p>
+        <p>If you have any questions about our Privacy Policy, contact us at <a href="mailto:support@ruralretreats.com">support@ruralretreats.com</a>.</p>
     </section>
 
     <footer>
@@ -206,8 +225,7 @@
         </div>
     </div>
 </div>
-
-    <script src="t&c.js" defer></script>
+    <script src="../JS/pp.js" defer></script>
 
 </body>
 </html>

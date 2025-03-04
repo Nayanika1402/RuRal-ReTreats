@@ -19,37 +19,64 @@ function validateEmail(email) {
     const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     return re.test(email);
 }
+document.addEventListener("DOMContentLoaded", function () {
+    // Selecting Elements
+    const menuToggle = document.getElementById("menu-toggle");
+    const menuClose = document.getElementById("menu-close");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const navLinks = document.querySelectorAll(".mobile-menu ul li a");
+    const navbar = document.querySelector(".navbar");
+
+    // ✅ Toggle Mobile Menu
+    menuToggle.addEventListener("click", () => {
+        mobileMenu.classList.add("active");
+    });
+
+    menuClose.addEventListener("click", () => {
+        mobileMenu.classList.remove("active");
+    });
+
+    // ✅ Close Mobile Menu when clicking on a link
+    navLinks.forEach(link => {
+        link.addEventListener("click", () => {
+            mobileMenu.classList.remove("active");
+        });
+    });
+
+    // ✅ Sticky Navbar Effect on Scroll
+    window.addEventListener("scroll", function () {
+        if (window.scrollY > 50) {
+            navbar.classList.add("sticky");
+        } else {
+            navbar.classList.remove("sticky");
+        }
+    });
+});
+
 
 document.addEventListener("DOMContentLoaded", function () {
-    const searchArea = document.querySelector(".search-area");
-    const searchBtn = document.querySelector(".search-btn");
-    const searchBox = document.querySelector(".search-box");
+    // Selecting Elements
     const searchInput = document.getElementById("search-input");
-    const goBtn = document.querySelector(".go-btn");
-    const mobileMenu = document.querySelector(".mobile-menu");
+    const searchBtn = document.querySelector(".search-bar button");
+    const mobileSearchInput = document.getElementById("mobile-search-input");
+    const mobileSearchBtn = document.querySelector(".mobile-search-bar button");
 
-    function hideSearchBox() {
-        searchBox.style.display = "none"; 
-        searchBtn.style.display = "inline-flex"; 
-        searchInput.value = ""; 
-    }
-
-    function showSearchBox() {
-        searchBox.style.display = "flex"; 
-        searchBtn.style.display = "none"; 
-        searchInput.focus();
-    }
-
-    function handleSearch() {
-        const query = searchInput.value.trim().toLowerCase();
-
+    // ✅ Search Functionality
+    function handleSearch(query) {
+        query = query.trim().toLowerCase();
         const pages = {
-            "home": "/index.html",
-            "about": "/about.html",
-            "services": "/services.html",
-            "reviews": "/reviews.html",
-            "homestays": "/homestays.html",
-            "contact": "/contact.html"
+            "home": "../HTML/index.html",
+            "services": "../HTML/services.html",
+            "homestays": "../HTML/homestays.html",
+            "faq": "../HTML/faq.html",
+            "contact": "../HTML/contact.html",
+            "privacy policy": "../HTML/pp.html",
+            "terms and condition": "../HTML/t&c.html",
+            "service": "../HTML/services.html",
+            "homestay": "../HTML/homestays.html",
+            "faqs": "../HTML/faq.html",
+            "pp": "../HTML/pp.html",
+            "t&c": "../HTML/t&c.html"
         };
 
         if (pages[query]) {
@@ -57,30 +84,36 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             alert("No results found for: " + query);
         }
-
-        hideSearchBox(); 
     }
 
-    searchBtn.addEventListener("click", function (event) {
-        showSearchBox();
-        event.stopPropagation(); 
-    });
-
-    document.addEventListener("click", function (event) {
-        if (!searchArea.contains(event.target)) {
-            hideSearchBox();
+    // ✅ Desktop Search
+    searchBtn.addEventListener("click", function () {
+        if (searchInput.value.trim() !== "") {
+            handleSearch(searchInput.value);
         }
     });
 
-    searchBox.addEventListener("click", function (event) {
-        event.stopPropagation();
+    // ✅ Mobile Search
+    mobileSearchBtn.addEventListener("click", function () {
+        if (mobileSearchInput.value.trim() !== "") {
+            handleSearch(mobileSearchInput.value);
+        }
     });
 
-    goBtn.addEventListener("click", handleSearch);
+    // ✅ Allow Enter Key to Trigger Search
+    searchInput.addEventListener("keypress", function (event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            handleSearch(searchInput.value);
+        }
+    });
 
-    window.toggleMenu = function () {
-        mobileMenu.classList.toggle("active");
-    };
+    mobileSearchInput.addEventListener("keypress", function (event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            handleSearch(mobileSearchInput.value);
+        }
+    });
 });
 
 

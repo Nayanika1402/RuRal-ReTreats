@@ -1,92 +1,34 @@
-function subscribeNewsletter() {
-    let email = document.getElementById("newsletter-email").value.trim();
-
-    if (email === "") {
-        alert("⚠️ Please enter a valid email!");
-        return;
-    }
-
-    if (!validateEmail(email)) {
-        alert("❌ Invalid Email! Please enter a valid email.");
-        return;
-    }
-
-    alert("✅ Thank you for subscribing!");
-    document.getElementById("newsletter-email").value = "";
-}
-
-function validateEmail(email) {
-    const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    return re.test(email);
-}
-
 document.addEventListener("DOMContentLoaded", function () {
-    const searchArea = document.querySelector(".search-area");
-    const searchBtn = document.querySelector(".search-btn");
-    const searchBox = document.querySelector(".search-box");
-    const searchInput = document.getElementById("search-input");
-    const goBtn = document.querySelector(".go-btn");
-    const mobileMenu = document.querySelector(".mobile-menu");
 
-    function hideSearchBox() {
-        searchBox.style.display = "none"; 
-        searchBtn.style.display = "inline-flex"; 
-        searchInput.value = ""; 
-    }
-
-    function showSearchBox() {
-        searchBox.style.display = "flex"; 
-        searchBtn.style.display = "none"; 
-        searchInput.focus();
-    }
-
-    function handleSearch() {
-        const query = searchInput.value.trim().toLowerCase();
-
-        const pages = {
-            "home": "/index.html",
-            "about": "/about.html",
-            "services": "/services.html",
-            "reviews": "/reviews.html",
-            "homestays": "/homestays.html",
-            "contact": "/contact.html"
-        };
-
-        if (pages[query]) {
-            window.location.href = pages[query];
+    let currentSlide = 0;
+    function showSlide(index) {
+        const slides = document.querySelectorAll('.destination-card');
+        if (index >= slides.length) {
+            currentSlide = 0;
+        } else if (index < 0) {
+            currentSlide = slides.length - 1;
         } else {
-            alert("No results found for: " + query);
+            currentSlide = index;
         }
-
-        hideSearchBox(); 
+        const offset = -currentSlide * 100;
+        document.querySelector('.carousel-containers').style.transform = `translateX(${offset}%)`;
+        slides.forEach((slide, i) => {
+            slide.classList.remove('active');
+            if (i === currentSlide) {
+                slide.classList.add('active');
+            }
+        });
     }
+    function moveSlide(direction) {
+        showSlide(currentSlide + direction);
+    }
+    showSlide(currentSlide);
+    document.querySelector('.prev1').addEventListener('click', () => moveSlide(-1));
+    document.querySelector('.next1').addEventListener('click', () => moveSlide(1));
 
-    searchBtn.addEventListener("click", function (event) {
-        showSearchBox();
-        event.stopPropagation(); 
-    });
-
-    document.addEventListener("click", function (event) {
-        if (!searchArea.contains(event.target)) {
-            hideSearchBox();
-        }
-    });
-
-    searchBox.addEventListener("click", function (event) {
-        event.stopPropagation();
-    });
-
-    goBtn.addEventListener("click", handleSearch);
-
-    window.toggleMenu = function () {
-        mobileMenu.classList.toggle("active");
-    };
-});
-
-
-
-document.addEventListener("DOMContentLoaded", function () {
-
+    setInterval(() => {
+        moveSlide(1);
+    }, 4000);
 
     const backToTopBtn = document.getElementById("backToTop");
     window.addEventListener("scroll", () => {
@@ -99,6 +41,25 @@ document.addEventListener("DOMContentLoaded", function () {
     backToTopBtn.addEventListener("click", () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
     });
+
+    const testimonials = document.querySelectorAll(".testimonial-item");
+    let currentIndex = 0;
+
+    function showTestimonial(index) {
+        testimonials.forEach((testimonial, i) => {
+            testimonial.classList.toggle("active", i === index);
+        });
+    }
+
+    function changeTestimonial(direction) {
+        currentIndex = (currentIndex + direction + testimonials.length) % testimonials.length;
+        showTestimonial(currentIndex);
+    }
+
+    showTestimonial(currentIndex);
+
+    document.querySelector(".button.prev").addEventListener("click", () => changeTestimonial(-1));
+    document.querySelector(".button.next").addEventListener("click", () => changeTestimonial(1));
 
     const chatButton = document.getElementById("chatButton");
     const chatModal = document.getElementById("chatModal");
@@ -316,4 +277,146 @@ window.addEventListener("scroll", function () {
     }
 });
 
+});
+
+
+
+
+
+function subscribeNewsletter() {
+    let email = document.getElementById("newsletter-email").value.trim();
+
+    if (email === "") {
+        alert("⚠️ Please enter a valid email!");
+        return;
+    }
+
+    if (!validateEmail(email)) {
+        alert("❌ Invalid Email! Please enter a valid email.");
+        return;
+    }
+
+    alert("✅ Thank you for subscribing!");
+    document.getElementById("newsletter-email").value = "";
+}
+
+function validateEmail(email) {
+    const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return re.test(email);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Selecting Elements
+    const menuToggle = document.getElementById("menu-toggle");
+    const menuClose = document.getElementById("menu-close");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const navLinks = document.querySelectorAll(".mobile-menu ul li a");
+    const navbar = document.querySelector(".navbar");
+
+    // ✅ Toggle Mobile Menu
+    menuToggle.addEventListener("click", () => {
+        mobileMenu.classList.add("active");
+    });
+
+    menuClose.addEventListener("click", () => {
+        mobileMenu.classList.remove("active");
+    });
+
+    // ✅ Close Mobile Menu when clicking on a link
+    navLinks.forEach(link => {
+        link.addEventListener("click", () => {
+            mobileMenu.classList.remove("active");
+        });
+    });
+
+    // ✅ Sticky Navbar Effect on Scroll
+    window.addEventListener("scroll", function () {
+        if (window.scrollY > 50) {
+            navbar.classList.add("sticky");
+        } else {
+            navbar.classList.remove("sticky");
+        }
+    });
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Selecting Elements
+    const searchInput = document.getElementById("search-input");
+    const searchBtn = document.querySelector(".search-bar button");
+    const mobileSearchInput = document.getElementById("mobile-search-input");
+    const mobileSearchBtn = document.querySelector(".mobile-search-bar button");
+
+    // ✅ Search Functionality
+    function handleSearch(query) {
+        query = query.trim().toLowerCase();
+        const pages = {
+            "home": "../HTML/index.html",
+            "services": "../HTML/services.html",
+            "homestays": "../HTML/homestays.html",
+            "faq": "../HTML/faq.html",
+            "contact": "../HTML/contact.html",
+            "privacy policy": "../HTML/pp.html",
+            "terms and condition": "../HTML/t&c.html",
+            "service": "../HTML/services.html",
+            "homestay": "../HTML/homestays.html",
+            "faqs": "../HTML/faq.html",
+            "pp": "../HTML/pp.html",
+            "t&c": "../HTML/t&c.html"
+        };
+
+        if (pages[query]) {
+            window.location.href = pages[query];
+        } else {
+            alert("No results found for: " + query);
+        }
+    }
+
+    // ✅ Desktop Search
+    searchBtn.addEventListener("click", function () {
+        if (searchInput.value.trim() !== "") {
+            handleSearch(searchInput.value);
+        }
+    });
+
+    // ✅ Mobile Search
+    mobileSearchBtn.addEventListener("click", function () {
+        if (mobileSearchInput.value.trim() !== "") {
+            handleSearch(mobileSearchInput.value);
+        }
+    });
+
+    // ✅ Allow Enter Key to Trigger Search
+    searchInput.addEventListener("keypress", function (event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            handleSearch(searchInput.value);
+        }
+    });
+
+    mobileSearchInput.addEventListener("keypress", function (event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            handleSearch(mobileSearchInput.value);
+        }
+    });
 });

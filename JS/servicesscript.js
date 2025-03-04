@@ -1,18 +1,3 @@
-document.querySelectorAll(".faq-question").forEach(button => {
-    button.addEventListener("click", () => {
-        const answer = button.nextElementSibling;
-        answer.style.display = answer.style.display === "block" ? "none" : "block";
-    });
-});
-
-function filterFAQs() {
-    let searchInput = document.getElementById("faq-search").value.toLowerCase();
-    document.querySelectorAll(".faq").forEach(faq => {
-        let text = faq.innerText.toLowerCase();
-        faq.style.display = text.includes(searchInput) ? "block" : "none";
-    });
-}
-
 function subscribeNewsletter() {
     let email = document.getElementById("newsletter-email").value.trim();
 
@@ -34,71 +19,6 @@ function validateEmail(email) {
     const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     return re.test(email);
 }
-
-document.addEventListener("DOMContentLoaded", function () {
-    const searchArea = document.querySelector(".search-area");
-    const searchBtn = document.querySelector(".search-btn");
-    const searchBox = document.querySelector(".search-box");
-    const searchInput = document.getElementById("search-input");
-    const goBtn = document.querySelector(".go-btn");
-    const mobileMenu = document.querySelector(".mobile-menu");
-
-    function hideSearchBox() {
-        searchBox.style.display = "none"; 
-        searchBtn.style.display = "inline-flex"; 
-        searchInput.value = ""; 
-    }
-
-    function showSearchBox() {
-        searchBox.style.display = "flex"; 
-        searchBtn.style.display = "none"; 
-        searchInput.focus();
-    }
-
-    function handleSearch() {
-        const query = searchInput.value.trim().toLowerCase();
-
-        const pages = {
-            "home": "/index.html",
-            "about": "/about.html",
-            "services": "/services.html",
-            "reviews": "/reviews.html",
-            "homestays": "/homestays.html",
-            "contact": "/contact.html"
-        };
-
-        if (pages[query]) {
-            window.location.href = pages[query];
-        } else {
-            alert("No results found for: " + query);
-        }
-
-        hideSearchBox(); 
-    }
-
-    searchBtn.addEventListener("click", function (event) {
-        showSearchBox();
-        event.stopPropagation(); 
-    });
-
-    document.addEventListener("click", function (event) {
-        if (!searchArea.contains(event.target)) {
-            hideSearchBox();
-        }
-    });
-
-    searchBox.addEventListener("click", function (event) {
-        event.stopPropagation();
-    });
-
-    goBtn.addEventListener("click", handleSearch);
-
-    window.toggleMenu = function () {
-        mobileMenu.classList.toggle("active");
-    };
-});
-
-
 
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -332,4 +252,105 @@ window.addEventListener("scroll", function () {
     }
 });
 
+});
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Selecting Elements
+    const menuToggle = document.getElementById("menu-toggle");
+    const menuClose = document.getElementById("menu-close");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const navLinks = document.querySelectorAll(".mobile-menu ul li a");
+    const navbar = document.querySelector(".navbar");
+
+    // ✅ Toggle Mobile Menu
+    menuToggle.addEventListener("click", () => {
+        mobileMenu.classList.add("active");
+    });
+
+    menuClose.addEventListener("click", () => {
+        mobileMenu.classList.remove("active");
+    });
+
+    // ✅ Close Mobile Menu when clicking on a link
+    navLinks.forEach(link => {
+        link.addEventListener("click", () => {
+            mobileMenu.classList.remove("active");
+        });
+    });
+
+    // ✅ Sticky Navbar Effect on Scroll
+    window.addEventListener("scroll", function () {
+        if (window.scrollY > 50) {
+            navbar.classList.add("sticky");
+        } else {
+            navbar.classList.remove("sticky");
+        }
+    });
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Selecting Elements
+    const searchInput = document.getElementById("search-input");
+    const searchBtn = document.querySelector(".search-bar button");
+    const mobileSearchInput = document.getElementById("mobile-search-input");
+    const mobileSearchBtn = document.querySelector(".mobile-search-bar button");
+
+    // ✅ Search Functionality
+    function handleSearch(query) {
+        query = query.trim().toLowerCase();
+        const pages = {
+           "home": "../HTML/index.html",
+            "services": "../HTML/services.html",
+            "homestays": "../HTML/homestays.html",
+            "faq": "../HTML/faq.html",
+            "contact": "../HTML/contact.html",
+            "privacy policy": "../HTML/pp.html",
+            "terms and condition": "../HTML/t&c.html",
+            "service": "../HTML/services.html",
+            "homestay": "../HTML/homestays.html",
+            "faqs": "../HTML/faq.html",
+            "pp": "../HTML/pp.html",
+            "t&c": "../HTML/t&c.html"
+        };
+
+        if (pages[query]) {
+            window.location.href = pages[query];
+        } else {
+            alert("No results found for: " + query);
+        }
+    }
+
+    // ✅ Desktop Search
+    searchBtn.addEventListener("click", function () {
+        if (searchInput.value.trim() !== "") {
+            handleSearch(searchInput.value);
+        }
+    });
+
+    // ✅ Mobile Search
+    mobileSearchBtn.addEventListener("click", function () {
+        if (mobileSearchInput.value.trim() !== "") {
+            handleSearch(mobileSearchInput.value);
+        }
+    });
+
+    // ✅ Allow Enter Key to Trigger Search
+    searchInput.addEventListener("keypress", function (event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            handleSearch(searchInput.value);
+        }
+    });
+
+    mobileSearchInput.addEventListener("keypress", function (event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            handleSearch(mobileSearchInput.value);
+        }
+    });
 });

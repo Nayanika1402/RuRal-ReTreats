@@ -2,323 +2,482 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    max-width: 100vw;
     text-decoration: none;
     font-family: 'Arial', sans-serif;
     scroll-behavior: smooth;
-    }
-    html, body {
+}
+
+
+html, body{
+    margin: 0;
+    padding: 0;
     width: 100%;
     overflow-x: hidden;
-    }
-    .navbar {
-    background: linear-gradient(135deg, #f9f9f9, #fbfdff);
-    padding: 12px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    position: relative;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    box-shadow: 0px 4px 10px rgb(69, 68, 68);
-    animation: fadeInNav 0.8s ease-in-out;
-    transition: background 0.4s ease-in-out, box-shadow 0.3s ease-in-out;
-    }
-    .navbar.scrolled {
-    background: linear-gradient(135deg, #ffffff, #f1f1f1);
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
-    padding: 10px 20px;
-    transition: all 0.3s ease-in-out;
-    }
-    .nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    width: 100%;
-    }
-    .logo a {
-    font-size: 2rem;
-    font-weight: bold;
-    text-decoration: none;
-    background: linear-gradient(135deg, #0073e6, #00b894);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    font-family: 'Poppins', sans-serif;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    display: inline-block;
-    padding: 5px 10px;
-    border-radius: 8px;
-    }
-    .logo a:hover {
-    background: linear-gradient(135deg, #00b894, #0073e6);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-family: 'Poppins', sans-serif;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    display: inline-block;
-    padding: 5px 10px;
-    border-radius: 8px;
-    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transform: scale(1.05);
-    opacity: 0.9;
-    }
-    .logo a::before {
-    content: "🌿";
-    margin-right: 10px;
-    font-size: 1.5rem;
-    vertical-align: middle;
-    }
-    .nav-menu {
+}
+
+
+/* Navigation Menu */
+.nav-menu {
     list-style: none;
     display: flex;
     gap: 20px;
-    }
-    .nav-menu li a {
+    position: relative;
+}
+
+/* Navigation Links */
+.nav-menu a {
+    text-decoration: none;
     color: black;
     font-size: 16px;
     font-weight: bold;
     padding: 10px 15px;
-    border-radius: 5px;
-    text-decoration: none;
     position: relative;
+    transition: all 0.3s ease-in-out;
     overflow: hidden;
-    transition: color 0.3s ease-in-out;
-    }
-    .nav-menu li a:hover {
-    color: rgb(2, 44, 87);
-    }
-    .nav-menu li a::after {
+    
+    animation: slideIn 0.5s ease-in-out forwards;
+    opacity: 0;
+}
+
+/* Fancy Gradient Hover Effect */
+.nav-menu a::before {
     content: "";
     position: absolute;
     width: 100%;
     height: 3px;
     bottom: 0;
     left: 0;
-    background: rgb(87, 172, 252);
-    transition: transform 0.3s ease-in-out;
+    background: linear-gradient(90deg, #0073e6, #00b894);
     transform: scaleX(0);
-    transform-origin: left;
-    }
-    .nav-menu li a:hover::after {
+    transform-origin: right;
+    transition: transform 0.3s ease-in-out;
+}
+
+.nav-menu a:hover::before {
     transform: scaleX(1);
-    }
-    .login-btn {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 8px 8px;
+    transform-origin: left;
+}
+
+/* Text Glow Effect on Hover */
+.nav-menu a:hover {
+    color: #0073e6;
+    text-shadow: 0px 0px 10px rgba(0, 115, 230, 0.3);
+    transform: scale(1.05);
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    top: 100%;
+    left: 65px;
+    list-style: none;
+    padding: 10px;
     border-radius: 5px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
+    width: 180px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+/* Show Dropdown on Hover */
+.dropdown:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Dropdown Items */
+.dropdown-menu li {
+    padding: 8px 0;
+}
+
+/* Dropdown Links */
+.dropdown-menu a {
+    padding: 8px 12px;
+    display: block;
+    transition: background 0.3s, color 0.3s ease-in-out;
+}
+
+.dropdown-menu a:hover {
+    background: #f1f1f1;
+    color: #0073e6;
+}
+
+/* Animation for Links */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
     }
-    .login-btn:hover {
-    background-color: #0056b3;
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
-    .hamicon {
+}
+
+
+
+
+
+
+
+
+
+
+.hamicon {
+    display: block;
+    font-size: 24px;
     background: none;
     border: none;
     cursor: pointer;
-    display: none;
-    padding: 10px;
-    }
-    .hamicon .icon {
-    width: 25px;
-    height: 3px;
-    background: black;
-    margin: 5px 0;
-    }
-    .hamicon.active .icon:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-    }
-    .hamicon.active .icon:nth-child(2) {
-    opacity: 0;
-    }
-    .hamicon.active .icon:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
-    }
-    .search-btn {
-    border: none;
-    cursor: pointer;
-    font-size: 20px;
-    background: linear-gradient(135deg, #3b9bfc, #0055b3);
-    color: white;
-    padding: 8px 12px;
-    border-radius: 50px;
-    display: inline-flex;
-    align-items: center;
-    transition: all 0.3s ease-in-out;
-    }
-    .search-box {
-    display: none;
-    align-items: center;
-    gap: 10px;
-    position: absolute;
-    right: 10px;
-    background: white;
-    padding: 5px;
-    border-radius: 5px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    top: 50%;
-    transform: translateY(-50%);
-    }
-    .search-box input {
-    padding: 5px;
-    font-size: 16px;
-    border: 2px solid #0055b3;
-    border-radius: 5px;
-    outline: none;
-    width: 200px;
-    }
-    .search-box .go-btn {
-    padding: 5px 10px;
-    background: #0070f3;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 14px;
-    transition: all 0.3s ease-in-out;
-    }
-    .search-box .go-btn:hover {
-    background: #003366;
-    }
-    .search-area.active .search-btn {
-    display: none;
-    }
-    .search-area.active .search-box {
-    display: flex;
-    }
-    .mobile-menu {
-    position: fixed;
-    left: -250px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Navbar */
+.navbar {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px 20px;
+    position: sticky;
     top: 0;
+    width: 100%;
+    transition: all 0.3s ease-in-out;
+
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+
+/* Sticky Navbar Effect */
+.navbar.sticky {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Navbar Container */
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+    width: 100%;
+}
+
+/* Logo */
+.logo a {
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: none;
+    background: linear-gradient(135deg, #0073e6, #00b894);
+    -webkit-background-clip: text; 
+    background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    font-family: 'Poppins', sans-serif; 
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 8px;
+
+}
+
+.logo a:hover {
+    background: linear-gradient(135deg, #00b894, #0073e6);
+    -webkit-background-clip: text; 
+    background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+    font-family: 'Poppins', sans-serif;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 8px;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+.logo a::before {
+    content: "🌿"; 
+    margin-right: 10px;
+    font-size: 1.5rem;
+    vertical-align: middle;
+}
+
+/* Navigation Menu */
+
+
+/* Animated Hover Effect */
+.nav-menu a::after {
+    content: "";
+    width: 100%;
+    height: 3px;
+    background: #0073e6;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease-in-out;
+}
+
+
+.nav-menu a:hover::after {
+    transform: scaleX(1);
+}
+
+/* Right Section */
+.right-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Search Bar */
+.search-bar {
+    display: flex;
+    align-items: center;
+    background: rgba(240, 240, 240, 0.8);
+    padding: 6px 12px;
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.search-bar:hover {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 5px;
+    font-size: 14px;
+    flex: 1;
+}
+
+.search-bar button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #0073e6;
+    font-size: 16px;
+    transition: color 0.3s ease-in-out;
+}
+
+.search-bar button:hover {
+    color: #005bb5;
+}
+
+/* Auth Buttons */
+.auth-buttons button {
+    padding: 8px 15px;
+    border: none;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-radius: 5px;
+}
+
+.login-btn {
+    background: #ff6f00;
+    color: #ffffff;
+    border: 2px solid #0073e6;
+}
+
+.login-btn:hover {
+    background: #0073e6;
+    color: white;
+}
+
+.signup-btn {
+    background: #0073e6;
+    color: white;
+}
+
+.signup-btn:hover {
+    background: #005bb5;
+}
+
+/* Mobile Menu */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
     width: 250px;
-    height: 100%;
-    box-shadow: -4px 0 10px rgba(0, 0, 0, 0.3);
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.2);
     transition: left 0.4s ease-in-out;
     padding-top: 20px;
     z-index: 1000;
-    display: flex;
-    flex-direction: column;
-    background: #2a70b7;
-    }
-    .mobile-menu.active {
+}
+
+/* Mobile Menu Active */
+.mobile-menu.active {
     left: 0;
-    }
-    .mobile-menu .close-btn {
-    background: transparent;
-    border: none;
-    font-size: 20px;
-    color: #ff9900;
-    cursor: pointer;
+}
+
+/* Close Button */
+.close-btn {
     position: absolute;
-    margin-top: 20px;
-    margin-left: 120px;
-    transition: all 0.3s ease-in-out;
-    }
-    .mobile-menu .close-btn:hover {
+    top: 15px;
+    left: 200px;
+    font-size: 20px;
+    cursor: pointer;
     color: red;
-    transform: scale(1.1);
-    }
-    .mobile-menu ul {
+    transition: transform 0.3s ease-in-out;
+}
+
+.close-btn:hover {
+    transform: scale(1.2);
+}
+
+/* Mobile Menu Items */
+.mobile-menu ul {
     list-style: none;
-    padding: 0;
-    margin-top: 50px;
-    }
-    .mobile-menu ul li {
-    padding: 20px;
+    padding: 5px;
     text-align: center;
-    }
-    .mobile-menu ul li a {
+}
+
+.mobile-menu ul li {
+    padding: 20px 0;
+}
+
+.mobile-menu ul li a {
     text-decoration: none;
-    color: #ffffff;
+    color: black;
     font-size: 18px;
-    font-weight: bold;
-    display: block;
-    padding: 10px 0;
-    transition: all 0.3s ease-in-out;
-    }
-    .mobile-menu ul li a:hover {
-    color: orange;
-    border-bottom: 2px solid orange;
-    }
-    @keyframes fadeInNav {
-    from {
-    opacity: 0;
-    transform: translateY(-20px);
-    }
-    to {
-    opacity: 1;
-    transform: translateY(0);
-    }
-    }
-    @media (max-width: 1090px) {
-    .nav-container {
-    justify-content: space-between;
-    padding: 10px 20px;
-    }
-    .nav-menu {
-    display: none;
-    }
-    .hamicon {
-    display: block;
-    }
-    .search-area {
+    transition: color 0.3s;
+}
+
+.mobile-menu ul li a:hover {
+    color: #0073e6;
+}
+
+/* Mobile Search Bar */
+.mobile-search-bar {
     display: flex;
-    justify-content: flex-end;
-    width: auto;
-    }
-    }
-    @media (max-width: 600px) {
-    .nav-container {
-    flex-direction: row;
     align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    }
-    .logo {
-    text-align: center;
-    flex-grow: 1;
+    background: #f1f1f1;
+    padding: 6px 12px;
+    border-radius: 5px;
+    margin: 40px auto;
+    width: 90%;
+}
+
+.mobile-search-bar input {
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 5px;
+    flex: 1;
+    font-size: 14px;
+}
+
+/* Responsive Adjustments */
+@media only screen and (max-width: 1200px) {
+    .nav-menu {
+        display: none;
     }
     .hamicon {
-    display: block;
-    margin-left: 10px;
+        display: block;
     }
-    .search-btn {
-    margin-right: 10px;
+    .login-btn {
+        font-size: 1rem;
+    }
+    .search-bar {
+        display: none;
+    }
+}
+
+/* Small Screens (200px - 319px) */
+@media only screen and (min-width: 200px) {
+    .nav-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .logo a {
+        font-size: 1.5rem;
+    }
+    .auth-buttons {
+        gap: 8px;
+    }
+}
+
+/* Mobile Screens (320px - 767px) */
+@media only screen and (min-width: 320px) {
+    .nav-container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .logo {
+        text-align: center;
+    }
+    .logo a {
+        font-size: 1.8rem;
+    }
+    .auth-buttons {
+        gap: 10px;
+    }
+}
+
+/* Tablets (768px - 1199px) */
+@media only screen and (min-width: 768px) {
+    .nav-container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .logo a {
+        font-size: 2rem;
+    }
+    .auth-buttons {
+        gap: 12px;
+    }
+}
+
+/* Desktops (1200px - 1599px) */
+@media only screen and (min-width: 1200px) {
+    .nav-container {
+        max-width: 1300px;
     }
     .nav-menu {
-    display: none;
+        display: flex;
     }
-    }
-    @media (max-width: 480px) {
-    .nav-container {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
+    .search-bar {
+        display: flex;
     }
     .hamicon {
-    display: block;
+        display: none;
     }
-    .logo {
-    font-size: 1.5rem;
-    text-align: center;
-    flex-grow: 1;
+}
+
+/* Large Screens (1600px and Above) */
+@media only screen and (min-width: 1600px) {
+    .nav-container {
+        max-width: 1500px;
     }
-    .search-btn {
-    padding: 6px 10px;
-    font-size: 18px;
+    .logo a {
+        font-size: 2.5rem;
     }
-    }
+}
     .hero-section {
     position: relative;
     height: 100vh;
@@ -729,98 +888,110 @@
     color: red;
     transform: scale(1.1);
     }
-    @media only screen and (max-width: 319px) {
+   /* Base styles already provided above */
+
+/* 📌 Small Devices (200px and up) */
+@media only screen and (min-width: 200px) {
     .homestay-listings {
-    padding: 30px 10px;
+        padding: 30px 10px;
     }
     .homestay-listings h2 {
-    font-size: 1.8rem;
-    }
-    .homestay-listings p {
-    font-size: 1rem;
+        font-size: 2rem;
     }
     .filters {
-    flex-direction: column;
-    gap: 10px;
+        flex-direction: column;
+        align-items: center;
     }
     .filter-group {
-    min-width: 100%;
+        width: 100%;
     }
     .card-container {
-    grid-template-columns: 1fr;
+        grid-template-columns: 1fr;
+    }
+    .card-content h3 {
+        font-size: 1.4rem;
+    }
+    .view-details-btn {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+}
+
+/* 📌 Medium Devices (320px and up) */
+@media only screen and (min-width: 320px) {
+    .homestay-listings h2 {
+        font-size: 2.2rem;
+    }
+    .card-container {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     }
     .homestay-card {
-    width: 100%;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
-    .image-wrapper img {
-    height: 180px;
-    }
-    }
-    @media only screen and (max-width: 767px) {
+}
+
+/* 📌 Tablets & Small Laptops (768px and up) */
+@media only screen and (min-width: 768px) {
     .homestay-listings {
-    padding: 40px 15px;
+        padding: 50px;
     }
     .homestay-listings h2 {
-    font-size: 2rem;
+        font-size: 2.5rem;
     }
     .filters {
-    flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-between;
     }
     .filter-group {
-    min-width: 45%;
+        width: auto;
+        min-width: 200px;
     }
     .card-container {
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 30px;
     }
-    .image-wrapper img {
-    height: 200px;
+    .homestay-card {
+        transition: transform 0.3s ease-in-out;
     }
+    .homestay-card:hover {
+        transform: translateY(-5px);
     }
-    @media only screen and (max-width: 1199px) {
+}
+
+/* 📌 Desktops (1200px and up) */
+@media only screen and (min-width: 1200px) {
     .homestay-listings {
-    padding: 50px;
+        padding: 70px 80px;
     }
     .homestay-listings h2 {
-    font-size: 2.4rem;
+        font-size: 2.8rem;
     }
     .card-container {
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     }
-    .image-wrapper img {
-    height: 220px;
+    .homestay-card {
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
     }
-    }
-    @media only screen and (max-width: 1599px) {
-    .homestay-listings h2 {
-    font-size: 2.6rem;
-    }
-    .filters {
-    justify-content: space-evenly;
-    }
-    .filter-group {
-    min-width: 30%;
-    }
-    .card-container {
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    }
-    .image-wrapper img {
-    height: 250px;
-    }
-    }
-    @media only screen and (min-width: 1600px) {
+}
+
+/* 📌 Large Screens (1600px and up) */
+@media only screen and (min-width: 1600px) {
     .homestay-listings {
-    padding: 60px;
+        padding: 100px;
     }
     .homestay-listings h2 {
-    font-size: 2.8rem;
+        font-size: 3rem;
     }
     .card-container {
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+        gap: 35px;
     }
-    .image-wrapper img {
-    height: 280px;
+    .homestay-card {
+        max-width: 450px;
+        margin: 0 auto;
     }
-    }
+}
+
     .booking-section {
     padding: 50px 25px;
     background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
@@ -1967,11 +2138,7 @@
     text-transform: uppercase;
     font-weight: 600;
     }
-    a:-webkit-any-link {
-    color: white;
-    cursor: pointer;
-    text-decoration: underline;
-    }
+  
     .footer-column h3:hover{
     text-decoration: underline;
     }
