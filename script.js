@@ -1,3 +1,5 @@
+
+
 document.addEventListener("DOMContentLoaded", function () {
 
     let currentSlide = 0;
@@ -19,6 +21,11 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
+    // Add this code to your JavaScript file
+function toggleTheme() {
+    document.body.classList.toggle('dark-mode');
+}
+document.querySelector('.theme-btn').addEventListener('click', toggleTheme);
     function moveSlide(direction) {
         showSlide(currentSlide + direction);
     }

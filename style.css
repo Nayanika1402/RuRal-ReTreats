@@ -22,7 +22,81 @@
     animation: fadeInNav 0.8s ease-in-out;
     transition: background 0.4s ease-in-out, box-shadow 0.3s ease-in-out;
 }
+/* Add this code to your CSS file */
+.theme-toggle {
+    position: relative;
+    display: inline-block;
+    margin-left: 20px;
+}
 
+.theme-btn {
+    background-color: #fff;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.theme-btn i {
+    transition: transform 0.3s ease;
+}
+
+.theme-btn .fa-sun {
+    transform: rotate(0deg);
+}
+
+.theme-btn .fa-moon {
+    transform: rotate(180deg);
+    opacity: 0;
+}
+
+.dark-mode .theme-btn .fa-sun {
+    transform: rotate(180deg);
+    opacity: 0;
+}
+
+.dark-mode .theme-btn .fa-moon {
+    transform: rotate(0deg);
+    opacity: 1;
+}
+/* Add this code to your CSS file */
+.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.dark-mode .nav-menu li a {
+    color: #fff;
+}
+
+.dark-mode .logo a {
+    color: #fff;
+}
+
+.dark-mode .search-area {
+    background-color: #444;
+}
+
+.dark-mode .search-area input {
+    background-color: #555;
+    color: #fff;
+}
+
+.dark-mode .search-area button {
+    background-color: #666;
+    color: #fff;
+}
+
+.dark-mode .mobile-menu {
+    background-color: #333;
+}
+
+.dark-mode .mobile-menu ul li a {
+    color: #fff;
+}
+.dark-mode .nav-menu li a {
+    color: black;
+}
 .navbar.scrolled {
     background: linear-gradient(135deg, #ffffff, #f1f1f1);
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
