@@ -6,8 +6,10 @@
     <title>Contact Us - Rural Retreats</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" href="../CSS/contact.css">
+    <link rel="stylesheet" href="./CSS/contact.css">
     <script defer src="../JS/contact.js"></script>
+    
+    <link rel="stylesheet" href="./CSS/style.css">
 </head>
 <body>
  
@@ -76,83 +78,27 @@
 </header>
 
     
-    <section id="contact-section">
-      <h1>Let’s Plan Your Next Escape – Contact Us!
-</h1>
-        <div class="container">
-            <div class="contact-info">
-                <h2>📞 Get in Touch</h2>
-                <p>Have questions? Reach out to us! We are here to help you plan your next adventure.</p>
-
-                
-                <div class="info-details">
-                    <div class="info-item">
-                        <i class="fa-solid fa-phone"></i>
-                        <span>Phone:</span> <a href="tel:+911234567890">+91 629XX XXXXX</a>
-                    </div>
-                    <div class="info-item">
-                        <i class="fa-solid fa-envelope"></i>
-                        <span>Email:</span> <a href="mailto:info@ruralretreats.com">support@ruralretreats.com</a>
-                    </div>
-                    <div class="info-item">
-                        <i class="fa-solid fa-location-dot"></i>
-                        <span>Address:</span>
-
-                        <p>University Institute Of Technology,
-                          <br>
-                          The University of Burdwan,
-                          Golapbag (North), Burdwan-713104,
-                          <br>
-                          West Bengal.</p>
-                    </div>
-                </div>
-
-                
-                <div class="footer-social">
-    <h2>Follow Us</h2>
-    <div class="social-iconsss">
-        <a href="#" class="social-iconss" title="Facebook"><i class="fab fa-facebook"></i></a>
-        <a href="#" class="social-iconss" title="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="#" class="social-iconss" title="Twitter"><i class="fab fa-twitter"></i></a>
-        <a href="#" class="social-iconss" title="GitHub"><i class="fab fa-github"></i></a>
-        <a href="#" class="social-iconss" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        <a href="#" class="social-iconss" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+<div class="container">
+    <div class="illustration-section">
+        <img src="./img/image.png" alt="Contact Illustration">
     </div>
-</div>
-            </div>
-
-            
-            <div class="contact-form">
-                <h2>📧 Send Us a Message</h2>
-                <form id="contactForm">
-                    <div class="form-group">
-                        <input type="text" id="name" placeholder="Full Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" id="email" placeholder="Email Address" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="tel" id="phone" placeholder="Phone Number">
-                    </div>
-                    <div class="form-group">
-                        <textarea id="message" placeholder="Your Message" required></textarea>
-                    </div>
-                    <button type="submit" class="btn">Send Message</button>
-                </form>
-                <p class="form-status"></p>
-            </div>
+    <div class="form-section">
+        <h1>We'd Love to Hear from You</h1>
+        <form action="/submit-contact" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+        <div class="social-links">
+            <a href="https://facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://twitter.com" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://instagram.com" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://linkedin.com" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
         </div>
-
-        
-<div class="map-container">
-  <h2>📌 Our Location on Map</h2>
-  <br>
-  <br>
-<iframe title="University Institute Of Technology, BU Location" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d440.8922897465497!2d87.84638435772243!3d23.257253946971375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f8361a58dcc565%3A0x37a42f6b23df16cd!2sUniversity%20Institute%20Of%20Technology%2C%20BU!5e0!3m2!1sen!2sin!4v1739904222629!5m2!1sen!2sin" class="map-iframe" allowfullscreen=""></iframe>
-
+    </div>
+    
 </div>
-
-    </section>
     
     <footer>
         <div class="footer-container">
@@ -262,6 +208,7 @@
     </div>
 </div>
 <script src="about.js"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
 </body>
 </html>
