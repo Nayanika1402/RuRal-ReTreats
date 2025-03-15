@@ -376,7 +376,7 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f5f7f8;
+    background-color: #f9f9f9;
     color: #333;
     line-height: 1.6;
 }
@@ -384,7 +384,7 @@ body {
 /* Centering Content */
 .container {
     max-width: 1200px;
-    margin: 20px auto;
+    margin: 0px auto;
     padding: 40px 20px;
     text-align: center;
 }
@@ -393,36 +393,40 @@ body {
 h1 {
     font-size: 2.5rem;
     margin-bottom: 40px;
-    color: blue;
+    color: #333;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1.5px;
+    text-align: center;
 }
 
 /* Services Section (Three Columns) */
 .services {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Three columns */
-    gap: 30px;
+    gap: 20px;
     justify-content: center;
     padding: 20px;
+    font-weight: 500;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }
 
 /* Individual Service Box */
 .service {
     background-color: #f9f9f9;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 25px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     overflow: hidden;
+    background: #fff;
 }
 
 .service:hover {
     transform: translateY(-10px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    transform: scale(1.005);
 }
 
 /* Hover Effect */
@@ -446,10 +450,11 @@ h1 {
 
 /* Service Image */
 .service img {
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 70px;
     margin-bottom: 20px;
     transition: transform 0.3s ease;
+    
 }
 
 .service:hover img {
@@ -458,12 +463,13 @@ h1 {
 
 /* Service Title */
 .service h2 {
-    font-size: 1.75rem;
-    margin-bottom: 15px;
-    color:#007bff;
+    font-size: 1.5rem;
+    margin: 15px 0;
+    color:#0d79ed;
     font-weight: 600;
     position: relative;
     z-index: 2;
+    text-align: center;
 }
 
 /* Service Description */
@@ -474,22 +480,32 @@ h1 {
     color: black;
     position: relative;
     z-index: 2;
+    padding: 0 15px;
 }
 
 /* Links */
 .service a {
     font-size: 1rem;
-    color: green;
     text-decoration: none;
     font-weight: 500;
     position: relative;
     z-index: 2;
     transition: color 0.3s ease;
+    display: block;
+    text-align: center;
+    background: #3498db;
+    color: #fff;
+    padding: 10px 0;
+    border-radius: 5px;
+    margin: 15px 0;
 }
 
 .service a:hover {
-    color: #0056b3;
     text-decoration: underline;
+    background: #2980b9;
+    font-weight: 550;
+    color: #000000;
+    text-decoration: none;
 }
 
 /* Responsive Design */
@@ -915,7 +931,7 @@ h1 {
 
 
 footer {
-    padding: 50px 0;
+    padding: 20px 0;
     text-align: center;
     font-family: 'Poppins', sans-serif;
     position: relative;
@@ -925,15 +941,19 @@ footer {
     border-top: 2px solid #ffffff;
 
         background: linear-gradient(135deg, #003366, #005f73);
-        color: black;
         font-size: 1rem;
-        margin-top: 2rem;
+    margin-top: 2rem;
+    background: #2c3e50;
+    color: #fff;
 
 }
 
 .footer-container {
     max-width: 1200px;
-    margin: auto;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .footer-row {
@@ -945,11 +965,13 @@ footer {
 
 .footer-column {
     width: 23%;
-    padding: 10px;
+    flex: 1;
+    padding: 20px;
+    margin-bottom: 15px;
 }
 
 .footer-column h3 {
-    color:rgb(3, 28, 57);
+    color:rgb(1, 5, 10);
     margin-bottom: 15px;
     font-size: 18px;
     text-transform: uppercase;
@@ -960,6 +982,7 @@ footer {
 
 .footer-column h3:hover{
     text-decoration: underline;
+    color: #240606;
 
 }
 
@@ -975,6 +998,7 @@ footer {
     color: #ffffff; 
     font-size: 14px;
     line-height: 1.6;
+    text-decoration: none;
 }
 
 .footer-column ul {
@@ -1005,8 +1029,15 @@ footer {
     align-items: center;
     gap: 10px;
     margin-top: 10px;
+    
 }
-
+.newsletter-email
+{
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 70%;
+}
 .newsletter input {
     width: 65%;
     padding: 8px;
@@ -1030,6 +1061,19 @@ footer {
 .newsletter button:hover {
     background:rgb(7, 3, 57);
     transform: scale(1.05);
+}
+.button{
+background: #57a5d9;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #2980b9;
 }
 
 .footer-column .social-icons {
@@ -1154,13 +1198,19 @@ footer {
         text-align: center;
     }
 
+    .footer-container {
+            flex-direction: column;
+    }
+    
     .footer-column {
         width: 90%;
         padding: 10px 0;
+        margin-bottom: 20px;
     }
 
     .footer-column h3 {
         font-size: 16px;
+
     }
 
     .footer-column ul li a {
