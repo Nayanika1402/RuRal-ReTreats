@@ -1566,3 +1566,6 @@ footer {
         padding: 10px;
     }
 }
+.error-border { border: 2px solid #dc3545; }
+.error-message { color: #dc3545; font-size: 0.8em; }
+.form-status { margin-top: 1rem; font-weight: bold; }

@@ -1,7 +1,46 @@
 document.getElementById("contactForm").addEventListener("submit", function(event) {
     event.preventDefault();
+    
     document.querySelector(".form-status").textContent = "✅ Thank you for reaching out! We will contact you soon.";
 });
+// ========== PHONE NUMBER VALIDATION ========== //
+const phoneInput = document.getElementById('phone');
+const phoneError = document.getElementById('phone-error');
+
+// Real-time numeric validation
+phoneInput.addEventListener('input', function(e) {
+    // Remove non-numeric characters
+    this.value = this.value.replace(/\D/g, '');
+    
+    // Truncate to 10 digits
+    if (this.value.length > 10) {
+        this.value = this.value.slice(0, 10);
+    }
+    
+    // Update validation state
+    const isValid = this.value.length === 10;
+    phoneError.style.display = isValid ? 'none' : 'block';
+    this.classList.toggle('invalid-input', !isValid);
+});
+
+// Prevent non-numeric keyboard input using modern key detection
+phoneInput.addEventListener('keydown', function(e) {
+    // Allow: Backspace, Delete, Tab, Escape, Enter
+    if (['Backspace', 'Delete', 'Tab', 'Escape', 'Enter'].includes(e.key)) return;
+    
+    // Allow: Ctrl+A/C/V/X
+    if ((e.ctrlKey || e.metaKey) && ['a', 'A', 'c', 'C', 'v', 'V', 'x', 'X'].includes(e.key)) return;
+    
+    // Prevent non-numeric input
+    if (!/^\d$/.test(e.key)) {
+        e.preventDefault();
+        phoneError.textContent = "Numbers only!";
+        phoneError.style.display = 'block';
+        this.classList.add('invalid-input');
+    }
+});
+
+// Rest of your code remains the same...
 function subscribeNewsletter() {
     let email = document.getElementById("newsletter-email").value.trim();
     if (email === "") {
