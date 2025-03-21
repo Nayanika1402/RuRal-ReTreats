@@ -1,20 +1,24 @@
 ---
-name: ✨ Feature request
-about: Add features to the website
-title: Feature_Request
+name: ✨ Feature Request
+about: Suggest a new feature or improvement for the website
+title: "[Feature] <Brief description>"
 labels: enhancement, feature request
-
 ---
 
- # ✨ Describe the feature you are requesting
-<!-- A clear and concise description of what the problem is. -->
+## ✨ Feature Overview  
+<!-- Clearly describe the feature you are requesting. What problem does it solve? How will it improve the website? -->
 
+## 🚀 Why is this Feature Needed?  
+<!-- Explain the importance of this feature and how it benefits users or enhances the experience. -->
 
-# 📷 Screenshots
-<!-- If applicable, add screenshots to help explain your problem. -->
+## 🎨 Visuals (If applicable)  
+<!-- Add screenshots, mockups, or design references to illustrate your idea. -->
 
+## 🔧 Possible Implementation (Optional)  
+<!-- Suggest how this feature could be implemented, if you have any thoughts on it. -->
 
-**Additional context(if any)**
+## 💡 Additional Notes  
+<!-- Any extra details or related information that might be useful. -->
 
-# 🏆Are you contributing under any open-source program ?
-<!-- Mention it here-->
+## 🏆 Are you contributing under any open-source program?  
+<!-- If yes, mention the program name (e.g., GSoC, Hacktoberfest, etc.). -->

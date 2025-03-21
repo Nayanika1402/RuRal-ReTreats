@@ -1,4 +1,99 @@
 document.addEventListener("DOMContentLoaded", function () {
+    emailjs.init("ZhgpiL0kX2Dy-IrNa");  
+});
+function subscribeNewsletter() {
+    let email = document.getElementById("newsletter-email").value.trim();
+    if (email === "") {
+        alert("⚠️ Please enter a valid email!");
+        return;
+    }
+    if (!validateEmail(email)) {
+        alert("❌ Invalid Email! Please enter a valid email.");
+        return;
+    }
+    sendNewsletterEmail(email);
+    showConfirmationMessage(email);
+    document.getElementById("newsletter-email").value = "";
+}
+function validateEmail(email) {
+    const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return re.test(email);
+}
+function sendNewsletterEmail(email) {
+    let templateParams = {
+        user_email: email,
+        to_email: email,  
+        subject: "🌟 Welcome to Our Travel Newsletter!",
+        message: `Hi there! 🎉\n\nThank you for subscribing to our exclusive travel newsletter! ✈️🌎\n\nYou’ll receive the latest travel deals, destination tips, and exciting offers. 🏖️\n\nClick the link below to complete your registration:\n\n🔗 [Complete Registration](#)\n\nHappy Travels! 🚀`
+    };
+    emailjs.send("service_n3pxpvu", "template_b6o5dqb", templateParams)
+        .then(response => {
+            console.log("✅ Email sent successfully!", response);
+        })
+        .catch(error => {
+            console.error("❌ Email sending failed:", error);
+        });
+}
+function showConfirmationMessage(email) {
+    let confirmationBox = document.createElement("div");
+    confirmationBox.classList.add("newsletter-confirmation");
+    confirmationBox.innerHTML = `
+        <div class="newsletter-popup">
+            <h2>🎉 Subscription Confirmed!</h2>
+            <p>Dear <b>${email}</b>, thank you for subscribing!<br>
+            You’ll receive an email with a registration form.</p>
+            <p>📧 Check your inbox and complete your signup.</p>
+            <button onclick="closeConfirmation()">OK</button>
+        </div>
+    `;
+    document.body.appendChild(confirmationBox);
+}
+function closeConfirmation() {
+    let confirmationBox = document.querySelector(".newsletter-confirmation");
+    if (confirmationBox) {
+        confirmationBox.remove();
+    }
+}
+function loadGoogleTranslate() {
+    if (!window.google || !window.google.translate) {
+        let script = document.createElement("script");
+        script.src = "https://translate.google.com/translate_a/element.js?cb=googleTranslateInit";
+        document.body.appendChild(script);
+    } else {
+        googleTranslateInit();
+    }
+}
+function googleTranslateInit() {
+    new google.translate.TranslateElement({ 
+        pageLanguage: 'en', 
+        autoDisplay: false
+    }, 'google_translate_element');
+    setTimeout(fixGoogleTranslateStyles, 1000);
+}
+function changeLanguage(lang) {
+    let googleTranslateDropdown = document.querySelector(".goog-te-combo");
+    if (googleTranslateDropdown) {
+        googleTranslateDropdown.value = lang;
+        googleTranslateDropdown.dispatchEvent(new Event("change"));
+        setTimeout(fixGoogleTranslateStyles, 1000);
+    } else {
+        console.error("Google Translate dropdown not found!");
+    }
+}
+document.getElementById("language-select").addEventListener("change", function () {
+    let selectedLang = this.value;
+    setTimeout(() => changeLanguage(selectedLang), 500);
+});
+function fixGoogleTranslateStyles() {
+    document.querySelectorAll("*").forEach(element => {
+        element.style.fontSize = ""; 
+        element.style.lineHeight = ""; 
+        element.style.letterSpacing = ""; 
+    });
+}
+window.addEventListener("load", loadGoogleTranslate);
+
+document.addEventListener("DOMContentLoaded", function () {
     document.querySelector(".cta-button").addEventListener("click", function (event) {
         event.preventDefault();
         const target = document.querySelector(this.getAttribute("href"));
@@ -434,20 +529,3 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
-function subscribeNewsletter() {
-    let email = document.getElementById("newsletter-email").value.trim();
-    if (email === "") {
-        alert("⚠️ Please enter a valid email!");
-        return;
-    }
-    if (!validateEmail(email)) {
-        alert("❌ Invalid Email! Please enter a valid email.");
-        return;
-    }
-    alert("✅ Thank you for subscribing!");
-    document.getElementById("newsletter-email").value = "";
-}
-function validateEmail(email) {
-    const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    return re.test(email);
-}
