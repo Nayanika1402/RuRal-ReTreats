@@ -118,7 +118,7 @@
     <p>Find your perfect getaway from our carefully curated homestays, offering comfort, culture, and convenience.</p>
 
     
-    <div class="filters-container">
+    <!-- <div class="filters-container">
         <h3>🔍 Filter Your Search</h3>
         <div class="filters">
             <div class="filter-group">
@@ -185,8 +185,78 @@
             </div>
         </div>
         <button id="applyFilters" class="apply-filters-btn">Apply Filters</button>
+    </div> -->
+    <div class="filters-container">
+        <!-- <h3 class = "slide-in">Filter Your Search</h3> -->
+         <!-- added grey and blue effect to heading -->
+        <h3 class="slide-in">
+            <span class="gray-text">FILTER</span> <span class="blue-text">YOUR SEARCH</span>
+        </h3>
+    
+        <div class="filters">
+            <div class="filter-group">
+                <label for="locationFilter">📍 Location:</label>
+                <select id="locationFilter">
+                    <option value="all">All Locations</option>
+                    <option value="city1">City 1</option>
+                    <option value="city2">City 2</option>
+                </select>
+            </div>
+    
+            <div class="filter-group">
+                <label for="priceFilter">💰 Price Range (₹):</label>
+                <div class="price-slider-container">
+                    <span id="currentPrice" class="current-price">₹1000</span>
+                    <input type="range" id="priceFilter" min="1000" max="10000" step="100">
+                    <div class="price-range-labels">
+                        <span class="min-price">₹1000 -</span> 
+                        <span class="max-price">₹10,000</span>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="filter-group">
+                <label for="bedroomFilter">🛏️ Bedrooms:</label>
+                <select id="bedroomFilter">
+                    <option value="1">1 Bedroom</option>
+                    <option value="2">2 Bedrooms</option>
+                    <option value="3">3 Bedrooms</option>
+                    <option value="4">4+ Bedrooms</option>
+                </select>
+            </div>
+    
+            <div class="filter-group">
+                <label for="ratingFilter">⭐ Minimum Rating:</label>
+                <select id="ratingFilter">
+                    <option value="all">All Ratings</option>
+                    <option value="4">4 Stars & Above</option>
+                    <option value="3">3 Stars & Above</option>
+                </select>
+            </div>
+    
+            <div class="filter-group">
+                <label for="availabilityFilter">📆 Availability:</label>
+                <select id="availabilityFilter">
+                    <option value="all">All</option>
+                    <option value="available">Available</option>
+                    <option value="unavailable">Unavailable</option>
+                </select>
+            </div>
+    
+            <div class="filter-group">
+                <label for="sortBy">🔽 Sort By:</label>
+                <select id="sortBy">
+                    <option value="priceLowHigh">Price: Low to High</option>
+                    <option value="priceHighLow">Price: High to Low</option>
+                    <option value="ratingsHighLow">Ratings: High to Low</option>
+                    <option value="popularity">Popularity</option>
+                </select>
+            </div>
+        </div>
+    
+        <button id="applyFilters" class="apply-filters-btn">Apply Filters</button>
     </div>
-
+    
     
     <div class="card-container">
         

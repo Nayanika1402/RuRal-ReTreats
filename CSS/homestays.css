@@ -603,7 +603,7 @@
     color: #555;
     margin-bottom: 25px;
     }
-    .filters-container {
+    /* .filters-container {
     background: #ffffff;
     padding: 25px;
     border-radius: 10px;
@@ -661,13 +661,273 @@
     .apply-filters-btn:hover {
     background: linear-gradient(to right, #0056b3, #003f7f);
     transform: translateY(-3px);
+    } */
+     /* improved filter section start*/
+    select {
+        background: rgba(16, 68, 121, 0.8);
+        border: 1px solid rgba(27, 81, 134, 0.8);
+        color: white;
+        font-weight: bold;
+        padding: 8px;
+        font-size: 16px;
+        border-radius: 8px;
+        backdrop-filter: blur(17px);
+        cursor: pointer;
+        transition: all 0.4s ease-in-out;
     }
+    
+    /* Smooth hover effect */
+    select:hover {
+        background: rgba(0, 102, 204, 0.3);
+        border-color: rgba(255, 255, 255, 0.8);
+        box-shadow: 0px 4px 15px rgba(6, 31, 56, 0.5);
+        backdrop-filter: blur(12px);
+        transform: scale(1.05);
+        transition: all 0.4s ease-in-out;
+    }
+    
+    /* Make the dropdown list translucent */
+    select option {
+        background: rgba(16, 68, 121, 0.6); 
+        color: white;
+        font-weight: bold;
+        padding: 8px;
+        text-align: center;
+        filter: blur(0px);
+        opacity: 0.9;
+        backdrop-filter: blur(10px); 
+        transition: all 1s ease-in-out;
+    }
+    
+    /* Hover effect for dropdown items */
+    select option:hover {
+        background: rgba(0, 102, 204, 0.5);
+        color: #fff;
+        transition: all 0.7s ease-in-out;
+    }
+    
+    
+    select:focus {
+        animation: fadeIn 0.7s ease-in-out forwards;
+    }
+    
+    
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-5px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    
+    @keyframes fadeOut {
+        from {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        to {
+            opacity: 0;
+            transform: translateY(-5px);
+        }
+    }
+    
+
+    .filters-container {
+        max-width: 900px;
+        margin: 0 auto;
+        /* background: #ffffff; */
+        padding: 35px;
+        border-radius: 10px;
+        transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+        will-change: transform, box-shadow;
+        backdrop-filter: blur(10px); 
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4); 
+  background: rgba(213, 215, 216, 0.9)
+        
+    } 
+.filter-heading {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-bottom: 12px;
+}
+    
+    .filters-container:hover {
+        transform: scale(1.02);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    .filters-container h3 {
+        text-align: center;
+        font-size: 1.8rem;
+        color: #333;
+        font-weight: bold;
+        margin-bottom: 40px;
+    }
+    .filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px; 
+        justify-content: space-between;
+    }
+    .filter-group {
+        flex: 1 1 45%;
+        min-width: 220px;
+        display: flex;
+        flex-direction: column;
+        
+    }
+
+    .filter-left, .filter-right {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .filter-left {
+        align-items: flex-start;
+    }
+    
+    .filter-right {
+        align-items: flex-end;
+    }
+    
+    .filter-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+        color: #555;
+    }
+    
+    .filter-group select,
+    .price-slider-container input[type="range"] {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        transition: all 0.3s ease-in-out;
+        cursor:pointer;
+    }
+    
+    .filter-group select:hover {
+        border-color: #0b243e;
+        cursor: pointer;
+        
+    }
+    
+    .apply-filters-btn {
+        background: linear-gradient(145deg, #0044cc, #002288);
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.4s ease-in-out;
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5), 
+                    -4px -4px 10px rgba(255, 255, 255, 0.1);
+        position: relative;
+        transform: scale(1);
+        opacity: 0;
+        animation: fadeIn 1s forwards;
+        margin-top:70px;
+    }
+    
+   
+    .apply-filters-btn:hover {
+        background: linear-gradient(145deg, #002288, #001166);
+        box-shadow: 6px 6px 14px rgba(0, 0, 0, 0.6), 
+                    -2px -2px 6px rgba(255, 255, 255, 0.2);
+        transform: scale(1.05);
+    }
+    
+   
+    .apply-filters-btn:active {
+        transform: scale(0.98);
+        box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+    }
+    
+    
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+
+    .filter-title {
+        font-size: 2rem;
+        font-weight: bold;
+        text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        border-right: 3px solid black;
+        width: 0;
+        display: inline-block;
+        animation: typing 2s steps(20, end) forwards;
+    }
+    
+    .slide-in {
+        font-size: 2.5rem;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    text-transform: uppercase;
+    }
+    .gray-text {
+        color: #707070; /* Gray color for 'FILTER' */
+    }
+    
+    .blue-text {
+        color: #0099cc; /* Blue color for 'YOUR SEARCH' */
+    }
+   
+    @keyframes slideIn {
+        from {
+            transform: translateY(-50px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+    
+    
+    @keyframes glow {
+        from {
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.8),
+                         0 0 10px rgba(255, 255, 255, 0.7),
+                         0 0 15px rgba(255, 255, 255, 0.6);
+        }
+        to {
+            text-shadow: 0 0 8px rgba(255, 255, 255, 1),
+                         0 0 15px rgba(255, 255, 255, 0.9),
+                         0 0 25px rgba(255, 255, 255, 0.8);
+        }
+    }
+    
+    
+    
+    /* improved filter section end */
     .card-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 25px;
     margin: 30px 0;
     }
+    
     .homestay-card {
     background: #ffffff;
     border-radius: 12px;
