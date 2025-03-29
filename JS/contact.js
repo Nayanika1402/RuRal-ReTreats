@@ -142,6 +142,10 @@ document.addEventListener("DOMContentLoaded", function () {
             "service": "../HTML/services.html",
             "homestay": "../HTML/homestays.html",
             "faqs": "../HTML/faq.html",
+            "blogs": "../HTML/blog.html",
+            "blog": "../HTML/blog.html",
+            "Adventure": "../HTML/Adventure.html",
+            "Adventures": "../HTML/Adventure.html",
             "pp": "../HTML/pp.html",
             "t&c": "../HTML/t&c.html"
         };

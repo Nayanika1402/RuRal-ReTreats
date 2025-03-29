@@ -94,6 +94,20 @@ function fixGoogleTranslateStyles() {
 window.addEventListener("load", loadGoogleTranslate);
 
 
+document.querySelectorAll(".faq-question").forEach(button => {
+    button.addEventListener("click", () => {
+        const answer = button.nextElementSibling;
+        answer.style.display = answer.style.display === "block" ? "none" : "block";
+    });
+});
+function filterFAQs() {
+    let searchInput = document.getElementById("faq-search").value.toLowerCase();
+    document.querySelectorAll(".faq").forEach(faq => {
+        let text = faq.innerText.toLowerCase();
+        faq.style.display = text.includes(searchInput) ? "block" : "none";
+    });
+}
+
 document.addEventListener("DOMContentLoaded", function () {
     const menuToggle = document.getElementById("menu-toggle");
     const menuClose = document.getElementById("menu-close");
