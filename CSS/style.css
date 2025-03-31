@@ -2451,3 +2451,64 @@ body {
         padding: 8px;
     }
 }
+
+
+
+
+
+/*
+
+toggle button...........................
+
+*/
+
+
+#theme-toggle {
+    padding: 8px 15px;
+    border: none;
+    cursor: pointer;
+    background-color: #333;
+    color: white;
+    font-size: 14px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+#theme-toggle:hover {
+    background-color: #555;
+}
+
+
+.auth-buttons {
+    display: flex;
+    gap: 10px; 
+    align-items: center;
+}
+
+/* Dark Mode Styling */
+.dark-mode {
+    background-color: black;
+    color: white;
+}
+
+.dark-mode .navbar {
+    background-color: black; 
+    opacity:1;
+}
+
+.dark-mode .nav-menu a {
+    color: white;
+}
+
+.dark-mode .login-btn {
+    background-color: #444;
+}
+
+.dark-mode #theme-toggle {
+    background-color: white;
+    color: black;
+}
+
+.dark-mode #theme-toggle:hover {
+    background-color: lightgray;
+}
