@@ -1546,3 +1546,41 @@ body {
         0% { opacity: 0; transform: translateY(-10px); }
         100% { opacity: 1; transform: translateY(0); }
     }
+
+
+
+    .trail-card {
+        background: white;
+        color: black;
+        padding: 20px;
+        border-radius: 10px;
+        transition: background 0.3s, color 0.3s;
+    }
+    
+    .dark-mode .trail-card {
+        background: #222;  
+        color: white;  
+    }
+    
+    .dark-mode .trail-card h2,
+    .dark-mode .trail-card p,
+    .dark-mode .trail-card ul li {
+        color: white;
+    }
+
+    
+  
+
+   
+    .intro {
+        color: #222;
+        background-color: gray;
+    }
+    
+    @media (prefers-color-scheme: dark) {
+        .intro {
+            color: #fff; 
+        }
+    }
+    
+    

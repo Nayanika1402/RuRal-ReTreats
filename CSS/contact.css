@@ -374,10 +374,10 @@
     }
     }
 
-body {
-    background: #f8f9fa;
-    color: #333;
-}
+    body {
+        background-color: var(--bg-color);
+    }
+    
 h1{
   font-size: 3rem;
   margin-top: 20px;
@@ -1598,3 +1598,25 @@ footer {
     0% { opacity: 0; transform: translateY(-10px); }
     100% { opacity: 1; transform: translateY(0); }
 }
+
+
+
+
+
+#contact-section h1 {
+    color: #222; 
+    background-color: rgb(0, 123, 255);
+    
+}
+
+.contact-form h2 {
+    color: black ;
+    background-color: rgb(0, 145, 255);
+}
+
+
+
+
+
+
+

@@ -1644,3 +1644,34 @@ footer {
         padding: 10px;
     }
 }
+
+
+
+
+
+.intro {
+    color: #ffffff; 
+}
+
+@media (prefers-color-scheme: dark) {
+    .intro {
+        color: #f1f1f1; 
+    }
+}
+
+
+.intro {
+    color: #222; 
+    background-color: rgb(0, 123, 255);
+    
+}
+
+@media (prefers-color-scheme: dark) {
+    .intro {
+        color: #fff; 
+    }
+    .destination{
+        color:black;
+    }
+}
+

@@ -73,9 +73,72 @@
                 <div class="auth-buttons">
                     <button class="login-btn" onclick="window.location.href='login.html'">Log In</button>
                 </div>
+
+                <div class="theme-toggle">
+                    <button id="theme-button">🌙</button>
+                </div>
+
+
+
+
             </div>
         </div>
     </nav>
+
+
+
+    
+  <!-- CSS for Theme Toggle -->
+<style>
+    :root {
+        --bg-color: white;
+        --text-color: black;
+        --toggle-bg: black;
+        --icon-glow: rgba(255, 223, 0, 0.8);
+        --button-bg-dark: rgb(0, 174, 255) ;
+    }
+
+    .dark-mode {
+        --bg-color: black;
+        --text-color: white;
+        --toggle-bg: var(--button-bg-dark);
+        --icon-glow: rgba(255, 255, 255, 0.8);
+    }
+
+    body {
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .theme-toggle {
+        position: fixed;
+        top: 26px;
+        right: 30px;
+        background: var(--toggle-bg);
+        padding: 5px;
+        border-radius: 30%;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        transition: background 0.3s, box-shadow 0.3s;
+    }
+
+    #theme-button {
+        font-size: 17px;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        color: var(--toggle-bg);
+        text-shadow: 0 0 10px var(--icon-glow), 0 0 20px var(--icon-glow);
+        transition: color 0.3s, text-shadow 0.3s;
+    }
+
+    .dark-mode #theme-button {
+        color: white;
+    }
+</style>
+
+
 
     
     <div class="mobile-menu" id="mobile-menu">
@@ -286,6 +349,35 @@
         </div>
     </div>
 </div>
+
+
+<!-- JavaScript for Theme Toggle -->
+<script>
+    const themeButton = document.getElementById("theme-button");
+    const body = document.body;
+
+    
+    if (localStorage.getItem("dark-mode") === "enabled") {
+        body.classList.add("dark-mode");
+        themeButton.textContent = "☀️";
+    }
+
+    themeButton.addEventListener("click", () => {
+        body.classList.toggle("dark-mode");
+        const isDarkMode = body.classList.contains("dark-mode");
+        
+       
+        themeButton.textContent = isDarkMode ? "☀️" : "🌙";
+        
+        
+        localStorage.setItem("dark-mode", isDarkMode ? "enabled" : "disabled");
+    });
+</script>
+
+
+
+
+
 
 </body>
 </html>
