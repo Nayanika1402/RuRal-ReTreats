@@ -94,10 +94,12 @@ function fixGoogleTranslateStyles() {
 window.addEventListener("load", loadGoogleTranslate);
 
 
-document.querySelectorAll(".faq-question").forEach(button => {
-    button.addEventListener("click", () => {
-        const answer = button.nextElementSibling;
-        answer.style.display = answer.style.display === "block" ? "none" : "block";
+document.querySelectorAll('.faq-question').forEach(question => {
+    question.addEventListener('click', () => {
+        const answer = question.nextElementSibling;
+        answer.classList.toggle('active');
+        const arrow = question.querySelector('.arrow');
+        arrow.classList.toggle('rotate');
     });
 });
 function filterFAQs() {
@@ -197,6 +199,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
     backToTopBtn.addEventListener("click", () => {
+        console.log("click");
+        
         window.scrollTo({ top: 0, behavior: "smooth" });
     });
     const chatButton = document.getElementById("chatButton");
