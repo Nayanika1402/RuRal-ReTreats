@@ -1046,11 +1046,60 @@ select:focus {
   flex-direction: column;
   transition: transform 0.4s ease, box-shadow 0.3s ease-in-out;
   position: relative;
+    background: rgba(246, 251, 250, 0.9); 
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
 }
+
+.homestay-card img {
+  width: 100%; 
+  height: 200px; 
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.homestay-card h3 {
+  font-size: 1.5rem;
+  color: #0073e6; 
+  margin: 15px; 
+  text-align: center; 
+}
+
+.homestay-card p {
+  font-size: 1rem; 
+  color: #0d0d0d; 
+  padding: 0 15px; 
+  text-align: center; 
+}
+
 .homestay-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-6px); /* Lift effect on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
+
+.homestay-card:hover img {
+  transform: scale(1.05);
+}
+
+
+.homestay-card .read-more {
+  display: block; 
+  background: linear-gradient(135deg, #0073e6, #00b894); 
+  color: white; 
+  padding: 10px;
+  border-radius: 6px; 
+  text-align: center; 
+  text-decoration: none;
+  margin: 15px auto; 
+  transition: background 0.3s ease, transform 0.3s ease; 
+}
+
+.homestay-card .read-more:hover {
+  background: linear-gradient(135deg, #00b894, #0073e6); 
+  transform: scale(1.05);
+}
+
 .image-wrapper {
   position: relative;
   overflow: hidden;
