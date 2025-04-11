@@ -1274,15 +1274,25 @@ select:focus {
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     gap: 35px;
   }
-  .homestay-card {
+  .homestaytransition-card {
     max-width: 450px;
     margin: 0 auto;
   }
 }
 
+.booking-form {
+  background: rgba(255, 255, 255, 0.95); 
+  border-radius: 10px;
+  padding: 20px; 
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
+  max-width: 600px; /* Maximum width */
+  margin: 20px auto; 
+  transition: transform 0.3s ease; 
+}
+
 .booking-section {
   padding: 50px 25px;
-  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  background: linear-gradient(135deg, #cbf7fa 0%,#77a9de 50%, #2a8ae3 100%);
   border-radius: 15px;
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15);
   max-width: 750px;
@@ -1291,22 +1301,70 @@ select:focus {
   font-family: "Poppins", sans-serif;
   transition: all 0.3s ease-in-out;
 }
+
+.booking-section input,
+.booking-section select,
+.booking-section textarea {
+  width: 100%; /* Full width */
+  padding: 12px; /* Padding for input fields */
+  border: 1px solid #ddd; /* Light border */
+  border-radius: 5px; /* Rounded corners */
+  margin-bottom: 15px; /* Space between fields */
+  font-size: 1rem; /* Font size */
+  : border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+.booking-section input:focus,
+.booking-section select:focus,
+.booking-section textarea:focus {
+  border-color: #0073e6; /* Change border color on focus */
+  box-shadow: 0 0 5px rgba(0, 115, 230, 0.5); /* Shadow effect on focus */
+  outline: none; /* Remove default outline */
+}
+
+
 .booking-section:hover {
   transform: translateY(-5px);
   box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.2);
 }
 .booking-section h2 {
   font-size: 2.5rem;
-  color: #007bff;
+  color: #003366; 
+  text-align: center;
   font-weight: 700;
   margin-bottom: 15px;
   text-shadow: 1px 1px 10px rgba(0, 123, 255, 0.2);
 }
+.booking-section button {
+  background: linear-gradient(135deg, #0073e6, #4bd1b6); 
+  color: white; 
+  padding: 12px 20px; 
+  border: none; 
+  border-radius: 5px; 
+  font-size: 1.1rem; 
+  cursor: pointer; 
+  transition: background 0.3s ease, transform 0.3s ease; 
+}
+
+.booking-section button:hover {
+  background: linear-gradient(135deg, #00b894, #0073e6); 
+}
+
 .booking-section p {
   font-size: 1.1rem;
   color: #555;
   margin-bottom: 30px;
 }
+@media (max-width: 600px) {
+  .booking-section {
+    padding: 15px; 
+  }
+
+  .booking-section button {
+    width: 100%; 
+  }
+}
+
 .form-group {
   margin-bottom: 20px;
   text-align: left;
