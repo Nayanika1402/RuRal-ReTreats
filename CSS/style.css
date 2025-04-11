@@ -1074,6 +1074,7 @@ ul {
   text-align: center;
   position: relative;
   margin: 0 auto;
+  margin-top: 20px;
 }
 
 .carousel .prev {
