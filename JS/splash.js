@@ -16,6 +16,6 @@ window.addEventListener('load', () => {
       // Restore scroll if disabled during splash
       document.body.style.overflow = 'auto';
   
-    }, 5000);
+    }, 3650);
   });
   
