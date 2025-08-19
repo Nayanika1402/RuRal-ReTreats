@@ -5,25 +5,106 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login page</title>
     <link rel="apple-touch-icon" sizes="57x57" href="./favicon/favicon-57x57.png" type="image/png" />
-<link rel="apple-touch-icon" sizes="60x60" href="./favicon/favicon-60x60.png" type="image/png" />
-<link rel="apple-touch-icon" sizes="72x72" href="./favicon/favicon-72x72.png" type="image/png" />
-<link rel="apple-touch-icon" sizes="114x114" href="./favicon/favicon-114x114.png" type="image/png" />
-<link rel="apple-touch-icon" sizes="120x120" href="./favicon/favicon-120x120.png" type="image/png" />
-<link rel="apple-touch-icon" sizes="144x144" href="./favicon/favicon-144x144.png" type="image/png" />
-<link rel="apple-touch-icon" sizes="152x152" href="./favicon/favicon-152x152.png" type="image/png" />
-<link rel="apple-touch-icon" sizes="180x180" href="./favicon/favicon-180x180.png" type="image/png" />
-<link rel="icon" sizes="16x16" href="./favicon/favicon-16x16.png" type="image/png" />
-<link rel="icon" sizes="32x32" href="./favicon/favicon-32x32.png" type="image/png" />
-<link rel="icon" sizes="96x96" href="./favicon/favicon-96x96.png" type="image/png" />
-<link rel="icon" sizes="192x192" href="./favicon/favicon-192x192.png" type="image/png" />
-<link rel="icon" sizes="512x512" href="./favicon/favicon-512x512.png" type="image/png" />
-<link rel="manifest" href="./favicon/manifest.json" />
-<meta name="theme-color" content="#FFFFFF" />
-<meta name="msapplication-TileColor" content="#FFFFFF" />
-<meta name="msapplication-TileImage" content="./favicon/favicon-512x512.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="./favicon/favicon-60x60.png" type="image/png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="./favicon/favicon-72x72.png" type="image/png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="./favicon/favicon-114x114.png" type="image/png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="./favicon/favicon-120x120.png" type="image/png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="./favicon/favicon-144x144.png" type="image/png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="./favicon/favicon-152x152.png" type="image/png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/favicon-180x180.png" type="image/png" />
+    <link rel="icon" sizes="16x16" href="./favicon/favicon-16x16.png" type="image/png" />
+    <link rel="icon" sizes="32x32" href="./favicon/favicon-32x32.png" type="image/png" />
+    <link rel="icon" sizes="96x96" href="./favicon/favicon-96x96.png" type="image/png" />
+    <link rel="icon" sizes="192x192" href="./favicon/favicon-192x192.png" type="image/png" />
+    <link rel="icon" sizes="512x512" href="./favicon/favicon-512x512.png" type="image/png" />
+    <link rel="manifest" href="./favicon/manifest.json" />
+    <meta name="theme-color" content="#FFFFFF" />
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta name="msapplication-TileImage" content="./favicon/favicon-512x512.png"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./CSS/login.css">
     <link rel="stylesheet" href="./CSS/navbar.css">
+
+    <style>
+        /* Fix spacing and alignment */
+        .input-box {
+            position: relative;
+            margin-bottom: 18px;
+        }
+        .input-box input {
+            width: 100%;
+            padding: 12px 40px 12px 12px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            outline: none;
+            transition: border 0.3s;
+        }
+        .input-box input:focus {
+            border-color: #4285F4;
+        }
+        .input-box i {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #888;
+        }
+
+        /* Buttons */
+        .btn {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            background: #4285F4;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #3367D6;
+        }
+
+        /* Social icons container */
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        /* Social icon buttons (fix Google alignment issue) */
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            background: #fff;
+            transition: all 0.3s;
+        }
+        .social-icons a:hover {
+            transform: scale(1.1);
+            border-color: #4285F4;
+        }
+        .social-icons svg,
+        .social-icons i {
+            font-size: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .container {
+                width: 90%;
+                padding: 15px;
+            }
+        }
+    </style>
 </head>
 <body>
     
@@ -45,13 +126,23 @@
                 <button type="submit" class="btn">Login</button>
                 <p>or Login with Social Platforms</p>
                 <div class="social-icons">
-                    <a href="#"><i class="fa-brands fa-google"></i></a>
-                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="#"><i class="fa-brands fa-github"></i></a>
-                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    <!-- Google Multicolor Inline SVG (fixed center) -->
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512" width="20" height="20">
+                            <path fill="#4285F4" d="M488 261.8c0-17.4-1.5-34-4.3-50.2H249v95h135.9c-5.9 31.6-23.5 58.4-50 76.4v63h80.7c47.2-43.5 72.4-107.5 72.4-184.2z"/>
+                            <path fill="#34A853" d="M249 492c67.8 0 124.6-22.5 166-61.2l-80.7-63c-22.4 15-51 23.9-85.3 23.9-65.6 0-121.1-44.3-141.1-103.9h-83.7v65.3C85.2 445.8 161.7 492 249 492z"/>
+                            <path fill="#FBBC05" d="M107.9 287.8c-5-15-7.9-31-7.9-47.8s2.9-32.8 7.9-47.8V127h-83.7C8.7 159.1 0 202.4 0 240s8.7 80.9 24.2 113h83.7z"/>
+                            <path fill="#EA4335" d="M249 97.2c36.9 0 70 12.7 96 37.7l71.5-71.5C373.6 24.3 316.8 0 249 0 161.7 0 85.2 46.2 24.2 127l83.7 65.3C127.9 141.5 183.4 97.2 249 97.2z"/>
+                        </svg>
+                    </a>
+                    <!-- Facebook -->
+                    <a href="#"><i class="fa-brands fa-facebook" style="color:#1877F2;"></i></a>
+                    <!-- GitHub -->
+                    <a href="#"><i class="fa-brands fa-github" style="color:#333;"></i></a>
+                    <!-- LinkedIn -->
+                    <a href="#"><i class="fa-brands fa-linkedin" style="color:#0A66C2;"></i></a>
                 </div>
             </form>
-
         </div>
 
         <div class="form-box register">
@@ -72,13 +163,23 @@
                 <button type="submit" class="btn">Register</button>
                 <p>or Register with Social Platforms</p>
                 <div class="social-icons">
-                    <a href="#"><i class="fa-brands fa-google"></i></a>
-                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="#"><i class="fa-brands fa-github"></i></a>
-                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    <!-- Google Multicolor Inline SVG (fixed center) -->
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512" width="20" height="20">
+                            <path fill="#4285F4" d="M488 261.8c0-17.4-1.5-34-4.3-50.2H249v95h135.9c-5.9 31.6-23.5 58.4-50 76.4v63h80.7c47.2-43.5 72.4-107.5 72.4-184.2z"/>
+                            <path fill="#34A853" d="M249 492c67.8 0 124.6-22.5 166-61.2l-80.7-63c-22.4 15-51 23.9-85.3 23.9-65.6 0-121.1-44.3-141.1-103.9h-83.7v65.3C85.2 445.8 161.7 492 249 492z"/>
+                            <path fill="#FBBC05" d="M107.9 287.8c-5-15-7.9-31-7.9-47.8s2.9-32.8 7.9-47.8V127h-83.7C8.7 159.1 0 202.4 0 240s8.7 80.9 24.2 113h83.7z"/>
+                            <path fill="#EA4335" d="M249 97.2c36.9 0 70 12.7 96 37.7l71.5-71.5C373.6 24.3 316.8 0 249 0 161.7 0 85.2 46.2 24.2 127l83.7 65.3C127.9 141.5 183.4 97.2 249 97.2z"/>
+                        </svg>
+                    </a>
+                    <!-- Facebook -->
+                    <a href="#"><i class="fa-brands fa-facebook" style="color:#1877F2;"></i></a>
+                    <!-- GitHub -->
+                    <a href="#"><i class="fa-brands fa-github" style="color:#333;"></i></a>
+                    <!-- LinkedIn -->
+                    <a href="#"><i class="fa-brands fa-linkedin" style="color:#0A66C2;"></i></a>
                 </div>
             </form>
-
         </div>
 
         <div class="toggle-box">
@@ -94,11 +195,6 @@
             </div>
         </div>
     </div>
-    
-
-
-
-
 
     <script src="./JS/login.js"></script>
 </body>
