@@ -1,0 +1,76 @@
+/* Tablet view (768px and below) */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .nav-links {
+    display: block;
+    text-align: center;
+    margin: 10px 0;
+  }
+
+  .hero-section,
+  .splash-container {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .homestay-card {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .homestay-img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .form-container {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .footer {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* Mobile view (480px and below) */
+@media (max-width: 480px) {
+  h1, h2, h3 {
+    font-size: 1.2rem;
+  }
+
+  .navbar {
+    padding: 5px;
+  }
+
+  .nav-links a {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+
+  .splash-text {
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  .homestay-card {
+    padding: 10px;
+  }
+
+  .form-container input,
+  .form-container textarea {
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
