@@ -94,9 +94,181 @@ function fixGoogleTranslateStyles() {
 window.addEventListener("load", loadGoogleTranslate);
 
 
+// Enhanced form validation for contact form
 document.getElementById("contactForm").addEventListener("submit", function(event) {
     event.preventDefault();
-    document.querySelector(".form-status").textContent = "✅ Thank you for reaching out! We will contact you soon.";
+    
+    // Clear previous error messages
+    clearErrors();
+    
+    // Get form values
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const message = document.getElementById("message").value.trim();
+    
+    let isValid = true;
+    
+    // Validate name
+    if (name === "") {
+        showError("name", "Name is required");
+        isValid = false;
+    } else if (name.length < 2) {
+        showError("name", "Name must be at least 2 characters long");
+        isValid = false;
+    }
+    
+    // Validate email
+    if (email === "") {
+        showError("email", "Email is required");
+        isValid = false;
+    } else if (!validateEmail(email)) {
+        showError("email", "Please enter a valid email address");
+        isValid = false;
+    }
+    
+    // Validate phone
+    if (phone === "") {
+        showError("phone", "Phone number is required");
+        isValid = false;
+    } else if (!validatePhone(phone)) {
+        showError("phone", "Please enter a valid 10-digit phone number");
+        isValid = false;
+    }
+    
+    // Validate message
+    if (message === "") {
+        showError("message", "Message is required");
+        isValid = false;
+    } else if (message.length < 10) {
+        showError("message", "Message must be at least 10 characters long");
+        isValid = false;
+    }
+    
+    // If all validations pass
+    if (isValid) {
+        document.querySelector(".form-status").innerHTML = "✅ Thank you for reaching out! We will contact you soon.";
+        document.querySelector(".form-status").className = "form-status success";
+        // Reset form
+        document.getElementById("contactForm").reset();
+    } else {
+        document.querySelector(".form-status").innerHTML = "❌ Please fix the errors above and try again.";
+        document.querySelector(".form-status").className = "form-status error";
+    }
+});
+
+// Function to validate phone number
+function validatePhone(phone) {
+    const phoneRegex = /^[6-9]\d{9}$/; // Indian mobile number format
+    return phoneRegex.test(phone);
+}
+
+// Function to show error message
+function showError(fieldId, message) {
+    const field = document.getElementById(fieldId);
+    const formGroup = field.parentElement;
+    
+    // Remove existing error
+    const existingError = formGroup.querySelector(".error-message");
+    if (existingError) {
+        existingError.remove();
+    }
+    
+    // Add error class to field
+    field.classList.add("error");
+    
+    // Create and add error message
+    const errorDiv = document.createElement("div");
+    errorDiv.className = "error-message";
+    errorDiv.textContent = message;
+    formGroup.appendChild(errorDiv);
+}
+
+// Function to clear all errors
+function clearErrors() {
+    const errorMessages = document.querySelectorAll(".error-message");
+    errorMessages.forEach(error => error.remove());
+    
+    const errorFields = document.querySelectorAll(".error");
+    errorFields.forEach(field => field.classList.remove("error"));
+    
+    document.querySelector(".form-status").className = "form-status";
+}
+
+// Add real-time validation listeners
+document.addEventListener("DOMContentLoaded", function() {
+    const nameField = document.getElementById("name");
+    const emailField = document.getElementById("email");
+    const phoneField = document.getElementById("phone");
+    const messageField = document.getElementById("message");
+    
+    // Real-time validation for name
+    nameField.addEventListener("blur", function() {
+        const name = this.value.trim();
+        const formGroup = this.parentElement;
+        
+        // Remove existing error
+        const existingError = formGroup.querySelector(".error-message");
+        if (existingError) {
+            existingError.remove();
+        }
+        this.classList.remove("error");
+        
+        if (name !== "" && name.length < 2) {
+            showError("name", "Name must be at least 2 characters long");
+        }
+    });
+    
+    // Real-time validation for email
+    emailField.addEventListener("blur", function() {
+        const email = this.value.trim();
+        const formGroup = this.parentElement;
+        
+        // Remove existing error
+        const existingError = formGroup.querySelector(".error-message");
+        if (existingError) {
+            existingError.remove();
+        }
+        this.classList.remove("error");
+        
+        if (email !== "" && !validateEmail(email)) {
+            showError("email", "Please enter a valid email address");
+        }
+    });
+    
+    // Real-time validation for phone
+    phoneField.addEventListener("blur", function() {
+        const phone = this.value.trim();
+        const formGroup = this.parentElement;
+        
+        // Remove existing error
+        const existingError = formGroup.querySelector(".error-message");
+        if (existingError) {
+            existingError.remove();
+        }
+        this.classList.remove("error");
+        
+        if (phone !== "" && !validatePhone(phone)) {
+            showError("phone", "Please enter a valid 10-digit phone number");
+        }
+    });
+    
+    // Real-time validation for message
+    messageField.addEventListener("blur", function() {
+        const message = this.value.trim();
+        const formGroup = this.parentElement;
+        
+        // Remove existing error
+        const existingError = formGroup.querySelector(".error-message");
+        if (existingError) {
+            existingError.remove();
+        }
+        this.classList.remove("error");
+        
+        if (message !== "" && message.length < 10) {
+            showError("message", "Message must be at least 10 characters long");
+        }
+    });
 });
 
 document.addEventListener("DOMContentLoaded", function () {
