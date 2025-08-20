@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore stunning photos and videos from Rural Retreats destinations. See breathtaking landscapes, cultural experiences, and guest memories.">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Gallery | Rural Retreats - Stunning Photos & Videos">
+    <meta property="og:image" content="https://www.ruralretreats.com/img/social-gallery.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:title" content="Gallery | Rural Retreats - Stunning Photos & Videos">
+    <title>Gallery - Rural Retreats</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="./favicon/favicon-57x57.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="60x60" href="./favicon/favicon-60x60.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="72x72" href="./favicon/favicon-72x72.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="114x114" href="./favicon/favicon-114x114.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="120x120" href="./favicon/favicon-120x120.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="144x144" href="./favicon/favicon-144x144.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="152x152" href="./favicon/favicon-152x152.png" type="image/png" />
+<link rel="apple-touch-icon" sizes="180x180" href="./favicon/favicon-180x180.png" type="image/png" />
+<link rel="icon" sizes="16x16" href="./favicon/favicon-16x16.png" type="image/png" />
+<link rel="icon" sizes="32x32" href="./favicon/favicon-32x32.png" type="image/png" />
+<link rel="icon" sizes="96x96" href="./favicon/favicon-96x96.png" type="image/png" />
+<link rel="icon" sizes="192x192" href="./favicon/favicon-192x192.png" type="image/png" />
+<link rel="icon" sizes="512x512" href="./favicon/favicon-512x512.png" type="image/png" />
+<link rel="manifest" href="./favicon/manifest.json" />
+<meta name="theme-color" content="#FFFFFF" />
+<meta name="msapplication-TileColor" content="#FFFFFF" />
+<meta name="msapplication-TileImage" content="./favicon/favicon-512x512.png"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="./CSS/gallery.css">
+    <link rel="stylesheet" href="./CSS/navbar.css">
+    <script defer src="./JS/gallery.js"></script>
+</head>
+<body>
+ 
+ <header>
+    <nav class="navbar">
+        <div class="nav-container">
+            
+            <button class="hamicon" id="menu-toggle" title="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            
+            <div class="logo">
+                <a href="index.html">Rural Retreats</a>
+            </div>
+
+            
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="services.html">Services <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="services.html#tours">Holiday Packages</a></li>
+                        <li><a href="services.html#bus">Bus Booking</a></li>
+                        <li><a href="services.html#homestays">Homestays Booking</a></li>
+                    </ul>
+                </li>
+                <li><a href="homestays.html">HomeStays</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="faq.html">FAQs</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+
+            
+            <div class="right-section">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search..." id="search-input">
+                    <button title="search"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="auth-buttons">
+                    <button class="login-btn" onclick="window.location.href='login.html'">Log In</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    
+    <div class="mobile-menu" id="mobile-menu">
+        <button class="close-btn" id="menu-close">✖</button>
+        
+        
+        <div class="mobile-search-bar">
+            <input type="text" placeholder="Search..." id="mobile-search-input">
+            <button title="search"><i class="fas fa-search"></i></button>
+        </div>
+
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="homestays.html">HomeStays</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="faq.html">FAQs</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+
+        
+    </div>
+</header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>📸 Gallery</h1>
+            <p>Discover the breathtaking beauty of rural destinations through our curated collection</p>
+        </div>
+    </section>
+
+    <!-- Gallery Filter -->
+    <section class="filter-section">
+        <div class="container">
+            <h2>Explore by Category</h2>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="landscapes">Landscapes</button>
+                <button class="filter-btn" data-filter="culture">Culture</button>
+                <button class="filter-btn" data-filter="homestays">Homestays</button>
+                <button class="filter-btn" data-filter="activities">Activities</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Grid -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="gallery-grid">
+                <!-- Landscapes -->
+                <div class="gallery-item" data-category="landscapes">
+                    <img src="./img/1.jpg" alt="Mountain Vista">
+                    <div class="overlay">
+                        <h3>Mountain Vista</h3>
+                        <p>Himachal Pradesh</p>
+                        <button class="view-btn" onclick="openModal('./img/1.jpg', 'Mountain Vista', 'Breathtaking mountain views in Himachal Pradesh')">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="landscapes">
+                    <img src="./img/2.jpg" alt="Valley Sunset">
+                    <div class="overlay">
+                        <h3>Valley Sunset</h3>
+                        <p>Kashmir</p>
+                        <button class="view-btn" onclick="openModal('./img/2.jpg', 'Valley Sunset', 'Golden hour in the beautiful valleys of Kashmir')">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Culture -->
+                <div class="gallery-item" data-category="culture">
+                    <img src="./img/3.jpg" alt="Local Festival">
+                    <div class="overlay">
+                        <h3>Local Festival</h3>
+                        <p>Rajasthan</p>
+                        <button class="view-btn" onclick="openModal('./img/3.jpg', 'Local Festival', 'Vibrant cultural celebrations in rural Rajasthan')">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="culture">
+                    <img src="./img/4.jpg" alt="Traditional Art">
+                    <div class="overlay">
+                        <h3>Traditional Art</h3>
+                        <p>Gujarat</p>
+                        <button class="view-btn" onclick="openModal('./img/4.jpg', 'Traditional Art', 'Local artisans creating beautiful handcrafted items')">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Homestays -->
+                <div class="gallery-item" data-category="homestays">
+                    <img src="./img/5.jpg" alt="Cozy Homestay">
+                    <div class="overlay">
+                        <h3>Cozy Homestay</h3>
+                        <p>Kerala</p>
+                        <button class="view-btn" onclick="openModal('./img/5.jpg', 'Cozy Homestay', 'Traditional Kerala homestay with modern amenities')">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="homestays">
+                    <img src="./img/6.jpg" alt="Garden View">
+                    <div class="overlay">
+                        <h3>Garden View</h3>
+                        <p>Himachal Pradesh</p>
+                        <button class="view-btn" onclick="openModal('./img/6.jpg', 'Garden View', 'Beautiful garden view from mountain homestay')">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Activities -->
+                <div class="gallery-item" data-category="activities">
+                    <img src="./img/7.jpg" alt="Trekking Adventure">
+                    <div class="overlay">
+                        <h3>Trekking Adventure</h3>
+                        <p>Uttarakhand</p>
+                        <button class="view-btn" onclick="openModal('./img/7.jpg', 'Trekking Adventure', 'Exciting trekking trails in the Himalayas')">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="activities">
+                    <img src="./img/8.jpg" alt="River Rafting">
+                    <div class="overlay">
+                        <h3>River Rafting</h3>
+                        <p>Rishikesh</p>
+                        <button class="view-btn" onclick="openModal('./img/8.jpg', 'River Rafting', 'Thrilling white water rafting experience')">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Under Construction Section -->
+    <section class="under-construction">
+        <div class="container">
+            <div class="construction-content">
+                <div class="construction-icon">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <h2>🚧 More Features Coming Soon!</h2>
+                <p>We're working hard to bring you even more amazing features:</p>
+                
+                <div class="upcoming-features">
+                    <div class="feature-item">
+                        <i class="fas fa-video"></i>
+                        <h3>Video Gallery</h3>
+                        <p>Immersive video experiences of destinations</p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <i class="fas fa-camera-retro"></i>
+                        <h3>360° Virtual Tours</h3>
+                        <p>Interactive virtual reality experiences</p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <i class="fas fa-users"></i>
+                        <h3>Guest Photo Submissions</h3>
+                        <p>Share your own travel photos with the community</p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <i class="fas fa-download"></i>
+                        <h3>Download Center</h3>
+                        <p>High-resolution wallpapers and travel guides</p>
+                    </div>
+                </div>
+
+                <div class="construction-cta">
+                    <h3>Stay Updated!</h3>
+                    <p>Subscribe to our newsletter to be the first to know when these features go live.</p>
+                    <button class="notify-btn" onclick="subscribeUpdates()">
+                        <i class="fas fa-bell"></i> Notify Me
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <img id="modalImage" src="" alt="">
+            <div class="modal-info">
+                <h3 id="modalTitle"></h3>
+                <p id="modalDescription"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- First Row: Rural Retreats, Quick Links, Customer Support -->
+            <div class="footer-row">            
+                <div class="footer-section about">
+                    <h3 class="footer-title">Rural Retreats</h3>
+                    <p>
+                      We offer budget-friendly tours, curated travel experiences, and
+                      luxury escapes worldwide.
+                    </p>
+                  </div>
+    
+                  <div class="footer-section links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                      <li><a href="index.html">Home</a></li>
+                      <li><a href="about.html">About Us</a></li>
+                      <li><a href="services.html">Services</a></li>
+                      <li><a href="homestays.html">Hotels & Homestays</a></li>
+                      <li><a href="gallery.html">Gallery</a></li>
+                      <li><a href="faq.html">FAQs</a></li>
+                      <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                  </div>
+    
+    
+                    <div class="footer-section contact">
+                        <h4>Customer Support</h4>
+                        <p>
+                        Email: <a href="#">support@ruralretreats.com</a>
+                        </p>
+                        <p>Phone: <a href="tel:+91629XXXXXXX">+91 629XX XXXXX</a></p>
+                        <p>
+                        Address: Q University Institute Of Technology, Burdwan-713104, West
+                        Bengal
+                        </p>
+                </div>      
+            </div>
+    
+            <!-- Second Row: Social Media, Language Selector, Newsletter -->
+            <div class="footer-row">
+                <div class="footer-section social-media">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="#" class="youtube" title="youtube"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#" class="instagram" title="instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="twitter" title="twitter"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" class="linkedin" title="linkedin"><i class="fa-brands fa-linkedin-in"></i></a>
+                      </div>
+                </div>
+    
+                <div class="footer-section language-selector">
+                    <h4>Language</h4>
+                    <label for="language-select">Choose Language:</label>
+                    <select id="language-select">
+                      <option>English</option>
+                      <option>Bengali</option>
+                      <option>Hindi</option>
+                      <option>French</option>
+                      <option>Spanish</option>
+                      <option>German</option>
+                    </select>
+                  </div>
+    
+                <div class="footer-section newsletter">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe for exclusive travel deals!</p>
+                    <div class="newsletter">
+                        <input type="email" placeholder="Enter your email" id="newsletter-email" required>
+                        <button type="submit" class="footer-newsletter-btn" onclick="subscribeNewsletter()"><b>Subscribe</b></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="footer-bottom">
+            <p>
+              &copy; 2025 Rural Retreats. All rights reserved. |
+              <a href="pp.html">Privacy Policy</a> | <a href="t&c.html">Terms & Conditions</a>
+            </p>
+          </div>
+    </footer> 
+
+<button id="backToTop" class="back-to-top-btn" title="Go to top">↑</button>
+
+</body>
+</html>
