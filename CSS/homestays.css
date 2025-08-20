@@ -3458,3 +3458,44 @@ select:focus {
   text-decoration: underline;
 }
 
+
+/* Skeleton Loader Styles */
+#skeleton-container {
+  display: none; /* Hidden by default */
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.skeleton-card {
+  width: 250px;
+  height: 320px;
+  border-radius: 12px;
+  background: #e0e0e0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shimmer effect */
+.skeleton-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150px;
+  height: 100%;
+  width: 150px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  100% {
+    left: 100%;
+  }
+}
+

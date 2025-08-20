@@ -617,3 +617,25 @@ window.addEventListener("scroll", function () {
     }
 });
 });
+
+
+// Your existing homestay.js code above
+// (functions to generate homestays, fetch data, etc.)
+
+// --- Skeleton loader logic ---
+document.addEventListener("DOMContentLoaded", () => {
+  const skeleton = document.getElementById("skeleton-container");
+  const homestays = document.getElementById("homestay-container");
+
+  if (skeleton && homestays) {
+    // Show skeleton first
+    skeleton.style.display = "flex";
+    homestays.style.display = "none";
+
+    // Simulate data fetch (you can replace with fetch)
+    setTimeout(() => {
+      skeleton.style.display = "none";   // Hide skeleton
+      homestays.style.display = "flex";  // Show real cards
+    }, 2000); // 2 sec loading
+  }
+});
