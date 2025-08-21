@@ -569,3 +569,11 @@ tabButtons.forEach((button) => {
   });
 });
 }  
+
+const banImgs = ["https://static.toiimg.com/photo/54327403/.jpg", "https://www.abhibus.com/blog/wp-content/uploads/2023/08/amer-Fort.jpg", "https://www.zicasso.com/static/eff6ba5351656b00a948987d10ac6e09/6d821/eff6ba5351656b00a948987d10ac6e09.jpg", "https://blog-content.ixigo.com/wp-content/uploads/2019/10/Krabi.jpeg", "https://www.fabhotels.com/blog/wp-content/uploads/2019/09/Places-to-visit-in-South-India_600.jpg:cf-webp:w-450:h-240"];
+
+const bannerBG = document.querySelector(".hero-banner");
+
+setInterval(() => {
+  bannerBG.style.backgroundImage = `url(${banImgs[Math.floor(Math.random() * banImgs.length)]})`;
+}, 2000);
