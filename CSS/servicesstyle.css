@@ -1323,15 +1323,56 @@ h1 {
   animation: fadeIn 0.5s ease;
 }
 
-/* Package Cards Styling */
+/* --- Holiday Package Carousel Restoration & Enhancement --- */
+
+/* Restore carousel buttons */
+.carousel-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.carousel-buttons button {
+  background: var(--secondary-color);
+  color: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-buttons button:hover {
+  background: var(--primary-color);
+  transform: scale(1.1);
+}
+
+/* Restore carousel wrapper for sliding effect (JS dependent) */
+.carousel-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-wrapper {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Enhanced Package Card Styling */
 .package-card {
+  flex: 0 0 100%; /* Each card takes full width of the container */
+  max-width: 100%;
   background-size: cover;
   background-position: center;
   border-radius: 15px;
   overflow: hidden;
   position: relative;
   height: 500px;
-  margin: 1rem;
+  margin: 0 1rem;
 }
 
 .package-content {
@@ -1341,7 +1382,7 @@ h1 {
   right: 0;
   background: rgba(255, 255, 255, 0.95);
   padding: 2rem;
-  transform: translateY(60%);
+  transform: translateY(65%);
   transition: var(--transition);
 }
 
@@ -1363,6 +1404,190 @@ h1 {
 .book-btn:hover {
   background: var(--primary-color);
   transform: scale(1.05);
+}
+
+/* --- Enhanced Call-to-Action Buttons --- */
+
+.workshop-btn,
+.experience-btn,
+.homestay-info .cta-container a {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: white;
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.workshop-btn:hover,
+.experience-btn:hover,
+.homestay-info .cta-container a:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(231, 76, 60, 0.5);
+}
+
+/* --- Enhanced Bus Booking Form --- */
+
+#bus-form, #passenger-form {
+  background: #fdfdff;
+  padding: 2.5rem;
+  border-radius: 15px;
+  margin-top: 2rem;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem 2rem;
+}
+
+#bus-form label, #passenger-form label {
+  font-weight: bold;
+  color: var(--primary-color);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+#bus-form input, #bus-form select,
+#passenger-form input, #passenger-form select {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+#bus-form input:hover, #bus-form select:hover,
+#passenger-form input:hover, #passenger-form select:hover {
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 8px rgba(52, 152, 219, 0.2);
+}
+
+#bus-form input:focus, #bus-form select:focus,
+#passenger-form input:focus, #passenger-form select:focus {
+  outline: none;
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
+}
+
+/* Full-width elements in the form */
+#bus-form .amenities-container,
+#bus-form #price,
+#bus-form button,
+#passenger-form button {
+  grid-column: 1 / -1;
+}
+
+#bus-form button, #passenger-form button {
+  padding: 1rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#submit-bus-form, #pay-now {
+  background: linear-gradient(135deg, var(--secondary-color), #2980b9);
+  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+}
+
+#submit-bus-form:hover, #pay-now:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(52, 152, 219, 0.6);
+}
+
+#back-to-bus-form {
+  background: #7f8c8d;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+#back-to-bus-form:hover {
+  background: #95a5a6;
+  transform: translateY(-3px);
+}
+
+.passenger-form-buttons {
+    grid-column: 1 / -1;
+    display: flex;
+    gap: 1rem;
+}
+
+.passenger-form-buttons button {
+    flex: 1;
+}
+
+/* --- Enhanced Homestays Booking Section --- */
+#homestays {
+  text-align: center;
+  background: linear-gradient(135deg, #f5f7fa, #eef2f7);
+  padding: 3rem 2rem;
+  border-radius: 20px;
+}
+
+.homestay-image img {
+  max-width: 150px;
+  margin-bottom: 1.5rem;
+  transition: transform 0.4s ease;
+}
+
+#homestays:hover .homestay-image img {
+  transform: scale(1.1);
+}
+
+.homestay-info h2 {
+  font-size: 2.2rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.homestay-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem auto;
+  max-width: 1000px;
+}
+
+.homestay-features .feature-item {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.homestay-features .feature-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.cta-container {
+  margin-top: 2rem;
+}
+
+.cta-container .btn-explore {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background: linear-gradient(135deg, var(--accent-color), #c0392b);
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+  transition: all 0.3s ease;
+}
+
+.cta-container .btn-explore:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(231, 76, 60, 0.6);
 }
 
 /* Workshop Section Styling */
