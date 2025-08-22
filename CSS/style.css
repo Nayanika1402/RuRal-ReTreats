@@ -6,6 +6,7 @@
   font-family: "Arial", sans-serif;
   scroll-behavior: smooth;
 }
+html { scroll-behavior: smooth; }
 html,
 body {
   margin: 0;
@@ -1796,7 +1797,7 @@ chatbot-body .author {
 .back-to-top-btn {
   position: fixed;
   bottom: 20px;
-  right: 20px;
+  left: 20px;
   background: linear-gradient(135deg, #09c4ee, #009dff);
   color: white;
   border: none;
@@ -2069,6 +2070,8 @@ chatbot-body .author {
     right: 10px;
     padding: 10px 16px;
     font-size: 14px;
+    /* height: 10px; */
+    width: 50px;
   }
 
   .chatbot-body {
@@ -3420,3 +3423,14 @@ body {
     font-size: 0.9em;
     padding: 8px;
   }
+
+  .back-to-top-btn {
+  display: block;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+.back-to-top-btn.show {
+  opacity: 1;
+  pointer-events: auto;
+}

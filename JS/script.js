@@ -85,12 +85,13 @@ function changeLanguage(lang) {
     console.error("Google Translate dropdown not found!");
   }
 }
-document
-  .getElementById("language-select")
-  .addEventListener("change", function () {
+const languageSelect = document.getElementById("language-select");
+if (languageSelect) {
+  languageSelect.addEventListener("change", function () {
     let selectedLang = this.value;
     setTimeout(() => changeLanguage(selectedLang), 500);
   });
+}
 function fixGoogleTranslateStyles() {
   document.querySelectorAll("*").forEach((element) => {
     element.style.fontSize = "";
@@ -135,17 +136,6 @@ document.addEventListener("DOMContentLoaded", function () {
   setInterval(() => {
     moveSlide(1);
   }, 4000);
-  const backToTopBtn = document.getElementById("backToTop");
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 300) {
-      backToTopBtn.classList.add("show");
-    } else {
-      backToTopBtn.classList.remove("show");
-    }
-  });
-  backToTopBtn.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
   const testimonials = document.querySelectorAll(".testimonial-item");
   let currentIndex = 0;
   function showTestimonial(index) {

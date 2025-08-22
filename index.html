@@ -90,6 +90,7 @@
     
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js" defer></script>
+  
     
     <!-- Structured Data - Organization -->
     <script type="application/ld+json">
@@ -152,7 +153,7 @@
       "name": "Rural Tourism & Homestay Booking",
       "provider": {
         "@type": "Organization",
-        "name": "Rural Retreats"
+        "name": "Rural Retreats"     
       },
       "description": "Authentic rural homestays, beachside cottages, holiday packages, and bus booking services for sustainable cultural tourism across India.",
       "serviceType": "Tourism Services",
@@ -208,11 +209,24 @@
       ]
     }
     </script>
+    
+    <script>
+            window.addEventListener('scroll', function() {
+                console.log('window.scrollY:', window.scrollY);
+            });
+        </script>
 </head>
 <body class="no-scroll">
+        <script>
+            // Log scrollY whenever the scroll position changes
+            window.addEventListener('scroll', function() {
+                console.log('window.scrollY:', window.scrollY);
+            });
+        </script>
     <!-- Skip to main content for accessibility -->
     <a href="#main-content" class="sr-only sr-only-focusable">Skip to main content</a>
-
+    <a href="#top"><button id="backToTop" class="back-to-top-btn show" title="Go to top" aria-label="Scroll to top of page">↑</button></a>
+    <div class="" id="top"></div>
     <div class="splash-screen" id="splash">
         <div class="sparkles"></div>
         <div class="logo">
@@ -856,7 +870,6 @@
         </div>
     </footer> 
 
-    <button id="backToTop" class="back-to-top-btn" title="Go to top" aria-label="Scroll to top of page">↑</button>
 
     <div id="chatButton" class="chatbot-button" role="button" tabindex="0" aria-label="Open chat support">
         <i class="fas fa-comment-dots" aria-hidden="true"></i>
@@ -893,6 +906,13 @@
     <script defer src="./JS/script.js"></script>
     <script defer src="./JS/splash.js"></script>
     <script defer src="./JS/navbar.js"></script>
+    <script>
+    window.addEventListener('load', function() {
+        console.log('window.scrollY on load:', window.scrollY);
+    });
+    </script>
 
+        <!-- Log scrollY whenever the scroll position changes (placed at end of body) -->
+        
 </body>
 </html>
