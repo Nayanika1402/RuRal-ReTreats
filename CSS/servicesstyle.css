@@ -1431,185 +1431,171 @@ h1 {
   box-shadow: 0 8px 25px rgba(231, 76, 60, 0.5);
 }
 
-/* --- Enhanced Bus Booking Form --- */
+/* --- Enhanced Bus Booking Section --- */
+#bus {
+  background: linear-gradient(to right, #e0eafc, #cfdef3); /* Light blue gradient background */
+}
 
-#bus-form, #passenger-form {
-  background: #fdfdff;
+#bus-info {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.bus-image {
+  flex: 1 1 200px;
+  text-align: center;
+}
+
+.bus-image img {
+  max-width: 150px;
+  transition: transform 0.3s ease;
+}
+
+#bus-info:hover .bus-image img {
+  transform: scale(1.1);
+}
+
+.bus-details {
+  flex: 2 1 400px;
+}
+
+/* --- Enhanced Workshops Section --- */
+#workshops {
+  position: relative;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("https://media-cdn.tripadvisor.com/media/attractions-splice-spp-674x446/0f/30/ef/cf.jpg");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 3rem;
+  border-radius: 15px;
+  text-align: center;
+}
+
+#workshops h2,
+#workshops h3 {
+  color: #fff;
+}
+
+#workshops p {
+  color: #f0f0f0;
+}
+
+.workshop-item {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.workshop-item:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-8px);
+}
+
+/* --- Enhanced Homestays Booking Section --- */
+#homestays {
+  position: relative;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/f2/db/60/caption.jpg?w=1400&h=800&s=1");
+  background-size: cover;
+  background-position: center;
+  padding: 3rem;
+  border-radius: 15px;
+  color: white;
+}
+
+#homestays h2 {
+  color: white;
+}
+
+.homestay-features .feature-item {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.homestay-features .feature-item:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* --- Enhanced Bus Booking Form --- */
+#bus-form,
+#passenger-form {
+  background: #ffffff;
   padding: 2.5rem;
   border-radius: 15px;
   margin-top: 2rem;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem 2rem;
 }
 
-#bus-form label, #passenger-form label {
+#bus-form label,
+#passenger-form label {
   font-weight: bold;
   color: var(--primary-color);
   display: block;
   margin-bottom: 0.5rem;
 }
 
-#bus-form input, #bus-form select,
-#passenger-form input, #passenger-form select {
+#bus-form input,
+#bus-form select,
+#passenger-form input,
+#passenger-form select {
   width: 100%;
-  padding: 0.8rem 1rem;
-  border: 1px solid #ccc;
+  padding: 0.9rem 1rem;
+  border: 1px solid #ddd;
   border-radius: 8px;
   font-size: 1rem;
   transition: all 0.3s ease;
 }
 
-#bus-form input:hover, #bus-form select:hover,
-#passenger-form input:hover, #passenger-form select:hover {
+#bus-form input:hover,
+#bus-form select:hover,
+#passenger-form input:hover,
+#passenger-form select:hover {
   border-color: var(--secondary-color);
-  box-shadow: 0 0 8px rgba(52, 152, 219, 0.2);
+  box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.1);
 }
 
-#bus-form input:focus, #bus-form select:focus,
-#passenger-form input:focus, #passenger-form select:focus {
+#bus-form input:focus,
+#bus-form select:focus,
+#passenger-form input:focus,
+#passenger-form select:focus {
   outline: none;
   border-color: var(--secondary-color);
-  box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
+  box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.2);
 }
 
-/* Full-width elements in the form */
-#bus-form .amenities-container,
-#bus-form #price,
-#bus-form button,
-#passenger-form button {
+/* Amenities Styling */
+.amenities-container {
   grid-column: 1 / -1;
-}
-
-#bus-form button, #passenger-form button {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  background-color: #f9faff;
   padding: 1rem;
-  font-size: 1.1rem;
-  font-weight: bold;
-  color: white;
-  border: none;
   border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
 }
 
-#submit-bus-form, #pay-now {
-  background: linear-gradient(135deg, var(--secondary-color), #2980b9);
-  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
-}
-
-#submit-bus-form:hover, #pay-now:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(52, 152, 219, 0.6);
-}
-
-#back-to-bus-form {
-  background: #7f8c8d;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-}
-
-#back-to-bus-form:hover {
-  background: #95a5a6;
-  transform: translateY(-3px);
-}
-
-.passenger-form-buttons {
-    grid-column: 1 / -1;
-    display: flex;
-    gap: 1rem;
-}
-
-.passenger-form-buttons button {
-    flex: 1;
-}
-
-/* --- Enhanced Homestays Booking Section --- */
-#homestays {
-  text-align: center;
-  background: linear-gradient(135deg, #f5f7fa, #eef2f7);
-  padding: 3rem 2rem;
-  border-radius: 20px;
-}
-
-.homestay-image img {
-  max-width: 150px;
-  margin-bottom: 1.5rem;
-  transition: transform 0.4s ease;
-}
-
-#homestays:hover .homestay-image img {
-  transform: scale(1.1);
-}
-
-.homestay-info h2 {
-  font-size: 2.2rem;
-  color: var(--primary-color);
-  margin-bottom: 1rem;
-}
-
-.homestay-features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  margin: 2rem auto;
-  max-width: 1000px;
-}
-
-.homestay-features .feature-item {
+.amenities-container li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background: #fff;
-  padding: 1.5rem;
-  border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: 1px solid #eee;
 }
 
-.homestay-features .feature-item:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-}
-
-.cta-container {
-  margin-top: 2rem;
-}
-
-.cta-container .btn-explore {
-  display: inline-block;
-  padding: 1rem 2.5rem;
-  background: linear-gradient(135deg, var(--accent-color), #c0392b);
-  color: white;
-  text-decoration: none;
-  border-radius: 50px;
-  font-weight: bold;
-  font-size: 1.1rem;
-  box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
-  transition: all 0.3s ease;
-}
-
-.cta-container .btn-explore:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(231, 76, 60, 0.6);
-}
-
-/* Workshop Section Styling */
-.workshop-details {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-.workshop-item {
-  background: white;
-  padding: 2rem;
-  border-radius: 15px;
-  box-shadow: var(--shadow);
-  transition: var(--transition);
-  text-align: center;
-}
-
-.workshop-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+.amenities-container input[type="checkbox"] {
+  width: auto;
+  margin-right: 10px;
 }
 
 /* Experience Section Styling */
