@@ -1850,3 +1850,116 @@ h1 {
   box-shadow: 0 6px 20px rgba(33, 150, 243, 0.2);
 }
 
+/* Local Experience Pop Cards Styling */
+#experiences {
+  padding: 2rem;
+}
+
+#experiences {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)),
+    url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/04/b0/07/e9/getlstd-property-photo.jpg?w=1400&h=800&s=1');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: white;
+  padding: 3rem 2rem;
+  border-radius: 15px;
+}
+#experiences h2,
+#experiences i {
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+.experience-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.experience-header img {
+  background: white;
+  padding: 1rem;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+.experience-highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.highlight {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.highlight:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 25px rgba(52, 152, 219, 0.2);
+  background: linear-gradient(145deg, #ffffff, #f0f4f8);
+}
+
+.highlight img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.highlight:hover img {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.highlight h3 {
+  color: #2c3e50;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.highlight p {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.experience-btn {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+}
+
+.experience-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+  background: linear-gradient(135deg, #2980b9, #2c3e50);
+}
+
+/* Modified Homestay Image Size */
+.homestay-image img {
+  width: 300px;  /* Reduced from 80px */
+  height: 300px; /* Reduced from 80px */
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+  object-fit: cover;
+  border-radius: 50%;
+  padding: 5px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+}
+
+.homestay-image img:hover {
+  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.2);
+}
+
