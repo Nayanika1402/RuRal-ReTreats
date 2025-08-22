@@ -3083,3 +3083,111 @@ form button:hover {
   text-decoration: underline;
 }
 
+.homestay-card{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  width: 90%; 
+  margin:20px auto;
+  background: linear-gradient(135deg, #0073e6, #00b894);
+  border-radius: 50px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2); 
+  color: white;
+  padding: 40px 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.homestay-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.3);
+}
+
+.homestay-image img{
+  width: 320px;
+  height: 320px;
+}
+
+.homestay-image img:hover {
+  transform: scale(1.1);
+}
+
+.homestay-info h2 {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+  font-family: "Poppins", sans-serif;
+}
+.homestay-info p {
+  font-size: 1.15rem;
+  color: #f1f1f1;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto 20px;
+  font-weight: 500;
+  font-family: "Roboto", sans-serif;
+}
+
+.feature-item {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 12px 18px;
+  border-radius: 15px;
+  color: #fff;
+  font-weight: 500;
+  margin: 10px auto;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.05);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+}
+
+
+.cta-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+.btn-book, .btn-explore {
+  padding: 12px 22px;
+  border-radius: 10px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  font-family: "Montserrat", sans-serif;
+  display: inline-block;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.btn-book {
+  background: linear-gradient(135deg, #28a745, #20c997); 
+  color: #fff;
+}
+
+.btn-book:hover {
+  background: linear-gradient(135deg, #1e7e34, #138f73);
+  transform: scale(1.07);
+}
+
+
+.btn-explore {
+  background: linear-gradient(135deg, #ff7b00, #ff3d00); /* orange shades */
+  color: #fff;
+}
+
+.btn-explore:hover {
+  background: linear-gradient(135deg, #cc3300, #b22222);
+  transform: scale(1.07);
+}
