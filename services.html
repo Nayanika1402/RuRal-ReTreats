@@ -6,7 +6,245 @@
     <meta name="description" content="Explore Rural Retreats' services: guided tours, cultural workshops, and immersive local experiences across rural India.">
     <!-- Open Graph -->
     <meta property="og:title" content="Travel Services | Rural Retreats - Guided Tours & Cultural Workshops">
-    <meta property="og:image" content="https://www.ruralretreats.com/img/social-services.jpg">
+    <meta property="og:image" content="https://www.ruralretreats.com/img/social-services.jpg">   
+    
+    <style>
+        /*
+        Paste the entire CSS code here.
+        */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@700&display=swap');
+
+        :root {
+            --primary-color: #6a11cb;
+            --secondary-color: #2575fc;
+            --bg-color-light: #f0f2f5;
+            --card-bg-dark: #1e1e2f;
+            --text-light: #ffffff;
+            --text-dark: #333333;
+            --accent-color: #ffd700;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .travel-section {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8em;
+            color: var(--primary-color);
+            margin: 0;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h1::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            font-size: 1.1em;
+            color: #666;
+            margin-top: 15px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .package-carousel {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-container {
+            display: flex;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            gap: 30px;
+            padding: 20px 0;
+        }
+
+        .package-card {
+            min-width: 320px;
+            width: 350px;
+            height: 500px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .package-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .package-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.1));
+            color: var(--text-light);
+            padding: 30px 25px 20px;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            backdrop-filter: blur(5px);
+        }
+
+        .package-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8em;
+            margin-top: 0;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .package-content p {
+            margin: 5px 0;
+            font-size: 0.9em;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .package-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0;
+        }
+
+        .package-content li {
+            font-size: 0.9em;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .package-content li .check-icon {
+            margin-right: 8px;
+            color: var(--accent-color);
+        }
+
+        .price {
+            font-size: 1.2em;
+            font-weight: 600;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            color: var(--accent-color);
+        }
+
+        .price strong {
+            font-size: 1.5em;
+            margin-left: 5px;
+            color: var(--text-light);
+        }
+
+        .book-btn {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: var(--text-light);
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .book-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .carousel-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            gap: 20px;
+        }
+
+        .carousel-buttons button {
+            background: var(--text-light);
+            color: var(--primary-color);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5em;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .carousel-buttons button:hover {
+            background: var(--primary-color);
+            color: var(--text-light);
+            transform: scale(1.1);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .package-card {
+                width: 90%;
+                min-width: 90%;
+                height: 450px;
+                margin: auto;
+            }
+
+            .carousel-container {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                justify-content: flex-start;
+                padding-bottom: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-header h1 {
+                font-size: 2em;
+            }
+
+            .package-content h2 {
+                font-size: 1.5em;
+            }
+
+            .book-btn {
+                padding: 10px 20px;
+            }
+        }
+    </style> 
 </head>
     <title>Our Services - Rural Retreats</title>
     <link rel="apple-touch-icon" sizes="57x57" href="./favicon/favicon-57x57.png" type="image/png" />
