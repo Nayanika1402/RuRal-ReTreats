@@ -83,6 +83,7 @@
     <link rel="stylesheet" href="./CSS/splash.css">
     <link rel="stylesheet" href="./CSS/navbar.css">
     <link rel="stylesheet" href="./CSS/homestays.css">
+    <link rel="stylesheet" href="../CSS/styles.css">
     
     <!-- Preload Critical Resources -->
     <link rel="preload" href="./CSS/style.css" as="style">
@@ -276,6 +277,11 @@
                     </div>
                     <div class="auth-buttons">
                         <button class="login-btn" onclick="window.location.href='login.html'" aria-label="Log in to your account">Log In</button>
+                    </div>
+                    <div>
+                        <button id="theme-toggle" class="theme-toggle">
+                            <span class="theme-icon">🌙</span>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -893,6 +899,6 @@
     <script defer src="./JS/script.js"></script>
     <script defer src="./JS/splash.js"></script>
     <script defer src="./JS/navbar.js"></script>
-
+    <script src="./JS/theme.js"></script>
 </body>
 </html>

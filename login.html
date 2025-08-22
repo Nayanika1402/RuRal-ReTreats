@@ -24,13 +24,19 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./CSS/login.css">
     <link rel="stylesheet" href="./CSS/navbar.css">
+    <link rel="stylesheet" href="../CSS/styles.css">
 </head>
 <body>
     
     <div class="container">
         <div class="form-box login">
             <form action="">
+                <div>
                 <h1>Login</h1>
+                <button id="theme-toggle" class="theme-toggle">
+                    <span class="theme-icon">🌙</span>
+                </button>
+                </div>
                 <div class="input-box">
                     <input type="text" placeholder="Username" required>
                     <i class="fa-solid fa-user"></i>
@@ -104,5 +110,6 @@
 
 
     <script src="./JS/login.js"></script>
+    <script src="./JS/theme.js"></script>
 </body>
 </html>

@@ -1,0 +1,175 @@
+:root {
+    /* Light theme variables */
+    --bg-color: #f8f9fa;
+    --text-color: #2d3748;
+    --text-light: #4a5568;
+    --primary-color: #4a6fa5;
+    --secondary-color: #6e9887;
+    --accent-color: #e76f51;
+    --card-bg: #ffffff;
+    --border-color: #e2e8f0;
+    --nav-bg: #ffffff;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+    --input-bg: #ffffff;
+    --footer-bg: #eaeaea;
+    --overlay: rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] {
+    /* Dark theme variables - ensuring good contrast */
+    --bg-color: #1a202c;
+    --text-color: #e2e8f0;
+    --text-light: #a0aec0;
+    --primary-color: #6b8cbe;
+    --secondary-color: #8fbc8f;
+    --accent-color: #f4a261;
+    --card-bg: #2d3748;
+    --border-color: #4a5568;
+    --nav-bg: #2d3748;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    --input-bg: #2d3748;
+    --footer-bg: #2d3748;
+    --overlay: rgba(0, 0, 0, 0.7);
+}
+
+/* Add these global styles to ensure all elements use theme variables */
+* {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* Text elements */
+h1, h2, h3, h4, h5, h6,
+p, span, li, td, th,
+label, figcaption, blockquote {
+    color: var(--text-color);
+}
+
+.nav-menu a {
+  color: var(--text-color);
+}
+
+
+/* Cards and containers */
+.card, .container, .panel, .box,
+.section, .article, .modal-content {
+    background-color: var(--card-bg);
+    border-color: var(--border-color);
+}
+
+#contact-section {
+    background-color: var(--card-bg);
+    border-color: var(--border-color);
+}
+
+#contact-section h1 {
+    color: var(--text-color);
+}
+
+.contact-info *,
+.contact-form * {
+  background-color: unset;
+  border-color: unset;
+  color: unset;
+}
+
+#listings *{
+  background-color: var(--card-bg);
+  border-color: var(--border-color);
+  color: var(--text-color);
+}
+
+
+
+/* Navigation */
+.navbar, header, nav,
+.menu, .dropdown  {
+    background-color: var(--nav-bg);
+    border-color: var(--border-color);
+    color: var(--text-color);
+}
+
+html[data-theme="dark"] .navbar {
+  background-color: var(--nav-bg);
+}
+
+
+/* Forms */
+input, textarea, select,
+button, .form-control {
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    border-color: var(--border-color);
+}
+
+/* Footer */
+footer, .footer {
+    background-color: var(--footer-bg);
+    color: var(--text-color);
+}
+
+/* Overlays */
+.overlay, .backdrop,
+.modal-backdrop, .splash-screen {
+    background-color: var(--overlay);
+}
+
+/* Code and pre elements */
+code, pre, kbd, samp {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border-color: var(--border-color);
+}
+
+/* Tables */
+table, th, td {
+    border-color: var(--border-color);
+}
+
+thead, tfoot {
+    background-color: var(--card-bg);
+}
+
+/* Links */
+a {
+    color: var(--primary-color);
+}
+
+a:hover, a:focus {
+    color: var(--accent-color);
+}
+
+/* Buttons */
+.btn, .button {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn:hover, .button:hover {
+    background-color: var(--accent-color);
+}
+
+/* Your existing button styles */
+.theme-toggle {
+    background: linear-gradient(135deg, #09c4ee, #009dff);
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 10px rgba(0, 153, 255, 0.5);
+}
+
+.theme-toggle:hover {
+    background: linear-gradient(135deg, #0698b8, #035d95);
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(1, 77, 128, 0.882);
+}

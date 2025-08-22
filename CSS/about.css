@@ -1,7 +1,6 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box !important;
   text-decoration: none;
   font-family: "Arial", sans-serif;
   scroll-behavior: smooth;
@@ -15,31 +14,29 @@ body {
   height: 100% !important;
   overflow-x: hidden !important;
     font-family: 'Arial', sans-serif; 
-    line-height: 1.6; 
-    color: #0d0c0c; 
+    line-height: 1.6;  
+}
+
   .carousel {
   display: flex;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   
 }
-}
 
-#about-us {
-  background-color: #f9f9f9; 
+
+#about-us { 
   padding: 40px 20px; 
   border-radius: 10px; 
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 .nav-menu {
-  list-style: none;
   display: flex;
   gap: 20px;
   position: relative;
 }
 .nav-menu a {
   text-decoration: none;
-  color: black;
   font-size: 16px;
   font-weight: bold;
   padding: 10px 15px;
@@ -56,7 +53,6 @@ body {
   height: 3px;
   bottom: 0;
   left: 0;
-  background: linear-gradient(90deg, #0073e6, #00b894);
   transform: scaleX(0);
   transform-origin: right;
   transition: transform 0.3s ease-in-out;
@@ -66,14 +62,12 @@ body {
   transform-origin: left;
 }
 .nav-menu a:hover {
-  color: #0073e6;
   text-shadow: 0px 0px 10px rgba(0, 115, 230, 0.3);
   transform: scale(1.05);
 }
 .dropdown-menu {
   display: none;
   position: absolute;
-  background: white;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   top: 100%;
   left: 65px;
@@ -99,7 +93,6 @@ body {
   transition: background 0.3s, color 0.3s ease-in-out;
 }
 .dropdown-menu a:hover {
-  background: #f1f1f1;
   color: #0073e6;
 }
 @keyframes slideIn {
@@ -115,13 +108,10 @@ body {
 .hamicon {
   display: block;
   font-size: 24px;
-  background: none;
   border: none;
   cursor: pointer;
 }
 .navbar {
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   padding: 15px 20px;
   position: sticky;
   top: 0;
@@ -131,10 +121,7 @@ body {
   backdrop-filter: blur(10px);
   z-index: 1000;
 }
-.navbar.sticky {
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-}
+
 .nav-container {
   display: flex;
   align-items: center;
@@ -182,7 +169,6 @@ body {
   content: "";
   width: 100%;
   height: 3px;
-  background: #0073e6;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -260,7 +246,6 @@ body {
   left: -100%;
   width: 250px;
   height: 100vh;
-  background: rgba(255, 255, 255, 0.95);
   box-shadow: 4px 0 10px rgba(0, 0, 0, 0.2);
   transition: left 0.4s ease-in-out;
   padding-top: 20px;
@@ -301,7 +286,6 @@ body {
 .mobile-search-bar {
   display: flex;
   align-items: center;
-  background: #f1f1f1;
   padding: 6px 12px;
   border-radius: 5px;
   margin: 40px auto;
@@ -412,7 +396,6 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
   top: 0;
   left: 0;
   z-index: 1;
@@ -420,7 +403,6 @@ body {
 
 .hero-content {
   position: relative;
-  color: white;
   z-index: 2;
   max-width: 800px;
   padding: 20px;
@@ -630,7 +612,6 @@ h2 {
 
 .brand-content h2 {
   font-size: 2.5rem;
-  color: #003366;
   margin-bottom: 10px;
 }
 
@@ -651,7 +632,6 @@ a:hover {
 
 .brand-content p {
   font-size: 1.2rem;
-  color: #444;
   line-height: 1.6;
   margin-bottom: 15px;
 }
@@ -767,12 +747,10 @@ a:hover {
 .mission-vision-section {
   text-align: center;
   padding: 80px 5%;
-  background: #f9f9f9;
 }
 
 .section-title {
   font-size: 2.5rem;
-  color: #003366;
   margin-bottom: 30px;
   font-weight: bold;
 }
@@ -787,7 +765,6 @@ a:hover {
 }
 
 .card {
-  background: white;
   padding: 30px;
   border-radius: 12px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
@@ -805,13 +782,11 @@ a:hover {
 
 .card h3 {
   font-size: 1.8rem;
-  color: #003366;
   margin-bottom: 10px;
 }
 
 .card p {
   font-size: 1.1rem;
-  color: #555;
   line-height: 1.6;
 }
 
@@ -823,7 +798,6 @@ a:hover {
 
 .card li {
   font-size: 1.1rem;
-  color: #444;
   margin: 5px 0;
   position: relative;
   padding-left: 20px;
@@ -831,7 +805,6 @@ a:hover {
 
 .card li::before {
   content: "✔";
-  color: #0073e6;
   position: absolute;
   left: 0;
 }
@@ -894,19 +867,17 @@ a:hover {
 .impact-section {
   text-align: center;
   padding: 80px 5%;
-  background: #f9f9f9;
 }
 
 .impact-section h2 {
   font-size: 2.5rem;
-  color: #003366;
+
   margin-bottom: 15px;
   font-weight: bold;
 }
 
 .impact-intro {
   font-size: 1.2rem;
-  color: #555;
   margin-bottom: 30px;
 }
 
@@ -920,7 +891,6 @@ a:hover {
 }
 
 .impact-card {
-  background: white;
   padding: 30px;
   border-radius: 12px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
@@ -939,13 +909,11 @@ a:hover {
 
 .impact-card h3 {
   font-size: 1.8rem;
-  color: #003366;
   margin-bottom: 10px;
 }
 
 .impact-card p {
   font-size: 1.1rem;
-  color: #555;
   line-height: 1.6;
 }
 
@@ -963,7 +931,6 @@ a:hover {
 }
 
 .stat-item {
-  background: #ffffff;
   color: #0073e6;
   padding: 20px;
   border-radius: 10px;
@@ -974,7 +941,6 @@ a:hover {
 }
 
 .stat-item:hover {
-  background: #ffffff;
   color: #ff8000;
   transform: scale(1.1);
 }
@@ -1080,12 +1046,10 @@ a:hover {
 .gallery-section {
   text-align: center;
   padding: 80px 5%;
-  background: #f9f9f9;
 }
 
 .gallery-section h2 {
   font-size: 2.8rem;
-  color: #003366;
   margin-bottom: 15px;
   font-weight: bold;
   text-transform: uppercase;
@@ -1093,7 +1057,6 @@ a:hover {
 
 .gallery-intro {
   font-size: 1.2rem;
-  color: #555;
   margin-bottom: 40px;
   max-width: 700px;
   margin-left: auto;

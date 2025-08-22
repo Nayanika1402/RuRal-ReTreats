@@ -25,6 +25,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="./CSS/t&c.css">
     <link rel="stylesheet" href="./CSS/navbar.css">
+    <link rel="stylesheet" href="../CSS/styles.css">
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script><script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 </head>
 <body>
@@ -66,6 +67,11 @@
                 </div>
                 <div class="auth-buttons">
                     <button class="login-btn" onclick="window.location.href='login.html'">Log In</button>
+                </div>
+                <div>
+                    <button id="theme-toggle" class="theme-toggle">
+                        <span class="theme-icon">🌙</span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -235,6 +241,6 @@
 </div>
 
     <script src="./JS/t&c.js" defer></script>
-
+    <script src="./JS/theme.js"></script>
 </body>
 </html>
