@@ -141,6 +141,14 @@ form{
     margin: 0 8px;
 }
 
+.social-icons a:hover {
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3); /* Added shadow spread and opacity */
+    cursor: pointer;
+    transform: scale(1.1) translateY(-3px); /* Slight scale-up and lift effect */
+    transition: all 0.3s ease; /* Smooth transition for all properties */
+    filter: brightness(1.1); /* Subtle brightness increase */
+}
+
 .toggle-box{
     position: absolute;
     width: 100%;
