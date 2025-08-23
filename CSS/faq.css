@@ -1586,27 +1586,50 @@ body {
 
 
 
+/* ===== Footer Base ===== */
+
 .footer {
-  min-height: 0vh; /* Ensure the footer takes the full viewport height */
+  min-height: 0vh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; /* Align content to the bottom */
-  background: linear-gradient(135deg, #0077b6, #1e3a5f);
+  justify-content: flex-end;
+  background: linear-gradient(135deg, #000428, #004e92, #00f7ff);
   color: white;
   font-family: "Raleway", sans-serif;
   padding: 40px 60px;
   width: 100%;
   box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Footer container centered with max-width */
+
+.footer::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0, 247, 255, 0.15), transparent 70%);
+  animation: glowMove 8s linear infinite;
+}
+
+@keyframes glowMove {
+  0% { transform: rotate(0deg) translate(0, 0); }
+  100% { transform: rotate(360deg) translate(0, 0); }
+}
+
+
 .footer-container {
   max-width: 1200px;
   width: 100%;
   margin: auto;
+  position: relative;
+  z-index: 2;
 }
 
-/* Footer Row */
+
 .footer-row {
   display: flex;
   flex-wrap: wrap;
@@ -1614,11 +1637,16 @@ body {
   gap: 20px;
 }
 
-/* Footer Section */
+
 .footer-section {
   flex: 1;
   min-width: 250px;
   margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.footer-section:hover {
+  transform: translateY(-5px);
 }
 
 .footer-title {
@@ -1626,16 +1654,24 @@ body {
   font-weight: 600;
 }
 
-.footer-section h3:hover {
-  transform: scale(1.1);
-}
 
 .footer-section h4 {
   color: #ffffff;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   font-size: 22px;
   text-transform: uppercase;
   font-weight: 700;
+  position: relative;
+}
+
+.footer-section h4::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: #00f7ff;
+  margin-top: 6px;
+  border-radius: 2px;
 }
 
 .footer-section p {
@@ -1643,6 +1679,7 @@ body {
   font-size: 14px;
   line-height: 1.6;
 }
+
 
 .footer-section ul {
   list-style: none;
@@ -1656,14 +1693,16 @@ body {
 .footer-section a {
   color: #ccc;
   text-decoration: none;
-  transition: color 0.3s;
+  transition: all 0.3s ease;
 }
 
-.footer-section a:hover {
+.footer-section ul li a:hover {
+  color: #00f7ff;
+  transform: translateX(6px);
   text-decoration: underline;
 }
 
-/* Social Media & Newsletter */
+
 .social-media .social-icons {
   display: flex;
   gap: 10px;
@@ -1673,119 +1712,81 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 40px;
-  height: 40px;
-  font-size: 24px;
+  width: 42px;
+  height: 42px;
+  font-size: 22px;
   text-decoration: none;
   color: white;
-  border-radius: 5px;
+  border-radius: 50%;
+  border: 1px solid white;
   transition: all 0.3s ease-in-out;
-  border: 1px solid;
 }
 
 .social-media .social-icons a:hover {
-  background: #00b894;
+  background: #00f7ff;
   color: #132441;
+  transform: scale(1.1) rotate(8deg);
 }
 
-/* Newsletter */
+
 .newsletter p {
   color: #ccc;
 }
 
 .newsletter input {
   width: 70%;
-  padding: 8px;
+  padding: 10px;
   border: 1px solid white;
   border-radius: 4px;
   margin-right: 5px;
   margin-bottom: 5px;
+  background: transparent;
+  color: white;
+}
+
+.newsletter input::placeholder {
+  color: #bbb;
 }
 
 .newsletter input:hover {
-  border-color: #00b894;
+  border-color: #00f7ff;
 }
 
 .footer-newsletter-btn {
-  padding: 8px 15px;
-  background-color: #00b894;
+  padding: 10px 18px;
+  background-color: #00f7ff;
   border: none;
   border-radius: 4px;
   color: #132441;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  font-weight: bold;
+  transition: all 0.3s ease;
 }
 
 .footer-newsletter-btn:hover {
   background-color: #008e72;
+  transform: scale(1.05);
 }
 
 
-.newsletter input:hover {
-  border-color: #00b894;
-}
-
-.footer-newsletter-btn {
-  padding: 8px 15px;
-  background-color: #00b894;
-  border: none;
-  border-radius: 4px;
-  color: #132441;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.footer-newsletter-btn:hover {
-  background-color: #008e72;
-}
-
-/* Footer Bottom */
 .footer-bottom {
   text-align: center;
   margin-top: 20px;
   padding-top: 15px;
   border-top: 1px solid white;
+  background: rgba(0, 0, 0, 0.2);
   position: relative;
-  margin-bottom: 0;
-  margin-top: auto;
+  z-index: 2;
 }
 
-/* Footer Bottom Links */
-.footer-bottom a {
-  color: #00b894;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.footer-bottom a:hover {
-  text-decoration: underline;
-}
-
-#language-select {
-  width: 100%;
-  padding: 8px;
-  border: 2px solid #0056b3;
-  border-radius: 5px;
-  margin-top: 10px;
-  cursor: pointer;
-}
-
-.footer-bottom {
-  border-top: 2px solid #0056b3;
-  padding: 15px;
-  margin-top: 20px;
-  background: #f4f4f4;
-}
-
-.footer-bottom p{
-    color: #0056b3;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
+.footer-bottom p {
+  color: #ffffff;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 .footer-bottom a {
-  color: #0056b3;
+  color: #00f7ff;
   text-decoration: none;
   font-weight: bold;
   transition: color 0.3s ease;
@@ -1793,39 +1794,32 @@ body {
 
 .footer-bottom a:hover {
   text-decoration: underline;
+  color: #fff;
 }
+
 
 #language-select {
   width: 100%;
   padding: 8px;
-  border: 2px solid #0056b3;
+  border: 2px solid #00f7ff;
   border-radius: 5px;
   margin-top: 10px;
   cursor: pointer;
+  background: transparent;
+  color: rgb(19, 7, 7);
 }
 
-.footer-bottom a {
-  color: #1a78d5;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s ease;
+/* Responsive */
+@media (max-width: 768px) {
+  .footer {
+    padding: 30px 20px;
+  }
+  .footer-row {
+    flex-direction: column;
+    text-align: center;
+  }
+  .newsletter input {
+    width: 100%;
+    margin-bottom: 10px;
+  }
 }
-
-.footer-bottom a:hover {
-  text-decoration: underline;
-  color: rgb(48, 10, 237);
-}
-
-.footer-section ul li a:hover {
-  color: #00b894;
-  transform: translateX(5px);
-  text-decoration: underline;
-}
-
-
-.footer-section ul li a:hover {
-  color: #00b894;
-  transform: translateX(5px);
-  text-decoration: underline;
-}
-
