@@ -2,118 +2,132 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Homestays - RuRal ReTreats</title>
-  <link rel="stylesheet" href="CSS/homestays.css" />
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Explore our premium homestays with seamless navigation, interactive filters, and a user-friendly design." />
+  <title>Homestay Listings - Rural Retreats</title>
+  <link rel="apple-touch-icon" sizes="57x57" href="./favicon/favicon-57x57.png" type="image/png" />
+  <link rel="apple-touch-icon" sizes="60x60" href="./favicon/favicon-60x60.png" type="image/png" />
+  <link rel="apple-touch-icon" sizes="72x72" href="./favicon/favicon-72x72.png" type="image/png" />
+  <link rel="apple-touch-icon" sizes="114x114" href="./favicon/favicon-114x114.png" type="image/png" />
+  <link rel="apple-touch-icon" sizes="120x120" href="./favicon/favicon-120x120.png" type="image/png" />
+  <link rel="apple-touch-icon" sizes="144x144" href="./favicon/favicon-144x144.png" type="image/png" />
+  <link rel="apple-touch-icon" sizes="152x152" href="./favicon/favicon-152x152.png" type="image/png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./favicon/favicon-180x180.png" type="image/png" />
+  <link rel="icon" sizes="16x16" href="./favicon/favicon_16x16.png" type="image/png" />
+  <link rel="icon" sizes="32x32" href="./favicon/favicon-32x32.png" type="image/png" />
+  <link rel="icon" sizes="96x96" href="./favicon/favicon-96x96.png" type="image/png" />
+  <link rel="icon" sizes="192x192" href="./favicon/favicon-192x192.png" type="image/png" />
+  <link rel="icon" sizes="512x512" href="./favicon/favicon-512x512.png" type="image/png" />
+  <link rel="manifest" href="./favicon/manifest.json" />
+  <meta name="theme-color" content="#FFFFFF" />
+  <meta name="msapplication-TileColor" content="#FFFFFF" />
+  <meta name="msapplication-TileImage" content="./favicon/favicon-512x512.png" />
+  <link rel="stylesheet" href="./CSS/homestays.css" />
+  <link rel="stylesheet" href="./CSS/navbar.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script defer src="./JS/homestays.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key"></script>
 </head>
 <body>
   <header>
-    <h1>🏡 Explore Our Homestays</h1>
+    <nav class="navbar">
+      <div class="nav-container">
+        <button class="hamicon" id="menu-toggle" title="menu-toggle">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="logo">
+          <a href="index.html">Rural Retreats</a>
+        </div>
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown">
+            <a href="services.html">Services <i class="fas fa-chevron-down"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="services.html#tours">Holiday Packages</a></li>
+              <li><a href="services.html#bus">Bus Booking</a></li>
+              <li><a href="services.html#homestays">Homestays Booking</a></li>
+            </ul>
+          </li>
+          <li><a href="homestays.html">HomeStays</a></li>
+          <li><a href="faq.html">FAQs</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+        <div class="right-section">
+          <div class="search-bar">
+            <input type="text" placeholder="Search..." id="search-input" />
+            <button title="search"><i class="fas fa-search"></i></button>
+          </div>
+          <div class="auth-buttons">
+            <button class="login-btn" onclick="window.location.href='login.html'">Log In</button>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="mobile-menu" id="mobile-menu">
+      <button class="close-btn" id="menu-close">✖</button>
+      <div class="mobile-search-bar">
+        <input type="text" placeholder="Search..." id="mobile-search-input" />
+        <button title="search"><i class="fas fa-search"></i></button>
+      </div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="homestays.html">HomeStays</a></li>
+        <li><a href="faq.html">FAQs</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </div>
   </header>
 
-  <main class="homestays-container">
-
-    <!-- Homestay 1 -->
-    <div class="homestay-card" data-homestay-id="homestay-1">
-      <div class="image-wrapper">
-        <img src="https://www.seawatersports.com/images/places/hem-raj-kulwal-haveli.png" alt="Traditional Haveli in Rajasthan"/>
-        <span class="rating-badge">⭐ 4.8</span>
+  <!-- Main Homestay Section -->
+  <section id="hero" class="hero-section">
+    <div class="parallax-bg"></div>
+    <div class="hero-overlay">
+      <div class="hero-content">
+        <h1>Escape to the Heart of Rural India</h1>
+        <p>Experience the Authentic Charm of Rural Life in Our Handpicked Homestays.</p>
+        <div class="cta-buttons">
+          <a href="#listings" class="btn-cta">Explore Homestays</a>
+          <a href="#booking" class="btn-secondary">Book Now</a>
+        </div>
       </div>
-      <div class="card-content">
+    </div>
+  </section>
+
+  <!-- Homestays listings would come here -->
+  <section id="listings" class="homestay-listings">
+    <h2>🏡 Explore Our Homestays</h2>
+    <p>Find your perfect getaway from our carefully curated homestays, offering comfort, culture, and convenience.</p>
+    <div class="card-container">
+      <!-- Homestay Cards (original repo had only static few cards) -->
+      <div class="homestay-card">
+        <img src="images/homestay1.jpg" alt="Homestay 1" />
+        <h3>Cozy Cottage in Kerala</h3>
+        <p>🌊 Backwater Views • 🍽 Local Cuisine • 📶 WiFi Available</p>
+      </div>
+      <div class="homestay-card">
+        <img src="images/homestay2.jpg" alt="Homestay 2" />
         <h3>Traditional Haveli in Rajasthan</h3>
-        <p><strong>📍 Location:</strong> Rajasthan</p>
-        <p><strong>💰 Price:</strong> ₹2500/Day</p>
-        <p><strong>🏡 Details:</strong> 1 Bedroom • 1 Bathroom • 800 sq ft</p>
-        <ul class="amenities">
-          <li>🌾 Organic Farm</li>
-          <li>🍽️ Home-Cooked Meals</li>
-          <li>📶 WiFi Available</li>
-          <li>🐴 Horse Riding</li>
-        </ul>
-        <span class="status-badge">Loading availability...</span>
-      </div>
-      <div class="card-actions">
-        <button class="view-details-btn">View Details</button>
-        <button class="add-to-wishlist-btn" title="Add to Wishlist"><i class="far fa-heart"></i></button>
+        <p>🌾 Organic Farm • 🍽 Home-Cooked Meals • 🐴 Horse Riding</p>
       </div>
     </div>
+  </section>
 
-    <!-- Homestay 2 -->
-    <div class="homestay-card" data-homestay-id="homestay-2">
-      <div class="image-wrapper">
-        <img src="https://img.traveltriangle.com/blog/wp-content/uploads/2017/09/cover17.jpg" alt="Cottage in Manali"/>
-        <span class="rating-badge">⭐ 4.5</span>
-      </div>
-      <div class="card-content">
-        <h3>Wooden Cottage in Manali</h3>
-        <p><strong>📍 Location:</strong> Himachal Pradesh</p>
-        <p><strong>💰 Price:</strong> ₹1800/Day</p>
-        <p><strong>🏡 Details:</strong> 2 Bedrooms • 1 Bathroom • 650 sq ft</p>
-        <ul class="amenities">
-          <li>🔥 Bonfire Nights</li>
-          <li>🚵 Adventure Sports</li>
-          <li>📶 High-Speed WiFi</li>
-        </ul>
-        <span class="status-badge">Loading availability...</span>
-      </div>
-      <div class="card-actions">
-        <button class="view-details-btn">View Details</button>
-        <button class="add-to-wishlist-btn" title="Add to Wishlist"><i class="far fa-heart"></i></button>
-      </div>
+  <!-- Map Section -->
+  <section id="map" class="map-section">
+    <h2>Explore Our Homestay Locations</h2>
+    <div id="mapContainer" class="map-container"></div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <p>&copy; 2025 Rural Retreats. All rights reserved.</p>
     </div>
+  </footer>
 
-    <!-- Homestay 3 -->
-    <div class="homestay-card" data-homestay-id="homestay-3">
-      <div class="image-wrapper">
-        <img src="https://imgcld.yatra.com/ytimages/image/upload/v1474440130/AdvNation/ANN_TRP_58/mT3SoL.jpg" alt="Kerala Backwater Villa"/>
-        <span class="rating-badge">⭐ 4.9</span>
-      </div>
-      <div class="card-content">
-        <h3>Kerala Backwater Villa</h3>
-        <p><strong>📍 Location:</strong> Alleppey, Kerala</p>
-        <p><strong>💰 Price:</strong> ₹3000/Day</p>
-        <p><strong>🏡 Details:</strong> 3 Bedrooms • 2 Bathrooms • 1200 sq ft</p>
-        <ul class="amenities">
-          <li>🚤 Houseboat Rides</li>
-          <li>🍛 Authentic Kerala Meals</li>
-          <li>🌴 Coconut Plantation</li>
-        </ul>
-        <span class="status-badge">Loading availability...</span>
-      </div>
-      <div class="card-actions">
-        <button class="view-details-btn">View Details</button>
-        <button class="add-to-wishlist-btn" title="Add to Wishlist"><i class="far fa-heart"></i></button>
-      </div>
-    </div>
-
-    <!-- Homestay 4 -->
-    <div class="homestay-card" data-homestay-id="homestay-4">
-      <div class="image-wrapper">
-        <img src="https://www.holidify.com/images/cmsuploads/compressed/103445248_20200417161945.jpg" alt="Tea Estate Bungalow"/>
-        <span class="rating-badge">⭐ 4.7</span>
-      </div>
-      <div class="card-content">
-        <h3>Tea Estate Bungalow in Darjeeling</h3>
-        <p><strong>📍 Location:</strong> West Bengal</p>
-        <p><strong>💰 Price:</strong> ₹2200/Day</p>
-        <p><strong>🏡 Details:</strong> 2 Bedrooms • 2 Bathrooms • 950 sq ft</p>
-        <ul class="amenities">
-          <li>🍵 Tea Tasting Sessions</li>
-          <li>🌄 Mountain Views</li>
-          <li>📶 Free WiFi</li>
-        </ul>
-        <span class="status-badge">Loading availability...</span>
-      </div>
-      <div class="card-actions">
-        <button class="view-details-btn">View Details</button>
-        <button class="add-to-wishlist-btn" title="Add to Wishlist"><i class="far fa-heart"></i></button>
-      </div>
-    </div>
-
-  </main>
-
-  <!-- Link JS -->
-  <script src="JS/availability.js"></script>
+  <script defer src="./JS/navbar.js"></script>
 </body>
 </html>
