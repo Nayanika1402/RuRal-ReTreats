@@ -1,18 +1,647 @@
-body{
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
   padding-top: 8vh;
-  
 }
 
 .navbar {
-    background: rgba(255, 255, 255, 0.9);
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 8px 20px;
-  
-    position: fixed;
-    top: 0;
-    width: 100%;
-    transition: all 0.3s ease-in-out;
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    z-index: 1000;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 8px 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+}
+
+/* Mobile Menu Overlay - Enhanced */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(135deg, #0073e6, #00b894);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.mobile-menu.active {
+  left: 0;
+}
+
+/* Close Button - Enhanced */
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 0px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.close-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: rotate(90deg);
+}
+
+/* Mobile Menu List - With Animations */
+.mobile-menu ul {
+  list-style: none;
+  text-align: center;
+  margin-top: 2rem;
+  padding: 0;
+}
+
+.mobile-menu ul li {
+  /* margin: 1.5rem 0; */
+  opacity: 0;
+  transform: translateX(-100px);
+}
+
+/* Animation classes */
+.mobile-menu.active ul li {
+  animation: slideInFromLeft 1.1s ease-in-out forwards;
+}
+
+.mobile-menu.active ul li:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.mobile-menu.active ul li:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.mobile-menu.active ul li:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.mobile-menu.active ul li:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.mobile-menu.active ul li:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
   }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Slide out animation when closing */
+.mobile-menu.closing ul li {
+  animation: slideOutToLeft 0.4s ease-in forwards;
+}
+
+@keyframes slideOutToLeft {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+}
+
+/* Mobile Menu Links - Enhanced */
+.mobile-menu ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.3rem;
+  font-weight: 500;
+  display: block;
+  padding: 13px 30px;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.mobile-menu ul li a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transition: left 0.3s ease;
+}
+
+.mobile-menu ul li a:hover::before {
+  left: 0;
+}
+
+.mobile-menu ul li a:hover {
+  transform: translateX(10px);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Mobile Search Bar - Enhanced */
+.mobile-search-bar {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  max-width: 300px;
+  opacity: 0;
+  transition: opacity 0.5s ease 0.3s;
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 25px;
+  padding: 5px;
+}
+
+.mobile-menu.active .mobile-search-bar {
+  opacity: 1;
+}
+
+.mobile-search-bar input {
+  flex: 1;
+  padding: 12px 20px;
+  border: none;
+  background: none;
+  font-size: 1rem;
+  outline: none;
+}
+
+.mobile-search-bar button {
+  background: linear-gradient(135deg, #0073e6, #00b894);
+  border: none;
+  color: white;
+  font-size: 20px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hamburger icon hover effect */
+.hamicon {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #2c3e50;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.hamicon:hover {
+  background: rgba(102, 126, 234, 0.1);
+  color: #667eea;
+}
+
+/* ========================================
+   RESPONSIVE MEDIA QUERIES
+   ======================================== */
+
+/* Extra Small Phones (320px - 374px) */
+@media (max-width: 374px) {
+  .navbar {
+    padding: 6px 15px;
+  }
+  
+  .close-btn {
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+  
+  .mobile-search-bar {
+    top: 80px;
+    width: 85%;
+    max-width: 250px;
+  }
+  
+  .mobile-search-bar input {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
+  
+  .mobile-search-bar button {
+    width: 35px;
+    height: 35px;
+    font-size: 16px;
+  }
+
+
+  .mobile-menu ul li a {
+    font-size: 1.1rem;
+    padding: 5px 20px;
+  }
+  
+  .logo a {
+    font-size: 1.4rem;
+  }
+  
+  .auth-buttons .login-btn {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+  }
+}
+
+/* Small Phones (375px - 424px) */
+@media (min-width: 375px) and (max-width: 424px) {
+  .navbar {
+    padding: 8px 18px;
+  }
+  
+  .close-btn {
+    top: 18px;
+    right: 18px;
+    width: 45px;
+    height: 45px;
+    font-size: 1.3rem;
+  }
+  
+  .mobile-search-bar {
+    top: 90px;
+    width: 82%;
+    max-width: 280px;
+  }
+  
+  .mobile-search-bar input {
+    padding: 11px 18px;
+    font-size: 0.95rem;
+  }
+  
+  .mobile-search-bar button {
+    width: 38px;
+    height: 38px;
+    font-size: 18px;
+  }
+  
+  .mobile-menu ul li a {
+    font-size: 1.2rem;
+    padding: 10px 25px;
+  }
+  
+  .logo a {
+    font-size: 1.5rem;
+  }
+}
+
+/* Medium Phones (425px - 767px) */
+@media (min-width: 425px) and (max-width: 767px) {
+  .navbar {
+    padding: 8px 20px;
+  }
+  
+  .close-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+  
+  .mobile-search-bar {
+    top: 100px;
+    width: 80%;
+    max-width: 320px;
+  }
+  
+  .mobile-search-bar input {
+    padding: 12px 20px;
+    font-size: 1rem;
+  }
+  
+  .mobile-search-bar button {
+    width: 42px;
+    height: 42px;
+    font-size: 20px;
+  }
+  
+  .mobile-menu ul li a {
+    font-size: 1.3rem;
+    padding: 0px 30px;
+    margin: 0.8rem 0;
+  }
+  
+  .logo a {
+    font-size: 1.6rem;
+  }
+  
+  .auth-buttons .login-btn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Small Tablets (768px - 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+  .navbar {
+    padding: 10px 25px;
+  }
+  
+  /* Show hamburger menu for small tablets */
+  .hamicon {
+    display: block;
+    font-size: 1.6rem;
+  }
+  
+  .nav-menu {
+    display: none; /* Hide desktop menu */
+  }
+  
+  .close-btn {
+    top: 25px;
+    left: 25px;
+    width: 55px;
+    height: 55px;
+    font-size: 1.6rem;
+  }
+  
+  .mobile-search-bar {
+    top: 110px;
+    width: 70%;
+    max-width: 400px;
+  }
+  
+  .mobile-search-bar input {
+    padding: 14px 22px;
+    font-size: 1.1rem;
+  }
+  
+  .mobile-search-bar button {
+    width: 45px;
+    height: 45px;
+    font-size: 22px;
+  }
+  
+  .mobile-menu ul li a {
+    font-size: 1.4rem;
+    padding: 0px 35px;
+    margin: 0.5rem 0;
+  }
+  
+  .logo a {
+    font-size: 1.8rem;
+  }
+  
+  .auth-buttons .login-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+  
+  .right-section {
+    gap: 1.5rem;
+  }
+}
+
+/* Large Tablets (992px - 1024px) */
+@media (min-width: 992px) and (max-width: 1024px) {
+  .navbar {
+    padding: 12px 30px;
+  }
+  
+  .close-btn {
+    top: 25px;
+    left: 25px;
+    width: 55px;
+    height: 55px;
+    font-size: 1.6rem;
+  }
+  
+  /* Show desktop menu for large tablets */
+  .nav-menu {
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .hamicon {
+    display: none; /* Hide hamburger for large tablets */
+  }
+  
+  .search-bar {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    padding: 5px 15px;
+  }
+  
+  .search-bar input {
+    border: none;
+    background: none;
+    outline: none;
+    padding: 5px;
+    width: 180px;
+  }
+  
+  .search-bar button {
+    background: none;
+    border: none;
+    color: #667eea;
+    cursor: pointer;
+    padding: 5px;
+  }
+  
+  .logo a {
+    font-size: 1.9rem;
+  }
+  
+  .auth-buttons .login-btn {
+    padding: 10px 22px;
+    font-size: 1rem;
+  }
+}
+
+/* Large Screens (1025px and above) */
+@media (min-width: 1025px) {
+  .navbar {
+    padding: 15px 40px;
+  }
+  
+  .close-btn {
+    top: 25px;
+    left: 25px;
+    width: 55px;
+    height: 55px;
+    font-size: 1.6rem;
+  }
+  
+  .nav-menu {
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .nav-menu a {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  
+  .hamicon {
+    display: none;
+  }
+  
+  .search-bar {
+    display: flex;
+    width: 220px;
+  }
+  
+  .search-bar input {
+    width: 200px;
+    padding: 8px;
+  }
+  
+  .logo a {
+    font-size: 2rem;
+  }
+  
+  .auth-buttons .login-btn {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
+  
+  .right-section {
+    gap: 2rem;
+  }
+}
+
+/* Landscape Orientation Adjustments */
+@media (orientation: landscape) and (max-height: 500px) {
+  .mobile-menu {
+    justify-content: flex-start;
+    padding-top: 60px;
+  }
+  
+  .mobile-search-bar {
+    top: 20px;
+    width: 60%;
+    max-width: 300px;
+  }
+  
+  .mobile-menu ul {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .mobile-menu ul li {
+    margin: 0.5rem;
+  }
+  
+  .mobile-menu ul li a {
+    font-size: 1.1rem;
+    padding: 10px 20px;
+  }
+  
+  .close-btn {
+    top: 10px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* High DPI Displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .navbar {
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  .mobile-menu {
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+  }
+  
+  .close-btn {
+    backdrop-filter: blur(15px);
+  }
+}
+
+/* Ultra-wide Screens */
+@media (min-width: 1400px) {
+  .nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  
+  .navbar {
+    padding: 15px 60px;
+  }
+  
+  .nav-menu {
+    gap: 2.5rem;
+  }
+  
+  .nav-menu a {
+    font-size: 1.1rem;
+  }
+  
+  .logo a {
+    font-size: 2.2rem;
+  }
+  
+  .search-bar input {
+    width: 250px;
+    padding: 10px;
+  }
+  
+  .auth-buttons .login-btn {
+    padding: 14px 28px;
+    font-size: 1.1rem;
+  }
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .mobile-menu {
+    transition: left 0.2s ease;
+  }
+  
+  .mobile-menu.active ul li {
+    animation: none;
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  .close-btn:hover {
+    transform: none;
+  }
+  
+  .mobile-menu ul li a:hover {
+    transform: none;
+  }
+}
