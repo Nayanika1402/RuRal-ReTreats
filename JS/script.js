@@ -596,15 +596,15 @@ function displayBlogs(filter) {
     `;
     blogContainer.appendChild(blogElement);
   });
-  
 
-displayBlogs("all");
-  
-tabButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    tabButtons.forEach((btn) => btn.classList.remove("active"));
-    button.classList.add("active");
-    displayBlogs(button.getAttribute("data-category"));
+
+  displayBlogs("all");
+
+  tabButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      tabButtons.forEach((btn) => btn.classList.remove("active"));
+      button.classList.add("active");
+      displayBlogs(button.getAttribute("data-category"));
+    });
   });
-});
 }  

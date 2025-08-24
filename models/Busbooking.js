@@ -74,7 +74,7 @@ const busBookingSchema = new mongoose.Schema({
 
 
 // Generate PNR before saving
-busBookingSchema.pre('save', function(next) {
+busBookingSchema.pre('save', function (next) {
   if (!this.pnr) {
     this.pnr = 'PNR' + Math.floor(100000 + Math.random() * 900000);
   }

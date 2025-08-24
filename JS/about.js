@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    emailjs.init("ZhgpiL0kX2Dy-IrNa");  
+    emailjs.init("ZhgpiL0kX2Dy-IrNa");
 });
 function subscribeNewsletter() {
     let email = document.getElementById("newsletter-email").value.trim();
@@ -22,7 +22,7 @@ function validateEmail(email) {
 function sendNewsletterEmail(email) {
     let templateParams = {
         user_email: email,
-        to_email: email,  
+        to_email: email,
         subject: "🌟 Welcome to Our Travel Newsletter!",
         message: `Hi there! 🎉\n\nThank you for subscribing to our exclusive travel newsletter! ✈️🌎\n\nYou’ll receive the latest travel deals, destination tips, and exciting offers. 🏖️\n\nClick the link below to complete your registration:\n\n🔗 [Complete Registration](#)\n\nHappy Travels! 🚀`
     };
@@ -64,8 +64,8 @@ function loadGoogleTranslate() {
     }
 }
 function googleTranslateInit() {
-    new google.translate.TranslateElement({ 
-        pageLanguage: 'en', 
+    new google.translate.TranslateElement({
+        pageLanguage: 'en',
         autoDisplay: false
     }, 'google_translate_element');
     setTimeout(fixGoogleTranslateStyles, 1000);
@@ -86,9 +86,9 @@ document.getElementById("language-select").addEventListener("change", function (
 });
 function fixGoogleTranslateStyles() {
     document.querySelectorAll("*").forEach(element => {
-        element.style.fontSize = ""; 
-        element.style.lineHeight = ""; 
-        element.style.letterSpacing = ""; 
+        element.style.fontSize = "";
+        element.style.lineHeight = "";
+        element.style.letterSpacing = "";
     });
 }
 window.addEventListener("load", loadGoogleTranslate);
@@ -143,15 +143,15 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     nextBtn.addEventListener("click", nextTestimonial);
     prevBtn.addEventListener("click", prevTestimonial);
-    setInterval(nextTestimonial, 5000); 
+    setInterval(nextTestimonial, 5000);
 });
 document.addEventListener("DOMContentLoaded", function () {
     const counters = document.querySelectorAll(".counter");
     counters.forEach(counter => {
-        counter.textContent = "0"; 
+        counter.textContent = "0";
         const updateCounter = () => {
-            const target = +counter.getAttribute("data-target"); 
-            const speed = target / 100; 
+            const target = +counter.getAttribute("data-target");
+            const speed = target / 100;
             let count = 0;
             const incrementCounter = () => {
                 count += Math.ceil(speed);
@@ -222,7 +222,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".cta-btn").forEach(button => {
-        button.addEventListener("click", function(event) {
+        button.addEventListener("click", function (event) {
             if (this.getAttribute("href").startsWith("#")) {
                 event.preventDefault();
                 const target = document.querySelector(this.getAttribute("href"));
@@ -445,14 +445,14 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     appendMessage("bot", "👋 Hi there! How can I assist you today?");
     showCategories();
- window.addEventListener("scroll", function () {
-    let navbar = document.querySelector(".navbar");
-    if (window.scrollY > 50) {
-        navbar.classList.add("scrolled");
-    } else {
-        navbar.classList.remove("scrolled");
-    }
- });
+    window.addEventListener("scroll", function () {
+        let navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+            navbar.classList.add("scrolled");
+        } else {
+            navbar.classList.remove("scrolled");
+        }
+    });
 });
 document.addEventListener("DOMContentLoaded", function () {
     const menuToggle = document.getElementById("menu-toggle");
