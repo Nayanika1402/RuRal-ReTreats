@@ -402,7 +402,6 @@ ul {
   .auth-buttons {
     gap: 10px;
   }
-  
 }
 
 @media only screen and (min-width: 768px) {
@@ -598,7 +597,6 @@ ul {
   .cta-button {
     font-size: 0.9rem;
     padding: 8px 18px;
-    
   }
 }
 
@@ -975,7 +973,6 @@ ul {
 }
 
 @keyframes bounce {
-
   0%,
   100% {
     transform: translateY(0);
@@ -1007,7 +1004,6 @@ ul {
   .destination-card .rating {
     font-size: 1rem;
   }
-
 
   .carousel-sections h2 {
     font-size: 2rem;
@@ -1074,7 +1070,7 @@ ul {
   .destination-card .rating {
     font-size: 0.9rem;
   }
-  
+
   .destination-image {
     width: 90%;
     height: 70%;
@@ -1441,7 +1437,6 @@ ul {
 }
 
 @keyframes bounce {
-
   0%,
   100% {
     transform: translateY(0);
@@ -1660,15 +1655,17 @@ ul {
 
 .chatbot-body {
   z-index: 1000;
-
   height: 350px;
   overflow-y: auto;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   padding: 10px;
   background: #f9f9f9;
   scrollbar-width: thin;
   scrollbar-color: #007bff #f1f1f1;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .chatbot-body::-webkit-scrollbar {
@@ -1691,6 +1688,10 @@ ul {
   flex-direction: column;
   gap: 10px;
   padding-bottom: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .message {
@@ -1747,7 +1748,6 @@ ul {
 }
 
 @keyframes blink {
-
   0%,
   100% {
     opacity: 0.5;
@@ -1838,21 +1838,46 @@ chatbot-body .author {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   padding: 15px;
   margin: 10px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .option-button {
   background: linear-gradient(135deg, #0073e6, #00b894);
   color: white;
-  padding: 10px 15px;
+  padding: 10px 16px;
   border: none;
-  border-radius: 8px;
+  border-radius: 25px;
   cursor: pointer;
-  transition: background 0.3s ease, transform 0.3s ease;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  flex: 0 1 auto;
+  max-width: calc(100% - 16px);
+  text-align: center;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-shadow: 0 2px 8px rgba(0, 115, 230, 0.2);
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .option-button:hover {
-  background-color: linear-gradient(135deg, #005bb5, #009dff);
-  transform: scale(1.05);
+  background: linear-gradient(135deg, #005bb5, #009dff);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 4px 12px rgba(0, 115, 230, 0.3);
+}
+
+.option-button:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 2px 6px rgba(0, 115, 230, 0.2);
 }
 
 .chatbot-option-text {
@@ -1865,13 +1890,75 @@ chatbot-body .author {
 
 @media (max-width: 600px) {
   .options-container {
-    padding: 10px;
+    padding: 12px;
+    gap: 6px;
   }
 
   .option-button {
-    width: 100%;
-    padding: 12px;
+    padding: 12px 16px;
+    font-size: 13px;
+    border-radius: 22px;
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: 100%;
   }
+
+  .option-button:hover {
+    transform: translateY(-1px) scale(1.01);
+  }
+}
+
+@media (max-width: 480px) {
+  .options-container {
+    padding: 10px;
+    gap: 5px;
+  }
+
+  .option-button {
+    padding: 10px 14px;
+    font-size: 12px;
+    border-radius: 20px;
+    flex: 1 1 calc(50% - 2.5px);
+    min-width: 0;
+    max-width: calc(50% - 2.5px);
+  }
+
+  .option-button:hover {
+    transform: translateY(-1px) scale(1.01);
+  }
+}
+
+@media (max-width: 320px) {
+  .option-button {
+    flex: 1 1 100%;
+    max-width: 100%;
+    padding: 12px 16px;
+    font-size: 13px;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .option-button:hover {
+    background: linear-gradient(135deg, #0073e6, #00b894);
+    transform: none;
+    box-shadow: 0 2px 8px rgba(0, 115, 230, 0.2);
+  }
+
+  .option-button:active {
+    background: linear-gradient(135deg, #005bb5, #009dff);
+    transform: scale(0.95);
+    box-shadow: 0 4px 12px rgba(0, 115, 230, 0.3);
+  }
+}
+
+/* Ensure consistent text color across all states */
+.option-button,
+.option-button:hover,
+.option-button:active,
+.option-button:focus {
+  color: white;
+  text-decoration: none;
 }
 
 @keyframes fadeInOptions {
@@ -2163,7 +2250,7 @@ chatbot-body .author {
 }
 
 .social-icon::before {
-  content: '';
+  content: "";
   position: absolute;
   width: 100%;
   height: 100%;
@@ -2177,7 +2264,6 @@ chatbot-body .author {
 .social-icon:hover::before {
   opacity: 1;
 }
-
 
 .chatbot-button {
   bottom: 60px;
@@ -2207,7 +2293,6 @@ chatbot-body .author {
   padding: 8px 12px;
   font-size: 14px;
 }
-
 
 @media (max-width: 480px) {
   .chatbot-modal {
@@ -2386,7 +2471,6 @@ chatbot-body .author {
   background-color: #008e72;
 }
 
-
 .newsletter input:hover {
   border-color: #00b894;
 }
@@ -2488,30 +2572,11 @@ chatbot-body .author {
   text-decoration: underline;
 }
 
-
 .footer-section ul li a:hover {
   color: #00b894;
   transform: translateX(5px);
   text-decoration: underline;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .goog-te-banner-frame {
   display: none !important;
@@ -2893,14 +2958,16 @@ body {
   background-image: url("https://www.transparenttextures.com/patterns/aged-paper.png");
   background-blend-mode: multiply;
 
-  clip-path: polygon(5% 0%,
-      95% 0%,
-      100% 20%,
-      100% 80%,
-      95% 100%,
-      5% 100%,
-      0% 80%,
-      0% 20%);
+  clip-path: polygon(
+    5% 0%,
+    95% 0%,
+    100% 20%,
+    100% 80%,
+    95% 100%,
+    5% 100%,
+    0% 80%,
+    0% 20%
+  );
 }
 
 .header::before,
@@ -3218,7 +3285,6 @@ body {
   text-align: start;
 }
 
-
 .blog-post {
   background: #fff;
   border-radius: 15px;
@@ -3233,7 +3299,7 @@ body {
 }
 
 .blog-post::before {
-  content: '';
+  content: "";
   position: absolute;
   top: -2px;
   left: -2px;
