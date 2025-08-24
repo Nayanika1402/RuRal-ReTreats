@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    emailjs.init("ZhgpiL0kX2Dy-IrNa");  
+    emailjs.init("ZhgpiL0kX2Dy-IrNa");
 });
 function subscribeNewsletter() {
     let email = document.getElementById("newsletter-email").value.trim();
@@ -22,7 +22,7 @@ function validateEmail(email) {
 function sendNewsletterEmail(email) {
     let templateParams = {
         user_email: email,
-        to_email: email,  
+        to_email: email,
         subject: "🌟 Welcome to Our Travel Newsletter!",
         message: `Hi there! 🎉\n\nThank you for subscribing to our exclusive travel newsletter! ✈️🌎\n\nYou’ll receive the latest travel deals, destination tips, and exciting offers. 🏖️\n\nClick the link below to complete your registration:\n\n🔗 [Complete Registration](#)\n\nHappy Travels! 🚀`
     };
@@ -64,8 +64,8 @@ function loadGoogleTranslate() {
     }
 }
 function googleTranslateInit() {
-    new google.translate.TranslateElement({ 
-        pageLanguage: 'en', 
+    new google.translate.TranslateElement({
+        pageLanguage: 'en',
         autoDisplay: false
     }, 'google_translate_element');
     setTimeout(fixGoogleTranslateStyles, 1000);
@@ -86,9 +86,9 @@ document.getElementById("language-select").addEventListener("change", function (
 });
 function fixGoogleTranslateStyles() {
     document.querySelectorAll("*").forEach(element => {
-        element.style.fontSize = ""; 
-        element.style.lineHeight = ""; 
-        element.style.letterSpacing = ""; 
+        element.style.fontSize = "";
+        element.style.lineHeight = "";
+        element.style.letterSpacing = "";
     });
 }
 window.addEventListener("load", loadGoogleTranslate);
@@ -381,14 +381,14 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     appendMessage("bot", "👋 Hi there! How can I assist you today?");
     showCategories();
-window.addEventListener("scroll", function () {
-    let navbar = document.querySelector(".navbar");
-    if (window.scrollY > 50) {
-        navbar.classList.add("scrolled");
-    } else {
-        navbar.classList.remove("scrolled");
-    }
-});
+    window.addEventListener("scroll", function () {
+        let navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+            navbar.classList.add("scrolled");
+        } else {
+            navbar.classList.remove("scrolled");
+        }
+    });
 });
 
 // Get the blog container element
@@ -399,48 +399,48 @@ const readMoreButton = document.querySelector('.read-more');
 
 // Define the blog posts data
 const blogPosts = [
-  {
-    title: 'Blog Post 1',
-    image: 'https://picsum.photos/200/300',
-    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.'
-  },
-  {
-    title: 'Blog Post 2',
-    image: 'https://picsum.photos/200/301',
-    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.'
-  },
-  {
-    title: 'Blog Post 3',
-    image: 'https://picsum.photos/200/302',
-    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.'
-  }
+    {
+        title: 'Blog Post 1',
+        image: 'https://picsum.photos/200/300',
+        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.'
+    },
+    {
+        title: 'Blog Post 2',
+        image: 'https://picsum.photos/200/301',
+        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.'
+    },
+    {
+        title: 'Blog Post 3',
+        image: 'https://picsum.photos/200/302',
+        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.'
+    }
 ];
 
 // Function to generate blog posts
 function generateBlogPosts() {
-  blogPosts.forEach((post) => {
-    const blogPost = document.createElement('div');
-    blogPost.classList.add('blog-post');
+    blogPosts.forEach((post) => {
+        const blogPost = document.createElement('div');
+        blogPost.classList.add('blog-post');
 
-    const image = document.createElement('img');
-    image.src = post.image;
-    blogPost.appendChild(image);
+        const image = document.createElement('img');
+        image.src = post.image;
+        blogPost.appendChild(image);
 
-    const content = document.createElement('div');
-    content.classList.add('blog-content');
+        const content = document.createElement('div');
+        content.classList.add('blog-content');
 
-    const title = document.createElement('h3');
-    title.textContent = post.title;
-    content.appendChild(title);
+        const title = document.createElement('h3');
+        title.textContent = post.title;
+        content.appendChild(title);
 
-    const paragraph = document.createElement('p');
-    paragraph.textContent = post.content;
-    content.appendChild(paragraph);
+        const paragraph = document.createElement('p');
+        paragraph.textContent = post.content;
+        content.appendChild(paragraph);
 
-    blogPost.appendChild(content);
+        blogPost.appendChild(content);
 
-    blogContainer.appendChild(blogPost);
-  });
+        blogContainer.appendChild(blogPost);
+    });
 }
 
 // Generate blog posts on page load
@@ -448,40 +448,40 @@ generateBlogPosts();
 
 // Add event listener to read more button
 readMoreButton.addEventListener('click', () => {
-  // Get the current number of blog posts
-  const currentPosts = blogContainer.children.length;
+    // Get the current number of blog posts
+    const currentPosts = blogContainer.children.length;
 
-  // Get the total number of blog posts
-  const totalPosts = blogPosts.length;
+    // Get the total number of blog posts
+    const totalPosts = blogPosts.length;
 
-  // Calculate the number of posts to load
-  const postsToLoad = Math.min(3, totalPosts - currentPosts);
+    // Calculate the number of posts to load
+    const postsToLoad = Math.min(3, totalPosts - currentPosts);
 
-  // Load more blog posts
-  for (let i = 0; i < postsToLoad; i++) {
-    const post = blogPosts[currentPosts + i];
-    const blogPost = document.createElement('div');
-    blogPost.classList.add('blog-post');
+    // Load more blog posts
+    for (let i = 0; i < postsToLoad; i++) {
+        const post = blogPosts[currentPosts + i];
+        const blogPost = document.createElement('div');
+        blogPost.classList.add('blog-post');
 
-    const image = document.createElement('img');
-    image.src = post.image;
-    blogPost.appendChild(image);
+        const image = document.createElement('img');
+        image.src = post.image;
+        blogPost.appendChild(image);
 
-    const content = document.createElement('div');
-    content.classList.add('blog-content');
+        const content = document.createElement('div');
+        content.classList.add('blog-content');
 
-    const title = document.createElement('h3');
-    title.textContent = post.title;
-    content.appendChild(title);
+        const title = document.createElement('h3');
+        title.textContent = post.title;
+        content.appendChild(title);
 
-    const paragraph = document.createElement('p');
-    paragraph.textContent = post.content;
-    content.appendChild(paragraph);
+        const paragraph = document.createElement('p');
+        paragraph.textContent = post.content;
+        content.appendChild(paragraph);
 
-    blogPost.appendChild(content);
+        blogPost.appendChild(content);
 
-    blogContainer.appendChild(blogPost);
-  }
+        blogContainer.appendChild(blogPost);
+    }
 });
 document.addEventListener("DOMContentLoaded", function () {
     const text = "India is home to some of the most beautiful and diverse trekking trails, ranging from the snow-covered peaks of the Himalayas to the lush green Western Ghats. Whether you're an experienced trekker or a beginner, there's a trail for everyone. Here are some of the top hiking trails that promise adventure, scenic beauty, and an unforgettable experience.";

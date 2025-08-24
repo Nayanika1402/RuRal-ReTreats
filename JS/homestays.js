@@ -2,7 +2,7 @@
 document.write('<script type="text/javascript" src="navbar.js"></script>');
 
 document.addEventListener("DOMContentLoaded", function () {
-    emailjs.init("ZhgpiL0kX2Dy-IrNa");  
+    emailjs.init("ZhgpiL0kX2Dy-IrNa");
 });
 function subscribeNewsletter() {
     let email = document.getElementById("newsletter-email").value.trim();
@@ -25,7 +25,7 @@ function validateEmail(email) {
 function sendNewsletterEmail(email) {
     let templateParams = {
         user_email: email,
-        to_email: email,  
+        to_email: email,
         subject: "🌟 Welcome to Our Travel Newsletter!",
         message: `Hi there! 🎉\n\nThank you for subscribing to our exclusive travel newsletter! ✈️🌎\n\nYou’ll receive the latest travel deals, destination tips, and exciting offers. 🏖️\n\nClick the link below to complete your registration:\n\n🔗 [Complete Registration](#)\n\nHappy Travels! 🚀`
     };
@@ -67,8 +67,8 @@ function loadGoogleTranslate() {
     }
 }
 function googleTranslateInit() {
-    new google.translate.TranslateElement({ 
-        pageLanguage: 'en', 
+    new google.translate.TranslateElement({
+        pageLanguage: 'en',
         autoDisplay: false
     }, 'google_translate_element');
     setTimeout(fixGoogleTranslateStyles, 1000);
@@ -89,9 +89,9 @@ document.getElementById("language-select").addEventListener("change", function (
 });
 function fixGoogleTranslateStyles() {
     document.querySelectorAll("*").forEach(element => {
-        element.style.fontSize = ""; 
-        element.style.lineHeight = ""; 
-        element.style.letterSpacing = ""; 
+        element.style.fontSize = "";
+        element.style.lineHeight = "";
+        element.style.letterSpacing = "";
     });
 }
 window.addEventListener("load", loadGoogleTranslate);
@@ -108,12 +108,12 @@ document.addEventListener("DOMContentLoaded", function () {
             faqItems.forEach((faq) => {
                 faq.classList.remove("active");
                 faq.querySelector(".answer").style.display = "none";
-                faq.querySelector(".arrow").style.transform ="rotate(0deg)"; 
+                faq.querySelector(".arrow").style.transform = "rotate(0deg)";
             });
             if (!isOpen) {
                 item.classList.add("active");
                 answer.style.display = "block";
-                arrow.style.transform ="rotate(180deg)"; 
+                arrow.style.transform = "rotate(180deg)";
             }
         });
     });
@@ -130,9 +130,9 @@ document.addEventListener("DOMContentLoaded", function () {
     function changeTestimonial(direction) {
         currentIndex += direction;
         if (currentIndex < 0) {
-            currentIndex = totalTestimonials - 1; 
+            currentIndex = totalTestimonials - 1;
         } else if (currentIndex >= totalTestimonials) {
-            currentIndex = 0; 
+            currentIndex = 0;
         }
         showTestimonial(currentIndex);
     }
@@ -216,8 +216,8 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(".add-to-wishlist-btn").forEach(button => {
         button.addEventListener("click", function () {
             this.classList.toggle("active");
-            this.innerHTML = this.classList.contains("active") 
-                ? '<i class="fas fa-heart" style="color:red;"></i>' 
+            this.innerHTML = this.classList.contains("active")
+                ? '<i class="fas fa-heart" style="color:red;"></i>'
                 : '<i class="far fa-heart"></i>';
         });
     });
@@ -251,7 +251,7 @@ document.addEventListener("DOMContentLoaded", function () {
         } else if (selectedSort === "ratingsHighLow") {
             filteredCards.sort((a, b) => parseFloat(b.dataset.rating) - parseFloat(a.dataset.rating));
         }
-        cardContainer.innerHTML = ""; 
+        cardContainer.innerHTML = "";
         if (filteredCards.length > 0) {
             filteredCards.forEach(card => cardContainer.appendChild(card));
         } else {
@@ -310,17 +310,17 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("confirmRoomType").textContent = roomType.options[roomType.selectedIndex].text;
         document.getElementById("confirmTotalCost").textContent = priceDisplay.textContent;
         document.getElementById("confirmSpecialRequests").textContent = specialRequests.value || "None";
-        bookingConfirmationModal.classList.add("show"); 
+        bookingConfirmationModal.classList.add("show");
     }
     function confirmBooking() {
-        const referenceNumber = Math.floor(100000 + Math.random() * 900000); 
+        const referenceNumber = Math.floor(100000 + Math.random() * 900000);
         bookingReferenceNumber.textContent = referenceNumber;
         confirmationMessage.style.display = "block";
         setTimeout(() => {
             bookingConfirmationModal.classList.remove("show");
             confirmationMessage.style.display = "none";
-            bookingForm.reset(); 
-            priceDisplay.textContent = "₹0.00"; 
+            bookingForm.reset();
+            priceDisplay.textContent = "₹0.00";
         }, 4000);
     }
     function closeModal() {
@@ -608,12 +608,12 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     appendMessage("bot", "👋 Hi there! How can I assist you today?");
     showCategories();
-window.addEventListener("scroll", function () {
-    let navbar = document.querySelector(".navbar");
-    if (window.scrollY > 50) {
-        navbar.classList.add("scrolled");
-    } else {
-        navbar.classList.remove("scrolled");
-    }
-});
+    window.addEventListener("scroll", function () {
+        let navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+            navbar.classList.add("scrolled");
+        } else {
+            navbar.classList.remove("scrolled");
+        }
+    });
 });
