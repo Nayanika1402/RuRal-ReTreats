@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
-    emailjs.init("ZhgpiL0kX2Dy-IrNa");  
-  });
-  function subscribeNewsletter() {
+    emailjs.init("ZhgpiL0kX2Dy-IrNa");
+});
+function subscribeNewsletter() {
     let email = document.getElementById("newsletter-email").value.trim();
     if (email === "") {
         alert("⚠️ Please enter a valid email!");
@@ -14,15 +14,15 @@ document.addEventListener("DOMContentLoaded", function () {
     sendNewsletterEmail(email);
     showConfirmationMessage(email);
     document.getElementById("newsletter-email").value = "";
-  }
-  function validateEmail(email) {
+}
+function validateEmail(email) {
     const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     return re.test(email);
-  }
-  function sendNewsletterEmail(email) {
+}
+function sendNewsletterEmail(email) {
     let templateParams = {
         user_email: email,
-        to_email: email,  
+        to_email: email,
         subject: "🌟 Welcome to Our Travel Newsletter!",
         message: `Hi there! 🎉\n\nThank you for subscribing to our exclusive travel newsletter! ✈️🌎\n\nYou’ll receive the latest travel deals, destination tips, and exciting offers. 🏖️\n\nClick the link below to complete your registration:\n\n🔗 [Complete Registration](#)\n\nHappy Travels! 🚀`
     };
@@ -33,8 +33,8 @@ document.addEventListener("DOMContentLoaded", function () {
         .catch(error => {
             console.error("❌ Email sending failed:", error);
         });
-  }
-  function showConfirmationMessage(email) {
+}
+function showConfirmationMessage(email) {
     let confirmationBox = document.createElement("div");
     confirmationBox.classList.add("newsletter-confirmation");
     confirmationBox.innerHTML = `
@@ -47,14 +47,14 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
     `;
     document.body.appendChild(confirmationBox);
-  }
-  function closeConfirmation() {
+}
+function closeConfirmation() {
     let confirmationBox = document.querySelector(".newsletter-confirmation");
     if (confirmationBox) {
         confirmationBox.remove();
     }
-  }
-  function loadGoogleTranslate() {
+}
+function loadGoogleTranslate() {
     if (!window.google || !window.google.translate) {
         let script = document.createElement("script");
         script.src = "https://translate.google.com/translate_a/element.js?cb=googleTranslateInit";
@@ -62,15 +62,15 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
         googleTranslateInit();
     }
-  }
-  function googleTranslateInit() {
-    new google.translate.TranslateElement({ 
-        pageLanguage: 'en', 
+}
+function googleTranslateInit() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'en',
         autoDisplay: false
     }, 'google_translate_element');
     setTimeout(fixGoogleTranslateStyles, 1000);
-  }
-  function changeLanguage(lang) {
+}
+function changeLanguage(lang) {
     let googleTranslateDropdown = document.querySelector(".goog-te-combo");
     if (googleTranslateDropdown) {
         googleTranslateDropdown.value = lang;
@@ -79,36 +79,36 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
         console.error("Google Translate dropdown not found!");
     }
-  }
-  document.getElementById("language-select").addEventListener("change", function () {
+}
+document.getElementById("language-select").addEventListener("change", function () {
     let selectedLang = this.value;
     setTimeout(() => changeLanguage(selectedLang), 500);
-  });
-  function fixGoogleTranslateStyles() {
+});
+function fixGoogleTranslateStyles() {
     document.querySelectorAll("*").forEach(element => {
-        element.style.fontSize = ""; 
-        element.style.lineHeight = ""; 
-        element.style.letterSpacing = ""; 
+        element.style.fontSize = "";
+        element.style.lineHeight = "";
+        element.style.letterSpacing = "";
     });
-  }
-  window.addEventListener("load", loadGoogleTranslate);
-  
-  
-  document.querySelectorAll(".faq-question").forEach(button => {
+}
+window.addEventListener("load", loadGoogleTranslate);
+
+
+document.querySelectorAll(".faq-question").forEach(button => {
     button.addEventListener("click", () => {
         const answer = button.nextElementSibling;
         answer.style.display = answer.style.display === "block" ? "none" : "block";
     });
-  });
-  function filterFAQs() {
+});
+function filterFAQs() {
     let searchInput = document.getElementById("faq-search").value.toLowerCase();
     document.querySelectorAll(".faq").forEach(faq => {
         let text = faq.innerText.toLowerCase();
         faq.style.display = text.includes(searchInput) ? "block" : "none";
     });
-  }
-  
-  document.addEventListener("DOMContentLoaded", function () {
+}
+
+document.addEventListener("DOMContentLoaded", function () {
     const menuToggle = document.getElementById("menu-toggle");
     const menuClose = document.getElementById("menu-close");
     const mobileMenu = document.getElementById("mobile-menu");
@@ -132,8 +132,8 @@ document.addEventListener("DOMContentLoaded", function () {
             navbar.classList.remove("sticky");
         }
     });
-  });
-  document.addEventListener("DOMContentLoaded", function () {
+});
+document.addEventListener("DOMContentLoaded", function () {
     const searchInput = document.getElementById("search-input");
     const searchBtn = document.querySelector(".search-bar button");
     const mobileSearchInput = document.getElementById("mobile-search-input");
@@ -186,8 +186,8 @@ document.addEventListener("DOMContentLoaded", function () {
             handleSearch(mobileSearchInput.value);
         }
     });
-  });
-  document.addEventListener("DOMContentLoaded", function () {
+});
+document.addEventListener("DOMContentLoaded", function () {
     const backToTopBtn = document.getElementById("backToTop");
     window.addEventListener("scroll", () => {
         if (window.scrollY > 300) {
@@ -381,64 +381,63 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     appendMessage("bot", "👋 Hi there! How can I assist you today?");
     showCategories();
-  window.addEventListener("scroll", function () {
-    let navbar = document.querySelector(".navbar");
-    if (window.scrollY > 50) {
-        navbar.classList.add("scrolled");
-    } else {
-        navbar.classList.remove("scrolled");
-    }
-  });
-  });
-  
-  
-  
-  
-  
-  
-  
-  
-  document.addEventListener('DOMContentLoaded', () => {
+    window.addEventListener("scroll", function () {
+        let navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+            navbar.classList.add("scrolled");
+        } else {
+            navbar.classList.remove("scrolled");
+        }
+    });
+});
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
     const entryScreen = document.getElementById('entryScreen');
     const mainContent = document.getElementById('mainContent');
     const footer = document.querySelector('footer');
-  
+
     // Footer initially hidden
     footer.style.opacity = '0';
     footer.style.transform = 'translateY(100%)';
-  
+
     entryScreen.addEventListener('click', () => {
-      gsap.to(entryScreen, {
-        opacity: 0,
-        duration: 1,
-        ease: "power2.out",
-        onComplete: () => {
-          entryScreen.style.display = 'none';
-          mainContent.style.display = 'flex';
-  
-          // Animate cards in
-          gsap.fromTo(".card",
-            { opacity: 0, y: 50 },
-            {
-              opacity: 1,
-              y: 0,
-              stagger: 0.2,
-              duration: 1,
-              ease: "power2.out",
-              onComplete: () => {
-                // Slide footer up into view
-                gsap.to(footer, {
-                  opacity: 1,
-                  y: 0,
-                  duration: 1,
-                  ease: "power2.out"
-                });
-              }
+        gsap.to(entryScreen, {
+            opacity: 0,
+            duration: 1,
+            ease: "power2.out",
+            onComplete: () => {
+                entryScreen.style.display = 'none';
+                mainContent.style.display = 'flex';
+
+                // Animate cards in
+                gsap.fromTo(".card",
+                    { opacity: 0, y: 50 },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        stagger: 0.2,
+                        duration: 1,
+                        ease: "power2.out",
+                        onComplete: () => {
+                            // Slide footer up into view
+                            gsap.to(footer, {
+                                opacity: 1,
+                                y: 0,
+                                duration: 1,
+                                ease: "power2.out"
+                            });
+                        }
+                    }
+                );
             }
-          );
-        }
-      });
+        });
     });
-  });
-  
-  
+});
+

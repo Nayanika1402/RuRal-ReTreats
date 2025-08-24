@@ -8,8 +8,7 @@ body {
 }
 
 .hero {
-  background: url("https://images.unsplash.com/photo-1464207687429-7505649dae38?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
-    no-repeat center center/cover;
+  background: url("https://images.unsplash.com/photo-1464207687429-7505649dae38?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") no-repeat center center/cover;
   height: 80vh;
   display: flex;
   align-items: center;
@@ -17,7 +16,6 @@ body {
   text-align: center;
   color: white;
   position: relative;
-
   background-attachment: fixed;
 }
 
@@ -128,6 +126,7 @@ body {
     opacity: 0;
     transform: translateY(-20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -139,6 +138,7 @@ body {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -150,6 +150,7 @@ body {
     opacity: 0;
     transform: translateY(40px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -263,8 +264,8 @@ body {
   font-weight: 500;
 }
 
-.subscribe:hover{
-  background: linear-gradient(135deg, #39c4ff,rgb(27, 119, 217), #0745e1);
+.subscribe:hover {
+  background: linear-gradient(135deg, #39c4ff, rgb(27, 119, 217), #0745e1);
   color: #000;
   font-weight: 600;
   border-radius: 8px;
@@ -309,7 +310,7 @@ body {
 
 .subscribe button {
   padding: 12px 20px;
-  background: linear-gradient(rgb(240, 114, 11),rgb(235, 175, 10),red);
+  background: linear-gradient(rgb(240, 114, 11), rgb(235, 175, 10), red);
   border: none;
   color: white;
   font-weight: bold;
@@ -320,7 +321,7 @@ body {
 }
 
 .subscribe button:hover {
-  background: linear-gradient(rgb(111, 12, 226),rgb(249, 24, 234));
+  background: linear-gradient(rgb(111, 12, 226), rgb(249, 24, 234));
   transform: scale(1.1);
 }
 
@@ -335,6 +336,7 @@ body {
     opacity: 0;
     transform: translateY(-20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -359,6 +361,7 @@ body {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -369,6 +372,7 @@ body {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -435,6 +439,7 @@ body {
     opacity: 0;
     transform: translateX(-50px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -449,6 +454,7 @@ body {
   font-family: "Arial", sans-serif;
   scroll-behavior: smooth;
 }
+
 html,
 body {
   margin: 0;
@@ -456,12 +462,14 @@ body {
   width: 100%;
   overflow-x: hidden;
 }
+
 .nav-menu {
   list-style: none;
   display: flex;
   gap: 20px;
   position: relative;
 }
+
 .nav-menu a {
   text-decoration: none;
   color: black;
@@ -474,6 +482,7 @@ body {
   animation: slideIn 0.5s ease-in-out forwards;
   opacity: 0;
 }
+
 .nav-menu a::before {
   content: "";
   position: absolute;
@@ -486,15 +495,18 @@ body {
   transform-origin: right;
   transition: transform 0.3s ease-in-out;
 }
+
 .nav-menu a:hover::before {
   transform: scaleX(1);
   transform-origin: left;
 }
+
 .nav-menu a:hover {
   color: #0073e6;
   text-shadow: 0px 0px 10px rgba(0, 115, 230, 0.3);
   transform: scale(1.05);
 }
+
 .dropdown-menu {
   display: none;
   position: absolute;
@@ -510,33 +522,40 @@ body {
   visibility: hidden;
   transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 }
+
 .dropdown:hover .dropdown-menu {
   display: block;
   opacity: 1;
   visibility: visible;
 }
+
 .dropdown-menu li {
   padding: 8px 0;
 }
+
 .dropdown-menu a {
   padding: 8px 12px;
   display: block;
   transition: background 0.3s, color 0.3s ease-in-out;
 }
+
 .dropdown-menu a:hover {
   background: #f1f1f1;
   color: #0073e6;
 }
+
 @keyframes slideIn {
   from {
     opacity: 0;
     transform: translateY(10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
+
 .hamicon {
   display: block;
   font-size: 24px;
@@ -544,6 +563,7 @@ body {
   border: none;
   cursor: pointer;
 }
+
 .navbar {
   background: rgba(255, 255, 255, 0.9);
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
@@ -556,10 +576,12 @@ body {
   backdrop-filter: blur(10px);
   z-index: 1000;
 }
+
 .navbar.sticky {
   background: rgba(255, 255, 255, 0.95);
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
 }
+
 .nav-container {
   display: flex;
   align-items: center;
@@ -568,6 +590,7 @@ body {
   margin: auto;
   width: 100%;
 }
+
 .logo a {
   font-size: 2rem;
   font-weight: bold;
@@ -583,6 +606,7 @@ body {
   padding: 5px 10px;
   border-radius: 8px;
 }
+
 .logo a:hover {
   background: linear-gradient(135deg, #00b894, #0073e6);
   -webkit-background-clip: text;
@@ -597,12 +621,14 @@ body {
   transform: scale(1.05);
   opacity: 0.9;
 }
+
 .logo a::before {
   content: "🌿";
   margin-right: 10px;
   font-size: 1.5rem;
   vertical-align: middle;
 }
+
 .nav-menu a::after {
   content: "";
   width: 100%;
@@ -615,14 +641,17 @@ body {
   transform-origin: left;
   transition: transform 0.3s ease-in-out;
 }
+
 .nav-menu a:hover::after {
   transform: scaleX(1);
 }
+
 .right-section {
   display: flex;
   align-items: center;
   gap: 15px;
 }
+
 .search-bar {
   display: flex;
   align-items: center;
@@ -631,9 +660,11 @@ body {
   border-radius: 8px;
   transition: box-shadow 0.3s ease-in-out;
 }
+
 .search-bar:hover {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
 }
+
 .search-bar input {
   border: none;
   outline: none;
@@ -642,6 +673,7 @@ body {
   font-size: 14px;
   flex: 1;
 }
+
 .search-bar button {
   background: none;
   border: none;
@@ -650,9 +682,11 @@ body {
   font-size: 16px;
   transition: color 0.3s ease-in-out;
 }
+
 .search-bar button:hover {
   color: #005bb5;
 }
+
 .auth-buttons button {
   padding: 8px 15px;
   border: none;
@@ -662,6 +696,7 @@ body {
   transition: all 0.3s;
   border-radius: 5px;
 }
+
 .login-btn {
   display: inline-block;
   background: linear-gradient(135deg, #09c4ee, #009dff);
@@ -674,11 +709,13 @@ body {
   transition: 0.4s ease-in-out;
   box-shadow: 0 4px 10px rgba(0, 153, 255, 0.5);
 }
+
 .login-btn:hover {
   background: linear-gradient(135deg, #0698b8, #035d95);
   transform: scale(1.1);
   box-shadow: 0 6px 15px rgba(1, 77, 128, 0.882);
 }
+
 .mobile-menu {
   position: fixed;
   top: 0;
@@ -691,9 +728,11 @@ body {
   padding-top: 20px;
   z-index: 1000;
 }
+
 .mobile-menu.active {
   left: 0;
 }
+
 .close-btn {
   position: absolute;
   top: 15px;
@@ -703,26 +742,32 @@ body {
   color: red;
   transition: transform 0.3s ease-in-out;
 }
+
 .close-btn:hover {
   transform: scale(1.2);
 }
+
 .mobile-menu ul {
   list-style: none;
   padding: 5px;
   text-align: center;
 }
+
 .mobile-menu ul li {
   padding: 20px 0;
 }
+
 .mobile-menu ul li a {
   text-decoration: none;
   color: black;
   font-size: 18px;
   transition: color 0.3s;
 }
+
 .mobile-menu ul li a:hover {
   color: #0073e6;
 }
+
 .mobile-search-bar {
   display: flex;
   align-items: center;
@@ -732,6 +777,7 @@ body {
   margin: 40px auto;
   width: 90%;
 }
+
 .mobile-search-bar input {
   border: none;
   outline: none;
@@ -740,77 +786,97 @@ body {
   flex: 1;
   font-size: 14px;
 }
+
 @media only screen and (max-width: 1200px) {
   .nav-menu {
     display: none;
   }
+
   .hamicon {
     display: block;
   }
+
   .login-btn {
     font-size: 1rem;
   }
+
   .search-bar {
     display: none;
   }
 }
+
 @media only screen and (min-width: 200px) {
   .nav-container {
     flex-direction: column;
     align-items: center;
   }
+
   .logo a {
     font-size: 1.5rem;
   }
+
   .auth-buttons {
     gap: 8px;
   }
 }
+
 @media only screen and (min-width: 320px) {
   .nav-container {
     flex-direction: row;
     justify-content: space-between;
   }
+
   .logo {
     text-align: center;
   }
+
   .logo a {
     font-size: 1.8rem;
   }
+
   .auth-buttons {
     gap: 10px;
   }
 }
+
 @media only screen and (min-width: 768px) {
   .nav-container {
     flex-direction: row;
     justify-content: space-between;
   }
+
   .logo a {
     font-size: 2rem;
   }
+
   .auth-buttons {
     gap: 12px;
   }
 }
+
 @media only screen and (min-width: 1200px) {
   .nav-container {
     max-width: 1300px;
   }
+
   .nav-menu {
     display: flex;
   }
+
   .search-bar {
     display: flex;
   }
+
   .hamicon {
     display: none;
   }
 }
+
 @media only screen and (min-width: 1600px) {
   .nav-container {
     max-width: 1500px;
   }
+
   .logo a {
     font-size: 2.5rem;
   }
@@ -950,6 +1016,7 @@ body {
     opacity: 0;
     transform: translateY(10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -988,10 +1055,12 @@ body {
 }
 
 @keyframes blink {
+
   0%,
   100% {
     opacity: 0.5;
   }
+
   50% {
     opacity: 1;
   }
@@ -1096,6 +1165,7 @@ body {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -1203,10 +1273,12 @@ body {
 }
 
 .footer {
-  min-height: 0vh; /* Ensure the footer takes the full viewport height */
+  min-height: 0vh;
+  /* Ensure the footer takes the full viewport height */
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; /* Align content to the bottom */
+  justify-content: flex-end;
+  /* Align content to the bottom */
   background: linear-gradient(135deg, #0077b6, #1e3a5f);
   color: white;
   font-family: "Raleway", sans-serif;
@@ -1319,10 +1391,12 @@ body {
 }
 
 .footer {
-  min-height: 0vh; /* Ensure the footer takes the full viewport height */
+  min-height: 0vh;
+  /* Ensure the footer takes the full viewport height */
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; /* Align content to the bottom */
+  justify-content: flex-end;
+  /* Align content to the bottom */
   background: linear-gradient(135deg, #0077b6, #1e3a5f);
   color: white;
   font-family: "Raleway", sans-serif;
@@ -1498,10 +1572,10 @@ body {
 }
 
 .footer-newsletter-btn:hover {
-    background:  #8b1eff;
-    color: #000;
-    font-weight: 600;
-    border-radius: 8px;
+  background: #8b1eff;
+  color: #000;
+  font-weight: 600;
+  border-radius: 8px;
 }
 
 /* Footer Bottom */
@@ -1566,6 +1640,7 @@ body {
     transform: translateY(50px);
     opacity: 0;
   }
+
   to {
     transform: translateY(0);
     opacity: 1;
@@ -1577,6 +1652,7 @@ body {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -1715,11 +1791,13 @@ body {
     padding: 10px;
   }
 }
+
 @keyframes slideDown {
   from {
     max-height: 0;
     opacity: 0;
   }
+
   to {
     max-height: 300px;
     opacity: 1;
@@ -1731,6 +1809,7 @@ body {
     max-height: 300px;
     opacity: 1;
   }
+
   to {
     max-height: 0;
     opacity: 0;

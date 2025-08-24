@@ -209,14 +209,14 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     appendMessage("bot", "👋 Hi there! How can I assist you today?");
     showCategories();
-window.addEventListener("scroll", function () {
-    let navbar = document.querySelector(".navbar");
-    if (window.scrollY > 50) {
-        navbar.classList.add("scrolled");
-    } else {
-        navbar.classList.remove("scrolled");
-    }
-});
+    window.addEventListener("scroll", function () {
+        let navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+            navbar.classList.add("scrolled");
+        } else {
+            navbar.classList.remove("scrolled");
+        }
+    });
 });
 document.addEventListener("DOMContentLoaded", function () {
     const menuToggle = document.getElementById("menu-toggle");
@@ -251,7 +251,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function handleSearch(query) {
         query = query.trim().toLowerCase();
         const pages = {
-           "home": "../index.html",
+            "home": "../index.html",
             "services": "../services.html",
             "homestays": "../homestays.html",
             "faq": "../faq.html",
@@ -399,7 +399,7 @@ document.addEventListener("DOMContentLoaded", function () {
     [busTypeSelect, fromSelect, toSelect, ...amenitiesCheckboxes].forEach(element => {
         element.addEventListener("change", calculatePrice);
     });
-     openBusFormBtn.addEventListener("click", function (event) {
+    openBusFormBtn.addEventListener("click", function (event) {
         event.preventDefault();
         busInfo.classList.add("hidden");
         busForm.classList.remove("hidden");
@@ -443,7 +443,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
         let selectedAmenitiesText = selectedAmenities.length > 0 ? selectedAmenities.join(", ") : "None";
-        const gstRate = 18; 
+        const gstRate = 18;
         const gstAmount = (finalPrice * gstRate) / 100;
         const totalInvoiceValue = finalPrice + gstAmount + totalAmenitiesCost;
         const ticketContent = `
@@ -506,7 +506,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (currentIndex < packageCards.length - 1) {
             currentIndex++;
         } else {
-            currentIndex = 0; 
+            currentIndex = 0;
         }
         updateCarousel();
     });
@@ -514,7 +514,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (currentIndex > 0) {
             currentIndex--;
         } else {
-            currentIndex = packageCards.length - 1; 
+            currentIndex = packageCards.length - 1;
         }
         updateCarousel();
     });
@@ -522,7 +522,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    emailjs.init("ZhgpiL0kX2Dy-IrNa");  
+    emailjs.init("ZhgpiL0kX2Dy-IrNa");
 });
 function subscribeNewsletter() {
     let email = document.getElementById("newsletter-email").value.trim();
@@ -545,7 +545,7 @@ function validateEmail(email) {
 function sendNewsletterEmail(email) {
     let templateParams = {
         user_email: email,
-        to_email: email,  
+        to_email: email,
         subject: "🌟 Welcome to Our Travel Newsletter!",
         message: `Hi there! 🎉\n\nThank you for subscribing to our exclusive travel newsletter! ✈️🌎\n\nYou’ll receive the latest travel deals, destination tips, and exciting offers. 🏖️\n\nClick the link below to complete your registration:\n\n🔗 [Complete Registration](#)\n\nHappy Travels! 🚀`
     };
@@ -587,8 +587,8 @@ function loadGoogleTranslate() {
     }
 }
 function googleTranslateInit() {
-    new google.translate.TranslateElement({ 
-        pageLanguage: 'en', 
+    new google.translate.TranslateElement({
+        pageLanguage: 'en',
         autoDisplay: false
     }, 'google_translate_element');
     setTimeout(fixGoogleTranslateStyles, 1000);
@@ -609,9 +609,9 @@ document.getElementById("language-select").addEventListener("change", function (
 });
 function fixGoogleTranslateStyles() {
     document.querySelectorAll("*").forEach(element => {
-        element.style.fontSize = ""; 
-        element.style.lineHeight = ""; 
-        element.style.letterSpacing = ""; 
+        element.style.fontSize = "";
+        element.style.lineHeight = "";
+        element.style.letterSpacing = "";
     });
 }
 window.addEventListener("load", loadGoogleTranslate);

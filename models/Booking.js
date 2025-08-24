@@ -64,7 +64,7 @@ const bookingSchema = new mongoose.Schema({
 
 
 // Generate reference number before saving
-bookingSchema.pre('save', function(next) {
+bookingSchema.pre('save', function (next) {
   if (!this.referenceNumber) {
     this.referenceNumber = 'BK' + Math.floor(100000 + Math.random() * 900000);
   }

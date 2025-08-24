@@ -1,357 +1,376 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adventures - Rural Retreats</title>
-    <link rel="apple-touch-icon" sizes="57x57" href="./favicon/favicon-57x57.png" type="image/png" />
-<link rel="apple-touch-icon" sizes="60x60" href="./favicon/favicon-60x60.png" type="image/png" />
-<link rel="apple-touch-icon" sizes="72x72" href="./favicon/favicon-72x72.png" type="image/png" />
-<link rel="apple-touch-icon" sizes="114x114" href="./favicon/favicon-114x114.png" type="image/png" />
-<link rel="apple-touch-icon" sizes="120x120" href="./favicon/favicon-120x120.png" type="image/png" />
-<link rel="apple-touch-icon" sizes="144x144" href="./favicon/favicon-144x144.png" type="image/png" />
-<link rel="apple-touch-icon" sizes="152x152" href="./favicon/favicon-152x152.png" type="image/png" />
-<link rel="apple-touch-icon" sizes="180x180" href="./favicon/favicon-180x180.png" type="image/png" />
-<link rel="icon" sizes="16x16" href="./favicon/favicon-16x16.png" type="image/png" />
-<link rel="icon" sizes="32x32" href="./favicon/favicon-32x32.png" type="image/png" />
-<link rel="icon" sizes="96x96" href="./favicon/favicon-96x96.png" type="image/png" />
-<link rel="icon" sizes="192x192" href="./favicon/favicon-192x192.png" type="image/png" />
-<link rel="icon" sizes="512x512" href="./favicon/favicon-512x512.png" type="image/png" />
-<link rel="manifest" href="./favicon/manifest.json" />
-<meta name="theme-color" content="#FFFFFF" />
-<meta name="msapplication-TileColor" content="#FFFFFF" />
-<meta name="msapplication-TileImage" content="./favicon/favicon-512x512.png"/>
-<link rel="stylesheet" href="./CSS/Budget.css">
-<link rel="stylesheet" href="./CSS/navbar.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">   
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet"> 
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <!-- Basic Meta Tags -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Budget - Rural Retreats</title>
+
+  <!-- Theme & Tile Colors -->
+  <meta name="theme-color" content="#FFFFFF" />
+  <meta name="msapplication-TileColor" content="#FFFFFF" />
+  <meta name="msapplication-TileImage" content="./favicon/favicon-512x512.png" />
+
+  <!-- Favicons & Manifest -->
+  <link rel="apple-touch-icon" sizes="57x57" href="./favicon/favicon-57x57.png" type="image/png" />
+  <link rel="apple-touch-icon" sizes="60x60" href="./favicon/favicon-60x60.png" type="image/png" />
+  <link rel="apple-touch-icon" sizes="72x72" href="./favicon/favicon-72x72.png" type="image/png" />
+  <link rel="apple-touch-icon" sizes="114x114" href="./favicon/favicon-114x114.png" type="image/png" />
+  <link rel="apple-touch-icon" sizes="120x120" href="./favicon/favicon-120x120.png" type="image/png" />
+  <link rel="apple-touch-icon" sizes="144x144" href="./favicon/favicon-144x144.png" type="image/png" />
+  <link rel="apple-touch-icon" sizes="152x152" href="./favicon/favicon-152x152.png" type="image/png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./favicon/favicon-180x180.png" type="image/png" />
+  <link rel="icon" sizes="16x16" href="./favicon/favicon-16x16.png" type="image/png" />
+  <link rel="icon" sizes="32x32" href="./favicon/favicon-32x32.png" type="image/png" />
+  <link rel="icon" sizes="96x96" href="./favicon/favicon-96x96.png" type="image/png" />
+  <link rel="icon" sizes="192x192" href="./favicon/favicon-192x192.png" type="image/png" />
+  <link rel="icon" sizes="512x512" href="./favicon/favicon-512x512.png" type="image/png" />
+  <link rel="manifest" href="./favicon/manifest.json" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="./CSS/Budget.css" />
+  <link rel="stylesheet" href="./CSS/navbar.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet" />
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script src="./JS/Budget.js" defer></script>
+  <script src="./JS/navbar.js" defer></script>
 </head>
 <body>
 
-<header>
-<nav class="navbar">
-    <div class="nav-container">
-        
-        <button class="hamicon" id="menu-toggle" title="menu-toggle">
-            <i class="fas fa-bars"></i>
-        </button>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
 
-        
-        <div class="logo">
-            <a href="index.html">Rural Retreats</a>
-        </div>
-
-        
-        <ul class="nav-menu">
-            <li><a href="index.html">Home</a></li>
-            <li class="dropdown">
-                <a href="services.html">Services <i class="fas fa-chevron-down"></i></a>
-                <ul class="dropdown-menu">
-                    <li><a href="services.html">Guided Tours</a></li>
-                    <li><a href="services.html">Workshops</a></li>
-                    <li><a href="services.html">Local Experiences</a></li>
-                </ul>
-            </li>
-            <li><a href="homestays.html">HomeStays</a></li>
-            <li><a href="faq.html">FAQs</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-        </ul>
-
-        
-        <div class="right-section">
-            <div class="search-bar">
-                <input type="text" placeholder="Search..." id="search-input">
-                <button title="search"><i class="fas fa-search"></i></button>
-            </div>
-            <div class="auth-buttons">
-                <button class="login-btn" onclick="window.location.href='login.html'">Log In</button>
-            </div>
-        </div>
-    </div>
-</nav>
+                <button class="hamicon" id="menu-toggle" title="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
 
 
-<div class="mobile-menu" id="mobile-menu">
-    <button class="close-btn" id="menu-close">✖</button>
-    
-    
-    <div class="mobile-search-bar">
-        <input type="text" placeholder="Search..." id="mobile-search-input">
-        <button title="search"><i class="fas fa-search"></i></button>
-    </div>
-
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="homestays.html">HomeStays</a></li>
-        <li><a href="faq.html">FAQs</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
-    </ul>
-
-    
-</div>
+                <div class="logo">
+                    <a href="index.html">Rural Retreats</a>
+                </div>
 
 
-
-<!-- Hero Section -->
-<header class="hero">
-    <h1>Traveling on a Budget</h1>
-    <p>Smart tips for exploring the world without breaking the bank.</p>
-</header>
-
-<!-- Introduction Section -->
-<section class="introduction">
-    <h2>Why Budget Travel?</h2>
-    <p>Traveling doesn’t have to be expensive. With the right planning, smart choices, and insider tips, you can explore beautiful destinations without overspending. Whether you're a backpacker or a family traveler, our tips and packages will help you maximize your experience while keeping costs low.</p>
-</section>
-
-<!-- Pricing Table Section -->
-<section class="pricing-table">
-    <h2>Budget Travel Packages</h2>
-    <table>
-        <tr>
-            <th>Package</th>
-            <th>Includes</th>
-            <th>Price</th>
-        </tr>
-        <tr>
-            <td>Basic Explorer</td>
-            <td>Budget accommodation, public transport pass, free walking tours</td>
-            <td>$250</td>
-        </tr>
-        <tr>
-            <td>Adventure Seeker</td>
-            <td>Hostel stays, local guided tours, 3 city passes</td>
-            <td>$450</td>
-        </tr>
-        <tr>
-            <td>Luxury on a Budget</td>
-            <td>3-star hotels, city transport, premium activities</td>
-            <td>$750</td>
-        </tr>
-    </table>
-</section>
-
-
-<!-- Subscription Pricing Section -->
-<section class="pricing-container">
-    <h2>Choose Your Subscription Plan</h2>
-    <p>Save more by selecting a yearly plan!</p>
-
-    <div class="toggle-container">
-        <span>Monthly</span>
-        <div class="toggle" id="toggle-switch"></div>
-        <span>Yearly</span>
-    </div>
-
-    <div class="pricing-cards">
-        <div class="card">
-            <h3>Basic</h3>
-            <p class="price" id="price-basic">$10/month</p>
-            <a href="#" class="btn">Get Started</a>
-        </div>
-
-        <div class="card">
-            <h3>Standard</h3>
-            <p class="price" id="price-standard">$20/month</p>
-            <a href="#" class="btn">Get Started</a>
-        </div>
-
-        <div class="card">
-            <h3>Premium</h3>
-            <p class="price" id="price-premium">$30/month</p>
-            <a href="#" class="btn">Get Started</a>
-        </div>
-    </div>
-</section>
-
-<!-- Testimonials Section -->
-<section class="testimonials">
-    <h2>What Our Travelers Say</h2>
-    <div class="testimonial">
-        <p>"I used the Basic Explorer package for my Europe trip, and it was amazing! I saved so much money and still had a fantastic time!"</p>
-        <strong>- Jane Doe, USA</strong>
-    </div>
-    <div class="testimonial">
-        <p>"The Adventure Seeker package was perfect for me! The guided tours were incredible, and the hostel stays were budget-friendly yet comfortable."</p>
-        <strong>- Mark Johnson, Canada</strong>
-    </div>
-    <div class="testimonial">
-        <p>"Luxury on a budget? Yes, please! I got to enjoy 3-star hotels and premium activities without breaking the bank."</p>
-        <strong>- Sarah Lee, Australia</strong>
-    </div>
-</section>
-
-<!-- Blog Section -->
-<section class="blog">
-    <h2>Latest Travel Tips & Articles</h2>
-    <article>
-        <h3>Top 10 Budget-Friendly Destinations</h3>
-        <p>Discover some of the most affordable yet beautiful places to visit in 2025...</p>
-        <a href="#">Read More</a>
-    </article>
-    <article>
-        <h3>How to Save Money While Traveling</h3>
-        <p>Learn practical strategies to cut costs and make the most of your budget...</p>
-        <a href="#">Read More</a>
-    </article>
-    <article>
-        <h3>Best Travel Apps for Budget Travelers</h3>
-        <p>From flight deals to budget accommodations, these apps will help you travel smarter...</p>
-        <a href="#">Read More</a>
-    </article>
-</section>
-
-<!-- FAQ Section -->
-<section class="faq">
-    <h2>Frequently Asked Questions</h2>
-    <div class="faq-item">
-        <h3>How can I find cheap flights?</h3>
-        <p>Use flight comparison websites, book in advance, and consider flying on weekdays for lower prices.</p>
-    </div>
-    <div class="faq-item">
-        <h3>What are some budget accommodation options?</h3>
-        <p>Hostels, budget hotels, Airbnb, and even couchsurfing are great ways to save money on lodging.</p>
-    </div>
-    <div class="faq-item">
-        <h3>How can I travel cheaply within a city?</h3>
-        <p>Public transportation, walking, and bike rentals are great ways to explore cities on a budget.</p>
-    </div>
-    <div class="faq-item">
-        <h3>Do you offer group discounts?</h3>
-        <p>Yes! We offer discounts for groups of 5 or more. Contact us for more details.</p>
-    </div>
-</section>
-
-<!-- Contact Form -->
-<section class="contact">
-    <h2>Contact Us</h2>
-    <p>Have any questions? Reach out to us, and we’ll be happy to assist you!</p>
-    <form>
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-
-        <button type="submit">Send Message</button>
-    </form>
-</section>
-
-
-<!-- Footer -->
-<footer>
-    <div class="footer-container">
-        <div class="footer-row">
-            <div class="footer-column">
-                <h4>Rural Retreats</h4>
-                <h3>About Us</h3>
-                <p>We offer budget-friendly tours, curated travel experiences, and luxury escapes worldwide.</p>
-
-            </div>
-
-            <div class="footer-column">
-                <h3>Quick Links</h3>
-                <ul>
+                <ul class="nav-menu">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About us</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="homestays.html">Hotels & Homestays</a></li>
-                    <li><a href="#blog-highlights">Travel Guides</a></li>
+                    <li class="dropdown">
+                        <a href="services.html">Services <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="services.html">Guided Tours</a></li>
+                            <li><a href="services.html">Workshops</a></li>
+                            <li><a href="services.html">Local Experiences</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="homestays.html">HomeStays</a></li>
                     <li><a href="faq.html">FAQs</a></li>
                     <li><a href="contact.html">Contact Us</a></li>
-
                 </ul>
+
+
+                <div class="right-section">
+                    <div class="search-bar">
+                        <input type="text" placeholder="Search..." id="search-input">
+                        <button title="search"><i class="fas fa-search"></i></button>
+                    </div>
+                    <div class="auth-buttons">
+                        <button class="login-btn" onclick="window.location.href='login.html'">Log In</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+
+        <div class="mobile-menu" id="mobile-menu">
+            <button class="close-btn" id="menu-close">✖</button>
+
+
+            <div class="mobile-search-bar">
+                <input type="text" placeholder="Search..." id="mobile-search-input">
+                <button title="search"><i class="fas fa-search"></i></button>
             </div>
 
-            <div class="footer-column">
-                <h3>Customer Support</h3>
-                <p><i class="fas fa-envelope"></i>   <strong> <a href="mailto:info@ruralretreats.com">support@ruralretreats.com</a></strong></p>
-            <p><i class="fas fa-phone"></i>   <strong> +91 629XX XXXXX</strong></p>
-            <p><i class="fas fa-map-marker-alt"></i>  <strong> University Institute Of Technology,
-                The University of Burdwan,
-                Golapbag (North), Burdwan-713104,
-                West Bengal.
-            </p></strong>
-            </div>           
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="homestays.html">HomeStays</a></li>
+                <li><a href="faq.html">FAQs</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+
+
         </div>
 
-        <div class="footer-row">
-            <div class="footer-column">
-                <h3>Follow Us</h3>
-                <div class="social-icons">
-                    <a href="#" class="social-icon" title="Facebook"><i class="fab fa-facebook"></i></a>
-                    <a href="#" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-icon" title="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="social-icon" title="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="#" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" class="social-icon" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+
+        <!-- Hero Section -->
+        <header class="hero">
+            <h1>Traveling on a Budget</h1>
+            <p>Smart tips for exploring the world without breaking the bank.</p>
+        </header>
+
+        <!-- Introduction Section -->
+        <section class="introduction">
+            <h2>Why Budget Travel?</h2>
+            <p>Traveling doesn’t have to be expensive. With the right planning, smart choices, and insider tips, you can
+                explore beautiful destinations without overspending. Whether you're a backpacker or a family traveler,
+                our tips and packages will help you maximize your experience while keeping costs low.</p>
+        </section>
+
+        <!-- Pricing Table Section -->
+        <section class="pricing-table">
+            <h2>Budget Travel Packages</h2>
+            <table>
+                <tr>
+                    <th>Package</th>
+                    <th>Includes</th>
+                    <th>Price</th>
+                </tr>
+                <tr>
+                    <td>Basic Explorer</td>
+                    <td>Budget accommodation, public transport pass, free walking tours</td>
+                    <td>$250</td>
+                </tr>
+                <tr>
+                    <td>Adventure Seeker</td>
+                    <td>Hostel stays, local guided tours, 3 city passes</td>
+                    <td>$450</td>
+                </tr>
+                <tr>
+                    <td>Luxury on a Budget</td>
+                    <td>3-star hotels, city transport, premium activities</td>
+                    <td>$750</td>
+                </tr>
+            </table>
+        </section>
+
+
+        <!-- Subscription Pricing Section -->
+        <section class="pricing-container">
+            <h2>Choose Your Subscription Plan</h2>
+            <p>Save more by selecting a yearly plan!</p>
+
+            <div class="toggle-container">
+                <span>Monthly</span>
+                <div class="toggle" id="toggle-switch"></div>
+                <span>Yearly</span>
+            </div>
+
+            <div class="pricing-cards">
+                <div class="card">
+                    <h3>Basic</h3>
+                    <p class="price" id="price-basic">$10/month</p>
+                    <a href="#" class="btn">Get Started</a>
+                </div>
+
+                <div class="card">
+                    <h3>Standard</h3>
+                    <p class="price" id="price-standard">$20/month</p>
+                    <a href="#" class="btn">Get Started</a>
+                </div>
+
+                <div class="card">
+                    <h3>Premium</h3>
+                    <p class="price" id="price-premium">$30/month</p>
+                    <a href="#" class="btn">Get Started</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials">
+            <h2>What Our Travelers Say</h2>
+            <div class="testimonial">
+                <p>"I used the Basic Explorer package for my Europe trip, and it was amazing! I saved so much money and
+                    still had a fantastic time!"</p>
+                <strong>- Jane Doe, USA</strong>
+            </div>
+            <div class="testimonial">
+                <p>"The Adventure Seeker package was perfect for me! The guided tours were incredible, and the hostel
+                    stays were budget-friendly yet comfortable."</p>
+                <strong>- Mark Johnson, Canada</strong>
+            </div>
+            <div class="testimonial">
+                <p>"Luxury on a budget? Yes, please! I got to enjoy 3-star hotels and premium activities without
+                    breaking the bank."</p>
+                <strong>- Sarah Lee, Australia</strong>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section class="blog">
+            <h2>Latest Travel Tips & Articles</h2>
+            <article>
+                <h3>Top 10 Budget-Friendly Destinations</h3>
+                <p>Discover some of the most affordable yet beautiful places to visit in 2025...</p>
+                <a href="#">Read More</a>
+            </article>
+            <article>
+                <h3>How to Save Money While Traveling</h3>
+                <p>Learn practical strategies to cut costs and make the most of your budget...</p>
+                <a href="#">Read More</a>
+            </article>
+            <article>
+                <h3>Best Travel Apps for Budget Travelers</h3>
+                <p>From flight deals to budget accommodations, these apps will help you travel smarter...</p>
+                <a href="#">Read More</a>
+            </article>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <h3>How can I find cheap flights?</h3>
+                <p>Use flight comparison websites, book in advance, and consider flying on weekdays for lower prices.
+                </p>
+            </div>
+            <div class="faq-item">
+                <h3>What are some budget accommodation options?</h3>
+                <p>Hostels, budget hotels, Airbnb, and even couchsurfing are great ways to save money on lodging.</p>
+            </div>
+            <div class="faq-item">
+                <h3>How can I travel cheaply within a city?</h3>
+                <p>Public transportation, walking, and bike rentals are great ways to explore cities on a budget.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Do you offer group discounts?</h3>
+                <p>Yes! We offer discounts for groups of 5 or more. Contact us for more details.</p>
+            </div>
+        </section>
+
+        <!-- Contact Form -->
+        <section class="contact">
+            <h2>Contact Us</h2>
+            <p>Have any questions? Reach out to us, and we’ll be happy to assist you!</p>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-container">
+                <div class="footer-row">
+                    <div class="footer-column">
+                        <h4>Rural Retreats</h4>
+                        <h3>About Us</h3>
+                        <p>We offer budget-friendly tours, curated travel experiences, and luxury escapes worldwide.</p>
+
+                    </div>
+
+                    <div class="footer-column">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About us</a></li>
+                            <li><a href="services.html">Services</a></li>
+                            <li><a href="homestays.html">Hotels & Homestays</a></li>
+                            <li><a href="#blog-highlights">Travel Guides</a></li>
+                            <li><a href="faq.html">FAQs</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h3>Customer Support</h3>
+                        <p><i class="fas fa-envelope"></i> <strong> <a
+                                    href="mailto:info@ruralretreats.com">support@ruralretreats.com</a></strong></p>
+                        <p><i class="fas fa-phone"></i> <strong> +91 629XX XXXXX</strong></p>
+                        <p><i class="fas fa-map-marker-alt"></i> <strong> University Institute Of Technology,
+                                The University of Burdwan,
+                                Golapbag (North), Burdwan-713104,
+                                West Bengal.
+                        </p></strong>
+                    </div>
+                </div>
+
+                <div class="footer-row">
+                    <div class="footer-column">
+                        <h3>Follow Us</h3>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon" title="Facebook"><i class="fab fa-facebook"></i></a>
+                            <a href="#" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-icon" title="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-icon" title="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="#" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="social-icon" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="footer-column">
+                        <h3>Language</h3>
+                        <label for="language-select">Choose Language:</label>
+
+                        <select id="language-select">
+                            <option>English</option>
+                            <option>Bengali</option>
+                            <option>Hindi</option>
+                            <option>French</option>
+                            <option>Spanish</option>
+                            <option>German</option>
+                        </select>
+                    </div>
+
+                    <div class="footer-column">
+                        <h3>Newsletter</h3>
+                        <p>Subscribe for exclusive travel deals!</p>
+                        <div class="newsletter">
+                            <input type="email" placeholder="Enter your email" id="newsletter-email">
+                            <button onclick="subscribeNewsletter()"><b>Subscribe</b></button>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="footer-column">
-                <h3>Language</h3>
-                <label for="language-select">Choose Language:</label>
-
-                <select id="language-select">
-                    <option>English</option>
-                    <option>Bengali</option>
-                    <option>Hindi</option>
-                    <option>French</option>
-                    <option>Spanish</option>
-                    <option>German</option>
-                </select>
+            <div class="footer-bottom">
+                <p>© 2025 Rural-Retreats. All rights reserved. | <a href="pp.html">Privacy Policy</a> | <a
+                        href="t&c.html">Terms & Conditions</a></p>
             </div>
+        </footer>
 
-            <div class="footer-column">
-                <h3>Newsletter</h3>
-                <p>Subscribe for exclusive travel deals!</p>
-                <div class="newsletter">
-                    <input type="email" placeholder="Enter your email" id="newsletter-email">
-                    <button onclick="subscribeNewsletter()"><b>Subscribe</b></button>
+        <button id="backToTop" class="back-to-top-btn" title="Go to top">↑</button>
+
+
+        <div id="chatButton" class="chatbot-button">
+            <i class="fas fa-comment-dots"></i>
+        </div>
+
+
+        <div id="chatModal" class="chatbot-modal">
+            <div class="chatbot-modal-content">
+                <div class="chatbot-header">
+                    <h3>Chat with Us</h3>
+                    <span class="close-chatbot">&times;</span>
+                </div>
+                <div class="chatbot-body">
+                    <div id="chatMessages" class="chat-messages"></div>
+                    <div id="typingIndicator" class="typing-indicator">🤖 Bot is typing...</div>
+                </div>
+                <div class="chat-input">
+                    <input type="text" id="chatInput" placeholder="Type your message...">
+                    <button id="sendMessage" title="Send Message"><i class="fas fa-paper-plane"></i></button>
+                    <button id="voiceInput" title="Voice Input"><i class="fas fa-microphone"></i></button>
+                    <button id="clearChat" title="Clear Chat"><i class="fas fa-trash-alt"></i></button>
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="footer-bottom">
-        <p>© 2025 Rural-Retreats. All rights reserved. | <a href="pp.html">Privacy Policy</a> | <a href="t&c.html">Terms & Conditions</a></p>
-    </div>
-</footer>
-
-<button id="backToTop" class="back-to-top-btn" title="Go to top">↑</button>
-
-
-<div id="chatButton" class="chatbot-button">
-<i class="fas fa-comment-dots"></i>
-</div>
-
-
-<div id="chatModal" class="chatbot-modal">
-<div class="chatbot-modal-content">
-    <div class="chatbot-header">
-        <h3>Chat with Us</h3>
-        <span class="close-chatbot">&times;</span>
-    </div>
-    <div class="chatbot-body">
-        <div id="chatMessages" class="chat-messages"></div>
-        <div id="typingIndicator" class="typing-indicator">🤖 Bot is typing...</div>
-    </div>
-    <div class="chat-input">
-            <input type="text" id="chatInput" placeholder="Type your message...">
-            <button id="sendMessage" title="Send Message"><i class="fas fa-paper-plane"></i></button>
-            <button id="voiceInput" title="Voice Input"><i class="fas fa-microphone"></i></button>
-            <button id="clearChat" title="Clear Chat"><i class="fas fa-trash-alt"></i></button>
         </div>
-    </div>
-</div>
-</div>
-<script src="./JS/Budget.js" defer></script>
-<script defer src="./JS/navbar.js"></script>
 </body>
 </html>
