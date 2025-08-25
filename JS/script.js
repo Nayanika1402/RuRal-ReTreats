@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   emailjs.init("ZhgpiL0kX2Dy-IrNa");
 });
+
 function subscribeNewsletter() {
   let email = document.getElementById("newsletter-email").value.trim();
   if (email === "") {
@@ -15,10 +16,12 @@ function subscribeNewsletter() {
   showConfirmationMessage(email);
   document.getElementById("newsletter-email").value = "";
 }
+
 function validateEmail(email) {
   const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   return re.test(email);
 }
+
 function sendNewsletterEmail(email) {
   let templateParams = {
     user_email: email,
@@ -26,6 +29,7 @@ function sendNewsletterEmail(email) {
     subject: "🌟 Welcome to Our Travel Newsletter!",
     message: `Hi there! 🎉\n\nThank you for subscribing to our exclusive travel newsletter! ✈️🌎\n\nYou’ll receive the latest travel deals, destination tips, and exciting offers. 🏖️\n\nClick the link below to complete your registration:\n\n🔗 [Complete Registration](#)\n\nHappy Travels! 🚀`,
   };
+
   emailjs
     .send("service_n3pxpvu", "template_b6o5dqb", templateParams)
     .then((response) => {
@@ -35,6 +39,7 @@ function sendNewsletterEmail(email) {
       console.error("❌ Email sending failed:", error);
     });
 }
+
 function showConfirmationMessage(email) {
   let confirmationBox = document.createElement("div");
   confirmationBox.classList.add("newsletter-confirmation");
@@ -49,12 +54,14 @@ function showConfirmationMessage(email) {
     `;
   document.body.appendChild(confirmationBox);
 }
+
 function closeConfirmation() {
   let confirmationBox = document.querySelector(".newsletter-confirmation");
   if (confirmationBox) {
     confirmationBox.remove();
   }
 }
+
 function loadGoogleTranslate() {
   if (!window.google || !window.google.translate) {
     let script = document.createElement("script");
@@ -65,6 +72,7 @@ function loadGoogleTranslate() {
     googleTranslateInit();
   }
 }
+
 function googleTranslateInit() {
   new google.translate.TranslateElement(
     {
@@ -75,6 +83,7 @@ function googleTranslateInit() {
   );
   setTimeout(fixGoogleTranslateStyles, 1000);
 }
+
 function changeLanguage(lang) {
   let googleTranslateDropdown = document.querySelector(".goog-te-combo");
   if (googleTranslateDropdown) {
@@ -85,12 +94,14 @@ function changeLanguage(lang) {
     console.error("Google Translate dropdown not found!");
   }
 }
+
 document
   .getElementById("language-select")
   .addEventListener("change", function () {
     let selectedLang = this.value;
     setTimeout(() => changeLanguage(selectedLang), 500);
   });
+
 function fixGoogleTranslateStyles() {
   document.querySelectorAll("*").forEach((element) => {
     element.style.fontSize = "";
@@ -98,6 +109,7 @@ function fixGoogleTranslateStyles() {
     element.style.letterSpacing = "";
   });
 }
+
 window.addEventListener("load", loadGoogleTranslate);
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -122,6 +134,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
+
   function moveSlide(direction) {
     showSlide(currentSlide + direction);
   }
@@ -135,7 +148,9 @@ document.addEventListener("DOMContentLoaded", function () {
   setInterval(() => {
     moveSlide(1);
   }, 4000);
+
   const backToTopBtn = document.getElementById("backToTop");
+
   window.addEventListener("scroll", () => {
     if (window.scrollY > 300) {
       backToTopBtn.classList.add("show");
@@ -143,9 +158,11 @@ document.addEventListener("DOMContentLoaded", function () {
       backToTopBtn.classList.remove("show");
     }
   });
+
   backToTopBtn.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
+
   const testimonials = document.querySelectorAll(".testimonial-item");
   let currentIndex = 0;
   function showTestimonial(index) {
@@ -153,11 +170,13 @@ document.addEventListener("DOMContentLoaded", function () {
       testimonial.classList.toggle("active", i === index);
     });
   }
+
   function changeTestimonial(direction) {
     currentIndex =
       (currentIndex + direction + testimonials.length) % testimonials.length;
     showTestimonial(currentIndex);
   }
+
   showTestimonial(currentIndex);
   document
     .querySelector(".button.prev")
@@ -165,6 +184,7 @@ document.addEventListener("DOMContentLoaded", function () {
   document
     .querySelector(".button.next")
     .addEventListener("click", () => changeTestimonial(1));
+
   const chatButton = document.getElementById("chatButton");
   const chatModal = document.getElementById("chatModal");
   const sendMessageButton = document.getElementById("sendMessage");
@@ -174,6 +194,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const voiceInputButton = document.getElementById("voiceInput");
   const clearChatButton = document.getElementById("clearChat");
   const typingIndicator = document.getElementById("typingIndicator");
+
   const categories = {
     "Website & Services": [
       "What services does this website offer?",
@@ -224,6 +245,7 @@ document.addEventListener("DOMContentLoaded", function () {
       "How can I stay updated on deals and offers?",
     ],
   };
+
   const answers = {
     "What services does this website offer?":
       "We offer hotel & homestay bookings, bus/train tickets, sightseeing packages, car rentals, and customized tour packages.",
@@ -254,6 +276,7 @@ document.addEventListener("DOMContentLoaded", function () {
     "How can I stay updated on deals and offers?":
       "Subscribe to our newsletter or enable WhatsApp notifications for the latest deals.",
   };
+
   chatButton.addEventListener("click", () => {
     chatModal.classList.add("active");
     if (!chatMessages.innerHTML.trim()) {
@@ -261,6 +284,7 @@ document.addEventListener("DOMContentLoaded", function () {
       showCategories();
     }
   });
+
   closeChatbot.addEventListener("click", () => {
     appendMessage(
       "bot",
@@ -274,6 +298,7 @@ document.addEventListener("DOMContentLoaded", function () {
   chatInput.addEventListener("keypress", (e) => {
     if (e.key === "Enter") sendMessage();
   });
+
   function sendMessage() {
     const userMessage = chatInput.value.trim();
     if (!userMessage) return;
@@ -296,6 +321,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }, 1000);
     }
   }
+
   function showCategories() {
     const categoriesContainer = document.createElement("div");
     categoriesContainer.classList.add("options-container");
@@ -309,6 +335,7 @@ document.addEventListener("DOMContentLoaded", function () {
     chatMessages.appendChild(categoriesContainer);
     scrollToBottom();
   }
+
   function showQuestions(category) {
     appendMessage("user", category);
     const questionsContainer = document.createElement("div");
@@ -323,6 +350,7 @@ document.addEventListener("DOMContentLoaded", function () {
     chatMessages.appendChild(questionsContainer);
     scrollToBottom();
   }
+
   function getAnswer(question) {
     appendMessage("user", question);
     typingIndicator.style.display = "block";
@@ -334,26 +362,31 @@ document.addEventListener("DOMContentLoaded", function () {
       );
     }, 1000);
   }
+
   function appendMessage(sender, message) {
     const messageElement = document.createElement("div");
     messageElement.classList.add(
       "message",
       sender === "user" ? "user-message" : "bot-message"
     );
+
     messageElement.innerText = message;
     chatMessages.appendChild(messageElement);
     scrollToBottom();
   }
+  
   function scrollToBottom() {
     setTimeout(() => {
       chatMessages.scrollTop = chatMessages.scrollHeight;
     }, 100);
   }
+
   clearChatButton.addEventListener("click", () => {
     chatMessages.innerHTML = "";
     appendMessage("bot", "👋 Hi there! How can I assist you today?");
     showCategories();
   });
+
   voiceInputButton.addEventListener("click", () => {
     if (!window.SpeechRecognition && !window.webkitSpeechRecognition) {
       alert("Your browser does not support voice input.");
@@ -372,8 +405,11 @@ document.addEventListener("DOMContentLoaded", function () {
       appendMessage("bot", "❌ Sorry, I couldn't understand your voice input.");
     };
   });
+
   appendMessage("bot", "👋 Hi there! How can I assist you today?");
+
   showCategories();
+
   window.addEventListener("scroll", function () {
     let navbar = document.querySelector(".navbar");
     if (window.scrollY > 50) {
@@ -383,6 +419,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
 document.addEventListener("DOMContentLoaded", function () {
   const menuToggle = document.getElementById("menu-toggle");
   const menuClose = document.getElementById("menu-close");
@@ -400,6 +437,7 @@ document.addEventListener("DOMContentLoaded", function () {
       mobileMenu.classList.remove("active");
     });
   });
+
   window.addEventListener("scroll", function () {
     if (window.scrollY > 50) {
       navbar.classList.add("sticky");
@@ -408,6 +446,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
 document.addEventListener("DOMContentLoaded", function () {
   const searchInput = document.getElementById("search-input");
   const searchBtn = document.querySelector(".search-bar button");

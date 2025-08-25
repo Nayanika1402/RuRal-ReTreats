@@ -2,6 +2,8 @@ const container = document.querySelector('.container');
 const registerbtn = document.querySelector('.register-btn');
 const loginbtn = document.querySelector('.login-btn');
 
+// Toggle between Login/Register UI
+
 registerbtn.addEventListener('click', () => {
     container.classList.add('active');
 });
@@ -10,83 +12,160 @@ loginbtn.addEventListener('click', () => {
     container.classList.remove('active');
 });
 
-const form = document.getElementById('register-form');
-const username = document.getElementById('username');
-const email = document.getElementById('email');
-const password = document.getElementById('password');
+// Register Form Handling
 
-form.addEventListener('submit', e => {
+const registerForm = document.getElementById('register-form');
+const regUsername = document.getElementById('register-username');
+const regEmail = document.getElementById('register-email');
+const regPassword = document.getElementById('register-password');
+
+registerForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    validateInputs();
+    validateRegisterInputs();
+
+    const allValid = [...registerForm.querySelectorAll('.input-box')]
+        .every(box => box.classList.contains('success'));
+
+    if (!allValid) return;
+
+    const res = await fetch("http://localhost:5000/api/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            username: regUsername.value,
+            email: regEmail.value,
+            password: regPassword.value
+        })
+    });
+
+    const data = await res.json();
+    alert(data.message);
 });
+
+
+// Login Form Handling
+
+const loginForm = document.querySelector('.login form');
+const loginUsername = document.getElementById('login-username');
+const loginEmail = document.getElementById('login-email');
+const loginPassword = document.getElementById('login-password');
+const loginConfirmPassword = document.getElementById('login-confirm-password');
+
+loginForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    validateLoginInputs();
+
+    const allValid = [...loginForm.querySelectorAll('.input-box')]
+        .every(box => box.classList.contains('success'));
+
+    if (!allValid) return;
+
+    const res = await fetch("http://localhost:5000/api/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            username: loginUsername.value,
+            email: loginEmail.value,
+            password: loginPassword.value
+        })
+    });
+
+    const data = await res.json();
+     if (res.ok) {
+        alert(data.message);
+        window.location.href = "index.html"; 
+    } else {
+        alert(data.message || "Login failed!");
+    }
+    alert(data.message);
+});
+
+// Validation Helpers
 
 const setError = (element, message) => {
     const inputBox = element.parentElement;
-    const errorDisplay = inputBox.querySelector('.error-message');
-    const errorText = errorDisplay.querySelector('span');
+    const errorDisplay = inputBox.querySelector('.error-message span');
 
-    errorText.innerText = message;
+    if (errorDisplay) errorDisplay.innerText = message;
     inputBox.classList.add('error');
     inputBox.classList.remove('success');
-    element.setAttribute('aria-invalid', 'true');
-    element.setAttribute('aria-describedby', `${element.id}-error`);
 };
 
 const setSuccess = element => {
     const inputBox = element.parentElement;
-    const errorDisplay = inputBox.querySelector('.error-message');
-    const errorText = errorDisplay.querySelector('span');
+    const errorDisplay = inputBox.querySelector('.error-message span');
 
-    errorText.innerText = '';
+    if (errorDisplay) errorDisplay.innerText = '';
     inputBox.classList.add('success');
     inputBox.classList.remove('error');
-    element.setAttribute('aria-invalid', 'false');
-    element.removeAttribute('aria-describedby');
 };
 
 const isValidEmail = email => {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
-}
+};
 
-const validateInputs = () => {
-    const usernameValue = username.value.trim();
-    const emailValue = email.value.trim();
-    const passwordValue = password.value.trim();
+// Registration Validation
+
+const validateRegisterInputs = () => {
+    const usernameValue = regUsername.value.trim();
+    const emailValue = regEmail.value.trim();
+    const passwordValue = regPassword.value.trim();
 
     if (usernameValue === '') {
-        setError(username, 'Username is required');
+        setError(regUsername, 'Username is required');
     } else {
-        setSuccess(username);
+        setSuccess(regUsername);
     }
 
     if (emailValue === '') {
-        setError(email, 'Email is required');
+        setError(regEmail, 'Email is required');
     } else if (!isValidEmail(emailValue)) {
-        setError(email, 'Provide a valid email address');
+        setError(regEmail, 'Provide a valid email address');
     } else {
-        setSuccess(email);
+        setSuccess(regEmail);
     }
 
     if (passwordValue === '') {
-        setError(password, 'Password is required');
+        setError(regPassword, 'Password is required');
     } else if (passwordValue.length < 8) {
-        setError(password, 'Password must be at least 8 character.')
-    } else if (!/(?=.*[a-z])/.test(passwordValue)) {
-        setError(password, 'Password must contain at least one lowercase letter.');
-    } else if (!/(?=.*[A-Z])/.test(passwordValue)) {
-        setError(password, 'Password must contain at least one uppercase letter.');
-    } else if (!/(?=.*[0-9])/.test(passwordValue)) {
-        setError(password, 'Password must contain at least one number.');
-    } else if (!/(?=.*[!@#$%^&*])/.test(passwordValue)) {
-        setError(password, 'Password must contain at least one special character.');
+        setError(regPassword, 'Password must be at least 8 characters.');
     } else {
-        setSuccess(password);
+        setSuccess(regPassword);
     }
 };
 
-[username, email, password].forEach(input => {
-    input.addEventListener('input', () => {
-        validateInputs();
-    });
-});
+// Login Validation
+
+const validateLoginInputs = () => {
+    const usernameValue = loginUsername.value.trim();
+    const emailValue = loginEmail.value.trim();
+    const passwordValue = loginPassword.value.trim();
+    const confirmPasswordValue = loginConfirmPassword.value.trim();
+
+    if (usernameValue === '') {
+        setError(loginUsername, 'Username is required');
+    } else {
+        setSuccess(loginUsername);
+    }
+
+    if (emailValue === '') {
+        setError(loginEmail, 'Email is required');
+    } else if (!isValidEmail(emailValue)) {
+        setError(loginEmail, 'Provide a valid email address');
+    } else {
+        setSuccess(loginEmail);
+    }
+
+    if (passwordValue === '') {
+        setError(loginPassword, 'Password is required');
+    } else {
+        setSuccess(loginPassword);
+    }
+
+    if (confirmPasswordValue !== passwordValue) {
+        setError(loginConfirmPassword, 'Passwords do not match');
+    } else {
+        setSuccess(loginConfirmPassword);
+    }
+};
