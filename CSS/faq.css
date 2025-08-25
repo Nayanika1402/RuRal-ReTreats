@@ -269,6 +269,25 @@ body {
   transform: scale(1.1);
   box-shadow: 0 6px 15px rgba(1, 77, 128, 0.882);
 }
+/* Show on desktop, hide on mobile */
+.desktop-only {
+  display: block;
+}
+
+.mobile-only {
+  display: none;
+}
+
+@media (max-width: 1200px) {
+  /* On small screens: */
+  .desktop-only {
+    display: none;
+  }
+
+  .mobile-only {
+    display: inline-block;
+  }
+}
 
 .mobile-menu {
   position: fixed;
@@ -671,12 +690,11 @@ body {
 
 .chat-messages {
   z-index: 1000;
-
   flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
   padding-bottom: 10px;
+  max-height: 400px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
 }
 
 .message {
@@ -837,6 +855,26 @@ body {
 .back-to-top-btn.show {
   opacity: 1;
   visibility: visible;
+}
+
+.option-button {
+  background: linear-gradient(135deg, #0073e6, #00b894);
+  gap: 20px;
+  border-radius: 3px;
+}
+
+/* Chatbot Option Buttons */
+.option-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 15px;
+  margin: 5px 0;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  display: flex;
+  align-items: center;
 }
 
 @keyframes fadeIn {

@@ -269,6 +269,26 @@ body {
   transform: scale(1.1);
   box-shadow: 0 6px 15px rgba(1, 77, 128, 0.882);
 }
+/* Show on desktop, hide on mobile */
+.desktop-only {
+  display: block;
+}
+
+.mobile-only {
+  display: none;
+}
+
+@media (max-width: 1200px) {
+  /* On small screens: */
+  .desktop-only {
+    display: none;
+  }
+
+  .mobile-only {
+    display: inline-block;
+  }
+}
+
 
 .mobile-menu {
   position: fixed;
@@ -350,9 +370,6 @@ body {
     display: block;
   }
 
-  .login-btn {
-    font-size: 1rem;
-  }
 
   .search-bar {
     display: none;
@@ -369,9 +386,6 @@ body {
     font-size: 1.5rem;
   }
 
-  .auth-buttons {
-    gap: 8px;
-  }
 }
 
 @media only screen and (min-width: 320px) {
@@ -388,9 +402,9 @@ body {
     font-size: 1.8rem;
   }
 
-  .auth-buttons {
+  /* .auth-buttons {
     gap: 10px;
-  }
+  } */
 }
 
 @media only screen and (min-width: 768px) {
@@ -2911,10 +2925,10 @@ select:focus {
 .chat-messages {
   z-index: 1000;
   flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
   padding-bottom: 10px;
+  max-height: 400px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
 }
 
 .message {
