@@ -2,9 +2,23 @@
 <html lang="en">
 
 <head>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Privacy Policy | RURAL RETREATS</title>
+
+  <!-- Basic Meta Tags -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy | RURAL RETREATS</title>
+
+  <!-- Theme & Tile Colors -->
+  <meta name="theme-color" content="#FFFFFF" />
+  <meta name="msapplication-TileColor" content="#FFFFFF" />
+  <meta name="msapplication-TileImage" content="./favicon/favicon-512x512.png" />
+
+  <!-- Favicons & Manifest -->
+
   <link rel="apple-touch-icon" sizes="57x57" href="./favicon/favicon-57x57.png" type="image/png" />
   <link rel="apple-touch-icon" sizes="60x60" href="./favicon/favicon-60x60.png" type="image/png" />
   <link rel="apple-touch-icon" sizes="72x72" href="./favicon/favicon-72x72.png" type="image/png" />
@@ -19,16 +33,39 @@
   <link rel="icon" sizes="192x192" href="./favicon/favicon-192x192.png" type="image/png" />
   <link rel="icon" sizes="512x512" href="./favicon/favicon-512x512.png" type="image/png" />
   <link rel="manifest" href="./favicon/manifest.json" />
+
   <meta name="theme-color" content="#FFFFFF" />
   <meta name="msapplication-TileColor" content="#FFFFFF" />
   <meta name="msapplication-TileImage" content="./favicon/favicon-512x512.png" />
+
+
+  <!-- Stylesheets -->
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./CSS/pp.css" />
   <link rel="stylesheet" href="./CSS/navbar.css" />
+
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 </head>
+
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="nav-container">
+        <button class="hamicon" id="menu-toggle" title="menu-toggle">
+          <i class="fas fa-bars"></i>
+        </button>
+
+
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script src="./JS/pp.js" defer></script>
+  <script src="./JS/navbar.js" defer></script>
+</head>
+
 
 <body>
   <header>
@@ -72,9 +109,13 @@
     </nav>
 
     <div class="mobile-menu" id="mobile-menu">
+
       <button class="close-btn" id="menu-close" aria-label="Close menu">
         <i class="fas fa-times"></i>
       </button>
+
+      <button class="close-btn" id="menu-close">✖</button>
+
 
       <div class="mobile-search-bar">
         <input type="text" placeholder="Search..." id="mobile-search-input" />
@@ -82,11 +123,19 @@
       </div>
 
       <ul>
+
         <li><a href="index.html">🏠 Home</a></li>
         <li><a href="services.html">⚙️ Services</a></li>
         <li><a href="homestays.html">🏘️ HomeStays</a></li>
         <li><a href="faq.html">❓ FAQs</a></li>
         <li><a href="contact.html">📞 Contact Us</a></li>
+
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="homestays.html">HomeStays</a></li>
+        <li><a href="faq.html">FAQs</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+
       </ul>
     </div>
   </header>
@@ -135,6 +184,21 @@
       unauthorized access.
     </p>
 
+
+    <h2>6. Your Rights</h2>
+    <p>
+      You have the right to request access, correction, or deletion of your
+      personal data. To do so, email us at
+      <a href="mailto:support@ruralretreats.com">support@ruralretreats.com</a>.
+    </p>
+
+    <h2>7. Changes to Privacy Policy</h2>
+    <p>
+      We may update this policy from time to time. Please check this page for
+      the latest version.
+    </p>
+
+
     <h2>6. Your Rights</h2>
     <p>
       You have the right to request access, correction, or deletion of your
@@ -180,6 +244,7 @@
           </ul>
         </div>
 
+
         <div class="footer-section contact">
           <h4>Customer Support</h4>
           <p>Email: <a href="#">support@ruralretreats.com</a></p>
@@ -190,6 +255,20 @@
           </p>
         </div>
       </div>
+
+
+
+        <div class="footer-section contact">
+          <h4>Customer Support</h4>
+          <p>Email: <a href="#">support@ruralretreats.com</a></p>
+          <p>Phone: <a href="tel:+91629XXXXXXX">+91 629XX XXXXX</a></p>
+          <p>
+            Address: Q University Institute Of Technology, Burdwan-713104,
+            West Bengal
+          </p>
+        </div>
+      </div>
+
 
       <!-- Second Row: Social Media, Language Selector, Newsletter -->
       <div class="footer-row">
@@ -224,6 +303,40 @@
             <button type="submit" class="footer-newsletter-btn" onclick="subscribeNewsletter()">
               <b>Subscribe</b>
             </button>
+
+
+        <div class="footer-section language-selector">
+          <h4>Language</h4>
+          <label for="language-select">Choose Language:</label>
+          <select id="language-select">
+            <option>English</option>
+            <option>Bengali</option>
+            <option>Hindi</option>
+            <option>French</option>
+            <option>Spanish</option>
+            <option>German</option>
+          </select>
+        </div>
+
+          <div class="footer-section">
+            <h4>Newsletter</h4>
+            <p>Subscribe for exclusive travel deals!</p>
+            <div class="newsletter">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                id="newsletter-email"
+                required
+              />
+              <button
+                type="submit"
+                class="footer-newsletter-btn"
+                onclick="subscribeNewsletter()"
+              >
+                <b>Subscribe</b>
+              </button>
+            </div>
+
           </div>
         </div>
       </div>
@@ -270,8 +383,10 @@
       </div>
     </div>
   </div>
+
   <script src="./JS/pp.js" defer></script>
   <script defer src="./JS/navbar.js"></script>
+
 </body>
 
 </html>

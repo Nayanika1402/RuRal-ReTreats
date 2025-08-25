@@ -2,9 +2,17 @@
 <html lang="en">
 
 <head>
+  <!-- Meta Configuration -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Travel Sustain | Rural-retreats</title>
+
+  <!-- Theme & Tile Colors -->
+  <meta name="theme-color" content="#FFFFFF" />
+  <meta name="msapplication-TileColor" content="#FFFFFF" />
+  <meta name="msapplication-TileImage" content="./favicon/favicon-512x512.png" />
+
+  <!-- Favicons & Manifest -->
   <link rel="apple-touch-icon" sizes="57x57" href="./favicon/favicon-57x57.png" type="image/png" />
   <link rel="apple-touch-icon" sizes="60x60" href="./favicon/favicon-60x60.png" type="image/png" />
   <link rel="apple-touch-icon" sizes="72x72" href="./favicon/favicon-72x72.png" type="image/png" />
@@ -38,6 +46,28 @@
   style="position: relative; min-height: 100%; top: 0px; bottom: 0px;">
 
 
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100..900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="./CSS/ts.css" />
+  <link rel="stylesheet" href="./CSS/navbar.css" />
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="./JS/ts.js"></script>
+  <script defer src="./JS/navbar.js"></script>
+</head>
+
+
+<body background="https://www.wns.co.za/Portals/0/Images/HeaderBanner/desktop/1087/53/travel_HD.jpg"
+  style="position: relative; min-height: 100%; top: 0px; bottom: 0px;">
   <header>
     <nav class="navbar" aria-label="Main Navigation">
       <div class="nav-container">
@@ -87,6 +117,11 @@
 
       <div class="mobile-search-bar">
         <input type="text" placeholder="Search..." id="mobile-search-input" />
+      <button class="close-btn" id="menu-close">✖</button>
+
+
+      <div class="mobile-search-bar">
+        <input type="text" placeholder="Search..." id="mobile-search-input">
         <button title="search"><i class="fas fa-search"></i></button>
       </div>
 
@@ -97,6 +132,14 @@
         <li><a href="faq.html">❓ FAQs</a></li>
         <li><a href="contact.html">📞 Contact Us</a></li>
       </ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="homestays.html">HomeStays</a></li>
+        <li><a href="faq.html">FAQs</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+
+
     </div>
   </header>
 
@@ -271,7 +314,111 @@
     </div>
   </footer>
 
+      <div class="footer-container">
+        <!-- First Row: Rural Retreats, Quick Links, Customer Support -->
+        <div class="footer-row">
+          <div class="footer-section about">
+            <h3 class="footer-title">Rural Retreats</h3>
+            <p>
+              We offer budget-friendly tours, curated travel experiences, and
+              luxury escapes worldwide.
+            </p>
+          </div>
 
+          <div class="footer-section links">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="homestays.html">Hotels & Homestays</a></li>
+              <li><a href="#blog-highlights">Travel Guides</a></li>
+              <li><a href="faq.html">FAQs</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section contact">
+            <h4>Customer Support</h4>
+            <p>Email: <a href="#">support@ruralretreats.com</a></p>
+            <p>Phone: <a href="tel:+91629XXXXXXX">+91 629XX XXXXX</a></p>
+            <p>
+              Address: Q University Institute Of Technology, Burdwan-713104,
+              West Bengal
+            </p>
+          </div>
+        </div>
+
+        <!-- Second Row: Social Media, Language Selector, Newsletter -->
+        <div class="footer-row">
+          <div class="footer-section social-media">
+            <h4>Follow Us</h4>
+            <div class="social-icons">
+              <a href="#" class="youtube" title="youtube"
+                ><i class="fa-brands fa-youtube"></i
+              ></a>
+              <a href="#" class="instagram" title="instagram"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+              <a href="#" class="twitter" title="twitter"
+                ><i class="fa-brands fa-twitter"></i
+              ></a>
+              <a href="#" class="linkedin" title="linkedin"
+                ><i class="fa-brands fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="footer-section language-selector">
+            <h4>Language</h4>
+            <label for="language-select">Choose Language:</label>
+            <select id="language-select">
+              <option>English</option>
+              <option>Bengali</option>
+              <option>Hindi</option>
+              <option>French</option>
+              <option>Spanish</option>
+              <option>German</option>
+            </select>
+          </div>
+
+          <div class="footer-section">
+            <h4>Newsletter</h4>
+            <p>Subscribe for exclusive travel deals!</p>
+            <div class="newsletter">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                id="newsletter-email"
+                required
+              />
+              <button
+                type="submit"
+                class="footer-newsletter-btn"
+                onclick="subscribeNewsletter()"
+              >
+                <b>Subscribe</b>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 Rural Retreats. All rights reserved. |
+          <a href="pp.html">Privacy Policy</a> |
+          <a href="t&c.html">Terms & Conditions</a>
+        </p>
+      </div>
+    </footer> 
+
+  <button id="backToTop" class="back-to-top-btn" title="Go to top">↑</button>
+
+
+  <div id="chatButton" class="chatbot-button">
+    <i class="fas fa-comment-dots"></i>
+  </div>
   <button id="backToTop" class="back-to-top-btn" title="Go to top">↑</button>
 
 
@@ -304,6 +451,7 @@
 
   <script src="./JS/ts.js"></script>
   <script defer src="./JS/navbar.js"></script>
+
 </body>
 
 </html>

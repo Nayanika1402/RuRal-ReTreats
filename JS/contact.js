@@ -17,8 +17,8 @@ function validateEmail(email) {
     const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     return re.test(email);
 }
-const validatePhone = (phone) =>{
-    if (isNaN(phone) || phone.length != 10 || !phone){
+const validatePhone = (phone) => {
+    if (isNaN(phone) || phone.length != 10 || !phone) {
         return false;
     }
     return true;
@@ -26,7 +26,7 @@ const validatePhone = (phone) =>{
 function sendNewsletterEmail(email) {
     let templateParams = {
         user_email: email,
-        to_email: email,  
+        to_email: email,
         subject: "🌟 Welcome to Our Travel Newsletter!",
         message: `Hi there! 🎉\n\nThank you for subscribing to our exclusive travel newsletter! ✈️🌎\n\nYou’ll receive the latest travel deals, destination tips, and exciting offers. 🏖️\n\nClick the link below to complete your registration:\n\n🔗 [Complete Registration](#)\n\nHappy Travels! 🚀`
     };
@@ -68,8 +68,8 @@ function loadGoogleTranslate() {
     }
 }
 function googleTranslateInit() {
-    new google.translate.TranslateElement({ 
-        pageLanguage: 'en', 
+    new google.translate.TranslateElement({
+        pageLanguage: 'en',
         autoDisplay: false
     }, 'google_translate_element');
     setTimeout(fixGoogleTranslateStyles, 1000);
@@ -90,19 +90,19 @@ document.getElementById("language-select").addEventListener("change", function (
 });
 function fixGoogleTranslateStyles() {
     document.querySelectorAll("*").forEach(element => {
-        element.style.fontSize = ""; 
-        element.style.lineHeight = ""; 
-        element.style.letterSpacing = ""; 
+        element.style.fontSize = "";
+        element.style.lineHeight = "";
+        element.style.letterSpacing = "";
     });
 }
 window.addEventListener("load", loadGoogleTranslate);
 
 
-document.getElementById("contactForm").addEventListener("submit", function(event) {
+document.getElementById("contactForm").addEventListener("submit", function (event) {
     event.preventDefault();
     const phone = document.getElementById("phone");
     const phoneNumber = phone.value.trim();
-    if (!validatePhone(phoneNumber)){
+    if (!validatePhone(phoneNumber)) {
         alert("❌ Invalid Phone Number ! Please enter a valid Phone number.")
         return;
     }
@@ -382,12 +382,12 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     appendMessage("bot", "👋 Hi there! How can I assist you today?");
     showCategories();
-window.addEventListener("scroll", function () {
-    let navbar = document.querySelector(".navbar");
-    if (window.scrollY > 50) {
-        navbar.classList.add("scrolled");
-    } else {
-        navbar.classList.remove("scrolled");
-    }
-});
+    window.addEventListener("scroll", function () {
+        let navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+            navbar.classList.add("scrolled");
+        } else {
+            navbar.classList.remove("scrolled");
+        }
+    });
 });

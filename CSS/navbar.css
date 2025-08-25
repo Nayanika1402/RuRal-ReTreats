@@ -1,9 +1,13 @@
+
 *{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
+body {
+  padding-top: 8vh;
+=======
 body {
   padding-top: 8vh;
 }
@@ -19,6 +23,7 @@ body {
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   z-index: 1000;
+
 }
 
 /* Mobile Menu Overlay - Enhanced */
