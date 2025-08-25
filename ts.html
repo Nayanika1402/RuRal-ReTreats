@@ -27,6 +27,25 @@
   <link rel="icon" sizes="192x192" href="./favicon/favicon-192x192.png" type="image/png" />
   <link rel="icon" sizes="512x512" href="./favicon/favicon-512x512.png" type="image/png" />
   <link rel="manifest" href="./favicon/manifest.json" />
+  <meta name="theme-color" content="#FFFFFF" />
+  <meta name="msapplication-TileColor" content="#FFFFFF" />
+  <meta name="msapplication-TileImage" content="/favicon/favicon-512x512.png" />
+  <link rel="stylesheet" href="./CSS/ts.css" />
+  <link rel="stylesheet" href="./CSS/navbar.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+
+<body background="https://www.wns.co.za/Portals/0/Images/HeaderBanner/desktop/1087/53/travel_HD.jpg"
+  style="position: relative; min-height: 100%; top: 0px; bottom: 0px;">
+
+
 
   <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -92,6 +111,12 @@
 
 
     <div class="mobile-menu" id="mobile-menu">
+      <button class="close-btn" id="menu-close" aria-label="Close menu">
+        <i class="fas fa-times"></i>
+      </button>
+
+      <div class="mobile-search-bar">
+        <input type="text" placeholder="Search..." id="mobile-search-input" />
       <button class="close-btn" id="menu-close">✖</button>
 
 
@@ -101,6 +126,12 @@
       </div>
 
       <ul>
+        <li><a href="index.html">🏠 Home</a></li>
+        <li><a href="services.html">⚙️ Services</a></li>
+        <li><a href="homestays.html">🏘️ HomeStays</a></li>
+        <li><a href="faq.html">❓ FAQs</a></li>
+        <li><a href="contact.html">📞 Contact Us</a></li>
+      </ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="homestays.html">HomeStays</a></li>
@@ -200,6 +231,89 @@
 
 
   <footer class="footer">
+    <div class="footer-container">
+
+      <div class="footer-row">
+        <div class="footer-section about">
+          <h3 class="footer-title">Rural Retreats</h3>
+          <p>
+            We offer budget-friendly tours, curated travel experiences, and
+            luxury escapes worldwide.
+          </p>
+        </div>
+
+        <div class="footer-section links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="homestays.html">Hotels & Homestays</a></li>
+            <li><a href="#blog-highlights">Travel Guides</a></li>
+            <li><a href="faq.html">FAQs</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+
+        <div class="footer-section contact">
+          <h4>Customer Support</h4>
+          <p>
+            Email: <a href="#">support@ruralretreats.com</a>
+          </p>
+          <p>Phone: <a href="tel:+91629XXXXXXX">+91 629XX XXXXX</a></p>
+          <p>
+            Address: Q University Institute Of Technology, Burdwan-713104, West
+            Bengal
+          </p>
+        </div>
+      </div>
+
+
+      <div class="footer-row">
+        <div class="footer-section social-media">
+          <h4>Follow Us</h4>
+          <div class="social-icons">
+            <a href="#" class="youtube" title="youtube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" class="instagram" title="instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="twitter" title="twitter"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#" class="linkedin" title="linkedin"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-section language-selector">
+          <h4>Language</h4>
+          <label for="language-select">Choose Language:</label>
+          <select id="language-select">
+            <option>English</option>
+            <option>Bengali</option>
+            <option>Hindi</option>
+            <option>French</option>
+            <option>Spanish</option>
+            <option>German</option>
+          </select>
+        </div>
+
+        <div class="footer-section newsletter">
+          <h4>Newsletter</h4>
+          <p>Subscribe for exclusive travel deals!</p>
+          <div class="newsletter">
+            <input type="email" placeholder="Enter your email" id="newsletter-email" required>
+            <button type="submit" class="footer-newsletter-btn"
+              onclick="subscribeNewsletter()"><b>Subscribe</b></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>
+        &copy; 2025 Rural Retreats. All rights reserved. |
+        <a href="pp.html">Privacy Policy</a> | <a href="t&c.html">Terms & Conditions</a>
+      </p>
+    </div>
+  </footer>
+
       <div class="footer-container">
         <!-- First Row: Rural Retreats, Quick Links, Customer Support -->
         <div class="footer-row">
@@ -299,7 +413,12 @@
       </div>
     </footer> 
 
+  <button id="backToTop" class="back-to-top-btn" title="Go to top">↑</button>
 
+
+  <div id="chatButton" class="chatbot-button">
+    <i class="fas fa-comment-dots"></i>
+  </div>
   <button id="backToTop" class="back-to-top-btn" title="Go to top">↑</button>
 
 
@@ -327,6 +446,12 @@
     </div>
   </div>
   </div>
+
+
+
+  <script src="./JS/ts.js"></script>
+  <script defer src="./JS/navbar.js"></script>
+
 </body>
 
 </html>
