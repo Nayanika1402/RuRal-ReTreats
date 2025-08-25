@@ -39,7 +39,7 @@ body {
     text-align: center;
     padding: 40px;
     z-index: 1;
-    transition: .6s ease-in-out 1.2s, visibility 0s 1s;
+    transition: .5s ease-in-out .5s, visibility 0s .5s;
 }
 
 .container.active .form-box {
@@ -152,7 +152,7 @@ form {
     background: #7494ec;
     border-radius: 150px;
     z-index: 2;
-    transition: 1.8s ease-in-out;
+    transition: 0.97s ease-in-out;
 }
 
 .container.active .toggle-box::before {
@@ -169,27 +169,27 @@ form {
     justify-content: center;
     align-items: center;
     z-index: 2;
-    transition: .6s ease-in-out;
+    transition: .5s ease-in-out;
 }
 
 .toggle-panel.toggle-left {
     left: 0;
-    transition-delay: 1.2s;
+    transition-delay: .7s;
 }
 
 .container.active .toggle-panel.toggle-left {
     left: -50%;
-    transition-delay: .6s;
+    transition-delay: .2s;
 }
 
 .toggle-panel.toggle-right {
     right: -50%;
-    transition-delay: .6s;
+    transition-delay: .2s;
 }
 
 .container.active .toggle-panel.toggle-right {
     right: 0;
-    transition-delay: 1.2s;
+    transition-delay: .7s;
 }
 
 .toggle-panel p {
