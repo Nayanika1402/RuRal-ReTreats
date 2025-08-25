@@ -1592,7 +1592,7 @@ h1 {
 
 .chatbot-modal:hover {
   background: linear-gradient(135deg, #023364, #009dff);
-  transform: scale(1.15);
+  /* transform: scale(1.15); */
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
 
@@ -1729,10 +1729,10 @@ h1 {
 .chat-messages {
   z-index: 1000;
   flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
   padding-bottom: 10px;
+  max-height: 400px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
 }
 
 .message {
