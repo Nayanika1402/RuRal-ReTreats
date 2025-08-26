@@ -1684,14 +1684,16 @@ ul {
 .chat-messages {
   z-index: 1000;
   flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
   padding-bottom: 10px;
   width: 100%;
   box-sizing: border-box;
   overflow-wrap: break-word;
   word-wrap: break-word;
+
+  max-height: 400px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+
 }
 
 .message {
