@@ -94,24 +94,43 @@ function fixGoogleTranslateStyles() {
 window.addEventListener("load", loadGoogleTranslate);
 
 
-document.querySelectorAll(".faq-question").forEach(button => {
-    button.addEventListener("click", () => {
-        const answer = button.nextElementSibling; 
-        const arrow = button.querySelector(".arrow"); 
-        const isVisible = answer.style.display === "block";  
-        
-    
-        if (isVisible) {
-            answer.style.display = "none";  
-        } else {
-            answer.style.display = "block"; 
-            answer.classList.add('show');  
-        }
-        
-        arrow.style.transform = isVisible ? "rotate(0deg)" : "rotate(180deg)";
-        arrow.style.transition = "transform 0.3s ease";
+// FAQ Functionality - Wrapped in DOMContentLoaded to ensure DOM is ready
+document.addEventListener("DOMContentLoaded", function () {
+    // Initialize FAQ click handlers
+    const faqQuestions = document.querySelectorAll(".faq-question");
+
+    faqQuestions.forEach((button) => {
+        button.addEventListener("click", () => {
+            const answer = button.nextElementSibling;
+            const arrow = button.querySelector(".arrow");
+            const isVisible = answer.style.display === "block";
+
+            // Close all other FAQ answers
+            document.querySelectorAll(".faq-answer").forEach(otherAnswer => {
+                if (otherAnswer !== answer) {
+                    otherAnswer.style.display = "none";
+                }
+            });
+
+            // Reset all other arrows
+            document.querySelectorAll(".arrow").forEach(otherArrow => {
+                if (otherArrow !== arrow) {
+                    otherArrow.textContent = "▼";
+                }
+            });
+
+            if (isVisible) {
+                answer.style.display = "none";
+                arrow.textContent = "▼";
+            } else {
+                answer.style.display = "block";
+                answer.classList.add('show');
+                arrow.textContent = "▲";
+            }
+        });
     });
 });
+
 function filterFAQs() {
     let searchInput = document.getElementById("faq-search").value.toLowerCase();
     document.querySelectorAll(".faq").forEach(faq => {

@@ -520,13 +520,12 @@ body {
 }
 
 .faq-answer {
-
   display: none;
   padding: 15px;
   font-size: 16px;
   background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
-  border-top: 1px solid #ff8000;
-  box-shadow: 0 4px 8px #000;
+  color: #333;
+  border-top: 1px solid #00bcd4;
 }
 
 .faq-answer.show {
