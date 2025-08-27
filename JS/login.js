@@ -1,92 +1,136 @@
-const container = document.querySelector('.container');
-const registerbtn = document.querySelector('.register-btn');
-const loginbtn = document.querySelector('.login-btn');
+document.addEventListener("DOMContentLoaded", () => {
+  const container = document.querySelector(".container");
 
-registerbtn.addEventListener('click', () => {
-    container.classList.add('active');
-});
+  // Toggle buttons
+  const toggleRegisterBtn = document.querySelector(".toggle-register-btn");
+  const toggleLoginBtn = document.querySelector(".toggle-login-btn");
 
-loginbtn.addEventListener('click', () => {
-    container.classList.remove('active');
-});
+  if (toggleRegisterBtn)
+    toggleRegisterBtn.addEventListener("click", () =>
+      container.classList.add("active")
+    );
+  if (toggleLoginBtn)
+    toggleLoginBtn.addEventListener("click", () =>
+      container.classList.remove("active")
+    );
 
-const form = document.getElementById('register-form');
-const username = document.getElementById('username');
-const email = document.getElementById('email');
-const password = document.getElementById('password');
+  // FORM ELEMENTS
+  const registerForm = document.getElementById("register-form");
+  const loginForm = document.getElementById("login-form");
 
-form.addEventListener('submit', e => {
-    e.preventDefault();
-    validateInputs();
-});
+  const registerUsername = document.getElementById("register-username");
+  const registerEmail = document.getElementById("register-email");
+  const registerPassword = document.getElementById("register-password");
 
-const setError = (element, message) => {
-    const inputBox = element.parentElement;
-    const errorDisplay = inputBox.querySelector('.error-message');
-    const errorText = errorDisplay.querySelector('span');
+  const loginUsername = document.getElementById("login-username");
+  const loginPassword = document.getElementById("login-password");
 
-    errorText.innerText = message;
-    inputBox.classList.add('error');
-    inputBox.classList.remove('success');
-    element.setAttribute('aria-invalid', 'true');
-    element.setAttribute('aria-describedby', `${element.id}-error`);
-};
+  // ===== VALIDATION HELPERS =====
+  const setError = (el, msg) => {
+    const box = el.parentElement;
+    let span = box.querySelector(".error-message span");
+    if (!span) {
+      const errorEl = document.createElement("div");
+      errorEl.className = "error-message";
+      errorEl.innerHTML = `<span>${msg}</span>`;
+      box.appendChild(errorEl);
+    } else span.innerText = msg;
+    box.classList.add("error");
+    box.classList.remove("success");
+  };
 
-const setSuccess = element => {
-    const inputBox = element.parentElement;
-    const errorDisplay = inputBox.querySelector('.error-message');
-    const errorText = errorDisplay.querySelector('span');
+  const setSuccess = (el) => {
+    const box = el.parentElement;
+    let span = box.querySelector(".error-message span");
+    if (span) span.innerText = "";
+    box.classList.add("success");
+    box.classList.remove("error");
+  };
 
-    errorText.innerText = '';
-    inputBox.classList.add('success');
-    inputBox.classList.remove('error');
-    element.setAttribute('aria-invalid', 'false');
-    element.removeAttribute('aria-describedby');
-};
-
-const isValidEmail = email => {
-    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  const isValidEmail = (email) => {
+    const re =
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
-}
+  };
 
-const validateInputs = () => {
-    const usernameValue = username.value.trim();
-    const emailValue = email.value.trim();
-    const passwordValue = password.value.trim();
+  const validateRegister = () => {
+    let valid = true;
 
-    if (usernameValue === '') {
-        setError(username, 'Username is required');
-    } else {
-        setSuccess(username);
-    }
+    if (registerUsername.value.trim() === "") {
+      setError(registerUsername, "Username is required");
+      valid = false;
+    } else setSuccess(registerUsername);
+    if (registerEmail.value.trim() === "") {
+      setError(registerEmail, "Email is required");
+      valid = false;
+    } else if (!isValidEmail(registerEmail.value.trim())) {
+      setError(registerEmail, "Provide valid email");
+      valid = false;
+    } else setSuccess(registerEmail);
+    if (registerPassword.value.trim() === "") {
+      setError(registerPassword, "Password required");
+      valid = false;
+    } else if (registerPassword.value.trim().length < 8) {
+      setError(registerPassword, "Password min 8 chars");
+      valid = false;
+    } else setSuccess(registerPassword);
 
-    if (emailValue === '') {
-        setError(email, 'Email is required');
-    } else if (!isValidEmail(emailValue)) {
-        setError(email, 'Provide a valid email address');
-    } else {
-        setSuccess(email);
-    }
+    return valid;
+  };
 
-    if (passwordValue === '') {
-        setError(password, 'Password is required');
-    } else if (passwordValue.length < 8) {
-        setError(password, 'Password must be at least 8 character.')
-    } else if (!/(?=.*[a-z])/.test(passwordValue)) {
-        setError(password, 'Password must contain at least one lowercase letter.');
-    } else if (!/(?=.*[A-Z])/.test(passwordValue)) {
-        setError(password, 'Password must contain at least one uppercase letter.');
-    } else if (!/(?=.*[0-9])/.test(passwordValue)) {
-        setError(password, 'Password must contain at least one number.');
-    } else if (!/(?=.*[!@#$%^&*])/.test(passwordValue)) {
-        setError(password, 'Password must contain at least one special character.');
-    } else {
-        setSuccess(password);
-    }
-};
+  // ===== REGISTER HANDLER =====
+  if (registerForm) {
+    registerForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      if (!validateRegister()) return;
 
-[username, email, password].forEach(input => {
-    input.addEventListener('input', () => {
-        validateInputs();
+      try {
+        const res = await fetch("http://localhost:3000/api/register", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            username: registerUsername.value.trim(),
+            email: registerEmail.value.trim(),
+            password: registerPassword.value.trim(),
+          }),
+        });
+
+        const data = await res.json();
+        if (res.ok) {
+          alert("Registration successful! Please login.");
+          container.classList.remove("active");
+        } else alert(data.message || "Registration failed");
+      } catch (err) {
+        console.error(err);
+        alert("Cannot connect to server");
+      }
     });
+  }
+
+  // ===== LOGIN HANDLER =====
+  if (loginForm) {
+    loginForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      try {
+        const res = await fetch("http://localhost:3000/api/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            username: loginUsername.value.trim(),
+            password: loginPassword.value.trim(),
+          }),
+        });
+
+        const data = await res.json();
+        if (res.ok) {
+          localStorage.setItem("token", data.token);
+          localStorage.setItem("username", loginUsername.value.trim());
+          window.location.href = "index.html"; // redirect to home
+        } else alert(data.message || "Login failed");
+      } catch (err) {
+        console.error(err);
+        alert("Cannot connect to server");
+      }
+    });
+  }
 });
