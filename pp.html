@@ -12,6 +12,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
       body {
         font-family: "Inter", sans-serif;
         -webkit-font-smoothing: antialiased;
@@ -19,6 +20,7 @@
       }
     </style>
   </head>
+
   <body class="bg-gray-50 flex flex-col min-h-screen">
     <!-- Header / Navbar -->
     <header class="bg-white shadow-md sticky top-0 z-50">
@@ -227,26 +229,34 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-300 py-12 mt-auto">
+    <footer class="bg-blue-100 text-gray-900 py-12 mt-auto">
       <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
         <!-- About Section -->
         <div class="space-y-4">
-          <h3 class="text-xl font-bold text-white mb-2">Rural Retreats</h3>
-          <p class="text-gray-400">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Rural Retreats</h3>
+          <p class="text-gray-600">
             We offer budget-friendly tours, curated travel experiences, and
             luxury escapes worldwide.
           </p>
           <div class="flex space-x-4 text-xl">
-            <a href="#" class="hover:text-white transition-colors"
+            <a
+              href="#"
+              class="text-gray-700 hover:text-emerald-600 transition-colors"
               ><i class="fa-brands fa-youtube"></i
             ></a>
-            <a href="#" class="hover:text-white transition-colors"
+            <a
+              href="#"
+              class="text-gray-700 hover:text-emerald-600 transition-colors"
               ><i class="fa-brands fa-instagram"></i
             ></a>
-            <a href="#" class="hover:text-white transition-colors"
+            <a
+              href="#"
+              class="text-gray-700 hover:text-emerald-600 transition-colors"
               ><i class="fa-brands fa-twitter"></i
             ></a>
-            <a href="#" class="hover:text-white transition-colors"
+            <a
+              href="#"
+              class="text-gray-700 hover:text-emerald-600 transition-colors"
               ><i class="fa-brands fa-linkedin-in"></i
             ></a>
           </div>
@@ -254,37 +264,47 @@
 
         <!-- Quick Links Section -->
         <div>
-          <h3 class="text-xl font-bold text-white mb-4">Quick Links</h3>
-          <ul class="space-y-2 text-gray-400">
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Quick Links</h3>
+          <ul class="space-y-2 text-gray-600">
             <li>
-              <a href="index.html" class="hover:text-white transition-colors"
+              <a
+                href="index.html"
+                class="hover:text-emerald-600 transition-colors"
                 >Home</a
               >
             </li>
             <li>
-              <a href="about.html" class="hover:text-white transition-colors"
+              <a
+                href="about.html"
+                class="hover:text-emerald-600 transition-colors"
                 >About Us</a
               >
             </li>
             <li>
-              <a href="services.html" class="hover:text-white transition-colors"
+              <a
+                href="services.html"
+                class="hover:text-emerald-600 transition-colors"
                 >Services</a
               >
             </li>
             <li>
               <a
                 href="homestays.html"
-                class="hover:text-white transition-colors"
+                class="hover:text-emerald-600 transition-colors"
                 >Hotels & Homestays</a
               >
             </li>
             <li>
-              <a href="faq.html" class="hover:text-white transition-colors"
+              <a
+                href="faq.html"
+                class="hover:text-emerald-600 transition-colors"
                 >FAQs</a
               >
             </li>
             <li>
-              <a href="contact.html" class="hover:text-white transition-colors"
+              <a
+                href="contact.html"
+                class="hover:text-emerald-600 transition-colors"
                 >Contact Us</a
               >
             </li>
@@ -293,15 +313,15 @@
 
         <!-- Newsletter Section -->
         <div>
-          <h3 class="text-xl font-bold text-white mb-4">Newsletter</h3>
-          <p class="text-gray-400 mb-3">
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Newsletter</h3>
+          <p class="text-gray-600 mb-3">
             Subscribe for exclusive travel deals!
           </p>
           <div class="flex flex-col space-y-3">
             <input
               type="email"
               placeholder="Enter your email"
-              class="px-4 py-2 rounded-lg bg-gray-800 border border-gray-700 text-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+              class="px-4 py-2 rounded-lg bg-white border border-gray-200 text-gray-900 focus:outline-none focus:ring-2 focus:ring-emerald-500"
               required
             />
             <button
@@ -314,14 +334,14 @@
       </div>
 
       <!-- Footer Bottom Bar -->
-      <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-500">
+      <div class="border-t border-gray-300 mt-8 pt-6 text-center text-gray-600">
         <p>
           &copy; 2025 Rural Retreats. All rights reserved. |
-          <a href="pp.html" class="hover:text-white transition-colors"
+          <a href="pp.html" class="hover:text-emerald-600 transition-colors"
             >Privacy Policy</a
           >
           |
-          <a href="t&c.html" class="hover:text-white transition-colors"
+          <a href="t&c.html" class="hover:text-emerald-600 transition-colors"
             >Terms & Conditions</a
           >
         </p>
@@ -344,25 +364,27 @@
       <i class="fas fa-comment-dots"></i>
     </button>
   </body>
-</html>
-    <script>
-      // Back to Top Button Functionality
-      const backToTopButton = document.getElementById("backToTop");
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > 300) {
-          backToTopButton.classList.remove("hidden");
-        } else {
-          backToTopButton.classList.add("hidden");
-        }
+  <script>
+    // Back to Top Button Functionality
+    const backToTopButton = document.getElementById("backToTop");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        backToTopButton.classList.remove("hidden");
+      } else {
+        backToTopButton.classList.add("hidden");
+      }
+    });
+    backToTopButton.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
       });
-      backToTopButton.addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      });
+    });
 
-      // Chatbot Button Functionality (Placeholder)
-      const chatButton = document.getElementById("chatButton");
-      chatButton.addEventListener("click", () => {
-        alert("Chatbot feature coming soon!");
-      });
-    </script>
-  </body>
+    // Chatbot Button Functionality (Placeholder)
+    const chatButton = document.getElementById("chatButton");
+    chatButton.addEventListener("click", () => {
+      console.log("Chatbot feature coming soon!");
+    });
+  </script>
+</html>
