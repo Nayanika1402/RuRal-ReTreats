@@ -579,6 +579,11 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
+  // ❌ OLD SEARCH SYSTEM COMPLETELY DISABLED
+  // Enhanced search popup system handles all search functionality
+  console.log('🚫 Old search system disabled - Enhanced search popup is active');
+
+  /* DISABLED - Enhanced search popup handles all search functionality
   const searchInput = document.getElementById("search-input");
   const searchBtn = document.querySelector(".search-bar button");
   const mobileSearchInput = document.getElementById("mobile-search-input");
@@ -637,6 +642,7 @@ document.addEventListener("DOMContentLoaded", function () {
       handleSearch(mobileSearchInput.value);
     }
   });
+  */ // END OF DISABLED OLD SEARCH
 });
 
 // Blog functionality
