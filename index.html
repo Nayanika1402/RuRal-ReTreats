@@ -96,11 +96,13 @@
     
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js" defer></script>
+
     <script defer src="./JS/homestays.js"></script>
     <script defer src="./JS/script.js"></script>
     <script defer src="./JS/splash.js"></script>
     <script defer src="./JS/enhanced-search-popup.js"></script>
     <script defer src="./JS/navbar.js"></script>
+
     
     <!-- Structured Data - Organization -->
     <script type="application/ld+json">
@@ -163,7 +165,7 @@
       "name": "Rural Tourism & Homestay Booking",
       "provider": {
         "@type": "Organization",
-        "name": "Rural Retreats"
+        "name": "Rural Retreats"     
       },
       "description": "Authentic rural homestays, beachside cottages, holiday packages, and bus booking services for sustainable cultural tourism across India.",
       "serviceType": "Tourism Services",
@@ -219,9 +221,54 @@
       ]
     }
     </script>
+    
+    <script>
+            window.addEventListener('scroll', function() {
+                console.log('window.scrollY:', window.scrollY);
+            });
+        </script>
 </head>
 
 <body class="no-scroll">
+
+        <script>
+            // Log scrollY whenever the scroll position changes
+            window.addEventListener('scroll', function() {
+                console.log('window.scrollY:', window.scrollY);
+            });
+        </script>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="sr-only sr-only-focusable">Skip to main content</a>
+    <a href="#top"><button id="backToTop" class="back-to-top-btn show" title="Go to top" aria-label="Scroll to top of page">↑</button></a>
+    <div class="" id="top"></div>
+    <div class="splash-screen" id="splash">
+        <div class="sparkles"></div>
+        <div class="logo">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Rural Retreats Logo">
+                <circle cx="50" cy="50" r="48" stroke="#fff" stroke-width="4" fill="none"/>
+                <defs>
+                    <clipPath id="circleView">
+                        <circle cx="50" cy="50" r="45" />
+                    </clipPath>
+                </defs>
+                <image 
+                    href="./favicon/favicon_192x192.png" 
+                    x="5" 
+                    y="5" 
+                    width="90" 
+                    height="90"
+                    clip-path="url(#circleView)"
+                    preserveAspectRatio="xMidYMid slice"
+                    alt="Rural Retreats Logo"
+                />
+            </svg>
+        </div>
+        <div class="site-name">Rural-Retreats</div>
+        <div class="progress-bar" role="progressbar" aria-label="Loading progress">
+            <div class="progress-bar-fill"></div>
+        </div>
+        <audio id="introSound" src="https://www.soundjay.com/nature/sounds/wind-chimes-1.mp3" preload="auto" aria-label="Welcome sound"></audio>
+
 
   <div class="splash-screen" id="splash">
     <div class="sparkles"></div>
@@ -239,6 +286,7 @@
         <image href="./favicon/favicon-192x192.png" x="5" y="5" width="90" height="90" clip-path="url(#circleView)"
           preserveAspectRatio="xMidYMid slice" />
       </svg>
+
     </div>
     <div class="site-name">Rural-Retreats</div>
     <div class="progress-bar">
@@ -650,6 +698,7 @@
           <a href="homestays.html" class="learn-more">Learn More</a>
         </div>
 
+
         <div class="destination-card">
           <img src="./img/16.jpg" alt="Beachside Escape" class="destination-image" />
           <h3>Beachside Escape</h3>
@@ -667,6 +716,7 @@
           </div>
           <a href="homestays.html" class="learn-more">Learn More</a>
         </div>
+
 
         <div class="destination-card">
           <img src="./img/17.jpg" alt="Himalayan Retreat" class="destination-image" />
@@ -1114,8 +1164,18 @@
         Discover peaceful villages, stunning landscapes, and warm hospitality while supporting sustainable tourism.
     </div>
 
-    
-    
+    <!-- Scripts -->
+    <script defer src="./JS/script.js"></script>
+    <script defer src="./JS/splash.js"></script>
+    <script defer src="./JS/navbar.js"></script>
+    <script>
+    window.addEventListener('load', function() {
+        console.log('window.scrollY on load:', window.scrollY);
+    });
+    </script>
 
+
+        <!-- Log scrollY whenever the scroll position changes (placed at end of body) -->
+        
 </body>
 </html>

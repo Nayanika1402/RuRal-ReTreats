@@ -238,12 +238,14 @@ function changeLanguage(lang) {
   }
 }
 
+
 document
   .getElementById("language-select")
   .addEventListener("change", function () {
     let selectedLang = this.value;
     setTimeout(() => changeLanguage(selectedLang), 500);
   });
+
 
 function fixGoogleTranslateStyles() {
   document.querySelectorAll("*").forEach((element) => {
@@ -291,6 +293,7 @@ document.addEventListener("DOMContentLoaded", function () {
     moveSlide(1);
   }, 4000);
 
+
   const backToTopBtn = document.getElementById("backToTop");
   window.addEventListener("scroll", () => {
     if (window.scrollY > 300) {
@@ -302,6 +305,7 @@ document.addEventListener("DOMContentLoaded", function () {
   backToTopBtn.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
+
 
   const testimonials = document.querySelectorAll(".testimonial-item");
   let currentIndex = 0;
