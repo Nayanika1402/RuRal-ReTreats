@@ -1,148 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <!-- Basic Meta Tags -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Blog - Rural Retreats</title>
+    <!-- Theme & Tile Colors -->
+    <meta name="theme-color" content="#FFFFFF" />
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta name="msapplication-TileImage" content="./favicon/favicon-512x512.png" />
+    <!-- Favicons & Manifest -->
     <link rel="apple-touch-icon" sizes="57x57" href="./favicon/favicon-57x57.png" type="image/png" />
-<link rel="apple-touch-icon" sizes="60x60" href="./favicon/favicon-60x60.png" type="image/png" />
-<link rel="apple-touch-icon" sizes="72x72" href="./favicon/favicon-72x72.png" type="image/png" />
-<link rel="apple-touch-icon" sizes="114x114" href="./favicon/favicon-114x114.png" type="image/png" />
-<link rel="apple-touch-icon" sizes="120x120" href="./favicon/favicon-120x120.png" type="image/png" />
-<link rel="apple-touch-icon" sizes="144x144" href="./favicon/favicon-144x144.png" type="image/png" />
-<link rel="apple-touch-icon" sizes="152x152" href="./favicon/favicon-152x152.png" type="image/png" />
-<link rel="apple-touch-icon" sizes="180x180" href="./favicon/favicon-180x180.png" type="image/png" />
-<link rel="icon" sizes="16x16" href="./favicon/favicon-16x16.png" type="image/png" />
-<link rel="icon" sizes="32x32" href="./favicon/favicon-32x32.png" type="image/png" />
-<link rel="icon" sizes="96x96" href="./favicon/favicon-96x96.png" type="image/png" />
-<link rel="icon" sizes="192x192" href="./favicon/favicon-192x192.png" type="image/png" />
-<link rel="icon" sizes="512x512" href="./favicon/favicon-512x512.png" type="image/png" />
-<link rel="manifest" href="./favicon/manifest.json" />
-<meta name="theme-color" content="#FFFFFF" />
-<meta name="msapplication-TileColor" content="#FFFFFF" />
-<meta name="msapplication-TileImage" content="./favicon/favicon-512x512.png"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="./favicon/favicon-60x60.png" type="image/png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="./favicon/favicon-72x72.png" type="image/png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="./favicon/favicon-114x114.png" type="image/png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="./favicon/favicon-120x120.png" type="image/png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="./favicon/favicon-144x144.png" type="image/png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="./favicon/favicon-152x152.png" type="image/png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/favicon-180x180.png" type="image/png" />
+    <link rel="icon" sizes="16x16" href="./favicon/favicon-16x16.png" type="image/png" />
+    <link rel="icon" sizes="32x32" href="./favicon/favicon-32x32.png" type="image/png" />
+    <link rel="icon" sizes="96x96" href="./favicon/favicon-96x96.png" type="image/png" />
+    <link rel="icon" sizes="192x192" href="./favicon/favicon-192x192.png" type="image/png" />
+    <link rel="icon" sizes="512x512" href="./favicon/favicon-512x512.png" type="image/png" />
+    <link rel="manifest" href="./favicon/manifest.json" />
+
+<!-- Stylesheets -->
     <link rel="stylesheet" href="./CSS/blog.css">
     <link rel="stylesheet" href="./CSS/navbar.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">   
+    <link rel="stylesheet" href="./CSS/enhanced-search-popup.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
+<!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet"> 
+<!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script src="./JS/blog.js" defer></script>
+<script src="./JS/navbar.js" defer></script>
+<script src="./JS/enhanced-search-popup.js" defer></script>
 </head>
 <body>
 
     <header>
-<nav class="navbar">
-    <div class="nav-container">
-        
-        <button class="hamicon" id="menu-toggle" title="menu-toggle">
-            <i class="fas fa-bars"></i>
-        </button>
+        <nav class="navbar">
+            <div class="nav-container">
 
-        
-        <div class="logo">
-            <a href="index.html">Rural Retreats</a>
-        </div>
+                <button class="hamicon" id="menu-toggle" title="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
 
-        
-        <ul class="nav-menu">
-            <li><a href="index.html">Home</a></li>
-            <li class="dropdown">
-                <a href="services.html">Services <i class="fas fa-chevron-down"></i></a>
-                <ul class="dropdown-menu">
-                    <li><a href="services.html">Guided Tours</a></li>
-                    <li><a href="services.html">Workshops</a></li>
-                    <li><a href="services.html">Local Experiences</a></li>
+
+                <div class="logo">
+                    <a href="index.html">Rural Retreats</a>
+                </div>
+
+
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="services.html">Services <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="services.html">Guided Tours</a></li>
+                            <li><a href="services.html">Workshops</a></li>
+                            <li><a href="services.html">Local Experiences</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="homestays.html">HomeStays</a></li>
+                    <li><a href="faq.html">FAQs</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
                 </ul>
-            </li>
-            <li><a href="homestays.html">HomeStays</a></li>
-            <li><a href="faq.html">FAQs</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-        </ul>
 
-        
-        <div class="right-section">
-            <div class="search-bar">
-                <input type="text" placeholder="Search..." id="search-input">
+
+                <div class="right-section">
+                    <div class="search-bar">
+                        <input type="text" placeholder="Search..." id="search-input">
+                        <button title="search"><i class="fas fa-search"></i></button>
+                    </div>
+                    <div class="auth-buttons">
+                        <button class="login-btn" onclick="window.location.href='login.html'">Log In</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+
+        <div class="mobile-menu" id="mobile-menu">
+            <button class="close-btn" id="menu-close">✖</button>
+
+
+            <div class="mobile-search-bar">
+                <input type="text" placeholder="Search..." id="mobile-search-input">
                 <button title="search"><i class="fas fa-search"></i></button>
             </div>
-            <div class="auth-buttons">
-                <button class="login-btn" onclick="window.location.href='login.html'">Log In</button>
+
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="homestays.html">HomeStays</a></li>
+                <li><a href="faq.html">FAQs</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+
+
+        </div>
+    </header>
+
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Discover the Untouched Beauty of Rural India</h1>
+            <p>Escape the noise, embrace the serenity. Explore India's most peaceful rural getaways.</p>
+            <a href="#explore" class="cta-button">Explore Now</a>
+        </div>
+    </header>
+
+
+
+
+    <section class="intro">
+        <div class="intro-content">
+            <h2>Why Explore Rural India? 🌿</h2>
+            <p>
+                Step into a world where time slows down, where nature and tradition coexist in harmony.
+                Rural India is a treasure trove of breathtaking landscapes, rich cultural heritage, and warm
+                hospitality.
+                Whether it’s the misty hills of Meghalaya, the golden sands of Rajasthan, or the tranquil villages of
+                Himachal Pradesh,
+                each destination promises an unforgettable escape.
+            </p>
+
+            <div class="intro-features">
+                <div class="feature">
+                    <i class="fas fa-mountain"></i>
+                    <h3>Scenic Landscapes</h3>
+                    <p>Explore stunning valleys, waterfalls, and peaceful villages.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-campground"></i>
+                    <h3>Adventure & Serenity</h3>
+                    <p>Experience hiking, camping, and a life closer to nature.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-people-arrows"></i>
+                    <h3>Cultural Immersion</h3>
+                    <p>Engage with locals and discover unique traditions and cuisines.</p>
+                </div>
             </div>
         </div>
-    </div>
-</nav>
+    </section>
 
 
-<div class="mobile-menu" id="mobile-menu">
-    <button class="close-btn" id="menu-close">✖</button>
-    
-    
-    <div class="mobile-search-bar">
-        <input type="text" placeholder="Search..." id="mobile-search-input">
-        <button title="search"><i class="fas fa-search"></i></button>
-    </div>
 
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="homestays.html">HomeStays</a></li>
-        <li><a href="faq.html">FAQs</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
-    </ul>
-
-    
-</div>
-</header>
-  
-    
-<header class="hero">
-    <div class="hero-content">
-        <h1>Discover the Untouched Beauty of Rural India</h1>
-        <p>Escape the noise, embrace the serenity. Explore India's most peaceful rural getaways.</p>
-        <a href="#explore" class="cta-button">Explore Now</a>
-    </div>
-</header>
-
-
-    
-   
-<section class="intro">
-    <div class="intro-content">
-        <h2>Why Explore Rural India? 🌿</h2>
-        <p>
-            Step into a world where time slows down, where nature and tradition coexist in harmony. 
-            Rural India is a treasure trove of breathtaking landscapes, rich cultural heritage, and warm hospitality. 
-            Whether it’s the misty hills of Meghalaya, the golden sands of Rajasthan, or the tranquil villages of Himachal Pradesh, 
-            each destination promises an unforgettable escape.
-        </p>
-        
-        <div class="intro-features">
-            <div class="feature">
-                <i class="fas fa-mountain"></i>
-                <h3>Scenic Landscapes</h3>
-                <p>Explore stunning valleys, waterfalls, and peaceful villages.</p>
-            </div>
-            <div class="feature">
-                <i class="fas fa-campground"></i>
-                <h3>Adventure & Serenity</h3>
-                <p>Experience hiking, camping, and a life closer to nature.</p>
-            </div>
-            <div class="feature">
-                <i class="fas fa-people-arrows"></i>
-                <h3>Cultural Immersion</h3>
-                <p>Engage with locals and discover unique traditions and cuisines.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-    
     <section class="destination">
-        <img src="https://static2.tripoto.com/media/filter/nl/img/1435652/TripDocument/1559723376_1559723082874.jpg" alt="Mawlynnong, Meghalaya">
+        <img src="https://static2.tripoto.com/media/filter/nl/img/1435652/TripDocument/1559723376_1559723082874.jpg"
+            alt="Mawlynnong, Meghalaya">
         <div class="content">
             <h2>1. Mawlynnong, Meghalaya</h2>
-            <p>Known as "Asia’s Cleanest Village", Mawlynnong offers scenic beauty, Living Root Bridges, and panoramic views of Bangladesh.</p>
+            <p>Known as "Asia’s Cleanest Village", Mawlynnong offers scenic beauty, Living Root Bridges, and panoramic
+                views of Bangladesh.</p>
             <h3>Things to Do:</h3>
             <ul>
                 <li>Visit the Living Root Bridges</li>
@@ -152,9 +167,10 @@
         </div>
     </section>
 
-    
+
     <section class="destination">
-        <img src="https://www.savaari.com/blog/wp-content/uploads/2022/03/32123728741_bdefd03854_o.jpg" alt="Khimsar, Rajasthan">
+        <img src="https://www.savaari.com/blog/wp-content/uploads/2022/03/32123728741_bdefd03854_o.jpg"
+            alt="Khimsar, Rajasthan">
         <div class="content">
             <h2>2. Khimsar, Rajasthan</h2>
             <p>Experience the golden dunes, camel safaris, and Rajasthani heritage in this desert oasis.</p>
@@ -167,9 +183,10 @@
         </div>
     </section>
 
-    
+
     <section class="destination">
-        <img src="https://th.bing.com/th/id/OIP.UwGSrmryp6ZxSuqhkGId4QHaE8?rs=1&pid=ImgDetMain" alt="Ziro Valley, Arunachal Pradesh">
+        <img src="https://th.bing.com/th/id/OIP.UwGSrmryp6ZxSuqhkGId4QHaE8?rs=1&pid=ImgDetMain"
+            alt="Ziro Valley, Arunachal Pradesh">
         <div class="content">
             <h2>3. Ziro Valley, Arunachal Pradesh</h2>
             <p>A UNESCO nominee with rolling green hills, pine forests, and the famous Ziro Music Festival.</p>
@@ -182,9 +199,10 @@
         </div>
     </section>
 
-    
+
     <section class="destination">
-        <img src="https://www.gujarattourism.com/content/gujrattourism/en/tours/customized-tour-offered-by-tcgl/beautiful-kutch/_jcr_content/root/responsivegrid/tourbanner.coreimg.jpeg/1594791960748/rann-utsav-tent-city-(9).jpeg" alt="Kutch Villages, Gujarat">
+        <img src="https://www.gujarattourism.com/content/gujrattourism/en/tours/customized-tour-offered-by-tcgl/beautiful-kutch/_jcr_content/root/responsivegrid/tourbanner.coreimg.jpeg/1594791960748/rann-utsav-tent-city-(9).jpeg"
+            alt="Kutch Villages, Gujarat">
         <div class="content">
             <h2>4. Kutch Villages, Gujarat</h2>
             <p>Home to the vast white salt desert and rich traditional handicrafts.</p>
@@ -197,7 +215,7 @@
         </div>
     </section>
 
-    
+
     <section class="destination">
         <img src="https://www.holidify.com/images/bgImages/SPITI.jpg" alt="Spiti Valley, Himachal Pradesh">
         <div class="content">
@@ -212,127 +230,145 @@
         </div>
     </section>
 
-    
-<section class="subscribe">
-    <div class="subscribe-content">
-        <h2>Join Our Travel Community! 🌍</h2>
-        <p>Subscribe to our newsletter for exclusive travel tips, destination guides, and the latest updates. Be the first to explore hidden gems in India!</p>
-        
-        <form class="subscribe-form">
-            <input type="email" placeholder="Enter your email address" required>
-            <button type="submit">Subscribe</button>
-        </form>
-        
-        <p class="privacy-text">We respect your privacy. Unsubscribe anytime.</p>
 
-        
-    </div>
-</section>
+    <section class="subscribe">
+        <div class="subscribe-content">
+            <h2>Join Our Travel Community! 🌍</h2>
+            <p>Subscribe to our newsletter for exclusive travel tips, destination guides, and the latest updates. Be the
+                first to explore hidden gems in India!</p>
+
+            <form class="subscribe-form">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit">Subscribe</button>
+            </form>
+
+            <p class="privacy-text">We respect your privacy. Unsubscribe anytime.</p>
+
+
+        </div>
+    </section>
 
 
     
 <footer class="footer">
-    <div class="footer-container">
+      <div class="footer-container">
         <!-- First Row: Rural Retreats, Quick Links, Customer Support -->
-        <div class="footer-row">            
-            <div class="footer-section about">
-                <h3 class="footer-title">Rural Retreats</h3>
-                <p>
-                  We offer budget-friendly tours, curated travel experiences, and
-                  luxury escapes worldwide.
-                </p>
-              </div>
+        <div class="footer-row">
+          <div class="footer-section about">
+            <h3 class="footer-title">Rural Retreats</h3>
+            <p>
+              We offer budget-friendly tours, curated travel experiences, and
+              luxury escapes worldwide.
+            </p>
+          </div>
 
-              <div class="footer-section links">
-                <h4>Quick Links</h4>
-                <ul>
-                  <li><a href="index.html">Home</a></li>
-                  <li><a href="about.html">About Us</a></li>
-                  <li><a href="services.html">Services</a></li>
-                  <li><a href="homestays.html">Hotels & Homestays</a></li>
-                  <li><a href="#blog-highlights">Travel Guides</a></li>
-                  <li><a href="faq.html">FAQs</a></li>
-                  <li><a href="contact.html">Contact Us</a></li>
-                </ul>
-              </div>
+          <div class="footer-section links">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="homestays.html">Hotels & Homestays</a></li>
+              <li><a href="#blog-highlights">Travel Guides</a></li>
+              <li><a href="faq.html">FAQs</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+          </div>
 
-
-                <div class="footer-section contact">
-                    <h4>Customer Support</h4>
-                    <p>
-                    Email: <a href="#">support@ruralretreats.com</a>
-                    </p>
-                    <p>Phone: <a href="tel:+91629XXXXXXX">+91 629XX XXXXX</a></p>
-                    <p>
-                    Address: Q University Institute Of Technology, Burdwan-713104, West
-                    Bengal
-                    </p>
-            </div>      
+          <div class="footer-section contact">
+            <h4>Customer Support</h4>
+            <p>Email: <a href="#">support@ruralretreats.com</a></p>
+            <p>Phone: <a href="tel:+91629XXXXXXX">+91 629XX XXXXX</a></p>
+            <p>
+              Address: Q University Institute Of Technology, Burdwan-713104,
+              West Bengal
+            </p>
+          </div>
         </div>
 
         <!-- Second Row: Social Media, Language Selector, Newsletter -->
         <div class="footer-row">
-            <div class="footer-section social-media">
-                <h4>Follow Us</h4>
-                <div class="social-icons">
-                    <a href="#" class="youtube" title="youtube"><i class="fa-brands fa-youtube"></i></a>
-                    <a href="#" class="instagram" title="instagram"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" class="twitter" title="twitter"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="#" class="linkedin" title="linkedin"><i class="fa-brands fa-linkedin-in"></i></a>
-                  </div>
+          <div class="footer-section social-media">
+            <h4>Follow Us</h4>
+            <div class="social-icons">
+              <a href="#" class="youtube" title="youtube"
+                ><i class="fa-brands fa-youtube"></i
+              ></a>
+              <a href="#" class="instagram" title="instagram"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+              <a href="#" class="twitter" title="twitter"
+                ><i class="fa-brands fa-twitter"></i
+              ></a>
+              <a href="#" class="linkedin" title="linkedin"
+                ><i class="fa-brands fa-linkedin-in"></i
+              ></a>
             </div>
+          </div>
 
-            <div class="footer-section language-selector">
-                <h4>Language</h4>
-                <label for="language-select">Choose Language:</label>
-                <select id="language-select">
-                  <option>English</option>
-                  <option>Bengali</option>
-                  <option>Hindi</option>
-                  <option>French</option>
-                  <option>Spanish</option>
-                  <option>German</option>
-                </select>
-              </div>
+          <div class="footer-section language-selector">
+            <h4>Language</h4>
+            <label for="language-select">Choose Language:</label>
+            <select id="language-select">
+              <option>English</option>
+              <option>Bengali</option>
+              <option>Hindi</option>
+              <option>French</option>
+              <option>Spanish</option>
+              <option>German</option>
+            </select>
+          </div>
 
-            <div class="footer-section newsletter">
-                <h4>Newsletter</h4>
-                <p>Subscribe for exclusive travel deals!</p>
-                <div class="newsletter">
-                    <input type="email" placeholder="Enter your email" id="newsletter-email" required>
-                    <button type="submit" class="footer-newsletter-btn" onclick="subscribeNewsletter()"><b>Subscribe</b></button>
-                </div>
+          <div class="footer-section">
+            <h4>Newsletter</h4>
+            <p>Subscribe for exclusive travel deals!</p>
+            <div class="newsletter">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                id="newsletter-email"
+                required
+              />
+              <button
+                type="submit"
+                class="footer-newsletter-btn"
+                onclick="subscribeNewsletter()"
+              >
+                <b>Subscribe</b>
+              </button>
             </div>
+          </div>
         </div>
-    </div>
+      </div>
 
-    <div class="footer-bottom">
+      <div class="footer-bottom">
         <p>
           &copy; 2025 Rural Retreats. All rights reserved. |
-          <a href="pp.html">Privacy Policy</a> | <a href="t&c.html">Terms & Conditions</a>
+          <a href="pp.html">Privacy Policy</a> |
+          <a href="t&c.html">Terms & Conditions</a>
         </p>
       </div>
-</footer> 
+    </footer> 
 
-<button id="backToTop" class="back-to-top-btn" title="Go to top">↑</button>
-
- 
- <div id="chatButton" class="chatbot-button">
-<i class="fas fa-comment-dots"></i>
-</div>
+    <button id="backToTop" class="back-to-top-btn" title="Go to top">↑</button>
 
 
-<div id="chatModal" class="chatbot-modal">
-    <div class="chatbot-modal-content">
-        <div class="chatbot-header">
-            <h3>Chat with Us</h3>
-            <span class="close-chatbot">&times;</span>
-        </div>
-        <div class="chatbot-body">
-            <div id="chatMessages" class="chat-messages"></div>
-            <div id="typingIndicator" class="typing-indicator">🤖 Bot is typing...</div>
-        </div>
-        <div class="chat-input">
+    <div id="chatButton" class="chatbot-button">
+        <i class="fas fa-comment-dots"></i>
+    </div>
+
+
+    <div id="chatModal" class="chatbot-modal">
+        <div class="chatbot-modal-content">
+            <div class="chatbot-header">
+                <h3>Chat with Us</h3>
+                <span class="close-chatbot">&times;</span>
+            </div>
+            <div class="chatbot-body">
+                <div id="chatMessages" class="chat-messages"></div>
+                <div id="typingIndicator" class="typing-indicator">🤖 Bot is typing...</div>
+            </div>
+            <div class="chat-input">
                 <input type="text" id="chatInput" placeholder="Type your message...">
                 <button id="sendMessage" title="Send Message"><i class="fas fa-paper-plane"></i></button>
                 <button id="voiceInput" title="Voice Input"><i class="fas fa-microphone"></i></button>
@@ -342,6 +378,6 @@
     </div>
   </div>
 
-  <script src="./JS/blog.js" defer></script>
+  
 </body>
 </html>

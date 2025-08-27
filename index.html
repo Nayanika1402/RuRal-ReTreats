@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +14,11 @@
     <meta name="robots" content="index, follow">
     <meta name="language" content="English">
     <meta name="revisit-after" content="7 days">
+
+    <!-- Theme & Tile Colors -->
+    <meta name="theme-color" content="#FFFFFF" />
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta name="msapplication-TileImage" content="./favicon/favicon-512x512.png" />
     
     <!-- Geo Meta Tags -->
     <meta name="geo.region" content="IN">
@@ -48,19 +54,19 @@
     <link rel="alternate" hreflang="bn" href="https://ruralretreats.com/bn/">
     
     <!-- Favicon and Icons -->
-    <link rel="apple-touch-icon" sizes="57x57" href="./favicon/favicon_57x57.png" type="image/png" />
-    <link rel="apple-touch-icon" sizes="60x60" href="./favicon/favicon_60x60.png" type="image/png" />
-    <link rel="apple-touch-icon" sizes="72x72" href="./favicon/favicon_72x72.png" type="image/png" />
-    <link rel="apple-touch-icon" sizes="114x114" href="./favicon/favicon_114x114.png" type="image/png" />
-    <link rel="apple-touch-icon" sizes="120x120" href="./favicon/favicon_120x120.png" type="image/png" />
-    <link rel="apple-touch-icon" sizes="144x144" href="./favicon/favicon_144x144.png" type="image/png" />
-    <link rel="apple-touch-icon" sizes="152x152" href="./favicon/favicon_152x152.png" type="image/png" />
+    <link rel="apple-touch-icon" sizes="57x57" href="./favicon/favicon-57x57.png" type="image/png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="./favicon/favicon-60x60.png" type="image/png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="./favicon/favicon-72x72.png" type="image/png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="./favicon/favicon-114x114.png" type="image/png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="./favicon/favicon-120x120.png" type="image/png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="./favicon/favicon-144x144.png" type="image/png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="./favicon/favicon-152x152.png" type="image/png" />
     <link rel="apple-touch-icon" sizes="180x180" href="./favicon/favicon_180x180.png" type="image/png" />
-    <link rel="icon" sizes="16x16" href="./favicon/favicon_16x16.png" type="image/png" />
-    <link rel="icon" sizes="32x32" href="./favicon/favicon_32x32.png" type="image/png" />
-    <link rel="icon" sizes="96x96" href="./favicon/favicon_96x96.png" type="image/png" />
-    <link rel="icon" sizes="192x192" href="./favicon/favicon_192x192.png" type="image/png" />
-    <link rel="icon" sizes="512x512" href="./favicon/favicon_512x512.png" type="image/png" />
+    <link rel="icon" sizes="16x16" href="./favicon/favicon-16x16.png" type="image/png" />
+    <link rel="icon" sizes="32x32" href="./favicon/favicon-32x32.png" type="image/png" />
+    <link rel="icon" sizes="96x96" href="./favicon/favicon-96x96.png" type="image/png" />
+    <link rel="icon" sizes="192x192" href="./favicon/favicon-192x192.png" type="image/png" />
+    <link rel="icon" sizes="512x512" href="./favicon/favicon-512x512.png" type="image/png" />
     <link rel="manifest" href="./favicon/manifest.json" />
     <meta name="theme-color" content="#2E7D32" />
     <meta name="msapplication-TileColor" content="#2E7D32" />
@@ -83,14 +89,20 @@
     <link rel="stylesheet" href="./CSS/splash.css">
     <link rel="stylesheet" href="./CSS/navbar.css">
     <link rel="stylesheet" href="./CSS/homestays.css">
-    
+    <link rel="stylesheet" href="./CSS/enhanced-search-popup.css">
     <!-- Preload Critical Resources -->
     <link rel="preload" href="./CSS/style.css" as="style">
     <link rel="preload" href="./JS/script.js" as="script">
     
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js" defer></script>
-  
+
+    <script defer src="./JS/homestays.js"></script>
+    <script defer src="./JS/script.js"></script>
+    <script defer src="./JS/splash.js"></script>
+    <script defer src="./JS/enhanced-search-popup.js"></script>
+    <script defer src="./JS/navbar.js"></script>
+
     
     <!-- Structured Data - Organization -->
     <script type="application/ld+json">
@@ -216,7 +228,9 @@
             });
         </script>
 </head>
+
 <body class="no-scroll">
+
         <script>
             // Log scrollY whenever the scroll position changes
             window.addEventListener('scroll', function() {
@@ -254,648 +268,896 @@
             <div class="progress-bar-fill"></div>
         </div>
         <audio id="introSound" src="https://www.soundjay.com/nature/sounds/wind-chimes-1.mp3" preload="auto" aria-label="Welcome sound"></audio>
+
+
+  <div class="splash-screen" id="splash">
+    <div class="sparkles"></div>
+
+    <div class="logo">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+
+        <circle cx="50" cy="50" r="48" stroke="#fff" stroke-width="4" fill="none" />
+
+        <defs>
+          <clipPath id="circleView">
+            <circle cx="50" cy="50" r="45" />
+          </clipPath>
+        </defs>
+        <image href="./favicon/favicon-192x192.png" x="5" y="5" width="90" height="90" clip-path="url(#circleView)"
+          preserveAspectRatio="xMidYMid slice" />
+      </svg>
+
     </div>
+    <div class="site-name">Rural-Retreats</div>
+    <div class="progress-bar">
+      <div class="progress-bar-fill"></div>
+    </div>
+    <audio id="introSound" src="https://www.soundjay.com/nature/sounds/wind-chimes-1.mp3" preload="auto"></audio>
+  </div>
 
-    <header role="banner">
-        <nav class="navbar" role="navigation" aria-label="Main navigation">
-            <div class="nav-container">
-                <button class="hamicon" id="menu-toggle" title="Open navigation menu" aria-label="Open navigation menu" aria-expanded="false">
-                    <i class="fas fa-bars" aria-hidden="true"></i>
-                </button>
+  <header>
+    <nav class="navbar">
+      <div class="nav-container">
+        <!-- <button class="hamicon" id="menu-toggle" title="menu-toggle">
+          <i class="fas fa-bars"></i>
+        </button> -->
 
-                <div class="logo">
-                    <a href="index.html" aria-label="Rural Retreats Home">Rural Retreats</a>
-                </div>
+        <div class="logo">
+          <a href="index.html">Rural Retreats</a>
+        </div>
 
-                <ul class="nav-menu" role="menubar">
-                    <li role="none"><a href="index.html" role="menuitem" aria-current="page">Home</a></li>
-                    <li class="dropdown" role="none">
-                        <a href="services.html" role="menuitem" aria-haspopup="true" aria-expanded="false">Services <i class="fas fa-chevron-down" aria-hidden="true"></i></a>
-                        <ul class="dropdown-menu" role="menu" aria-label="Services submenu">
-                            <li role="none"><a href="services.html#tours" role="menuitem">Holiday Packages</a></li>
-                            <li role="none"><a href="services.html#bus" role="menuitem">Bus Booking</a></li>
-                            <li role="none"><a href="services.html#homestays" role="menuitem">Homestays Booking</a></li>
-                        </ul>
-                    </li>
-                    <li role="none"><a href="homestays.html" role="menuitem">HomeStays</a></li>
-                    <li role="none"><a href="faq.html" role="menuitem">FAQs</a></li>
-                    <li role="none"><a href="contact.html" role="menuitem">Contact Us</a></li>
-                </ul>
-
-                <div class="right-section">
-                    <div class="search-bar" role="search">
-                        <label for="search-input" class="sr-only">Search destinations</label>
-                        <input type="text" placeholder="Search destinations..." id="search-input" aria-label="Search destinations">
-                        <button title="Search" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></button>
-                    </div>
-                    <div class="auth-buttons">
-                        <button class="login-btn" onclick="window.location.href='login.html'" aria-label="Log in to your account">Log In</button>
-                    </div>
-                </div>
-            </div>
-        </nav>
-
-        <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Mobile navigation menu" aria-hidden="true">
-            <button class="close-btn" id="menu-close" aria-label="Close navigation menu">✖</button>
-            
-            <div class="mobile-search-bar" role="search">
-                <label for="mobile-search-input" class="sr-only">Search destinations</label>
-                <input type="text" placeholder="Search destinations..." id="mobile-search-input" aria-label="Search destinations">
-                <button title="Search" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></button>
-            </div>
-
-            <ul role="menu">
-                <li role="none"><a href="index.html" role="menuitem">Home</a></li>
-                <li role="none"><a href="services.html" role="menuitem">Services</a></li>
-                <li role="none"><a href="homestays.html" role="menuitem">HomeStays</a></li>
-                <li role="none"><a href="faq.html" role="menuitem">FAQs</a></li>
-                <li role="none"><a href="contact.html" role="menuitem">Contact Us</a></li>
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown">
+            <a href="services.html">Services <i class="fas fa-chevron-down"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="services.html#tours">Holiday Packages</a></li>
+              <li><a href="services.html#bus">Bus Booking</a></li>
+              <li><a href="services.html#homestays">Homestays Booking</a></li>
             </ul>
+          </li>
+          <li><a href="homestays.html">HomeStays</a></li>
+          <li><a href="faq.html">FAQs</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+
+        <div class="right-section">
+          <div class="search-bar">
+            <input type="text" placeholder="Search..." id="search-input" />
+            <button title="search"><i class="fas fa-search"></i></button>
+          </div>
+          
+            <div class="auth-buttons desktop-only">
+              <button class="login-btn" onclick="window.location.href='login.html'">
+                Log In
+              </button> 
+            </div>
+             
+           
+             <button class="hamicon" id="menu-toggle" title="menu-toggle">
+          <i class="fas fa-bars"></i>
+        </button>
+             
+          
         </div>
-    </header>
+      </div>
+    </nav>
 
-    <main id="main-content" role="main">
-        <section class="hero-banner" role="banner" aria-labelledby="hero-title">
-            <div class="overlay"></div> 
-            <div class="hero-content">
-                <h1 id="hero-title">Experience the Charm of Rural Life</h1>
-                <p>Authentic Homestays, Cultural Immersion, Sustainable Tourism.</p>
-                <a href="#about-sections" class="cta-button" aria-label="Explore our destinations and services">Explore Now</a>
-            </div>
-        </section>
+    <div class="mobile-menu" id="mobile-menu">
+      <button class="close-btn" id="menu-close">✖</button>
 
-        <section class="about-section" id="about-sections" aria-labelledby="about-title">
-            <div class="about-container">
-                <div class="about-content">
-                    <h2 id="about-title">About Rural Retreats</h2>
-                    <h3>Escape the City – Embrace the Serenity</h3>
-                    <p>
-                        Experience the charm of countryside and beachside homestays with <strong>Rural Retreats</strong>. 
-                        Enjoy <strong>cultural heritage, local cuisines, and breathtaking landscapes</strong> while staying 
-                        in handpicked accommodations at <strong>affordable prices</strong>.
-                    </p>
-                    <p>
-                        Book your <strong>bus tickets</strong> and plan your stay in peaceful rural homestays or 
-                        rejuvenating beachside cottages. Immerse yourself in <strong>local traditions, scenic beauty, and adventure</strong> 
-                        while making unforgettable memories.
-                    </p>
-                    <a href="about.html" class="cta-button" aria-label="Learn more about Rural Retreats">Know more</a>
-                </div>
+      <div class="mobile-search-bar">
+        <input type="text" placeholder="Search..." id="mobile-search-input" />
+        <button title="search"><i class="fas fa-search"></i></button>
+      </div>
 
-                <div class="about-image">
-                    <img src="https://images.pexels.com/photos/3155666/pexels-photo-3155666.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
-                         alt="Scenic rural homestay surrounded by lush greenery and mountains" 
-                         loading="lazy"
-                         width="630"
-                         height="375">
-                </div>
-            </div>
-        </section>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="homestays.html">HomeStays</a></li>
+        <li><a href="faq.html">FAQs</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <button class="login-btn mobile-only" onclick="window.location.href='login.html'">
+          Log In
+        </button> 
+        
 
-        <section class="carousel-sections" aria-labelledby="destinations-title">
-            <h2 id="destinations-title">Explore Our Destinations</h2>
-            <div class="carousel-grid destination-grid">
-                <div class="carousel-containers">
+      </ul>
+    </div>
+  </header>
 
-                    <article class="destination-card active" itemscope itemtype="https://schema.org/TouristDestination">
-                        <img src="./img/1.jpg" alt="Ancient rock-cut caves at Ajanta & Ellora, Maharashtra" class="destination-image" loading="lazy" width="300" height="200">
-                        <h3 itemprop="name">Enchanting Caves</h3>
-                        <p class="location"><strong>📍Location: <span itemprop="address">Ajanta & Ellora Caves, Maharashtra</span></strong></p>
-                        <p itemprop="description">A UNESCO World Heritage site, famous for its rock-cut temples, intricate carvings, and ancient Buddhist murals.</p>
-                        <p>A beautiful place to visit</p>
-                        <div class="rating" aria-label="5 out of 5 stars">
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                        </div>
-                        <a href="homestays.html" class="learn-more" aria-label="Learn more about Ajanta & Ellora Caves homestays">Learn More</a>
-                    </article>
 
-                    <article class="destination-card" itemscope itemtype="https://schema.org/TouristDestination">
-                        <img src="./img/2.jpg" alt="Dense rainforest at Silent Valley National Park, Kerala" class="destination-image" loading="lazy" width="300" height="200">
-                        <h3 itemprop="name">Lush Rainforest</h3>
-                        <p class="location"><strong>📍Location: <span itemprop="address">Silent Valley National Park, Kerala</span></strong></p>
-                        <p itemprop="description">A pristine rainforest with diverse wildlife, towering trees, and mesmerizing waterfalls—perfect for nature lovers and trekkers.</p>
-                        <p>A beautiful place to visit</p>
-                        <div class="rating" aria-label="4.5 out of 5 stars">
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star-half-alt" aria-hidden="true"></i>
-                        </div>
-                        <a href="homestays.html" class="learn-more" aria-label="Learn more about Silent Valley National Park homestays">Learn More</a>
-                    </article>
+    <section class="hero-banner">
+      <div class="overlay"></div>
+      <div class="hero-content">
+        <h1>Experience the Charm of Rural Life</h1>
+        <p>Authentic Homestays, Cultural Immersion, Sustainable Tourism.</p>
+        <a href="village.html" class="cta-button">Explore Now</a>
 
-                    <article class="destination-card" itemscope itemtype="https://schema.org/TouristDestination">
-                        <img src="./img/3.jpg" alt="French colonial architecture in Pondicherry" class="destination-image" loading="lazy" width="300" height="200">
-                        <h3 itemprop="name">Heritage Town</h3>
-                        <p class="location"><strong>📍Location: <span itemprop="address">Pondicherry</span></strong></p>
-                        <p itemprop="description">With its French colonial architecture, charming beaches, and vibrant café culture, Pondicherry is a perfect blend of history and leisure.</p>
-                        <p>A beautiful place to visit</p>
-                        <div class="rating" aria-label="5 out of 5 stars">
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                        </div>
-                        <a href="homestays.html" class="learn-more" aria-label="Learn more about Pondicherry homestays">Learn More</a>
-                    </article>
+      </div>
+    </section>
 
-                    <article class="destination-card" itemscope itemtype="https://schema.org/TouristDestination">
-                        <img src="./img/4.jpg" alt="Snow-covered mountains and skiing slopes in Gulmarg, Kashmir" class="destination-image" loading="lazy" width="300" height="200">
-                        <h3 itemprop="name">Snow-Capped Peaks</h3>
-                        <p class="location"><strong>📍Location: <span itemprop="address">Gulmarg, Kashmir</span></strong></p>
-                        <p itemprop="description">Famous for its powdery snow, skiing resorts, and breathtaking views of the Himalayas, Gulmarg is a paradise for adventure seekers.</p>
-                        <p>A beautiful place to visit</p>
-                        <div class="rating" aria-label="4.5 out of 5 stars">
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star-half-alt" aria-hidden="true"></i>
-                        </div>
-                        <a href="homestays.html" class="learn-more" aria-label="Learn more about Gulmarg homestays">Learn More</a>
-                    </article>
+  <section class="about-section" id="about-sections">
+    <div class="about-container">
+      <div class="about-content">
+        <h2>About Us</h2>
+        <h3>Escape the City – Embrace the Serenity</h3>
+        <p>
+          Experience the charm of countryside and beachside homestays with
+          <b>Rural Retreats</b>. Enjoy
+          <b>cultural heritage, local cuisines, and breathtaking landscapes</b>
+          while staying in handpicked accommodations at
+          <b>affordable prices</b>.
+        </p>
+        <p>
+          Book your <b>bus tickets</b> and plan your stay in peaceful rural
+          homestays or rejuvenating beachside cottages. Immerse yourself in
+          <b>local traditions, scenic beauty, and adventure</b>
+          while making unforgettable memories.
+        </p>
+        <a href="about.html" class="cta-button">Know more</a>
+      </div>
 
-                    <article class="destination-card" itemscope itemtype="https://schema.org/TouristDestination">
-                        <img src="./img/5.jpg" alt="Secluded Butterfly Beach with golden sands in Goa" class="destination-image" loading="lazy" width="300" height="200">
-                        <h3 itemprop="name">Hidden Beach Escape</h3>
-                        <p class="location"><strong>📍Location: <span itemprop="address">Butterfly Beach, Goa</span></strong></p>
-                        <p itemprop="description">A secluded beach with golden sands, stunning sunset views, and a perfect spot for dolphin watching and snorkeling.</p>
-                        <p>A beautiful place to visit</p>
-                        <div class="rating" aria-label="5 out of 5 stars">
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                        </div>
-                        <a href="homestays.html" class="learn-more" aria-label="Learn more about Butterfly Beach homestays">Learn More</a>
-                    </article>
+      <div class="about-image">
+        <img
+          src="https://images.pexels.com/photos/3155666/pexels-photo-3155666.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          alt="Scenic Rural Homestay" />
+      </div>
+    </div>
+  </section>
 
-                    <article class="destination-card" itemscope itemtype="https://schema.org/TouristDestination">
-                        <img src="./img/6.jpg" alt="Peaceful Nainital Lake surrounded by hills in Uttarakhand" class="destination-image" loading="lazy" width="300" height="200">
-                        <h3 itemprop="name">Serene Lake Retreat</h3>
-                        <p class="location"><strong>📍Location: <span itemprop="address">Nainital, Uttarakhand</span></strong></p>
-                        <p itemprop="description">Surrounded by lush hills, Nainital Lake is a picturesque spot perfect for boating, leisure walks, and breathtaking sunset views.</p>
-                        <p>A beautiful place to visit</p>
-                        <div class="rating" aria-label="5 out of 5 stars">
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                        </div>
-                        <a href="homestays.html" class="learn-more" aria-label="Learn more about Nainital homestays">Learn More</a>
-                    </article>
-
-                    <article class="destination-card" itemscope itemtype="https://schema.org/TouristDestination">
-                        <img src="./img/7.jpg" alt="Powerful cascades of Jog Falls in Karnataka" class="destination-image" loading="lazy" width="300" height="200">
-                        <h3 itemprop="name">Majestic Waterfalls</h3>
-                        <p class="location"><strong>📍Location: <span itemprop="address">Jog Falls, Karnataka</span></strong></p>
-                        <p itemprop="description">India's second-highest waterfall, Jog Falls, offers a mesmerizing sight, especially during monsoons with its powerful cascades.</p>
-                        <p>A beautiful place to visit</p>
-                        <div class="rating" aria-label="4.5 out of 5 stars">
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star-half-alt" aria-hidden="true"></i>
-                        </div>
-                        <a href="homestays.html" class="learn-more" aria-label="Learn more about Jog Falls homestays">Learn More</a>
-                    </article>
-
-                    <article class="destination-card" itemscope itemtype="https://schema.org/TouristDestination">
-                        <img src="./img/8.jpg" alt="Crystal clear waters and pristine beaches at Havelock Island, Andaman" class="destination-image" loading="lazy" width="300" height="200">
-                        <h3 itemprop="name">Tropical Island</h3>
-                        <p class="location"><strong>📍Location: <span itemprop="address">Havelock Island, Andaman</span></strong></p>
-                        <p itemprop="description">Crystal-clear waters, pristine beaches, and rich marine life make Havelock Island a paradise for scuba diving and relaxation.</p>
-                        <p>A beautiful place to visit</p>
-                        <div class="rating" aria-label="5 out of 5 stars">
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                        </div>
-                        <a href="homestays.html" class="learn-more" aria-label="Learn more about Havelock Island homestays">Learn More</a>
-                    </article>
-
-                    <article class="destination-card" itemscope itemtype="https://schema.org/TouristDestination">
-                        <img src="./img/9.jpg" alt="Misty hills and coffee plantations in Chikmagalur, Karnataka" class="destination-image" loading="lazy" width="300" height="200">
-                        <h3 itemprop="name">Scenic Highlands</h3>
-                        <p class="location"><strong>📍Location: <span itemprop="address">Chikmagalur, Karnataka</span></strong></p>
-                        <p itemprop="description">Known as the 'Coffee Land of India,' Chikmagalur's misty hills and lush coffee plantations create a perfect retreat.</p>
-                        <p>A beautiful place to visit</p>
-                        <div class="rating" aria-label="4.5 out of 5 stars">
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star-half-alt" aria-hidden="true"></i>
-                        </div>
-                        <a href="homestays.html" class="learn-more" aria-label="Learn more about Chikmagalur homestays">Learn More</a>
-                    </article>
-
-                    <article class="destination-card" itemscope itemtype="https://schema.org/TouristDestination">
-                        <img src="./img/10.jpg" alt="Golden sand dunes and historic forts in Jaisalmer, Rajasthan" class="destination-image" loading="lazy" width="300" height="200">
-                        <h3 itemprop="name">Mystical Desert Oasis</h3>
-                        <p class="location"><strong>📍Location: <span itemprop="address">Jaisalmer, Rajasthan</span></strong></p>
-                        <p itemprop="description">Experience camel safaris, golden sand dunes, and the royal charm of Jaisalmer's historic forts and heritage sites.</p>
-                        <div class="rating" aria-label="5 out of 5 stars">
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                        </div>
-                        <a href="homestays.html" class="learn-more" aria-label="Learn more about Jaisalmer homestays">Learn More</a>
-                    </article>
-
-                    <article class="destination-card" itemscope itemtype="https://schema.org/TouristDestination">
-                        <img src="./img/11.jpg" alt="Crescent-shaped Palolem Beach with calm waters in Goa" class="destination-image" loading="lazy" width="300" height="200">
-                        <h3 itemprop="name">Beach Paradise</h3>
-                        <p class="location"><strong>📍Location: <span itemprop="address">Palolem Beach, Goa</span></strong></p>
-                        <p itemprop="description">A stunning crescent-shaped beach known for its serene beauty and calm waters, ideal for relaxation and adventure.</p>
-                        <div class="rating" aria-label="4.5 out of 5 stars">
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star-half-alt" aria-hidden="true"></i>
-                        </div>
-                        <a href="homestays.html" class="learn-more" aria-label="Learn more about Palolem Beach homestays">Learn More</a>
-                    </article>
-
-                    <article class="destination-card" itemscope itemtype="https://schema.org/TouristDestination">
-                        <img src="./img/12.jpg" alt="Tea plantations and rolling hills in Munnar, Kerala" class="destination-image" loading="lazy" width="300" height="200">
-                        <h3 itemprop="name">Hill Retreat</h3>
-                        <p class="location"><strong>📍Location: <span itemprop="address">Munnar, Kerala</span></strong></p>
-                        <p itemprop="description">Famous for tea plantations, rolling hills, and mist-covered landscapes, offering a refreshing escape into nature.</p>
-                        <div class="rating" aria-label="5 out of 5 stars">
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                        </div>
-                        <a href="homestays.html" class="learn-more" aria-label="Learn more about Munnar homestays">Learn More</a>
-                    </article>
-
-                    <article class="destination-card" itemscope itemtype="https://schema.org/TouristDestination">
-                        <img src="./img/13.jpg" alt="Himalayan mountains and adventure activities in Manali, Himachal Pradesh" class="destination-image" loading="lazy" width="300" height="200">
-                        <h3 itemprop="name">Mountain Escape</h3>
-                        <p class="location"><strong>📍Location: <span itemprop="address">Manali, Himachal Pradesh</span></strong></p>
-                        <p itemprop="description">Surrounded by the majestic Himalayas, Manali is a perfect spot for trekking, adventure, and breathtaking views.</p>
-                        <div class="rating" aria-label="5 out of 5 stars">
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                        </div>
-                        <a href="homestays.html" class="learn-more" aria-label="Learn more about Manali homestays">Learn More</a>
-                    </article>
-
-                    <article class="destination-card" itemscope itemtype="https://schema.org/TouristDestination">
-                        <img src="./img/14.jpg" alt="Peaceful coastal town with untouched beaches in Gokarna, Karnataka" class="destination-image" loading="lazy" width="300" height="200">
-                        <h3 itemprop="name">Seaside Village</h3>
-                        <p class="location"><strong>📍Location: <span itemprop="address">Gokarna, Karnataka</span></strong></p>
-                        <p itemprop="description">A peaceful coastal town with untouched beaches, perfect for solitude and a spiritual getaway.</p>
-                        <div class="rating" aria-label="4.5 out of 5 stars">
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star-half-alt" aria-hidden="true"></i>
-                        </div>
-                        <a href="homestays.html" class="learn-more" aria-label="Learn more about Gokarna homestays">Learn More</a>
-                    </article>
-
-                    <article class="destination-card" itemscope itemtype="https://schema.org/TouristDestination">
-                        <img src="./img/15.jpg" alt="Traditional homestay with warm hospitality in Coorg, Karnataka" class="destination-image" loading="lazy" width="300" height="200">
-                        <h3 itemprop="name">Homestay Haven</h3>
-                        <p class="location"><strong>📍Location: <span itemprop="address">Coorg, Karnataka</span></strong></p>
-                        <p itemprop="description">Experience warm hospitality, lush greenery, and delicious homemade food in traditional Coorg homestays.</p>
-                        <div class="rating" aria-label="5 out of 5 stars">
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                        </div>
-                        <a href="homestays.html" class="learn-more" aria-label="Learn more about Coorg homestays">Learn More</a>
-                    </article>
-
-                    <article class="destination-card" itemscope itemtype="https://schema.org/TouristDestination">
-                        <img src="./img/16.jpg" alt="Golden cliffs and beach shacks at Varkala, Kerala" class="destination-image" loading="lazy" width="300" height="200">
-                        <h3 itemprop="name">Beachside Escape</h3>
-                        <p class="location"><strong>📍Location: <span itemprop="address">Varkala, Kerala</span></strong></p>
-                        <p itemprop="description">Golden sands, breathtaking cliffs, and vibrant beach shacks make Varkala a must-visit coastal retreat.</p>
-                        <div class="rating" aria-label="4.5 out of 5 stars">
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star-half-alt" aria-hidden="true"></i>
-                        </div>
-                        <a href="homestays.html" class="learn-more" aria-label="Learn more about Varkala homestays">Learn More</a>
-                    </article>
-
-                    <article class="destination-card" itemscope itemtype="https://schema.org/TouristDestination">
-                        <img src="./img/17.jpg" alt="Yoga capital Rishikesh with Himalayan landscapes and river rafting in Uttarakhand" class="destination-image" loading="lazy" width="300" height="200">
-                        <h3 itemprop="name">Himalayan Retreat</h3>
-                        <p class="location"><strong>📍Location: <span itemprop="address">Rishikesh, Uttarakhand</span></strong></p>
-                        <p itemprop="description">The yoga capital of the world offers breathtaking landscapes and thrilling adventure activities like river rafting.</p>
-                        <div class="rating" aria-label="5 out of 5 stars">
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                        </div>
-                        <a href="homestays.html" class="learn-more" aria-label="Learn more about Rishikesh homestays">Learn More</a>
-                    </article>
-
-                    <article class="destination-card" itemscope itemtype="https://schema.org/TouristDestination">
-                        <img src="./img/18.jpg" alt="Colonial architecture and tea estates in Ooty hill station, Tamil Nadu" class="destination-image" loading="lazy" width="300" height="200">
-                        <h3 itemprop="name">Misty Hill Station</h3>
-                        <p class="location"><strong>📍Location: <span itemprop="address">Ooty, Tamil Nadu</span></strong></p>
-                        <p itemprop="description">Ooty's rolling hills, charming tea estates, and colonial architecture make it a popular hill station retreat.</p>
-                        <div class="rating" aria-label="4.5 out of 5 stars">
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star-half-alt" aria-hidden="true"></i>
-                        </div>
-                        <a href="homestays.html" class="learn-more" aria-label="Learn more about Ooty homestays">Learn More</a>
-                    </article>
-
-                    <article class="destination-card" itemscope itemtype="https://schema.org/TouristDestination">
-                        <img src="./img/19.jpg" alt="Traditional artists and crafts at Raghurajpur Artist Village, Odisha" class="destination-image" loading="lazy" width="300" height="200">
-                        <h3 itemprop="name">Cultural Village</h3>
-                        <p class="location"><strong>📍Location: <span itemprop="address">Raghurajpur Artist Village, Odisha</span></strong></p>
-                        <p itemprop="description">Raghurajpur Artist Village is a heritage crafts village located about 14 kilometers away from the city of Puri, Odisha, India.</p>
-                        <div class="rating" aria-label="5 out of 5 stars">
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                        </div>
-                        <a href="homestays.html" class="learn-more" aria-label="Learn more about Raghurajpur village homestays">Learn More</a>
-                    </article>
-
-                    <article class="destination-card" itemscope itemtype="https://schema.org/TouristDestination">
-                        <img src="./img/20.jpg" alt="Serene village settlement showcasing natural beauty at Chandigre Village" class="destination-image" loading="lazy" width="300" height="200">
-                        <h3 itemprop="name">Village Ecotourism</h3>
-                        <p class="location"><strong>📍Location: <span itemprop="address">Chandigre Village</span></strong></p>
-                        <p itemprop="description">Serene and picturesque settlement that showcases the rich cultural heritage and wonderful natural beauty of the region.</p>
-                        <div class="rating" aria-label="4.5 out of 5 stars">
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star-half-alt" aria-hidden="true"></i>
-                        </div>
-                        <a href="homestays.html" class="learn-more" aria-label="Learn more about Chandigre village homestays">Learn More</a>
-                    </article>
-
-                    <article class="destination-card" itemscope itemtype="https://schema.org/TouristDestination">
-                        <img src="./img/21.jpg" alt="Lush greenery and tranquil atmosphere at Sasatgre Village" class="destination-image" loading="lazy" width="300" height="200">
-                        <h3 itemprop="name">Village Tourist Attraction</h3>
-                        <p class="location"><strong>📍Location: <span itemprop="address">Sasatgre Village</span></strong></p>
-                        <p itemprop="description">Embraced by lush greenery and the serenity of nature, this village offers a tranquil escape from the hustle and bustle of city life.</p>
-                        <div class="rating" aria-label="5 out of 5 stars">
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                        </div>
-                        <a href="homestays.html" class="learn-more" aria-label="Learn more about Sasatgre village homestays">Learn More</a>
-                    </article>
-
-                    <article class="destination-card" itemscope itemtype="https://schema.org/TouristDestination">
-                        <img src="./img/22.jpg" alt="Ethnographic museum showcasing tribal art and culture at Srijani Shilpagram" class="destination-image" loading="lazy" width="300" height="200">
-                        <h3 itemprop="name">Cultural Heritage Village</h3>
-                        <p class="location"><strong>📍Location: <span itemprop="address">Srijani Shilpagram</span></strong></p>
-                        <p itemprop="description">Ethnographic museum that spreads across 15 acres of land designed to promote and showcase the art, craft, and cultural heritage of Eastern India's tribal communities.</p>
-                        <div class="rating" aria-label="4.5 out of 5 stars">
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star" aria-hidden="true"></i>
-                            <i class="fas fa-star-half-alt" aria-hidden="true"></i>
-                        </div>
-                        <a href="homestays.html" class="learn-more" aria-label="Learn more about Srijani Shilpagram homestays">Learn More</a>
-                    </article>
-                </div>
-            </div>
-            <div class="carousel-controls">
-                <button class="prev1" onclick="moveSlide(-1)" aria-label="Previous destinations">&#10094;</button>
-                <button class="next1" onclick="moveSlide(1)" aria-label="Next destinations">&#10095;</button>
-            </div>
-        </section>
-
-        <section class="carousel-container" aria-labelledby="testimonials-title">
-            <div class="carousel">
-                <h2 id="testimonials-title">What Our Travelers Say</h2>
-                
-                <article class="testimonial-item active" itemscope itemtype="https://schema.org/Review">
-                    <img src="https://cdn1.byjus.com/byjusweb/img/successpage/Prachi.png" alt="Sanchali Saha - Customer" loading="lazy" width="80" height="80">
-                    <h4 itemprop="name"><strong>Amazing Homestay Experience</strong></h4>
-                    <p itemprop="reviewBody">"An unforgettable experience! The hospitality was incredible!"</p>
-                    <p class="author" itemprop="author" itemscope itemtype="https://schema.org/Person">
-                        - <span itemprop="name">Sanchali Saha</span>
-                    </p>
-                    <div class="rating" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating" aria-label="5 out of 5 stars">
-                        <meta itemprop="ratingValue" content="5">
-                        <meta itemprop="bestRating" content="5">
-                        <i class="fas fa-star" aria-hidden="true"></i>
-                        <i class="fas fa-star" aria-hidden="true"></i>
-                        <i class="fas fa-star" aria-hidden="true"></i>
-                        <i class="fas fa-star" aria-hidden="true"></i>
-                        <i class="fas fa-star" aria-hidden="true"></i>
-                    </div>
-                </article>
-
-                <article class="testimonial-item" itemscope itemtype="https://schema.org/Review">
-                    <img src="https://cdn1.byjus.com/byjusweb/img/successpage/arfaatk.png" alt="Sreham Hazra - Customer" loading="lazy" width="80" height="80">
-                    <h4 itemprop="name"><strong>Friendly Staff</strong></h4>
-                    <p itemprop="reviewBody">"The staff was very friendly and accommodating. They made us feel at home throughout the trip."</p>
-                    <p class="author" itemprop="author" itemscope itemtype="https://schema.org/Person">
-                        - <span itemprop="name">Sreham Hazra</span>
-                    </p>
-                    <div class="rating" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating" aria-label="5 out of 5 stars">
-                        <meta itemprop="ratingValue" content="5">
-                        <meta itemprop="bestRating" content="5">
-                        <i class="fas fa-star" aria-hidden="true"></i>
-                        <i class="fas fa-star" aria-hidden="true"></i>
-                        <i class="fas fa-star" aria-hidden="true"></i>
-                        <i class="fas fa-star" aria-hidden="true"></i>
-                        <i class="fas fa-star" aria-hidden="true"></i>
-                    </div>
-                </article>
-
-                <article class="testimonial-item" itemscope itemtype="https://schema.org/Review">
-                    <img src="https://cdn1.byjus.com/byjusweb/img/successpage/kunal_kundwani.png" alt="Ravi Shankar - Customer" loading="lazy" width="80" height="80">
-                    <h4 itemprop="name"><strong>Well-Organized Trip</strong></h4>
-                    <p itemprop="reviewBody">"Everything was well-organized, from transportation to accommodations. We didn't have to worry about a thing!"</p>
-                    <p class="author" itemprop="author" itemscope itemtype="https://schema.org/Person">
-                        - <span itemprop="name">Ravi Shankar</span>
-                    </p>
-                    <div class="rating" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating" aria-label="5 out of 5 stars">
-                        <meta itemprop="ratingValue" content="5">
-                        <meta itemprop="bestRating" content="5">
-                        <i class="fas fa-star" aria-hidden="true"></i>
-                        <i class="fas fa-star" aria-hidden="true"></i>
-                        <i class="fas fa-star" aria-hidden="true"></i>
-                        <i class="fas fa-star" aria-hidden="true"></i>
-                        <i class="fas fa-star" aria-hidden="true"></i>
-                    </div>
-                </article>
-            </div>
-
-            <button class="button prev" onclick="changeTestimonial(-1)" aria-label="Previous testimonial">&#10094;</button>
-            <button class="button next" onclick="changeTestimonial(1)" aria-label="Next testimonial">&#10095;</button>
-        </section>
-
-        <!-- Blog Highlights -->
-        <header class="header" role="banner">
-            <h1 id="blog-title">🌿 Explore Our Blogs 🌿</h1>
-        </header>
-
-        <section class="blog-section" aria-labelledby="blog-title">
-            <h2>Latest Articles</h2>
-            <p>Read our latest insights on travel and homestays.</p>
-
-            <div class="tabs" role="tablist" aria-label="Blog categories">
-                <button class="tab-button" data-category="all" role="tab" aria-selected="true" aria-controls="blogPosts">All Blogs</button>
-                <button class="tab-button" data-category="travel" role="tab" aria-selected="false" aria-controls="blogPosts">Travel Blogs</button>
-                <button class="tab-button" data-category="homestay" role="tab" aria-selected="false" aria-controls="blogPosts">Homestay Blogs</button>
-            </div>
-
-            <div class="blog-container" id="blogPosts" role="tabpanel" aria-live="polite">
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer" role="contentinfo">
-        <div class="footer-container">
-            <!-- First Row: Rural Retreats, Quick Links, Customer Support -->
-            <div class="footer-row">            
-                <div class="footer-section about">
-                    <h3 class="footer-title">Rural Retreats</h3>
-                    <p>
-                        We offer budget-friendly tours, curated travel experiences, and
-                        luxury escapes worldwide.
-                    </p>
-                </div>
-
-                <div class="footer-section links">
-                    <h4>Quick Links</h4>
-                    <ul role="list">
-                        <li><a href="index.html" aria-label="Go to Home page">Home</a></li>
-                        <li><a href="about.html" aria-label="Learn about Rural Retreats">About Us</a></li>
-                        <li><a href="services.html" aria-label="View our services">Services</a></li>
-                        <li><a href="homestays.html" aria-label="Browse Hotels & Homestays">Hotels & Homestays</a></li>
-                        <li><a href="#blog-highlights" aria-label="Read travel guides">Travel Guides</a></li>
-                        <li><a href="faq.html" aria-label="Frequently asked questions">FAQs</a></li>
-                        <li><a href="contact.html" aria-label="Contact Rural Retreats">Contact Us</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section contact">
-                    <h4>Customer Support</h4>
-                    <address>
-                        <p>Email: <a href="mailto:support@ruralretreats.com">support@ruralretreats.com</a></p>
-                        <p>Phone: <a href="tel:+91629XXXXXXX">+91 629XX XXXXX</a></p>
-                        <p>
-                            Address: Q University Institute Of Technology, Burdwan-713104, West Bengal
-                        </p>
-                    </address>
-                </div>      
-            </div>
-
-            <!-- Second Row: Social Media, Language Selector, Newsletter -->
-            <div class="footer-row">
-                <div class="footer-section social-media">
-                    <h4>Follow Us</h4>
-                    <div class="social-icons" role="list">
-                        <a href="#" class="youtube" title="Follow us on YouTube" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
-                        <a href="#" class="instagram" title="Follow us on Instagram" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
-                        <a href="#" class="twitter" title="Follow us on Twitter" aria-label="Twitter"><i class="fa-brands fa-twitter" aria-hidden="true"></i></a>
-                        <a href="#" class="linkedin" title="Connect with us on LinkedIn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
-                    </div>
-                </div>
-
-                <div class="footer-section language-selector">
-                    <h4>Language</h4>
-                    <label for="language-select">Choose Language:</label>
-                    <select id="language-select" aria-label="Select website language">
-                        <option value="en">English</option>
-                        <option value="bn">Bengali</option>
-                        <option value="hi">Hindi</option>
-                        <option value="fr">French</option>
-                        <option value="es">Spanish</option>
-                        <option value="de">German</option>
-                    </select>
-                </div>
-
-                <div class="footer-section newsletter">
-                    <h4>Newsletter</h4>
-                    <p>Subscribe for exclusive travel deals!</p>
-                    <form class="newsletter" onsubmit="subscribeNewsletter(); return false;" aria-label="Newsletter subscription">
-                        <label for="newsletter-email" class="sr-only">Email address for newsletter</label>
-                        <input type="email" placeholder="Enter your email" id="newsletter-email" required aria-describedby="newsletter-description">
-                        <button type="submit" class="footer-newsletter-btn" aria-label="Subscribe to newsletter"><strong>Subscribe</strong></button>
-                        <div id="newsletter-description" class="sr-only">Get exclusive travel deals and updates delivered to your inbox</div>
-                    </form>
-                </div>
-            </div>
+  <section class="carousel-sections">
+    <h2>Explore Our Destinations</h2>
+    <div class="carousel-grid destination-grid">
+      <div class="carousel-containers">
+        <div class="destination-card active">
+          <img src="./img/1.jpg" alt="Enchanting Caves" class="destination-image" />
+          <h3>Enchanting Caves</h3>
+          <p class="location">
+            <b>📍Location: Ajanta & Ellora Caves, Maharashtra</b>
+          </p>
+          <p>
+            A UNESCO World Heritage site, famous for its rock-cut temples,
+            intricate carvings, and ancient Buddhist murals.
+          </p>
+          <p>A beautiful place to visit</p>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <a href="homestays.html" class="learn-more">Learn More</a>
         </div>
 
-        <div class="footer-bottom">
-            <p>
-                &copy; 2025 Rural Retreats. All rights reserved. |
-                <a href="pp.html" aria-label="Read Privacy Policy">Privacy Policy</a> | 
-                <a href="t&c.html" aria-label="Read Terms & Conditions">Terms & Conditions</a>
-            </p>
+        <div class="destination-card">
+          <img src="./img/2.jpg" alt="Lush Rainforest" class="destination-image" />
+          <h3>Lush Rainforest</h3>
+          <p class="location">
+            <b>📍Location: Silent Valley National Park, Kerala</b>
+          </p>
+          <p>
+            A pristine rainforest with diverse wildlife, towering trees, and
+            mesmerizing waterfalls—perfect for nature lovers and trekkers.
+          </p>
+          <p>A beautiful place to visit</p>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <a href="homestays.html" class="learn-more">Learn More</a>
         </div>
-    </footer> 
+
+        <div class="destination-card">
+          <img src="./img/3.jpg" alt="Heritage Town" class="destination-image" />
+          <h3>Heritage Town</h3>
+          <p class="location"><b>📍Location: Pondicherry</b></p>
+          <p>
+            With its French colonial architecture, charming beaches, and
+            vibrant café culture, Pondicherry is a perfect blend of history
+            and leisure.
+          </p>
+          <p>A beautiful place to visit</p>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <a href="homestays.html" class="learn-more">Learn More</a>
+        </div>
+
+        <div class="destination-card">
+          <img src="./img/4.jpg" alt="Snow-Capped Peaks" class="destination-image" />
+          <h3>Snow-Capped Peaks</h3>
+          <p class="location"><b>📍Location: Gulmarg, Kashmir</b></p>
+          <p>
+            Famous for its powdery snow, skiing resorts, and breathtaking
+            views of the Himalayas, Gulmarg is a paradise for adventure
+            seekers.
+          </p>
+          <p>A beautiful place to visit</p>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <a href="homestays.html" class="learn-more">Learn More</a>
+        </div>
+
+        <div class="destination-card">
+          <img src="./img/5.jpg" alt="Hidden Beach Escape" class="destination-image" />
+          <h3>Hidden Beach Escape</h3>
+          <p class="location"><b>📍Location: Butterfly Beach, Goa</b></p>
+          <p>
+            A secluded beach with golden sands, stunning sunset views, and a
+            perfect spot for dolphin watching and snorkeling.
+          </p>
+          <p>A beautiful place to visit</p>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <a href="homestays.html" class="learn-more">Learn More</a>
+        </div>
+        <div class="destination-card">
+          <img src="./img/6.jpg" alt="Serene Lake Retreat" class="destination-image" />
+          <h3>Serene Lake Retreat</h3>
+          <p class="location"><b>📍Location: Nainital, Uttarakhand</b></p>
+          <p>
+            Surrounded by lush hills, Nainital Lake is a picturesque spot
+            perfect for boating, leisure walks, and breathtaking sunset views.
+          </p>
+          <p>A beautiful place to visit</p>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <a href="homestays.html" class="learn-more">Learn More</a>
+        </div>
+
+        <div class="destination-card">
+          <img src="./img/7.jpg" alt="Majestic Waterfalls" class="destination-image" />
+          <h3>Majestic Waterfalls</h3>
+          <p class="location"><b>📍Location: Jog Falls, Karnataka</b></p>
+          <p>
+            India’s second-highest waterfall, Jog Falls, offers a mesmerizing
+            sight, especially during monsoons with its powerful cascades.
+          </p>
+          <p>A beautiful place to visit</p>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <a href="homestays.html" class="learn-more">Learn More</a>
+        </div>
+
+        <div class="destination-card">
+          <img src="./img/8.jpg" alt="Tropical Island" class="destination-image" />
+          <h3>Tropical Island</h3>
+          <p class="location"><b>📍Location: Havelock Island, Andaman</b></p>
+          <p>
+            Crystal-clear waters, pristine beaches, and rich marine life make
+            Havelock Island a paradise for scuba diving and relaxation.
+          </p>
+          <p>A beautiful place to visit</p>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <a href="homestays.html" class="learn-more">Learn More</a>
+        </div>
+
+        <div class="destination-card">
+          <img src="./img/9.jpg" alt="Scenic Highlands" class="destination-image" />
+          <h3>Scenic Highlands</h3>
+          <p class="location"><b>📍Location: Chikmagalur, Karnataka</b></p>
+          <p>
+            Known as the ‘Coffee Land of India,’ Chikmagalur’s misty hills and
+            lush coffee plantations create a perfect retreat.
+          </p>
+          <p>A beautiful place to visit</p>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <a href="homestays.html" class="learn-more">Learn More</a>
+        </div>
+
+        <div class="destination-card">
+          <img src="./img/10.jpg" alt="Mystical Desert Oasis" class="destination-image" />
+          <h3>Mystical Desert Oasis</h3>
+          <p class="location"><b>📍Location: Jaisalmer, Rajasthan</b></p>
+          <p>
+            Experience camel safaris, golden sand dunes, and the royal charm
+            of Jaisalmer’s historic forts and heritage sites.
+          </p>
+
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <a href="homestays.html" class="learn-more">Learn More</a>
+        </div>
+        <div class="destination-card">
+          <img src="./img/11.jpg" alt="Beach Paradise" class="destination-image" />
+          <h3>Beach Paradise</h3>
+          <p class="location"><b>📍Location: Palolem Beach, Goa</b></p>
+          <p>
+            A stunning crescent-shaped beach known for its serene beauty and
+            calm waters, ideal for relaxation and adventure.
+          </p>
+
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <a href="homestays.html" class="learn-more">Learn More</a>
+        </div>
+
+        <div class="destination-card">
+          <img src="./img/12.jpg" alt="Hill Retreat" class="destination-image" />
+          <h3>Hill Retreat</h3>
+          <p class="location"><b>📍Location: Munnar, Kerala</b></p>
+          <p>
+            Famous for tea plantations, rolling hills, and mist-covered
+            landscapes, offering a refreshing escape into nature.
+          </p>
+
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <a href="homestays.html" class="learn-more">Learn More</a>
+        </div>
+
+        <div class="destination-card">
+          <img src="./img/13.jpg" alt="Mountain Escape" class="destination-image" />
+          <h3>Mountain Escape</h3>
+          <p class="location"><b>📍Location: Manali, Himachal Pradesh</b></p>
+          <p>
+            Surrounded by the majestic Himalayas, Manali is a perfect spot for
+            trekking, adventure, and breathtaking views.
+          </p>
+
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <a href="homestays.html" class="learn-more">Learn More</a>
+        </div>
+
+        <div class="destination-card">
+          <img src="./img/14.jpg" alt="Seaside Village" class="destination-image" />
+          <h3>Seaside Village</h3>
+          <p class="location"><b>📍Location: Gokarna, Karnataka</b></p>
+          <p>
+            A peaceful coastal town with untouched beaches, perfect for
+            solitude and a spiritual getaway.
+          </p>
+
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <a href="homestays.html" class="learn-more">Learn More</a>
+        </div>
+
+        <div class="destination-card">
+          <img src="./img/15.jpg" alt="Homestay Haven" class="destination-image" />
+          <h3>Homestay Haven</h3>
+          <p class="location"><b>📍Location: Coorg, Karnataka</b></p>
+          <p>
+            Experience warm hospitality, lush greenery, and delicious homemade
+            food in traditional Coorg homestays.
+          </p>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <a href="homestays.html" class="learn-more">Learn More</a>
+        </div>
 
 
-    <div id="chatButton" class="chatbot-button" role="button" tabindex="0" aria-label="Open chat support">
-        <i class="fas fa-comment-dots" aria-hidden="true"></i>
+        <div class="destination-card">
+          <img src="./img/16.jpg" alt="Beachside Escape" class="destination-image" />
+          <h3>Beachside Escape</h3>
+          <p class="location"><b>📍Location: Varkala, Kerala</b></p>
+          <p>
+            Golden sands, breathtaking cliffs, and vibrant beach shacks make
+            Varkala a must-visit coastal retreat.
+          </p>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <a href="homestays.html" class="learn-more">Learn More</a>
+        </div>
+
+
+        <div class="destination-card">
+          <img src="./img/17.jpg" alt="Himalayan Retreat" class="destination-image" />
+          <h3>Himalayan Retreat</h3>
+          <p class="location"><b>📍Location: Rishikesh, Uttarakhand</b></p>
+          <p>
+            The yoga capital of the world offers breathtaking landscapes and
+            thrilling adventure activities like river rafting.
+          </p>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <a href="homestays.html" class="learn-more">Learn More</a>
+        </div>
+
+        <div class="destination-card">
+          <img src="./img/18.jpg" alt="Misty Hill Station" class="destination-image" />
+          <h3>Misty Hill Station</h3>
+          <p class="location"><b>📍Location: Ooty, Tamil Nadu</b></p>
+          <p>
+            Ooty’s rolling hills, charming tea estates, and colonial
+            architecture make it a popular hill station retreat.
+          </p>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <a href="homestays.html" class="learn-more">Learn More</a>
+        </div>
+
+        <div class="destination-card">
+          <img src="./img/19.jpg" alt="Cultural Village" class="destination-image" />
+          <h3>Cultural Village</h3>
+          <p class="location">
+            <b>📍Location: Raghurajpur Artist Village</b>
+          </p>
+          <p>
+            Raghurajpur Artist Village is a heritage crafts village located
+            about 14 kilometers away from the city of Puri, Odisha, India.
+          </p>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <a href="homestays.html" class="learn-more">Learn More</a>
+        </div>
+        <div class="destination-card">
+          <img src="./img/20.jpg" alt="Village/Ecotourism" class="destination-image" />
+          <h3>Village/Ecotourism</h3>
+          <p class="location"><b>📍Location: Chandigre Village</b></p>
+          <p>
+            Serene and picturesque settlement that showcases the rich cultural
+            heritage and wonderful natural beauty of the region.
+          </p>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <a href="homestays.html" class="learn-more">Learn More</a>
+        </div>
+        <div class="destination-card">
+          <img src="./img/21.jpg" alt="Village/Tourist Attraction" class="destination-image" />
+          <h3>Village/Tourist Attraction</h3>
+          <p class="location"><b>📍Location: Sasatgre Village</b></p>
+          <p>
+            Embraced by lush greenery and the serenity of nature, this village
+            offers a tranquil escape from the hustle and bustle of city life.
+          </p>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <a href="homestays.html" class="learn-more">Learn More</a>
+        </div>
+        <div class="destination-card">
+          <img src="./img/22.jpg" alt="Cultural Village" class="destination-image" />
+          <h3>Cultural Village</h3>
+          <p class="location"><b>📍Location: Srijani Shilpagram</b></p>
+          <p>
+            Ethnographic museum that spreads across 15 acres of land designed
+            to promote and showcase the art, craft, and cultural heritage of
+            Eastern India's tribal communities.
+          </p>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <a href="homestays.html" class="learn-more">Learn More</a>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-controls">
+      <button class="prev1" onclick="moveSlide(-1)">&#10094;</button>
+
+      <button class="next1" onclick="moveSlide(1)">&#10095;</button>
+    </div>
+  </section>
+
+  <section class="carousel-container">
+    <div class="carousel">
+      <h2>What Our Travelers Say</h2>
+      <div class="testimonial-item active">
+        <img src="https://cdn1.byjus.com/byjusweb/img/successpage/Prachi.png" alt="Sanchali Saha" />
+        <h4><b>Amazing Homestay Experience</b></h4>
+        <p>"An unforgettable experience! The hospitality was incredible!"</p>
+        <p class="author">- Sanchali Saha</p>
+        <div class="rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+      </div>
+
+      <div class="testimonial-item">
+        <img src="https://cdn1.byjus.com/byjusweb/img/successpage/Vaibhav.png" alt="Rajesh Kumar" />
+        <h4><b>Comfortable Bus Journey</b></h4>
+        <p>
+          "The bus journey was smooth and comfortable. The seats were
+          spacious, and the staff was very helpful."
+        </p>
+        <p class="author">- Rajesh Kumar</p>
+        <div class="rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star-half-alt"></i>
+        </div>
+      </div>
+
+      <div class="testimonial-item">
+        <img src="https://cdn1.byjus.com/byjusweb/img/successpage/Sreesti.png" alt="Priya Mehta" />
+        <h4><b>Excellent Services</b></h4>
+        <p>
+          "From booking to the actual trip, everything was seamless. The team
+          was always available to assist us."
+        </p>
+        <p class="author">- Priya Mehta</p>
+        <div class="rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star-half-alt"></i>
+        </div>
+      </div>
+
+      <div class="testimonial-item">
+        <img src="https://cdn1.byjus.com/byjusweb/img/successpage/Saumya.png" alt="Ananya Das" />
+        <h4><b>Beautiful Homestay</b></h4>
+        <p>
+          "The homestay was cozy and surrounded by nature. Perfect for a
+          peaceful getaway!"
+        </p>
+        <p class="author">- Ananya Das</p>
+        <div class="rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+      </div>
+
+      <div class="testimonial-item">
+        <img src="https://cdn1.byjus.com/byjusweb/img/successpage/Palak.png" alt="Sonali Sharma" />
+        <h4><b>Amazing Homestay Experience</b></h4>
+        <p>
+          "An unforgettable experience! The hospitality was incredible, and
+          the location was serene. Highly recommended!"
+        </p>
+        <p class="author">- Sonali Sharma</p>
+        <div class="rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+      </div>
+
+      <div class="testimonial-item">
+        <img src="https://cdn1.byjus.com/byjusweb/img/successpage/Ayush.png" alt="Vikram Singh" />
+        <h4><b>Affordable Payment</b></h4>
+        <p>
+          "The packages were reasonably priced, and the payment process was
+          hassle-free. Great value for money!"
+        </p>
+        <p class="author">- Vikram Singh</p>
+        <div class="rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+      </div>
+
+      <div class="testimonial-item">
+        <img src="https://cdn1.byjus.com/byjusweb/img/successpage/Japit.png" alt="Neha Gupta" />
+        <h4><b>Memorable Experience</b></h4>
+        <p>
+          "Every moment of the trip was memorable. The guides were
+          knowledgeable, and the itinerary was well-planned."
+        </p>
+        <p class="author">- Neha Gupta</p>
+        <div class="rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+      </div>
+
+      <div class="testimonial-item">
+        <img src="https://cdn1.byjus.com/byjusweb/img/successpage/Ridham.png" alt="Arjun Patel" />
+        <h4><b>Scenic Places</b></h4>
+        <p>
+          "The places we visited were breathtaking. Each location was more
+          beautiful than the last!"
+        </p>
+        <p class="author">- Arjun Patel</p>
+        <div class="rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+      </div>
+
+      <div class="testimonial-item">
+        <img src="https://cdn1.byjus.com/byjusweb/img/successpage/arfaatk.png" alt="Sreham Hazra" />
+        <h4><b>Friendly Staff</b></h4>
+        <p>
+          "The staff was very friendly and accommodating. They made us feel at
+          home throughout the trip."
+        </p>
+        <p class="author">- Sreham Hazra</p>
+        <div class="rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+      </div>
+
+      <div class="testimonial-item">
+        <img src="https://cdn1.byjus.com/byjusweb/img/successpage/kunal_kundwani.png" alt="Ravi Shankar" />
+        <h4><b>Well-Organized Trip</b></h4>
+        <p>
+          "Everything was well-organized, from transportation to
+          accommodations. We didn’t have to worry about a thing!"
+        </p>
+        <p class="author">- Ravi Shankar</p>
+        <div class="rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+      </div>
     </div>
 
-    <div id="chatModal" class="chatbot-modal" role="dialog" aria-labelledby="chat-title" aria-hidden="true">
+    <button class="button prev" onclick="changeTestimonial(-1)">
+      &#10094;
+    </button>
+
+    <button class="button next" onclick="changeTestimonial(1)">
+      &#10095;
+    </button>
+  </section>
+
+  <!-- Blog Highlights -->
+  <header class="header">
+    <h1>🌿 Explore Our Blogs 🌿</h1>
+  </header>
+
+  <section class="blog-section">
+    <h2>Latest Articles</h2>
+    <p>Read our latest insights on travel and homestays.</p>
+
+    <div class="tabs">
+      <button class="tab-button" data-category="all">All Blogs</button>
+      <button class="tab-button" data-category="travel">Travel Blogs</button>
+      <button class="tab-button" data-category="homestay">
+        Homestay Blogs
+      </button>
+    </div>
+
+    <div class="blog-container" id="blogPosts"></div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <!-- First Row: Rural Retreats, Quick Links, Customer Support -->
+      <div class="footer-row">
+        <div class="footer-section about">
+          <h3 class="footer-title">Rural Retreats</h3>
+          <p>
+            We offer budget-friendly tours, curated travel experiences, and
+            luxury escapes worldwide.
+          </p>
+        </div>
+
+        <div class="footer-section links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="homestays.html">Hotels & Homestays</a></li>
+            <li><a href="#blog-highlights">Travel Guides</a></li>
+            <li><a href="faq.html">FAQs</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section contact">
+          <h4>Customer Support</h4>
+          <p>Email: <a href="#">support@ruralretreats.com</a></p>
+          <p>Phone: <a href="tel:+91629XXXXXXX">+91 629XX XXXXX</a></p>
+          <p>
+            Address: Q University Institute Of Technology, Burdwan-713104,
+            West Bengal
+          </p>
+        </div>
+      </div>
+
+      <!-- Second Row: Social Media, Language Selector, Newsletter -->
+      <div class="footer-row">
+        <div class="footer-section social-media">
+          <h4>Follow Us</h4>
+          <div class="social-icons">
+            <a href="#" class="youtube" title="youtube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" class="instagram" title="instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="twitter" title="twitter"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#" class="linkedin" title="linkedin"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-section language-selector">
+          <h4>Language</h4>
+          <label for="language-select">Choose Language:</label>
+          <select id="language-select">
+            <option>English</option>
+            <option>Bengali</option>
+            <option>Hindi</option>
+            <option>French</option>
+            <option>Spanish</option>
+            <option>German</option>
+          </select>
+        </div>
+
+          <div class="footer-section">
+            <h4>Newsletter</h4>
+            <p>Subscribe for exclusive travel deals!</p>
+            <div class="newsletter">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                id="newsletter-email"
+                required
+              />
+              <button
+                type="submit"
+                class="footer-newsletter-btn"
+                onclick="subscribeNewsletter()"
+              >
+                <b>Subscribe</b>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <div class="footer-bottom">
+      <p>
+        &copy; 2025 Rural Retreats. All rights reserved. |
+        <a href="pp.html">Privacy Policy</a> |
+        <a href="t&c.html">Terms & Conditions</a>
+      </p>
+    </div>
+  </footer>
+
+  <button id="backToTop" class="back-to-top-btn" title="Go to top">↑</button>
+
+  <div id="chatButton" class="chatbot-button">
+    <i class="fas fa-comment-dots"></i>
+  </div>
+
+    <div id="chatModal" class="chatbot-modal">
         <div class="chatbot-modal-content">
             <div class="chatbot-header">
-                <h3 id="chat-title">Chat With Us</h3>
-                <button class="close-chatbot" aria-label="Close chat">&times;</button>
+                <h3>Chat With Us</h3>
+                <span class="close-chatbot">&times;</span>
             </div>
             <div class="chatbot-body">
-                <div id="chatMessages" class="chat-messages" role="log" aria-live="polite" aria-label="Chat conversation"></div>
-                <div id="typingIndicator" class="typing-indicator" aria-hidden="true">🤖 Bot is typing...</div>
+                <div id="chatMessages" class="chat-messages"></div>
+                <div id="typingIndicator" class="typing-indicator">
+                    🤖 Bot is typing...
+                </div>
             </div>
             <div class="chat-input">
-                <label for="chatInput" class="sr-only">Type your message</label>
-                <input type="text" id="chatInput" placeholder="Type your message..." aria-describedby="chat-help">
-                <button id="sendMessage" title="Send Message" aria-label="Send message"><i class="fas fa-paper-plane" aria-hidden="true"></i></button>
-                <button id="voiceInput" title="Voice Input" aria-label="Voice input"><i class="fas fa-microphone" aria-hidden="true"></i></button>
-                <button id="clearChat" title="Clear Chat" aria-label="Clear chat history"><i class="fas fa-trash-alt" aria-hidden="true"></i></button>
-                <div id="chat-help" class="sr-only">Press Enter to send message or use voice input button</div>
+                <input type="text" id="chatInput" placeholder="Type your message..." />
+                <button id="sendMessage" title="Send Message">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+                <button id="voiceInput" title="Voice Input">
+                    <i class="fas fa-microphone"></i>
+                </button>
+                <button id="clearChat" title="Clear Chat">
+                    <i class="fas fa-trash-alt"></i>
+                </button>
             </div>
         </div>
     </div>
-
     <!-- Accessibility: Screen reader only content -->
     <div class="sr-only">
         Rural Retreats - Your gateway to authentic homestays and cultural tourism experiences across India. 
@@ -911,6 +1173,7 @@
         console.log('window.scrollY on load:', window.scrollY);
     });
     </script>
+
 
         <!-- Log scrollY whenever the scroll position changes (placed at end of body) -->
         

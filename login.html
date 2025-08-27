@@ -1,108 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login page</title>
-    <link rel="apple-touch-icon" sizes="57x57" href="./favicon/favicon-57x57.png" type="image/png" />
-<link rel="apple-touch-icon" sizes="60x60" href="./favicon/favicon-60x60.png" type="image/png" />
-<link rel="apple-touch-icon" sizes="72x72" href="./favicon/favicon-72x72.png" type="image/png" />
-<link rel="apple-touch-icon" sizes="114x114" href="./favicon/favicon-114x114.png" type="image/png" />
-<link rel="apple-touch-icon" sizes="120x120" href="./favicon/favicon-120x120.png" type="image/png" />
-<link rel="apple-touch-icon" sizes="144x144" href="./favicon/favicon-144x144.png" type="image/png" />
-<link rel="apple-touch-icon" sizes="152x152" href="./favicon/favicon-152x152.png" type="image/png" />
-<link rel="apple-touch-icon" sizes="180x180" href="./favicon/favicon-180x180.png" type="image/png" />
-<link rel="icon" sizes="16x16" href="./favicon/favicon-16x16.png" type="image/png" />
-<link rel="icon" sizes="32x32" href="./favicon/favicon-32x32.png" type="image/png" />
-<link rel="icon" sizes="96x96" href="./favicon/favicon-96x96.png" type="image/png" />
-<link rel="icon" sizes="192x192" href="./favicon/favicon-192x192.png" type="image/png" />
-<link rel="icon" sizes="512x512" href="./favicon/favicon-512x512.png" type="image/png" />
-<link rel="manifest" href="./favicon/manifest.json" />
-<meta name="theme-color" content="#FFFFFF" />
-<meta name="msapplication-TileColor" content="#FFFFFF" />
-<meta name="msapplication-TileImage" content="./favicon/favicon-512x512.png"/>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./CSS/login.css">
-    <link rel="stylesheet" href="./CSS/navbar.css">
+  <!-- Basic Meta Tags -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login Page</title>
+
+  <!-- Theme & Tile Colors -->
+  <meta name="theme-color" content="#FFFFFF" />
+  <meta name="msapplication-TileColor" content="#FFFFFF" />
+  <meta name="msapplication-TileImage" content="./favicon/favicon-512x512.png" />
+
+  <!-- Favicons & Manifest -->
+  <link rel="apple-touch-icon" sizes="57x57" href="./favicon/favicon-57x57.png" type="image/png" />
+  <link rel="apple-touch-icon" sizes="60x60" href="./favicon/favicon-60x60.png" type="image/png" />
+  <link rel="apple-touch-icon" sizes="72x72" href="./favicon/favicon-72x72.png" type="image/png" />
+  <link rel="apple-touch-icon" sizes="114x114" href="./favicon/favicon-114x114.png" type="image/png" />
+  <link rel="apple-touch-icon" sizes="120x120" href="./favicon/favicon-120x120.png" type="image/png" />
+  <link rel="apple-touch-icon" sizes="144x144" href="./favicon/favicon-144x144.png" type="image/png" />
+  <link rel="apple-touch-icon" sizes="152x152" href="./favicon/favicon-152x152.png" type="image/png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./favicon/favicon-180x180.png" type="image/png" />
+  <link rel="icon" sizes="16x16" href="./favicon/favicon_16x16.png" type="image/png" />
+  <link rel="icon" sizes="32x32" href="./favicon/favicon-32x32.png" type="image/png" />
+  <link rel="icon" sizes="96x96" href="./favicon/favicon-96x96.png" type="image/png" />
+  <link rel="icon" sizes="192x192" href="./favicon/favicon-192x192.png" type="image/png" />
+  <link rel="icon" sizes="512x512" href="./favicon/favicon-512x512.png" type="image/png" />
+  <link rel="manifest" href="./favicon/manifest.json" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <link rel="stylesheet" href="./CSS/login.css" />
+  <link rel="stylesheet" href="./CSS/navbar.css" />
+
+  <!-- Scripts -->
+  <script src="./JS/login.js" defer></script>
 </head>
+
 <body>
-    
-    <div class="container">
-        <div class="form-box login">
-            <form action="">
-                <h1>Login</h1>
-                <div class="input-box">
-                    <input type="text" placeholder="Username" required>
-                    <i class="fa-solid fa-user"></i>
-                </div>
-                <div class="input-box">
-                    <input type="password" placeholder="Password" required>
-                    <i class="fa-solid fa-lock"></i>
-                </div>
-                <div class="forgot-link">
-                    <a href="#">Forgot password?</a>
-                </div>
-                <button type="submit" class="btn">Login</button>
-                <p>or Login with Social Platforms</p>
-                <div class="social-icons">
-                    <a href="#"><i class="fa-brands fa-google"></i></a>
-                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="#"><i class="fa-brands fa-github"></i></a>
-                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-                </div>
-            </form>
-
+  <div class="container">
+    <div class="form-box login">
+      <form action="">
+        <h1>Login</h1>
+        <div class="input-box">
+          <input type="text" placeholder="Username" required />
+          <i class="fa-solid fa-user"></i>
         </div>
-
-        <div class="form-box register">
-            <form action="" id="register-form" novalidate>
-                <h1>Registration</h1>
-                <div class="input-box">
-                    <input type="text" id="username" placeholder="Username" required>
-                    <i class="fa-solid fa-user"></i>
-                    <div class="error-message" id="username-error"><i class="fa-solid fa-circle-exclamation"></i><span></span></div>
-                </div>
-                <div class="input-box">
-                    <input type="email" id="email" placeholder="Email" required>
-                    <i class="fa-solid fa-envelope"></i>
-                    <div class="error-message" id="email-error"><i class="fa-solid fa-circle-exclamation"></i><span></span></div>
-                </div>
-                <div class="input-box">
-                    <input type="password" id="password" placeholder="Password" required>
-                    <i class="fa-solid fa-lock"></i>
-                    <div class="error-message" id="password-error"><i class="fa-solid fa-circle-exclamation"></i><span></span></div>
-                </div>
-                <button type="submit" class="btn">Register</button>
-                <p>or Register with Social Platforms</p>
-                <div class="social-icons">
-                    <a href="#"><i class="fa-brands fa-google"></i></a>
-                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="#"><i class="fa-brands fa-github"></i></a>
-                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-                </div>
-            </form>
-
+        <div class="input-box">
+          <input type="password" placeholder="Password" required />
+          <i class="fa-solid fa-lock"></i>
         </div>
-
-        <div class="toggle-box">
-            <div class="toggle-panel toggle-left">
-                <h1>Hello, Welcome!</h1>
-                <p>Don't have an Account?</p>
-                <button class="btn register-btn">Register</button>
-            </div>
-            <div class="toggle-panel toggle-right">
-                <h1>Welcome Back!</h1>
-                <p>Already have an Account?</p>
-                <button class="btn login-btn">Login</button>
-            </div>
+        <div class="forgot-link">
+          <a href="#">Forgot password?</a>
         </div>
+        <button type="submit" class="btn">Login</button>
+        <p>or Login with Social Platforms</p>
+        <div class="social-icons">
+          <a href="#"><i class="fa-brands fa-google"></i></a>
+          <a href="#"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#"><i class="fa-brands fa-github"></i></a>
+          <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+      </form>
     </div>
-    
 
+    <div class="form-box register">
+      <form action="">
+        <h1>Registration</h1>
+        <div class="input-box">
+          <input type="text" placeholder="Username" required />
+          <i class="fa-solid fa-user"></i>
+        </div>
+        <div class="input-box">
+          <input type="email" placeholder="Email" required />
+          <i class="fa-solid fa-envelope"></i>
+        </div>
+        <div class="input-box">
+          <input type="password" placeholder="Password" required />
+          <i class="fa-solid fa-lock"></i>
+        </div>
+        <button type="submit" class="btn">Register</button>
+        <p>or Register with Social Platforms</p>
+        <div class="social-icons">
+          <a href="#"><i class="fa-brands fa-google"></i></a>
+          <a href="#"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#"><i class="fa-brands fa-github"></i></a>
+          <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+      </form>
+    </div>
 
-
-
-
-    <script src="./JS/login.js"></script>
+    <div class="toggle-box">
+      <div class="toggle-panel toggle-left">
+        <h1>Hello, Welcome!</h1>
+        <p>Don't have an Account?</p>
+        <button class="btn register-btn">Register</button>
+      </div>
+      <div class="toggle-panel toggle-right">
+        <h1>Welcome Back!</h1>
+        <p>Already have an Account?</p>
+        <button class="btn login-btn">Login</button>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
