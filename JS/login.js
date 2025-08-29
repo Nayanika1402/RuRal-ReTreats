@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.querySelector(".container");
 
@@ -131,6 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error(err);
         alert("Cannot connect to server");
       }
+
     });
   }
 });
