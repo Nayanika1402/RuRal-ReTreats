@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", function () {
     const backToTopBtn = document.getElementById("backToTop");
     window.addEventListener("scroll", () => {
@@ -306,14 +305,26 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById(tabId).classList.add("active");
     }
     tabLinks.forEach(link => {
-        link.addEventListener("click", function () {
+        link.addEventListener("click", function (e) {
+            e.preventDefault();
             let tabId = this.getAttribute("data-tab");
             tabLinks.forEach(btn => btn.classList.remove("active"));
             tabContents.forEach(content => content.classList.remove("active"));
             this.classList.add("active");
             document.getElementById(tabId).classList.add("active");
+            // Scroll to the tab section for better UX
+            document.getElementById(tabId).scrollIntoView({ behavior: "smooth", block: "start" });
         });
     });
+
+    // Enable anchor navigation for #tours, #bus, #homestays, #workshops, #experiences
+    if (window.location.hash) {
+        const hash = window.location.hash.replace('#', '');
+        const tabBtn = document.querySelector(`.tab-link[data-tab="${hash}"]`);
+        if (tabBtn) {
+            tabBtn.click();
+        }
+    }
 });
 document.addEventListener("DOMContentLoaded", function () {
     const openBusFormBtn = document.getElementById("open-bus-form");
