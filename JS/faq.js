@@ -94,42 +94,68 @@ function fixGoogleTranslateStyles() {
 window.addEventListener("load", loadGoogleTranslate);
 
 
-// FAQ Functionality - Wrapped in DOMContentLoaded to ensure DOM is ready
-document.addEventListener("DOMContentLoaded", function () {
-    // Initialize FAQ click handlers
+// FAQ Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    initializeFAQs();
+});
+
+function initializeFAQs() {
+    const faqContainer = document.querySelector('.faq-container');
+    if (!faqContainer) {
+        console.warn("FAQ container not found");
+        return;
+    }
+
     const faqQuestions = document.querySelectorAll(".faq-question");
-
+    console.log("Found FAQ questions:", faqQuestions.length);  // Debug log
+    
     faqQuestions.forEach((button) => {
-        button.addEventListener("click", () => {
-            const answer = button.nextElementSibling;
-            const arrow = button.querySelector(".arrow");
-            const isVisible = answer.style.display === "block";
+        button.addEventListener("click", handleFAQClick);
+    });
+}
 
-            // Close all other FAQ answers
-            document.querySelectorAll(".faq-answer").forEach(otherAnswer => {
-                if (otherAnswer !== answer) {
-                    otherAnswer.style.display = "none";
-                }
-            });
+function handleFAQClick(event) {
+    event.preventDefault();
+    
+    const question = event.currentTarget;
+    const answer = question.nextElementSibling;
+    const arrow = question.querySelector(".arrow");
+    
+    console.log("FAQ clicked:", question.textContent);  // Debug log
 
-            // Reset all other arrows
-            document.querySelectorAll(".arrow").forEach(otherArrow => {
-                if (otherArrow !== arrow) {
+    if (!answer || !arrow) {
+        console.error("FAQ answer or arrow element not found");
+        return;
+    }
+
+    const isVisible = answer.classList.contains('show');
+
+    // Close all other FAQ answers and reset arrows
+    document.querySelectorAll(".faq-answer").forEach(otherAnswer => {
+        if (otherAnswer !== answer) {
+            otherAnswer.style.display = "none";
+            otherAnswer.classList.remove('show');
+            const otherQuestion = otherAnswer.previousElementSibling;
+            if (otherQuestion) {
+                const otherArrow = otherQuestion.querySelector(".arrow");
+                if (otherArrow) {
                     otherArrow.textContent = "▼";
                 }
-            });
-
-            if (isVisible) {
-                answer.style.display = "none";
-                arrow.textContent = "▼";
-            } else {
-                answer.style.display = "block";
-                answer.classList.add('show');
-                arrow.textContent = "▲";
             }
-        });
+        }
     });
-});
+
+    // Toggle current FAQ
+    if (isVisible) {
+        answer.style.display = "none";
+        answer.classList.remove('show');
+        arrow.textContent = "▼";
+    } else {
+        answer.style.display = "block";
+        answer.classList.add('show');
+        arrow.textContent = "▲";
+    }
+}
 
 function filterFAQs() {
     let searchInput = document.getElementById("faq-search").value.toLowerCase();
@@ -164,6 +190,63 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+document.addEventListener("DOMContentLoaded", function() {
+    const chatButton = document.getElementById("chatButton");
+    const chatModal = document.getElementById("chatModal");
+    const closeChatbot = document.querySelector(".close-chatbot");
+    const sendMessageButton = document.getElementById("sendMessage");
+    const chatInput = document.getElementById("chatInput");
+    const chatMessages = document.getElementById("chatMessages");
+    const voiceInputButton = document.getElementById("voiceInput");
+    const clearChatButton = document.getElementById("clearChat");
+    const typingIndicator = document.getElementById("typingIndicator");
+
+    // Show/hide chat modal
+    if (chatButton && chatModal) {
+        chatButton.addEventListener("click", () => {
+            chatModal.style.display = chatModal.style.display === "none" ? "block" : "none";
+        });
+    }
+
+    // Close chat modal
+    if (closeChatButton) {
+        closeChatButton.addEventListener("click", () => {
+            chatModal.style.display = "none";
+        });
+    }
+
+    // Send message functionality
+    if (sendMessageButton && chatInput && chatMessages) {
+        sendMessageButton.addEventListener("click", () => {
+            const message = chatInput.value.trim();
+            if (message) {
+                addMessage("user", message);
+                chatInput.value = "";
+                // Simulate bot response
+                setTimeout(() => {
+                    addMessage("bot", "Thank you for your message. Our team will get back to you soon!");
+                }, 1000);
+            }
+        });
+
+        // Send message on Enter key
+        chatInput.addEventListener("keypress", (e) => {
+            if (e.key === "Enter") {
+                sendMessageButton.click();
+            }
+        });
+    }
+
+    // Add message to chat
+    function addMessage(type, text) {
+        const messageDiv = document.createElement("div");
+        messageDiv.className = type === "user" ? "user-message" : "bot-message";
+        messageDiv.textContent = text;
+        chatMessages.appendChild(messageDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+});
+
 document.addEventListener("DOMContentLoaded", function () {
     const searchInput = document.getElementById("search-input");
     const searchBtn = document.querySelector(".search-bar button");
