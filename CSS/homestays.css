@@ -140,6 +140,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: nowrap;
   max-width: 1200px;
   margin: auto;
   width: 100%;
@@ -159,6 +160,7 @@ body {
   display: inline-block;
   padding: 5px 10px;
   border-radius: 8px;
+  white-space: nowrap;
 }
 
 .logo a:hover {
@@ -289,7 +291,6 @@ body {
   }
 }
 
-
 .mobile-menu {
   position: fixed;
   top: 0;
@@ -370,7 +371,6 @@ body {
     display: block;
   }
 
-
   .search-bar {
     display: none;
   }
@@ -385,7 +385,6 @@ body {
   .logo a {
     font-size: 1.5rem;
   }
-
 }
 
 @media only screen and (min-width: 320px) {
@@ -478,7 +477,8 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url("https://imgak.mmtcdn.com/pwa_v3/pwa_commons_assets/desktop/bg1.jpg") no-repeat center center/cover;
+  background: url("https://imgak.mmtcdn.com/pwa_v3/pwa_commons_assets/desktop/bg1.jpg")
+    no-repeat center center/cover;
   z-index: -1;
   animation: parallaxScroll 15s linear infinite alternate;
   transform: scale(1.1);
@@ -542,9 +542,7 @@ body {
   cursor: pointer;
   transition: background 0.3s ease, transform 0.3s ease;
   text-align: center;
-
 }
-
 
 .cta-button:hover {
   transform: scale(1.05);
@@ -552,8 +550,6 @@ body {
 }
 
 .btn-cta {
-
-
   background: linear-gradient(135deg, rgb(255, 187, 0), #ff7e5f, #d72750);
 
   background: linear-gradient(135deg, rgb(255, 187, 0), #ff7e5f, #d72750);
@@ -785,14 +781,13 @@ body {
 }
 
 .homestay-location {
-  background-image: url('path/to/your/background-image.jpg');
+  background-image: url("path/to/your/background-image.jpg");
   background-size: cover;
   background-position: center;
   padding: 40px;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
-
 
 .homestay-card {
   background: rgba(255, 255, 255, 0.9);
@@ -1389,7 +1384,6 @@ select:focus {
   transform: scale(1.05);
 }
 
-
 .homestay-card .read-more {
   display: block;
   background: linear-gradient(135deg, #0073e6, #00b894);
@@ -1742,7 +1736,6 @@ select:focus {
   outline: none;
   /* Remove default outline */
 }
-
 
 .booking-section:hover {
   transform: translateY(-5px);
@@ -2428,7 +2421,6 @@ select:focus {
 }
 
 @keyframes bounce {
-
   0%,
   100% {
     transform: translateY(0);
@@ -2663,7 +2655,6 @@ select:focus {
 
   padding: 15px;
   display: none;
-
 }
 
 @keyframes fadeIn {
@@ -2885,7 +2876,7 @@ select:focus {
 
 /* Chatbot Option Buttons */
 .option-button {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   border: none;
   border-radius: 8px;
@@ -2897,16 +2888,14 @@ select:focus {
   align-items: center;
 }
 
-
 .chatbot-option:hover {
   background-color: #45a049;
   transform: scale(1.05);
 }
 
 .chatbot-option.active {
-  background-color: #388E3C;
+  background-color: #388e3c;
 }
-
 
 .chatbot-body::-webkit-scrollbar {
   width: 6px;
@@ -2981,7 +2970,6 @@ select:focus {
 }
 
 @keyframes blink {
-
   0%,
   100% {
     opacity: 0.5;
@@ -3741,11 +3729,6 @@ select:focus {
   }
 }
 
-
-
-
-
-
 .footer {
   min-height: 0vh;
   /* Ensure the footer takes the full viewport height */
@@ -3882,7 +3865,6 @@ select:focus {
   background-color: #008e72;
 }
 
-
 .newsletter input:hover {
   border-color: #00b894;
 }
@@ -3984,7 +3966,6 @@ select:focus {
   text-decoration: underline;
 }
 
-
 .footer-section ul li a:hover {
   color: #00b894;
   transform: translateX(5px);
@@ -4007,11 +3988,11 @@ select:focus {
   background: #f4f4f4;
 }
 
-.footer-bottom p{
-    color: #0056b3;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
+.footer-bottom p {
+  color: #0056b3;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 .footer-bottom a {
@@ -4051,7 +4032,6 @@ select:focus {
   transform: translateX(5px);
   text-decoration: underline;
 }
-
 
 .footer-section ul li a:hover {
   color: #00b894;
@@ -4198,15 +4178,15 @@ select:focus {
 .newsletter input[type="email"] {
   flex: 1;
   height: 44px;
-  border-radius: 8px 0 0 8px; 
+  border-radius: 8px 0 0 8px;
   border: none;
   outline: none;
   padding: 0 12px;
   font-size: 0.95rem;
   background: #f8f9fa;
-  box-shadow: inset 0 3px 10px rgba(0,0,0,0.15);
+  box-shadow: inset 0 3px 10px rgba(0, 0, 0, 0.15);
   margin: 0;
-  border-right: none;         
+  border-right: none;
 }
 
 .footer-newsletter-btn {
@@ -4219,9 +4199,9 @@ select:focus {
   color: #fff;
   border: none;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
-  border-left: none;         
+  border-left: none;
 }
 
 .footer-newsletter-btn:hover {

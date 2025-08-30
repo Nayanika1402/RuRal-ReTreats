@@ -15,3 +15,34 @@ body {
   backdrop-filter: blur(10px);
   z-index: 1000;
 }
+
+/* .avatar {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-color: #3498db;
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+}
+
+.tooltip {
+  visibility: hidden;
+  background-color: black;
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.avatar:hover .tooltip {
+  visibility: visible;
+} */
