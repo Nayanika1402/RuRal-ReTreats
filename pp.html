@@ -42,45 +42,9 @@
 
 
 <body>
+  <div id="navbar"></div>
+
   <header>
-    <nav class="navbar">
-      <div class="nav-container">
-        <button class="hamicon" id="menu-toggle" title="menu-toggle">
-          <i class="fas fa-bars"></i>
-        </button>
-
-        <div class="logo">
-          <a href="index.html">Rural Retreats</a>
-        </div>
-
-        <ul class="nav-menu">
-          <li><a href="index.html">Home</a></li>
-          <li class="dropdown">
-            <a href="services.html">Services <i class="fas fa-chevron-down"></i></a>
-            <ul class="dropdown-menu">
-              <li><a href="services.html#tours">Holiday Packages</a></li>
-              <li><a href="services.html#bus">Bus Booking</a></li>
-              <li><a href="services.html#homestays">Homestays Booking</a></li>
-            </ul>
-          </li>
-          <li><a href="homestays.html">HomeStays</a></li>
-          <li><a href="faq.html">FAQs</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
-        </ul>
-
-        <div class="right-section">
-          <div class="search-bar">
-            <input type="text" placeholder="Search..." id="search-input" />
-            <button title="search"><i class="fas fa-search"></i></button>
-          </div>
-          <div class="auth-buttons">
-            <button class="login-btn" onclick="window.location.href='login.html'">
-              Log In
-            </button>
-          </div>
-        </div>
-      </div>
-    </nav>
 
     <div class="mobile-menu" id="mobile-menu">
       <button class="close-btn" id="menu-close">✖</button>
@@ -288,6 +252,15 @@
       </div>
     </div>
   </div>
+  <script>
+  fetch('header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('navbar').innerHTML = data;
+    })
+    .catch(error => console.error('Error loading navbar:', error));
+</script>
+
 </body>
 
 </html>
