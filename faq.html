@@ -60,9 +60,9 @@
   <header>
     <nav class="navbar">
       <div class="nav-container">
-        <button class="hamicon" id="menu-toggle" title="menu-toggle">
+        <!-- <button class="hamicon" id="menu-toggle" title="menu-toggle">
           <i class="fas fa-bars"></i>
-        </button>
+        </button> -->
 
         <div class="logo">
           <a href="index.html">Rural Retreats</a>
@@ -88,11 +88,15 @@
             <input type="text" placeholder="Search..." id="search-input" />
             <button title="search"><i class="fas fa-search"></i></button>
           </div>
-          <div class="auth-buttons">
+          <div class="auth-buttons desktop-only">
             <button class="login-btn" onclick="window.location.href='login.html'">
               Log In
-            </button>
+            </button> 
           </div>
+            <button class="hamicon" id="menu-toggle" title="menu-toggle">
+              <i class="fas fa-bars"></i>
+            </button>
+          
         </div>
       </div>
     </nav>
@@ -111,6 +115,9 @@
         <li><a href="homestays.html">HomeStays</a></li>
         <li><a href="faq.html">FAQs</a></li>
         <li><a href="contact.html">Contact Us</a></li>
+        <button class="login-btn mobile-only" onclick="window.location.href='login.html'">
+          Log In
+        </button>
       </ul>
     </div>
   </header>
