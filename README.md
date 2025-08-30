@@ -1,21 +1,40 @@
 <div align="center">
-  
-[![Open Source Love](https://firstcontributions.github.io/open-source-badges/badges/open-source-v1/open-source.svg)](https://github.com/firstcontributions/open-source-badges)
-[![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
-[![Contributors Welcome](https://img.shields.io/badge/contributors-welcome-0b7cbd)](https://github.com/nikohoffren/fork-commit-merge/pulls)
-[![First Contributors](https://img.shields.io/badge/first-contributors-0b7cbd)](https://github.com/nikohoffren/fork-commit-merge/pulls)
-[![PR:s Welcome](https://img.shields.io/badge/PR:s-welcome-0b7cbd)](https://github.com/nikohoffren/fork-commit-merge/pulls)
-[![Issues](https://img.shields.io/github/issues/Nayanika1402/RuRal-ReTreats.svg?style=flat)](https://github.com/Nayanika1402/RuRal-ReTreats/issues)
-[![Stars](https://img.shields.io/github/stars/Nayanika1402/RuRal-ReTreats.svg?style=flat)](https://github.com/Nayanika1402/RuRal-ReTreats/stars)
-[![Forks](https://img.shields.io/github/forks/Nayanika1402/RuRal-ReTreats.svg?style=flat)](https://github.com/Nayanika1402/RuRal-ReTreats/forks)
-[![MIT License](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
-[![Follow](https://img.shields.io/badge/follow-%40Nayanika1402-1DA1F2?logo=twitter&style=social)](https://github.com/Nayanika1402) 
+<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=24&duration=3000&pause=1000&color=2E7D32&center=true&vCenter=true&width=950&lines=Welcome+to+RuRal-ReTreats!+🌾;Discover+Authentic+Rural+Experiences+🏡;Empowering+Communities+%26+Tourism+🌍;Open+Source+Project+Made+with+❤️;Contribute%2C+Learn%2C+and+Grow+🚀;Happy+Coding+%26+Exploring+✨" alt="RuRal-ReTreats Typing Banner" />
 </div>
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="150%">
+
+<table align="center">
+    <thead align="center">
+        <tr>
+            <td><b>🌟 Stars</b></td>
+            <td><b>🍴 Forks</b></td>
+            <td><b>🐛 Issues</b></td>
+            <td><b>🔔 Open PRs</b></td>
+            <td><b>🔕 Closed PRs</b></td>
+            <td><b>🛠️ Languages</b></td>
+            <td><b>👥 Contributors</b></td>
+        </tr>
+     </thead>
+    <tbody>
+         <tr>
+            <td><img alt="Stars" src="https://img.shields.io/github/stars/Nayanika1402/RuRal-ReTreats.svg?style=flat)](https://github.com/Nayanika1402/RuRal-ReTreats/stars"/></td>
+            <td><img alt="Forks" src="https://img.shields.io/github/forks/Nayanika1402/RuRal-ReTreats.svg?style=flat"/></td>
+            <td><img alt="Issues" src="https://img.shields.io/github/issues/Nayanika1402/RuRal-ReTreats.svg?style=flat)](https://github.com/Nayanika1402/RuRal-ReTreats/issues"/></td>
+            <td><img alt="Open PRs" src="https://img.shields.io/github/issues-pr/Nayanika1402/RuRal-ReTreats?style=flat&logo=github"/></td>
+            <td><img alt="Closed PRs" src="https://img.shields.io/github/issues-pr-closed/Nayanika1402/RuRal-ReTreats?style=flat&color=critical&logo=github"/></td>
+            <td><img alt="Languages Count" src="https://img.shields.io/github/languages/count/Nayanika1402/RuRal-ReTreats?style=flat&color=green&logo=github"></td>
+            <td><img alt="Contributors Count" src="https://img.shields.io/github/contributors/Nayanika1402/RuRal-ReTreats?style=flat&color=blue&logo=github"/></td>
+        </tr>
+    </tbody>
+</table>
+
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="150%">
 
 # What is RuralRetreats ?🤷🏽‍♂
 
 RuralRetreats is a unique website designed to connect travelers with the charm of rural life. It bridges the gap between rural areas and tourism by offering an extensive platform for booking authentic rural homestays. Visitors can immerse themselves in the traditions and culture of rural communities by staying in the homes of local residents. This not only provides a personalized travel experience but also promotes sustainable tourism, empowering rural households and preserving their heritage.
+
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="150%">
 
 ## Tech Stack ⚙️
 
@@ -25,9 +44,11 @@ RuralRetreats is built with:
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 
-deployed at:
+Deployed at:
 
 ![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)
+
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="150%">
 
 ## Getting Started for Contributors 🧑🏻‍💻
 
@@ -77,6 +98,8 @@ We welcome contributions to HackerZGuide! Follow the steps below to get started:
 7. **Submit a Pull Request**
    - Go to the original repository and click on "New Pull Request.
    - Select your branch and submit the pull request for review.
+  
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="150%">
 
 ## Our Contributors 🤝
 
@@ -84,9 +107,7 @@ We welcome contributions to HackerZGuide! Follow the steps below to get started:
   <img src="https://contrib.rocks/image?repo=Nayanika1402/RuRal-ReTreats" />
 </a>
 
-## License 🛡️
-
-This project is licensed under the MIT License. See the [LICENSE](link-to-license-file) file for more details.
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="150%">
 
 ## 📬 Contact
 
@@ -96,6 +117,24 @@ If you have any questions, feel free to open an issue or reach out to the projec
 
 **Please ⭐ this repository to show some love. Your support is appreciated!**
 
-<div align="right">
-  <a href="#readme-top">🔝back to top</a>
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="150%">
+
+👨‍💻 Built with ❤️ by the RuRal-ReTreats Team 
+
+**💚 Special Thanks to [Nayanika Mukherjee](https://github.com/Nayanika1402) and All Amazing Contributors 🚀**  
+👉 [Open an Issue](https://github.com/Nayanika1402/RuRal-ReTreats/issues) | [Watch Demo](https://rural-retreats.vercel.app/)  
+
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="150%">
+
+## License 🛡️
+
+This project is licensed under the MIT License - see the [`License`](https://github.com/Nayanika1402/RuRal-ReTreats/blob/main/LICENSE) file for details.
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="150%">
+
+<div align="center">
+    <a href="#top">
+        <img src="https://img.shields.io/badge/⬆️%20Back%20to%20Top-2E7D32?style=for-the-badge&logo=github&logoColor=white" alt="Back to Top"/>
+    </a>
 </div>
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:2E7D32,100:81C784&height=65&section=footer" width="100%"/>
