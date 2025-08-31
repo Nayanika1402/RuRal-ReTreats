@@ -674,6 +674,13 @@ body {
   }
 }
 
+@media only screen and (max-width: 600px) {
+    .hero-content h1 {
+        font-size: 2.8rem;
+        line-height: 55px;
+    }
+}
+
 @media only screen and (max-width: 767px) {
   .hero-section {
     height: 85vh;
@@ -1703,7 +1710,7 @@ select:focus {
 
 .booking-section {
   padding: 50px 25px;
-  background: linear-gradient(135deg, #cbf7fa 0%, #77a9de 50%, #2a8ae3 100%);
+  background: linear-gradient(128deg, #c87cf1 0%, #f78787 50%, #2a8ae3 100%);
   border-radius: 15px;
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15);
   max-width: 750px;
@@ -1751,7 +1758,7 @@ select:focus {
 
 .booking-section h2 {
   font-size: 2.5rem;
-  color: #003366;
+  color: #fff;
   text-align: center;
   font-weight: 700;
   margin-bottom: 15px;
@@ -1759,7 +1766,7 @@ select:focus {
 }
 
 .booking-section button {
-  background: linear-gradient(135deg, #0073e6, #4bd1b6);
+  background: linear-gradient(274deg, #d963cd, #7055d9);
   color: white;
   padding: 12px 20px;
   border: none;
@@ -1775,7 +1782,7 @@ select:focus {
 
 .booking-section p {
   font-size: 1.1rem;
-  color: #555;
+  color: #492d2d;
   margin-bottom: 30px;
 }
 
@@ -1826,14 +1833,14 @@ select:focus {
 }
 
 .price-summary {
-  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  background: linear-gradient(135deg, #fde3ef 0%, #cf97b3 100%);
   padding: 18px;
   border-radius: 10px;
   margin: 25px 0;
   text-align: center;
   font-weight: bold;
   font-size: 1.4rem;
-  color: #007bff;
+  color: #000;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
 }
 
@@ -4235,6 +4242,7 @@ select:focus {
   border-top: 1px solid rgba(255, 255, 255, 0.15);
   font-size: 0.9rem;
   color: #cdd4db;
+  border-radius: 2rem;
 }
 
 .footer-bottom a {

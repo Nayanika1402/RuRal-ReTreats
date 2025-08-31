@@ -1431,6 +1431,7 @@ ul {
   padding: 15px;
   margin-top: 20px;
   background: #f4f4f4;
+  border-radius: 2rem;
 }
 
 .footer-bottom p{
@@ -1661,6 +1662,7 @@ ul {
   border-top: 1px solid rgba(255, 255, 255, 0.15);
   font-size: 0.9rem;
   color: #cdd4db;
+  border-radius: 2rem;
 }
 
 .footer-bottom a {

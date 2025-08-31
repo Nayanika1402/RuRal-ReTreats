@@ -805,7 +805,7 @@ ul {
   position: relative;
   border-radius: 15px;
   box-shadow: 0 6px 20px rgba(14, 135, 221, 0.2);
-  background: linear-gradient(135deg, #f1cb85, rgb(251, 206, 57), #e0a902);
+  background: linear-gradient(49deg, #1a62f796, #009dff45, rgb(67 67 222 / 68%));
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -821,7 +821,7 @@ ul {
 .carousel-sections h2 {
   font-size: 2.5rem;
   margin-bottom: 1.5rem;
-  color: #020b14;
+  color: #eee;
 }
 
 .carousel-grid {
@@ -4240,6 +4240,7 @@ body {
   border-top: 1px solid rgba(255, 255, 255, 0.15);
   font-size: 0.9rem;
   color: #cdd4db;
+  border-radius: 2rem;
 }
 
 .footer-bottom a {
