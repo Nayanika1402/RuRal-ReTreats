@@ -970,7 +970,7 @@ h1 {
     "icon title"
     "desc desc";
   align-items: center;
-  text-align: left;
+  text-align: center;
 }
 
 .workshop-item:hover {
@@ -1108,6 +1108,7 @@ h1 {
     "icon title"
     "desc desc";
   align-items: center;
+  text-align: center;
 }
 
 .experience-highlights .highlight:hover {
@@ -1142,9 +1143,14 @@ h1 {
   line-height: 1.55;
 }
 
+.experience-btn-container {
+  text-align: center;
+  margin-top: 12px;
+}
+
 .experience-btn {
   display: inline-block;
-  margin: 8px auto 0;
+  margin-top: 8px;
   padding: 12px 22px;
   border-radius: 12px;
   font-weight: 700;
