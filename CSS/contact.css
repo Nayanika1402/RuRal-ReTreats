@@ -829,8 +829,8 @@ textarea {
 
 .chatbot-button {
   position: fixed;
-  bottom: 80px;
-  right: 20px;
+  bottom: 50px;
+  right: 30px;
   background: linear-gradient(135deg, #005f73, #001f3e);
   color: white;
   padding: 15px;
@@ -849,8 +849,60 @@ textarea {
 
 .chatbot-button:hover {
   background: linear-gradient(135deg, #0056b3, #003f7f);
-  transform: scale(1.15);
+  transform: scale(1.5px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.chatbot-modal {
+  z-index: 900;
+  display: none;
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 400px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transform: translateY(16px);
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.chatbot-modal.active {
+  z-index: 1000;
+  display: block;
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.chatbot-header {
+  z-index: 1000;
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: white;
+  padding: 15px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  position: relative;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.close-chatbot {
+  z-index: 1000;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 22px;
+  cursor: pointer;
+  color: white;
+  transition: color 0.3s ease, transform 0.2s ease-in-out;
+}
+
+.close-chatbot:hover {
+  z-index: 1000;
+  color: #ff4d4d;
+  transform: scale(1.2);
 }
 
 .chatbot-modal {
@@ -878,7 +930,7 @@ textarea {
 
 .chatbot-modal.active {
   z-index: 1000;
-
+  width: 400px;
   display: block;
   transform: translateY(0);
   opacity: 1;
@@ -897,6 +949,19 @@ textarea {
   position: relative;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
+}
+
+.chatbot-body {
+  z-index: 1000;
+  height: 350px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  background: #f9f9f9;
+  scrollbar-width: thin;
+  scrollbar-color: #007bff #f1f1f1;
+  -webkit-overflow-scrolling: touch;
 }
 
 .option-button {
@@ -929,84 +994,9 @@ textarea {
   background-color: #388E3C;
 }
 
-/* Icon Style */
-.chatbot-option i {
-  margin-right: 8px;
-}
-
-/* Text Style */
-.chatbot-option span {
-  font-weight: bold;
-  /* Bold text */
-  font-size: 16px;
-  /* Larger font size */
-}
-
-#chatInput {
-  flex: 1;
-  padding: 10px;
-  border: none;
-  border-radius: 4px;
-  margin-right: 5px;
-}
-
-#chatInput {
-  flex: 1;
-  padding: 10px;
-  border: none;
-  /* No border */
-  border-radius: 4px;
-  margin-right: 5px;
-}
-
-#sendMessage {
-  color: white;
-  border: none;
-  /* No border */
-  border-radius: 4px;
-  padding: 10px 15px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-#sendMessage:hover {
-  background-color: #286ce0;
-}
-
-.close-chatbot {
-  z-index: 1000;
-
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 22px;
-  cursor: pointer;
-  color: white;
-  transition: color 0.3s ease, transform 0.2s ease-in-out;
-}
-
-.close-chatbot:hover {
-  z-index: 1000;
-
-  color: #ff4d4d;
-  transform: scale(1.2);
-}
-
-.chatbot-body {
-  z-index: 1000;
-
-  height: 350px;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  background: #f9f9f9;
-  scrollbar-width: thin;
-  scrollbar-color: #007bff #f1f1f1;
-}
 
 .chatbot-body::-webkit-scrollbar {
-  width: 5px;
+  width: 6px;
 }
 
 .chatbot-body::-webkit-scrollbar-track {
@@ -1016,6 +1006,7 @@ textarea {
 .chatbot-body::-webkit-scrollbar-thumb {
   background: #007bff;
   border-radius: 10px;
+  scroll-behavior: smooth;
 }
 
 .chat-messages {
@@ -1026,9 +1017,9 @@ textarea {
   overflow-y: auto;
   scroll-behavior: smooth;
 }
+
 .message {
   z-index: 1000;
-
   padding: 12px;
   border-radius: 15px;
   max-width: 75%;
@@ -1050,7 +1041,6 @@ textarea {
 
 .bot-message {
   z-index: 1000;
-
   background: #e1f5fe;
   align-self: flex-start;
   border-top-left-radius: 5px;
@@ -1059,8 +1049,7 @@ textarea {
 
 .user-message {
   z-index: 1000;
-
-  background: linear-gradient(135deg, #2286f0, #0056b3);
+  background: linear-gradient(135deg, #007bff, #0056b3);
   color: white;
   align-self: flex-end;
   border-top-right-radius: 5px;
@@ -1070,7 +1059,6 @@ textarea {
 
 .typing-indicator {
   z-index: 1000;
-
   display: none;
   font-size: 14px;
   color: gray;
@@ -1093,11 +1081,10 @@ textarea {
 
 .chat-input {
   z-index: 1000;
-
   display: flex;
   padding: 12px;
   background: white;
-  border-top: 1px solid #ddd;
+  /* border-top: 1px solid #ddd; */
   gap: 8px;
   position: sticky;
   bottom: 0;
@@ -1105,29 +1092,26 @@ textarea {
 
 .chat-input input {
   z-index: 1000;
-
   flex: 1;
   padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+  /* border: 1px solid #ddd; */
+
   outline: none;
-  transition: border-color 0.3s ease-in-out;
+  /* transition: border-color 0.3s ease-in-out; */
 }
 
 .chat-input input:focus {
   z-index: 1000;
-
-  border-color: #007bff;
+  /* border-color: #007bff; */
 }
 
 .chat-input button {
   z-index: 1000;
-
   background: #007bff;
   color: white;
   border: none;
   padding: 10px 14px;
-  border-radius: 8px;
+
   cursor: pointer;
   transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
 }
@@ -1139,7 +1123,6 @@ textarea {
 
 #voiceInput {
   z-index: 1000;
-
   background: #28a745;
 }
 
@@ -1149,7 +1132,6 @@ textarea {
 
 #clearChat {
   z-index: 1000;
-
   background: #dc3545;
 }
 
@@ -1296,6 +1278,7 @@ textarea {
     font-size: 20px;
   }
 }
+
 
 .footer {
   min-height: 0vh;
