@@ -500,7 +500,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let currentIndex = 0;
     function updateCarousel() {
         const cardWidth = packageCards[0].offsetWidth;
-        carouselWrapper.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+        carouselWrapper.style.transform = "translateX(0)";
     }
     nextBtn.addEventListener("click", function () {
         if (currentIndex < packageCards.length - 1) {
