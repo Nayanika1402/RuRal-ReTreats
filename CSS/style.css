@@ -306,6 +306,8 @@ ul {
   cursor: pointer;
   color: red;
   transition: transform 0.3s ease-in-out;
+  background-color: transparent;
+  border:none;
 }
 
 .close-btn:hover {
@@ -352,6 +354,9 @@ ul {
   font-size: 14px;
 }
 
+.mobile-search-bar-button{
+  border:none;
+}
 @media only screen and (max-width: 1200px) {
   .nav-menu {
     display: none;
