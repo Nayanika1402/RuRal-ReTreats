@@ -503,6 +503,7 @@ document.addEventListener("DOMContentLoaded", function () {
     };
     chatButton.addEventListener("click", () => {
         chatModal.classList.add("active");
+        chatButton.style.display = "none";
         if (!chatMessages.innerHTML.trim()) {
             appendMessage("bot", "👋 Hi there! How can I assist you today?");
             showCategories();
@@ -512,6 +513,7 @@ document.addEventListener("DOMContentLoaded", function () {
         appendMessage("bot", "🙏 Thank you for chatting with us. Have a great day!");
         setTimeout(() => {
             chatModal.classList.remove("active");
+            chatButton.style.display = "flex";
         }, 2000);
     });
     sendMessageButton.addEventListener("click", sendMessage);

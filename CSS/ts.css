@@ -478,7 +478,7 @@ body {
         padding: 8px 12px;
         font-size: 14px;
     }
-}
+
 
 @media (max-width: 480px) {
     .chatbot-modal {
@@ -1394,15 +1394,6 @@ body {
     width: 90%;
 }
 
-.mobile-search-bar input {
-    border: none;
-    outline: none;
-    background: transparent;
-    padding: 5px;
-    flex: 1;
-    font-size: 14px;
-}
-
 /* --- Chatbox Responsive Styles for All Screen Sizes --- */
 /* Base styles for desktop/tablet */
 .chatbot-modal {
@@ -1465,8 +1456,8 @@ body {
   .chatbot-modal {
     bottom: 16px !important;
     right: 8px !important;
-    width: 96vw !important;
-    max-width: 340px !important;
+    width: 80vw !important;
+    max-width: 350px !important;
     min-width: 120px !important;
     height: 340px !important;
     max-height: 340px !important;
@@ -1506,47 +1497,47 @@ body {
 }
 
 /* Standard mobile screens (e.g., 360x740, 375x812) */
-@media (max-width: 370px) and (max-height: 750px) {
-  .chatbot-modal {
-    bottom: 12px !important;
-    right: 6px !important;
-    width: 95vw !important;
-    max-width: 220px !important;
-    min-width: 100px !important;
-    height: 260px !important;
-    max-height: 260px !important;
-    border-radius: 10px !important;
-    font-size: 12px !important;
-    padding: 4px !important;
+@media (max-width: 390px) and (max-height: 750px) {
+ .chatbot-modal {
+    bottom: 16px !important;
+    right: 8px !important;
+    width: 80vw !important;
+    max-width: 300px !important;
+    min-width: 120px !important;
+    height: 300px !important;
+    max-height: 340px !important;
+    border-radius: 14px !important;
+    font-size: 14px !important;
+    padding: 10px !important;
   }
   .chatbot-body {
-    min-height: 120px !important;
-    max-height: 160px !important;
-    height: 160px !important;
-    padding: 4px !important;
-    font-size: 11px !important;
+    min-height: 180px !important;
+    max-height: 220px !important;
+    height: 220px !important;
+    padding: 10px !important;
+    font-size: 13px !important;
   }
   .chatbot-button {
-    bottom: 12px !important;
-    right: 12px !important;
-    width: 38px !important;
-    height: 38px !important;
-    font-size: 16px !important;
-    padding: 6px !important;
+    bottom: 16px !important;
+    right: 16px !important;
+    width: 48px !important;
+    height: 48px !important;
+    font-size: 22px !important;
+    padding: 10px !important;
   }
   .chat-input {
-    gap: 4px !important;
-    padding: 4px !important;
+    gap: 6px !important;
+    padding: 8px !important;
   }
   .chat-input input {
-    font-size: 11px !important;
-    padding: 6px !important;
+    font-size: 13px !important;
+    padding: 8px !important;
   }
   .chat-input button {
-    padding: 6px 8px !important;
-    font-size: 13px !important;
-    min-width: 28px !important;
-    max-width: 36px !important;
+    padding: 8px 10px !important;
+    font-size: 16px !important;
+    min-width: 32px !important;
+    max-width: 40px !important;
   }
 }
 
