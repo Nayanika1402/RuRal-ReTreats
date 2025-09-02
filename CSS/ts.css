@@ -408,33 +408,46 @@ body {
 }
 
 @media (max-width: 1024px) {
-    .chatbot-modal {
-        width: 300px;
-        bottom: 70px;
-        right: 15px;
-    }
-
     .chatbot-button {
-        bottom: 70px;
-        right: 15px;
-        width: 55px;
-        height: 55px;
-        font-size: 22px;
+        bottom: 8px;
+        right: 8px;
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+        padding: 4px;
     }
-
-    .back-to-top-btn {
-        bottom: 15px;
-        right: 15px;
-        padding: 12px 18px;
-        font-size: 16px;
-    }
-}
-
-@media (max-width: 600px) {
     .chatbot-modal {
-        width: 280px;
-        bottom: 60px;
-        right: 10px;
+        bottom: 40px;
+        right: 4px;
+        width: 80vw;
+        max-width: 180px;
+        min-width: 80px;
+        border-radius: 7px;
+        font-size: 10px;
+        max-height: 22vh;
+        display: flex;
+        flex-direction: column;
+        padding: 2px;
+    }
+    .chatbot-body {
+        flex: 1;
+        min-height: 30px;
+        max-height: 10vh;
+        overflow-y: auto;
+        padding: 2px;
+        font-size: 9px;
+    }
+    .chat-input input {
+        font-size: 10px;
+        padding: 4px;
+    }
+    .chat-input button {
+        padding: 4px 6px;
+        font-size: 10px;
+    }
+    .close-chatbot {
+        font-size: 14px;
+    }
     }
 
     .chatbot-button {
@@ -465,7 +478,7 @@ body {
         padding: 8px 12px;
         font-size: 14px;
     }
-}
+
 
 @media (max-width: 480px) {
     .chatbot-modal {
@@ -1381,106 +1394,195 @@ body {
     width: 90%;
 }
 
-.mobile-search-bar input {
-    border: none;
-    outline: none;
-    background: transparent;
-    padding: 5px;
-    flex: 1;
-    font-size: 14px;
+/* --- Chatbox Responsive Styles for All Screen Sizes --- */
+/* Base styles for desktop/tablet */
+.chatbot-modal {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 350px;
+  max-width: 95vw;
+  min-width: 220px;
+  height: 400px;
+  max-height: 80vh;
+  border-radius: 16px;
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  z-index: 1000;
+}
+.chatbot-body {
+  flex: 1;
+  min-height: 200px;
+  max-height: 320px;
+  height: 320px;
+  overflow-y: auto;
+  padding: 12px;
+  font-size: 14px;
+}
+.chatbot-button {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 60px;
+  height: 60px;
+  font-size: 28px;
+  padding: 12px;
+  border-radius: 50%;
+  z-index: 1001;
+}
+.chat-input {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px;
+}
+.chat-input input {
+  flex: 1 1 120px;
+  font-size: 15px;
+  padding: 10px;
+  min-width: 0;
+}
+.chat-input button {
+  padding: 10px 14px;
+  font-size: 18px;
+  min-width: 36px;
+  max-width: 44px;
 }
 
-@media only screen and (max-width: 1200px) {
-    .nav-menu {
-        display: none;
-    }
-
-    .hamicon {
-        display: block;
-    }
-
-    .login-btn {
-        font-size: 1rem;
-    }
-
-    .search-bar {
-        display: none;
-    }
+/* Large mobile screens (e.g., 430x932, 412x915) */
+@media (max-width: 430px) and (max-height: 950px) {
+  .chatbot-modal {
+    bottom: 16px !important;
+    right: 8px !important;
+    width: 80vw !important;
+    max-width: 350px !important;
+    min-width: 120px !important;
+    height: 340px !important;
+    max-height: 340px !important;
+    border-radius: 14px !important;
+    font-size: 14px !important;
+    padding: 10px !important;
+  }
+  .chatbot-body {
+    min-height: 180px !important;
+    max-height: 220px !important;
+    height: 220px !important;
+    padding: 10px !important;
+    font-size: 13px !important;
+  }
+  .chatbot-button {
+    bottom: 16px !important;
+    right: 16px !important;
+    width: 48px !important;
+    height: 48px !important;
+    font-size: 22px !important;
+    padding: 10px !important;
+  }
+  .chat-input {
+    gap: 6px !important;
+    padding: 8px !important;
+  }
+  .chat-input input {
+    font-size: 13px !important;
+    padding: 8px !important;
+  }
+  .chat-input button {
+    padding: 8px 10px !important;
+    font-size: 16px !important;
+    min-width: 32px !important;
+    max-width: 40px !important;
+  }
 }
 
-@media only screen and (min-width: 200px) {
-    .nav-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .logo a {
-        font-size: 1.5rem;
-    }
-
-    .auth-buttons {
-        gap: 8px;
-    }
+/* Standard mobile screens (e.g., 360x740, 375x812) */
+@media (max-width: 390px) and (max-height: 750px) {
+ .chatbot-modal {
+    bottom: 16px !important;
+    right: 8px !important;
+    width: 80vw !important;
+    max-width: 300px !important;
+    min-width: 120px !important;
+    height: 300px !important;
+    max-height: 340px !important;
+    border-radius: 14px !important;
+    font-size: 14px !important;
+    padding: 10px !important;
+  }
+  .chatbot-body {
+    min-height: 180px !important;
+    max-height: 220px !important;
+    height: 220px !important;
+    padding: 10px !important;
+    font-size: 13px !important;
+  }
+  .chatbot-button {
+    bottom: 16px !important;
+    right: 16px !important;
+    width: 48px !important;
+    height: 48px !important;
+    font-size: 22px !important;
+    padding: 10px !important;
+  }
+  .chat-input {
+    gap: 6px !important;
+    padding: 8px !important;
+  }
+  .chat-input input {
+    font-size: 13px !important;
+    padding: 8px !important;
+  }
+  .chat-input button {
+    padding: 8px 10px !important;
+    font-size: 16px !important;
+    min-width: 32px !important;
+    max-width: 40px !important;
+  }
 }
 
-@media only screen and (min-width: 320px) {
-    .nav-container {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    .logo {
-        text-align: center;
-    }
-
-    .logo a {
-        font-size: 1.8rem;
-    }
-
-    .auth-buttons {
-        gap: 10px;
-    }
+/* Ultra-wide mobile screens (e.g., 480x1000) */
+@media (min-width: 431px) and (max-width: 600px) {
+  .chatbot-modal {
+    bottom: 20px !important;
+    right: 12px !important;
+    width: 98vw !important;
+    max-width: 400px !important;
+    min-width: 180px !important;
+    height: 400px !important;
+    max-height: 400px !important;
+    border-radius: 16px !important;
+    font-size: 15px !important;
+    padding: 16px !important;
+  }
+  .chatbot-body {
+    min-height: 220px !important;
+    max-height: 320px !important;
+    height: 320px !important;
+    padding: 12px !important;
+    font-size: 14px !important;
+  }
+  .chatbot-button {
+    bottom: 20px !important;
+    right: 20px !important;
+    width: 60px !important;
+    height: 60px !important;
+    font-size: 28px !important;
+    padding: 12px !important;
+  }
+  .chat-input {
+    gap: 10px !important;
+    padding: 14px !important;
+  }
+  .chat-input input {
+    font-size: 15px !important;
+    padding: 10px !important;
+  }
+  .chat-input button {
+    padding: 10px 14px !important;
+    font-size: 18px !important;
+    min-width: 36px !important;
+    max-width: 44px !important;
+  }
 }
 
-@media only screen and (min-width: 768px) {
-    .nav-container {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    .logo a {
-        font-size: 2rem;
-    }
-
-    .auth-buttons {
-        gap: 12px;
-    }
-}
-
-@media only screen and (min-width: 1200px) {
-    .nav-container {
-        max-width: 1300px;
-    }
-
-    .nav-menu {
-        display: flex;
-    }
-
-    .search-bar {
-        display: flex;
-    }
-
-    .hamicon {
-        display: none;
-    }
-}
-
-@media only screen and (min-width: 1600px) {
-    .nav-container {
-        max-width: 1500px;
-    }
-
-    .logo a {
-        font-size: 2.5rem;
-    }
-}

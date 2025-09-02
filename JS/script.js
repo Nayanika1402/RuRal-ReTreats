@@ -488,6 +488,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (!window.chatbotInitialized) {
     chatButton.addEventListener("click", () => {
       chatModal.classList.add("active");
+      chatButton.style.display = "none";
       // 🚀 AUTO CLEAR: Always reinitialize when chatbot opens
       console.log("🚀 Auto-clearing chatbot for fresh data...");
       initializeChatbot();
@@ -500,6 +501,7 @@ document.addEventListener("DOMContentLoaded", function () {
       );
       setTimeout(() => {
         chatModal.classList.remove("active");
+        chatButton.style.display = "flex";
       }, 500);
     });
 
