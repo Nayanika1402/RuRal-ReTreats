@@ -87,4 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.addEventListener("keydown", handleEscapeKey);
     document.addEventListener("click", handleClickOutside);
     window.addEventListener("scroll", handleScroll);
+    // Initial check in case the page is loaded with a scroll position beyond the threshold
+    handleScroll(); 
+    
 });
