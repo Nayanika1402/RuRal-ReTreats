@@ -5,7 +5,7 @@
   <!-- Basic Meta Tags -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Terms & Conditions | RURAL RETREATS</title>
+  <title translate="no">Terms & Conditions | RURAL RETREATS</title>
 
   <!-- Theme & Tile Colors -->
   <meta name="theme-color" content="#FFFFFF" />
@@ -49,7 +49,7 @@
           <i class="fas fa-bars"></i>
         </button>
 
-        <div class="logo">
+        <div class="logo" translate="no">
           <a href="index.html">Rural Retreats</a>
         </div>
 
@@ -107,7 +107,7 @@
   <section class="content">
     <h2>1. Introduction</h2>
     <p>
-      Welcome to RURAL RETREATS! By accessing our website and using our
+      Welcome to <span translate="no">RURAL RETREATS</span>! By accessing our website and using our
       services, you agree to comply with the following terms and conditions.
     </p>
 
@@ -145,7 +145,7 @@
 
     <h2>7. Changes to Terms</h2>
     <p>
-      RURAL RETREATS reserves the right to modify these terms at any time.
+      <span translate="no">RURAL RETREATS</span> reserves the right to modify these terms at any time.
       Updated terms will be posted on this page.
     </p>
 
@@ -162,7 +162,7 @@
       <!-- First Row: Rural Retreats, Quick Links, Customer Support -->
       <div class="footer-row">
         <div class="footer-section about">
-          <h3 class="footer-title">Rural Retreats</h3>
+          <h3 class="footer-title" translate="no">Rural Retreats</h3>
           <p>
             We offer budget-friendly tours, curated travel experiences, and
             luxury escapes worldwide.
@@ -209,40 +209,34 @@
           <h4>Language</h4>
           <label for="language-select">Choose Language:</label>
           <select id="language-select">
-            <option>English</option>
-            <option>Bengali</option>
-            <option>Hindi</option>
-            <option>French</option>
-            <option>Spanish</option>
-            <option>German</option>
+            <option value="en">English</option>
+            <option value="bn">Bengali</option>
+            <option value="hi">Hindi</option>
+            <option value="fr">French</option>
+            <option value="es">Spanish</option>
+            <option value="de">German</option>
           </select>
         </div>
 
-          <div class="footer-section">
-            <h4>Newsletter</h4>
-            <p>Subscribe for exclusive travel deals!</p>
-            <div class="newsletter">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                id="newsletter-email"
-                required
-              />
-              <button
-                type="submit"
-                class="footer-newsletter-btn"
-                onclick="subscribeNewsletter()"
-              >
-                <b>Subscribe</b>
-              </button>
-            </div>
+
+        <div id="google_translate_element" style="display:none;"></div>
+
+        <div class="footer-section newsletter">
+          <h4>Newsletter</h4>
+          <p>Subscribe for exclusive travel deals!</p>
+          <div class="newsletter">
+            <input type="email" placeholder="Enter your email" id="newsletter-email" required />
+            <button type="submit" class="footer-newsletter-btn" onclick="subscribeNewsletter()">
+              <b>Subscribe</b>
+            </button>
+
           </div>
         </div>
       </div>
 
     <div class="footer-bottom">
       <p>
-        &copy; 2025 Rural Retreats. All rights reserved. |
+        &copy; 2025 <span translate="no">Rural Retreats.</span> All rights reserved. |
         <a href="pp.html">Privacy Policy</a> |
         <a href="t&c.html">Terms & Conditions</a>
       </p>

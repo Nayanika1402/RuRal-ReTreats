@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Explore Rural Retreats' services: guided tours, cultural workshops, and immersive local experiences across rural India.">
@@ -41,6 +42,7 @@
     <script defer src="./JS/servicesscript.js"></script>
     <script defer src="./JS/navbar.js"></script>
     <script src="./JS/enhanced-search-popup.js" defer></script>
+  
     <link rel="apple-touch-icon" sizes="57x57" href="./favicon/favicon-57x57.png" type="image/png" />
     <link rel="apple-touch-icon" sizes="60x60" href="./favicon/favicon-60x60.png" type="image/png" />
     <link rel="apple-touch-icon" sizes="72x72" href="./favicon/favicon-72x72.png" type="image/png" />
@@ -58,13 +60,17 @@
     <meta name="theme-color" content="#FFFFFF" />
     <meta name="msapplication-TileColor" content="#FFFFFF" />
     <meta name="msapplication-TileImage" content="./favicon/favicon-512x512.png"/>
+
 </head>
 
 <body>
   <header>
     <nav class="navbar">
       <div class="nav-container">
-        <div class="logo">
+        <button class="hamicon" id="menu-toggle" title="menu-toggle">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="logo" translate="no">
           <a href="index.html">Rural Retreats</a>
         </div>
         <ul class="nav-menu">
@@ -524,7 +530,7 @@
       <!-- First Row: Rural Retreats, Quick Links, Customer Support -->
       <div class="footer-row">
         <div class="footer-section about">
-          <h3 class="footer-title">Rural Retreats</h3>
+          <h3 class="footer-title" translate="no">Rural Retreats</h3>
           <p>
             We offer budget-friendly tours, curated travel experiences, and
             luxury escapes worldwide.
@@ -571,40 +577,33 @@
           <h4>Language</h4>
           <label for="language-select">Choose Language:</label>
           <select id="language-select">
-            <option>English</option>
-            <option>Bengali</option>
-            <option>Hindi</option>
-            <option>French</option>
-            <option>Spanish</option>
-            <option>German</option>
+            <option value="en">English</option>
+            <option value="bn">Bengali</option>
+            <option value="hi">Hindi</option>
+            <option value="fr">French</option>
+            <option value="es">Spanish</option>
+            <option value="de">German</option>
           </select>
         </div>
 
-          <div class="footer-section">
-            <h4>Newsletter</h4>
-            <p>Subscribe for exclusive travel deals!</p>
-            <div class="newsletter">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                id="newsletter-email"
-                required
-              />
-              <button
-                type="submit"
-                class="footer-newsletter-btn"
-                onclick="subscribeNewsletter()"
-              >
-                <b>Subscribe</b>
-              </button>
-            </div>
+        <div id="google_translate_element" style="display:none;"></div>
+
+        <div class="footer-section newsletter">
+          <h4>Newsletter</h4>
+          <p>Subscribe for exclusive travel deals!</p>
+          <div class="newsletter">
+            <input type="email" placeholder="Enter your email" id="newsletter-email" required />
+            <button type="submit" class="footer-newsletter-btn" onclick="subscribeNewsletter()">
+              <b>Subscribe</b>
+            </button>
+
           </div>
         </div>
       </div>
 
     <div class="footer-bottom">
       <p>
-        &copy; 2025 Rural Retreats. All rights reserved. |
+        &copy; 2025 <span translate="no">Rural Retreats.</span> All rights reserved. |
         <a href="pp.html">Privacy Policy</a> |
         <a href="t&c.html">Terms & Conditions</a>
       </p>

@@ -30,13 +30,13 @@
     <script defer src="./JS/homestays.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key"></script>
 
-
 </head>
 <body>
     
  
  <header>
     <nav class="navbar">
+
         <div class="nav-container">
             
             <button class="hamicon" id="menu-toggle" title="menu-toggle">
@@ -808,54 +808,58 @@
                     Bengal
                     </p>
             </div>      
+        </div> 
+
+
+      <!-- Second Row: Social Media, Language Selector, Newsletter -->
+      <div class="footer-row">
+        <div class="footer-section social-media">
+          <h4>Follow Us</h4>
+          <div class="social-icons">
+            <a href="#" class="youtube" title="youtube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" class="instagram" title="instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="twitter" title="twitter"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#" class="linkedin" title="linkedin"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
         </div>
 
-        <!-- Second Row: Social Media, Language Selector, Newsletter -->
-        <div class="footer-row">
-            <div class="footer-section social-media">
-                <h4>Follow Us</h4>
-                <div class="social-icons">
-                    <a href="#" class="youtube" title="youtube"><i class="fa-brands fa-youtube"></i></a>
-                    <a href="#" class="instagram" title="instagram"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" class="twitter" title="twitter"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="#" class="linkedin" title="linkedin"><i class="fa-brands fa-linkedin-in"></i></a>
-                  </div>
-            </div>
-
-            <div class="footer-section language-selector">
-                <h4>Language</h4>
-                <label for="language-select">Choose Language:</label>
-                <select id="language-select">
-                  <option>English</option>
-                  <option>Bengali</option>
-                  <option>Hindi</option>
-                  <option>French</option>
-                  <option>Spanish</option>
-                  <option>German</option>
-                </select>
-              </div>
-
-            <div class="footer-section newsletter">
-                <h4>Newsletter</h4>
-                <p>Subscribe for exclusive travel deals!</p>
-                <div class="newsletter">
-                    <input type="email" placeholder="Enter your email" id="newsletter-email" required>
-                    <button type="submit" class="footer-newsletter-btn" onclick="subscribeNewsletter()"><b>Subscribe</b></button>
-                </div>
-            </div>
+        <div class="footer-section language-selector">
+          <h4>Language</h4>
+          <label for="language-select">Choose Language:</label>
+          <select id="language-select">
+            <option value="en">English</option>
+            <option value="bn">Bengali</option>
+            <option value="hi">Hindi</option>
+            <option value="fr">French</option>
+            <option value="es">Spanish</option>
+            <option value="de">German</option>
+          </select>
         </div>
-    </div>
 
+        <div id="google_translate_element" style="display:none;"></div>
+
+        <div class="footer-section newsletter">
+          <h4>Newsletter</h4>
+          <p>Subscribe for exclusive travel deals!</p>
+          <div class="newsletter">
+            <input type="email" placeholder="Enter your email" id="newsletter-email" required />
+            <button type="submit" class="footer-newsletter-btn" onclick="subscribeNewsletter()">
+              <b>Subscribe</b>
+            </button>
+
+          </div>
+        </div>
     <div class="footer-bottom">
         <p>
           &copy; 2025 Rural Retreats. All rights reserved. |
           <a href="pp.html">Privacy Policy</a> | <a href="t&c.html">Terms & Conditions</a>
         </p>
+
       </div>
 </footer> 
 
-<button id="backToTop" class="back-to-top-btn" title="Go to top">↑</button>
 
+<button id="backToTop" class="back-to-top-btn" title="Go to top">↑</button>
 
 <div id="chatButton" class="chatbot-button">
 <i class="fas fa-comment-dots"></i>
