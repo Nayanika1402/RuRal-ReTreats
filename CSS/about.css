@@ -516,8 +516,8 @@ ul {
 
 .hero-content h1 span {
   background: linear-gradient(135deg, #0073e6, #00b894);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
 }
 
 .hero-content p {
