@@ -1,5 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
+          <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown">
+              <a href="services.html"
+                >Services <i class="fas fa-chevron-down"></i
+              ></a>
+              <ul class="dropdown-menu">
+                <li><a href="services.html#tours">Holiday Packages</a></li>
+                <li><a href="services.html#bus">Bus Booking</a></li>
+                <li><a href="services.html#homestays">Homestays Booking</a></li>
+              </ul>
+            </li>
+            <li><a href="homestays.html">HomeStays</a></li>
+            <li><a href="faq.html">FAQs</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+
+          <div class="right-section">
+            <div class="search-bar">
+              <input type="text" placeholder="Search..." id="search-input" />
+              <button title="search"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="auth-buttons">
+              <button
+                class="login-btn"
+                onclick="window.location.href='login.html'"
+              >
+                Log In
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <div class="mobile-menu" id="mobile-menu">
+    <button class="close-btn" id="menu-close" aria-label="Close menu">
+        <i class="fas fa-times"></i>
+    </button>
+
+    <div class="mobile-search-bar">
+        <input type="text" placeholder="Search..." id="mobile-search-input" />
+        <button title="search"><i class="fas fa-search"></i></button>
+    </div>
+
+    <ul>
+        <li><a href="index.html">🏠 Home</a></li>
+        <li><a href="services.html">⚙️ Services</a></li>
+        <li><a href="homestays.html">🏘️ HomeStays</a></li>
+        <li><a href="faq.html">❓ FAQs</a></li>
+        <li><a href="contact.html">📞 Contact Us</a></li>
+    </ul>
+</div>
+    </header>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -64,6 +119,20 @@
                 <li><a href="contact.html">Contact Us</a></li>
             </ul>
 
+
+        <div class="right-section">
+          <div class="search-bar">
+            <input type="text" placeholder="Search..." id="search-input" />
+            <button title="search"><i class="fas fa-search"></i></button>
+          </div>
+          <div class="auth-buttons desktop-only">
+            <button class="login-btn" onclick="window.location.href='login.html'">
+              Log In
+            </button> 
+          </div>
+          <button class="hamicon" id="menu-toggle" title="menu-toggle">
+            <i class="fas fa-bars"></i>
+          </button>
             
             <div class="right-section">
                 <div class="search-bar">
