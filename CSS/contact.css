@@ -112,10 +112,14 @@ body {
 
 .hamicon {
   display: block;
-  font-size: 24px;
   background: none;
   border: none;
   cursor: pointer;
+  color: black;
+  font-size: 25px;
+  padding: 0px;
+  margin-left: 20px;
+  /* transition: color 0.3s ease-in-out; */
 }
 
 .navbar {
@@ -228,12 +232,14 @@ body {
   flex: 1;
 }
 
+
 .search-bar button {
   background: none;
   border: none;
   cursor: pointer;
   color: #0073e6;
   font-size: 16px;
+  padding: 0px;
   transition: color 0.3s ease-in-out;
 }
 
@@ -308,10 +314,11 @@ body {
 .close-btn {
   position: absolute;
   top: 15px;
-  left: 200px;
+  left: 190px;
   font-size: 20px;
   cursor: pointer;
-  color: red;
+  color: rgb(51, 39, 39);
+  padding: 10px 20px;
   transition: transform 0.3s ease-in-out;
 }
 
@@ -346,8 +353,17 @@ body {
   background: #f1f1f1;
   padding: 6px 12px;
   border-radius: 5px;
-  margin: 40px auto;
-  width: 90%;
+  margin: 60px auto;
+  width: 100%;
+}
+.mobile-search-bar button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #0073e6;
+  font-size: 20px;
+  padding: 0px;
+  transition: color 0.3s ease-in-out;
 }
 
 .mobile-search-bar input {
@@ -356,7 +372,7 @@ body {
   background: transparent;
   padding: 5px;
   flex: 1;
-  font-size: 14px;
+  font-size: 20px;
 }
 
 @media only screen and (max-width: 1200px) {
@@ -517,20 +533,7 @@ h1 {
   box-shadow: 0 4px 8px black;
 }
 
-.contact-info {
-  flex: 1;
-  text-align: left;
-  background: linear-gradient(135deg, #0073e6, #003366);
-  color: white;
-  padding: 50px;
-  border-radius: 15px;
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 40px;
-}
+
 
 .info-details {
   padding: 20px;
@@ -542,16 +545,7 @@ h1 {
   max-width: 600px;
 }
 
-.contact-info:hover {
-  transform: scale(1.02);
-  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4);
-}
 
-.contact-info h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  font-weight: 600;
-}
 
 .info-details {
   margin-top: 30px;
@@ -774,12 +768,7 @@ textarea {
     text-align: center;
   }
 
-  .contact-info,
-  .contact-form {
-    text-align: center;
-    width: 100%;
-    padding: 40px;
-  }
+
 
   .social-icons {
     justify-content: center;
@@ -791,10 +780,7 @@ textarea {
     padding: 60px 5%;
   }
 
-  .contact-info,
-  .contact-form {
-    padding: 30px;
-  }
+
 
   .info-item {
     font-size: 1rem;
