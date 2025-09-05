@@ -17,7 +17,30 @@
 
 RuralRetreats is a unique website designed to connect travelers with the charm of rural life. It bridges the gap between rural areas and tourism by offering an extensive platform for booking authentic rural homestays. Visitors can immerse themselves in the traditions and culture of rural communities by staying in the homes of local residents. This not only provides a personalized travel experience but also promotes sustainable tourism, empowering rural households and preserving their heritage.
 
-## Tech Stack ⚙️
+> ✨ Recent update: We improved and optimized the UI across pages for faster load and smoother interactions.
+
+## 📋 Table of Contents
+
+- [Features](#-features)
+- [Tech Stack](#-tech-stack-️)
+- [Live Demo](#-live-demo)
+- [Project Structure](#-project-structure)
+- [Getting Started](#-getting-started-for-contributors-)
+- [Contributing](#-contributing)
+- [Code of Conduct](#-code-of-conduct)
+- [License](#-license-️)
+- [Contact](#-contact)
+
+## 🌟 Features
+
+- Authentic rural and beachside homestays
+- Holiday packages and bus booking flows
+- Mobile-friendly responsive UI
+- Optimized loading (reduced splash delay, deferred scripts)
+- Accessible navigation and enhanced search
+- Newsletter subscription and basic chatbot UI
+
+## ⚙️ Tech Stack
 
 RuralRetreats is built with:
 
@@ -25,13 +48,30 @@ RuralRetreats is built with:
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 
-deployed at:
+## 🚀 Live Demo
 
+Coming soon
+
+<!-- Example badge:
 ![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)
+-->
 
-## Getting Started for Contributors 🧑🏻‍💻
+## 🧭 Project Structure
 
-We welcome contributions to HackerZGuide! Follow the steps below to get started:
+```
+.
+├── CSS/                # Stylesheets (global, pages, components)
+├── JS/                 # Scripts (navigation, pages, payments)
+├── img/                # Images and assets
+├── routes/, models/, config/  # Backend-related files (payments/auth)
+├── index.html          # Homepage
+├── server.js           # Server entry (if used)
+└── README.md
+```
+
+## 🧑🏻‍💻 Getting Started for Contributors
+
+We welcome contributions to RuralRetreats! Follow the steps below to get started:
 
 1. **Fork the Repository**
 
@@ -59,11 +99,11 @@ We welcome contributions to HackerZGuide! Follow the steps below to get started:
 
 5. **Commit Your Changes**
 
-   - Stage your changes and create a commit:
+   - Stage and commit with a concise message:
 
      ```bash
-     1. git add .
-     2. git commit -m 'add commit message'
+     git add .
+     git commit -m "feat: short description"
      ```
 
 6. **Push Your Changes**
@@ -71,12 +111,26 @@ We welcome contributions to HackerZGuide! Follow the steps below to get started:
    - Push your branch to your forked repository:
 
      ```bash
-     git push origin your branch name
+     git push origin feature/your-feature-name
      ```
 
 7. **Submit a Pull Request**
-   - Go to the original repository and click on "New Pull Request.
-   - Select your branch and submit the pull request for review.
+   - Go to the original repository and click on "New Pull Request".
+   - Select your branch and submit the pull request for review with screenshots for UI changes.
+
+> Tip: Use our PR template with a clear Summary, Issue Reference, and Checklist.
+
+## 🤝 Contributing
+
+We welcome contributions! Please:
+
+- Open an issue for discussion before large changes
+- Follow coding conventions and UI patterns
+- Write clear commit messages and PR descriptions
+
+## 📜 Code of Conduct
+
+Please read and follow our [Code of Conduct](./CODE_OF_CONDUCT.md).
 
 ## Our Contributors 🤝
 
@@ -84,17 +138,17 @@ We welcome contributions to HackerZGuide! Follow the steps below to get started:
   <img src="https://contrib.rocks/image?repo=Nayanika1402/RuRal-ReTreats" />
 </a>
 
-## License 🛡️
+## 🛡️ License
 
-This project is licensed under the MIT License. See the [LICENSE](link-to-license-file) file for more details.
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for more details.
 
 ## 📬 Contact
 
-If you have any questions, feel free to open an issue or reach out to the project [maintainer](https://www.linkedin.com/in/nayanika-mukherjee-76a24027b/).
+If you have any questions, feel free to open an issue or reach out to the project maintainer:
 
-- [Nayanika Mukherjee](https://github.com/Nayanika1402)
+- [Nayanika Mukherjee](https://github.com/Nayanika1402) · [LinkedIn](https://www.linkedin.com/in/nayanika-mukherjee-76a24027b/)
 
-**Please ⭐ this repository to show some love. Your support is appreciated!**
+If you find this project helpful, please ⭐ the repository!
 
 <div align="right">
   <a href="#readme-top">🔝back to top</a>

@@ -3,7 +3,7 @@
   padding: 0;
   box-sizing: border-box !important;
   text-decoration: none;
-  font-family: "Arial", sans-serif;
+  font-family: "Inter", "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   scroll-behavior: smooth;
 }
 
@@ -449,19 +449,22 @@ ul {
 }
 
 .hero-banner {
-  background-image: url("https://images.pexels.com/photos/994605/pexels-photo-994605.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+  background: linear-gradient(135deg, rgba(0, 115, 230, 0.8), rgba(0, 184, 148, 0.8)), 
+              url("https://images.pexels.com/photos/994605/pexels-photo-994605.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
   background-size: cover;
   background-position: center;
-  height: 75vh;
+  background-attachment: fixed;
+  height: 85vh;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   text-align: center;
-  border-radius: 10px;
+  border-radius: 20px;
   margin: 1.5rem 3rem 3rem;
   overflow: hidden;
   animation: fadeIn 1.5s ease-in-out;
+  box-shadow: 0 20px 40px rgba(0, 115, 230, 0.3);
 }
 
 .hero-banner .overlay {
@@ -483,38 +486,52 @@ ul {
 }
 
 .hero-content h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
-  letter-spacing: 1px;
-  font-weight: bold;
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  letter-spacing: 2px;
+  font-weight: 800;
+  line-height: 1.2;
+  background: linear-gradient(135deg, #ffffff, #f0f8ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .hero-content p {
-  font-size: 1.4rem;
-  margin-bottom: 2rem;
-  font-weight: 520;
-  opacity: 0.9;
-  color: #f8f3f3;
+  font-size: 1.5rem;
+  margin-bottom: 2.5rem;
+  font-weight: 500;
+  opacity: 0.95;
+  color: #ffffff;
+  line-height: 1.6;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .cta-button {
   display: inline-block;
-  background: linear-gradient(135deg, #1acef7, #009dff, rgb(67, 67, 222));
+  background: linear-gradient(135deg, #0073e6, #00b894);
   color: white;
-  padding: 12px 25px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  border-radius: 8px;
+  padding: 16px 32px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  border-radius: 50px;
   text-decoration: none;
-  transition: 0.4s ease-in-out;
-  box-shadow: 0 4px 10px rgba(0, 153, 255, 0.5);
+  transition: all 0.4s ease-in-out;
+  box-shadow: 0 8px 25px rgba(0, 115, 230, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
 }
 
 .cta-button:hover {
-  background: linear-gradient(135deg, #12bae0, #012f4b);
-  transform: scale(1.15);
-  box-shadow: 0 6px 15px rgba(1, 77, 128, 0.882);
+  background: linear-gradient(135deg, #00b894, #0073e6);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(0, 115, 230, 0.6);
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
 @keyframes fadeIn {
@@ -645,22 +662,29 @@ ul {
 }
 
 .about-content h2 {
-  font-size: 2.5rem;
-  color: #003366;
-  margin-bottom: 10px;
+  font-size: 2.8rem;
+  background: linear-gradient(135deg, #0073e6, #00b894);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 15px;
+  font-weight: 800;
+  line-height: 1.2;
 }
 
 .about-content h3 {
-  font-size: 1.5rem;
-  color: #ff6a00;
-  margin-bottom: 15px;
+  font-size: 1.6rem;
+  color: #0073e6;
+  margin-bottom: 20px;
+  font-weight: 600;
 }
 
 .about-content p {
-  font-size: 1.1rem;
-  color: #333;
-  line-height: 1.6;
-  margin-bottom: 20px;
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 25px;
+  font-weight: 400;
 }
 
 .about-image {
@@ -672,13 +696,16 @@ ul {
 .about-image img {
   width: 100%;
   max-width: 500px;
-  border-radius: 12px;
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
-  transition: 0.4s ease-in-out;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 115, 230, 0.2);
+  transition: all 0.4s ease;
+  border: 3px solid rgba(0, 115, 230, 0.1);
 }
 
 .about-image img:hover {
-  transform: scale(1.05);
+  transform: scale(1.05) rotate(2deg);
+  box-shadow: 0 25px 50px rgba(0, 115, 230, 0.3);
+  border-color: rgba(0, 115, 230, 0.3);
 }
 
 @keyframes fadeInLeft {

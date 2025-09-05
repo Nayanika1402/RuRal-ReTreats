@@ -3,7 +3,7 @@
   padding: 0;
   box-sizing: border-box !important;
   text-decoration: none;
-  font-family: "Arial", sans-serif;
+  font-family: "Inter", "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   scroll-behavior: smooth;
 }
 
@@ -473,19 +473,22 @@ ul {
 }
 
 .hero {
-  background-image: url("https://images.pexels.com/photos/994605/pexels-photo-994605.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+  background: linear-gradient(135deg, rgba(0, 115, 230, 0.8), rgba(0, 184, 148, 0.8)), 
+              url("https://images.pexels.com/photos/994605/pexels-photo-994605.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
   background-size: cover;
   background-position: center;
-  height: 75vh;
+  background-attachment: fixed;
+  height: 85vh;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   text-align: center;
-  border-radius: 10px;
+  border-radius: 20px;
   margin: 1.5rem 3rem 3rem;
   overflow: hidden;
   animation: fadeIn 1.5s ease-in-out;
+  box-shadow: 0 20px 40px rgba(0, 115, 230, 0.3);
 }
 
 .hero-overlay {
@@ -507,11 +510,16 @@ ul {
 }
 
 .hero-content h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
-  letter-spacing: 1px;
-  font-weight: bold;
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  letter-spacing: 2px;
+  font-weight: 800;
+  line-height: 1.2;
+  background: linear-gradient(135deg, #ffffff, #f0f8ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .hero-content h1 span {
