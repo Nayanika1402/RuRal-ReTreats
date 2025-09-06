@@ -5,7 +5,8 @@
   <!-- Basic Meta Tags -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Contact Rural Retreats for bookings, support, or inquiries. Reach us via email, phone, or visit our office in West Bengal." />
+  <meta name="description"
+    content="Contact Rural Retreats for bookings, support, or inquiries. Reach us via email, phone, or visit our office in West Bengal." />
   <title>Contact Us - Rural Retreats</title>
 
   <!-- Open Graph Metadata -->
@@ -29,7 +30,7 @@
   <link rel="apple-touch-icon" sizes="144x144" href="./favicon/favicon-144x144.png" type="image/png" />
   <link rel="apple-touch-icon" sizes="152x152" href="./favicon/favicon-152x152.png" type="image/png" />
   <link rel="apple-touch-icon" sizes="180x180" href="./favicon/favicon-180x180.png" type="image/png" />
-  <link rel="icon" sizes="16x16" href="./favicon/favicon_16x16.png" type="image/png" />
+  <link rel="icon" sizes="16x16" href="./favicon/favicon-16x16.png" type="image/png" />
   <link rel="icon" sizes="32x32" href="./favicon/favicon-32x32.png" type="image/png" />
   <link rel="icon" sizes="96x96" href="./favicon/favicon-96x96.png" type="image/png" />
   <link rel="icon" sizes="192x192" href="./favicon/favicon-192x192.png" type="image/png" />
@@ -45,17 +46,324 @@
   <!-- Scripts -->
   <script defer src="./JS/contact.js"></script>
   <script defer src="./JS/navbar.js"></script>
+
+  <!-- THEME STYLES -->
+  <style>
+    /* Default Light Theme */
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #111111;
+      --secondary-text: #555;
+      --card-bg: rgba(0, 0, 0, 0.05);
+      --border-color: rgba(0, 0, 0, 0.1);
+      /* --btn-bg: linear-gradient(135deg, #ff6b9d, #ffa726); */
+      --btn-bg: linear-gradient(135deg, #0073e6, #00b894);
+      --btn-text: #fff;
+      --map-filter: brightness(1) invert(0);
+    }
+
+    /* Dark Theme */
+    body.dark {
+      --bg-color: #0c0c0c;
+      --text-color: #ffffff;
+      --secondary-text: #b0b0b0;
+      --card-bg: rgba(255, 255, 255, 0.05);
+      --border-color: rgba(255, 255, 255, 0.1);
+      --map-filter: brightness(0.8) invert(0.9);
+    }
+
+    /* General Styling */
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    .site-header {
+      padding: 0;
+    }
+
+    /* Page title spacing only */
+    .page-title {
+      text-align: center;
+      padding: 60px 20px 40px;
+      margin: 0;
+    }
+
+    .page-title h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 700;
+      /* background: linear-gradient(135deg, #ff6b9d 0%, #c471ed 50%, #12c2e9 100%); */
+      background: linear-gradient(135deg, #0073e6, #00b894);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin: 0;
+    }
+
+    /* Make nav full width */
+    .navbar {
+      width: 100%;
+      margin: 0;
+    }
+
+    .nav-container {
+      width: 100%;
+      max-width: 100%;
+      margin: 0;
+      padding: 0 40px;
+      /* adjust or remove if you want true edge-to-edge */
+      box-sizing: border-box;
+    }
+
+    /* Mobile: reduce horizontal padding if desired */
+    @media (max-width:768px) {
+      .nav-container {
+        padding: 0 16px;
+      }
+
+      .page-title {
+        padding: 40px 16px 30px;
+      }
+    }
+
+    header {
+      text-align: center;
+      padding: 10px 20px 60px;
+    }
+
+    .page-title {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 700;
+      background: linear-gradient(135deg, #ff6b9d 0%, #c471ed 50%, #12c2e9 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin: 0;
+      padding-bottom: 60px;
+    }
+
+    .main-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px 80px;
+      display: flex;
+      gap: 60px;
+      align-items: flex-start;
+    }
+
+    .left {
+      flex: 1;
+    }
+
+    .left h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      background: linear-gradient(135deg, #0073e6, #00b894);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin: 0 0 20px;
+    }
+
+    .left p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: var(--secondary-text);
+      margin-bottom: 30px;
+    }
+
+    .contact-info {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact-info li {
+      display: flex;
+      align-items: center;
+      font-size: 1rem;
+      color: var(--text-color);
+      font-weight: 500;
+    }
+
+    .contact-info li i {
+      color: rgb(5, 85, 109);
+    }
+
+    .contact-info span {
+      margin-right: 15px;
+      font-size: 1.2rem;
+    }
+
+    .form-box {
+      flex: 1;
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .form-box h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #0073e6, #00b894);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .row {
+      display: flex;
+      gap: 15px;
+    }
+
+    .row input {
+      flex: 1;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-color);
+      font-size: 1rem;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #888;
+      opacity: 0.7;
+    }
+
+    input:focus,
+    textarea:focus {
+      border: 1px solid #ff6b9d;
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 8px 25px rgba(255, 107, 157, 0.15);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    button {
+      background: var(--btn-bg);
+      color: var(--btn-text);
+      border: none;
+      padding: 18px 40px;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 8px 30px rgba(255, 107, 157, 0.3);
+      text-transform: uppercase;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(255, 107, 157, 0.4);
+    }
+
+    .form-status {
+      display: none;
+      margin: 10px 0 0;
+      font-size: .9rem;
+      font-weight: 500;
+      line-height: 1.2;
+    }
+
+    .form-status.show {
+      display: block;
+    }
+
+    /* Theme toggle button */
+    .theme-toggle {
+      border: none;
+      background: transparent;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--text-color);
+      margin-left: 15px;
+      padding: 0px;
+      background: none;
+
+
+    }
+
+
+    /* Force sun icon (light-mode indicator) to black */
+    .theme-toggle i.fa-sun {
+      color: #000 !important;
+    }
+
+    @media (max-width: 768px) {
+      .main-content {
+        flex-direction: column;
+        gap: 40px;
+        padding-bottom: 40px;
+
+      }
+
+      .view .theme-toggle {
+        display: none;
+      }
+
+      header {
+        padding: 40px 20px 30px;
+      }
+
+      .page-title {
+        padding-top: 30px;
+      }
+
+      /* .left h2,
+      .left p {
+        text-align: center;
+      } */
+
+      /* .contact-info {
+        align-items: center;
+      } */
+
+      .row {
+        flex-direction: column;
+      }
+
+      .logo a {
+        font-size: 1.5rem;
+        padding: 0px;
+      }
+
+      .form-box {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 
 
 <body>
-  <header>
+  <header class="site-header">
     <nav class="navbar">
       <div class="nav-container">
-        <!-- <button class="hamicon" id="menu-toggle" title="menu-toggle">
-          <i class="fas fa-bars"></i>
-        </button> -->
-
         <div class="logo">
           <a href="index.html">Rural Retreats</a>
         </div>
@@ -78,12 +386,19 @@
         <div class="right-section">
           <div class="search-bar">
             <input type="text" placeholder="Search..." id="search-input" />
-            <button title="search"><i class="fas fa-search"></i></button>
+            <button title="search"><i class="fas fa-search search-icon"></i></button>
           </div>
+
+          <div class="view">
+            <button id="theme-toggle" class="theme-toggle" title="Toggle Theme">
+              <i class="fas fa-moon"></i>
+            </button>
+          </div>
+
           <div class="auth-buttons desktop-only">
             <button class="login-btn" onclick="window.location.href='login.html'">
               Log In
-            </button> 
+            </button>
           </div>
           <button class="hamicon" id="menu-toggle" title="menu-toggle">
             <i class="fas fa-bars"></i>
@@ -97,7 +412,7 @@
 
       <div class="mobile-search-bar">
         <input type="text" placeholder="Search..." id="mobile-search-input" />
-        <button title="search"><i class="fas fa-search"></i></button>
+        <button title="search"><i class="fas fa-search mobile-search"></i></button>
       </div>
 
       <ul>
@@ -106,92 +421,142 @@
         <li><a href="homestays.html">HomeStays</a></li>
         <li><a href="faq.html">FAQs</a></li>
         <li><a href="contact.html">Contact Us</a></li>
-        <button class="login-btn mobile-only" onclick="window.location.href='login.html'">
-          Log In
-        </button>
+        <li class="mobile-only">
+          <button id="mobile-theme-toggle" class="theme-toggle" type="button" title="Toggle Theme"> Theme
+            <i class="fas fa-moon"></i>
+          </button>
+        </li><br>
+        <li class="mobile-only">
+          <button class="login-btn" onclick="window.location.href='login.html'">Log In</button>
+        </li>
       </ul>
     </div>
   </header>
 
-  <section id="contact-section">
-    <h1>Let’s Plan Your Next Escape – Contact Us!</h1>
-    <div class="container">
-      <div class="contact-info">
-        <h2>📞 Get in Touch</h2>
-        <p>
-          Have questions? Reach out to us! We are here to help you plan your
-          next adventure.
-        </p>
+  <header class="page-title">
+    <h1>Get in Touch</h1>
+  </header>
 
-        <div class="info-details">
-          <div class="info-item">
-            <i class="fa-solid fa-phone"></i>
-            <span>Phone:</span>
-            <a href="tel:+911234567890">+91 629XX XXXXX</a>
-          </div>
-          <div class="info-item">
-            <i class="fa-solid fa-envelope"></i>
-            <span>Email:</span>
-            <a href="mailto:info@ruralretreats.com">support@ruralretreats.com</a>
-          </div>
-          <div class="info-item">
-            <i class="fa-solid fa-location-dot"></i>
-            <span>Address:</span>
-
-            <p>
-              University Institute Of Technology,
-              <br />
-              The University of Burdwan, Golapbag (North), Burdwan-713104,
-              <br />
-              West Bengal.
-            </p>
-          </div>
-        </div>
-
-        <div class="footer-social">
-          <h2>Follow Us</h2>
-          <div class="social-iconsss">
-            <a href="#" class="social-iconss" title="Facebook"><i class="fab fa-facebook"></i></a>
-            <a href="#" class="social-iconss" title="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="social-iconss" title="Twitter"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="social-iconss" title="GitHub"><i class="fab fa-github"></i></a>
-            <a href="#" class="social-iconss" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="#" class="social-iconss" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-
-          </div>
-        </div>
-      </div>
-
-      <div class="contact-form">
-        <h2>📧 Send Us a Message</h2>
-        <form id="contactForm">
-          <div class="form-group">
-            <input type="text" id="name" placeholder="Full Name" required />
-          </div>
-          <div class="form-group">
-            <input type="email" id="email" placeholder="Email Address" required />
-          </div>
-          <div class="form-group">
-            <input type="tel" id="phone" placeholder="Phone Number" maxlength="10" required />
-          </div>
-          <div class="form-group">
-            <textarea id="message" placeholder="Your Message" required></textarea>
-          </div>
-          <button type="submit" class="btn">Send Message</button>
-        </form>
-        <p class="form-status"></p>
-      </div>
+  <div class="main-content">
+    <div class="left">
+      <h2>Let’s Plan Your Rural Escape</h2>
+      <p>Have questions about our homestays, destinations, or bookings? We’re here to help you experience authentic
+        rural life. Reach out and we’ll guide you in planning your perfect getaway.</p>
+      <ul class="contact-info">
+        <li><span><i class="fa-solid fa-envelope"></i></span> support@ruralretreats.com</li>
+        <li><span><i class="fa-solid fa-phone"></i></span> +91 629XX XXXXX</li>
+        <li><span><i class="fa-solid fa-location-dot"></i></span> Q University Institute Of Technology, West Bengal</li>
+      </ul>
     </div>
 
-    <div class="map-container">
-      <h2>📌 Our Location on Map</h2>
-      <br />
-      <br />
-      <iframe title="University Institute Of Technology, BU Location"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d440.8922897465497!2d87.84638435772243!3d23.257253946971375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f8361a58dcc565%3A0x37a42f6b23df16cd!2sUniversity%20Institute%20Of%20Technology%2C%20BU!5e0!3m2!1sen!2sin!4v1739904222629!5m2!1sen!2sin"
-        class="map-iframe" allowfullscreen=""></iframe>
+    <div class="form-box">
+      <h2>Send us a Message</h2>
+      <form id="contactForm" method="POST">
+        <div class="row">
+          <input type="text" name="firstName" placeholder="First Name" required />
+          <input type="text" name="lastName" placeholder="Last Name" required />
+        </div>
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" placeholder="Write your message here..." required></textarea>
+
+        <!-- Web3Forms required hidden fields -->
+        <input type="hidden" name="access_key" value="REPLACE_WITH_YOUR_REAL_WEB3FORMS_KEY" />
+        <input type="hidden" name="from_name" value="Rural Retreats Contact Page" />
+        <input type="hidden" name="subject" value="New Contact Form Submission" />
+
+        <button type="submit" id="submitBtn">Send Message</button>
+        <p id="formStatus" class="form-status" aria-live="polite"></p>
+      </form>
     </div>
-  </section>
+  </div>
+
+  <!-- JS -->
+  <script>
+    // CONTACT FORM
+    const form = document.getElementById("contactForm");
+    const statusEl = document.getElementById("formStatus");
+    const submitBtn = document.getElementById("submitBtn");
+    let hideTimer;
+
+    function showStatus(message, type = "info", autoHideMs = 4000) {
+      clearTimeout(hideTimer);
+      statusEl.textContent = message;
+      statusEl.classList.add("show");
+      statusEl.style.color =
+        type === "error" ? "#ff5d5d" :
+          type === "success" ? "#2ecc71" :
+            "#ffd166";
+      if (autoHideMs) {
+        hideTimer = setTimeout(() => {
+          statusEl.classList.remove("show");
+          statusEl.textContent = "";
+        }, autoHideMs);
+      }
+    }
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      if (!form.access_key.value || form.access_key.value.includes("REPLACE_WITH")) {
+        showStatus("❌ Missing Web3Forms access key.", "error", 5000);
+        return;
+      }
+      submitBtn.disabled = true;
+      showStatus("Sending...", "info", 0);
+      try {
+        const formData = new FormData(form);
+        const response = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          body: formData,
+          headers: { Accept: "application/json" }
+        });
+        const data = await response.json();
+        if (data.success) {
+          showStatus("✅ Message sent successfully!", "success");
+          form.reset();
+        } else {
+          showStatus("❌ " + (data.message || "Please try again."), "error");
+        }
+      } catch (err) {
+        showStatus("❌ Network error.", "error");
+      } finally {
+        submitBtn.disabled = false;
+      }
+    });
+
+    // THEME TOGGLE (desktop + mobile)
+    const themeButtons = document.querySelectorAll("#theme-toggle, #mobile-theme-toggle");
+    const bodyEl = document.body;
+
+    function updateThemeIcons() {
+      themeButtons.forEach(btn => {
+        btn.innerHTML = bodyEl.classList.contains("dark")
+          ? '<i class="fas fa-sun"></i>'
+          : '<i class="fas fa-moon"></i>';
+      });
+    }
+
+    if (localStorage.getItem("theme") === "dark") {
+      bodyEl.classList.add("dark");
+    }
+    updateThemeIcons();
+
+    themeButtons.forEach(btn => {
+      btn?.addEventListener("click", () => {
+        bodyEl.classList.toggle("dark");
+        localStorage.setItem("theme", bodyEl.classList.contains("dark") ? "dark" : "light");
+        updateThemeIcons();
+      });
+    });
+  </script>
+
+  <div class="map-container">
+    <h2>📌 Our Location on Map</h2>
+    <br />
+    <br />
+    <iframe title="University Institute Of Technology, BU Location"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d440.8922897465497!2d87.84638435772243!3d23.257253946971375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f8361a58dcc565%3A0x37a42f6b23df16cd!2sUniversity%20Institute%20Of%20Technology%2C%20BU!5e0!3m2!1sen!2sin!4v1739904222629!5m2!1sen!2sin"
+      class="map-iframe" allowfullscreen=""></iframe>
+  </div>
 
   <footer class="footer">
     <div class="footer-container">
@@ -254,27 +619,18 @@
           </select>
         </div>
 
-          <div class="footer-section">
-            <h4>Newsletter</h4>
-            <p>Subscribe for exclusive travel deals!</p>
-            <div class="newsletter">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                id="newsletter-email"
-                required
-              />
-              <button
-                type="submit"
-                class="footer-newsletter-btn"
-                onclick="subscribeNewsletter()"
-              >
-                <b>Subscribe</b>
-              </button>
-            </div>
+        <div class="footer-section">
+          <h4>Newsletter</h4>
+          <p>Subscribe for exclusive travel deals!</p>
+          <div class="newsletter">
+            <input type="email" placeholder="Enter your email" id="newsletter-email" required />
+            <button type="submit" class="footer-newsletter-btn" onclick="subscribeNewsletter()">
+              <b>Subscribe</b>
+            </button>
           </div>
         </div>
       </div>
+    </div>
 
     <div class="footer-bottom">
       <p>
@@ -318,4 +674,5 @@
     </div>
   </div>
 </body>
+
 </html>

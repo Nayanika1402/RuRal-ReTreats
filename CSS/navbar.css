@@ -1,6 +1,55 @@
 body {
   padding-top: 8vh;
+  width: 100%;
 
+}
+
+/* User menu styles */
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.user-name {
+  color: #333;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.logout-btn {
+  background: #ff4757;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.logout-btn:hover {
+  background: #ff3742;
+}
+
+.mobile-user-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  text-align: center;
+}
+
+.mobile-user-name {
+  color: #333;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.logout-btn.mobile-only {
+  width: 100%;
+  margin-top: 5px;
 }
 
 .navbar {
@@ -15,3 +64,8 @@ body {
   backdrop-filter: blur(10px);
   z-index: 1000;
 }
+
+
+
+
+

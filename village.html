@@ -1,343 +1,493 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rural Retreats - Explore Indian Villages</title>
-  <meta name="description" content="Discover India's most beautiful villages – culture, food, festivals, and hidden gems. Explore Mawlynnong, Khonoma, Pragpur, Poovar, Hodka, Ziro, and more.">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rural Retreats - Explore Indian Villages</title>
+    <meta
+      name="description"
+      content="Discover India's most beautiful villages – culture, food, festivals, and hidden gems. Explore Mawlynnong, Khonoma, Pragpur, Poovar, Hodka, Ziro, and more."
+    />
 
-  <!-- Leaflet & Font Awesome -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-rXk8cOfefb7fAGkYH2hnV5QlBdLkdyHBB3rVzCzJG/nnlx4hjM+Rzwz1RO8pDqx8eRYnApvVpk5pWc8eqbt9Dw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Leaflet & Font Awesome -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      integrity="sha512-rXk8cOfefb7fAGkYH2hnV5QlBdLkdyHBB3rVzCzJG/nnlx4hjM+Rzwz1RO8pDqx8eRYnApvVpk5pWc8eqbt9Dw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #ffffff;
-      color: #333;
-      overflow-x: hidden;
-    }
+    <style>
+      body {
+        font-family: "Segoe UI", sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #ffffff;
+        color: #333;
+        overflow-x: hidden;
+      }
 
-    header {
-      text-align: center;
-      padding: 4rem 2rem;
-      background: linear-gradient(135deg, #0077b6, #ffffff, #0080ff);
-      color: #222;
-      position: relative;
-      overflow: hidden;
-    }
+      header {
+        text-align: center;
+        padding: 4rem 2rem;
+        background: linear-gradient(135deg, #0077b6, #ffffff, #0080ff);
+        color: #222;
+        position: relative;
+        overflow: hidden;
+      }
 
-    header h1 {
-      font-size: 3rem;
-      margin: 0;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
-    }
+      header h1 {
+        font-size: 3rem;
+        margin: 0;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+      }
 
-    header p {
-      font-size: 1.3rem;
-      margin-top: 1rem;
-      color: #444;
-    }
+      header p {
+        font-size: 1.3rem;
+        margin-top: 1rem;
+        color: #444;
+      }
 
-    .villages {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2rem;
-      padding: 3rem 2rem;
-      max-width: 1300px;
-      margin: auto;
-    }
+      .villages {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2rem;
+        padding: 3rem 2rem;
+        max-width: 1300px;
+        margin: auto;
+      }
 
-    .card {
-      background: #f9f9f9;
-      border-radius: 20px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-      overflow: hidden;
-      transform: scale(0.95);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+      .card {
+        background: #f9f9f9;
+        border-radius: 20px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transform: scale(0.95);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
 
-    .card img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      filter: brightness(0.95);
-    }
+      .card img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        filter: brightness(0.95);
+      }
 
-    .card-content {
-      padding: 1.5rem;
-    }
+      .card-content {
+        background: #fff;
+        padding: 20px;
+        border-radius: 16px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        font-family: "Segoe UI", Tahoma, sans-serif;
+        color: #333;
+      }
 
-    .card h2 {
-      margin: 0;
-      font-size: 1.8rem;
-      color: #ff6600;
-      margin-bottom: 0.5rem;
-    }
+      .card-content h2 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #2c3e50;
+        margin-bottom: 15px;
+        text-align: left;
+      }
 
-    .card p {
-      margin: 0.5rem 0;
-      line-height: 1.6;
-      font-size: 0.95rem;
-      color: #555;
-    }
+      .card-content ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
 
-    .card:hover {
-      transform: scale(1.03);
-      box-shadow: 0 15px 50px rgba(0,0,0,0.2);
-      background-color: #fff;
-    }
+      .card-content li {
+        padding: 8px 12px;
+        margin-bottom: 8px;
+        background: #f8f9fa;
+        border-left: 4px solid #4caf50;
+        border-radius: 8px;
+        transition: background 0.3s ease;
+      }
 
-  </style>
+      .card-content li:hover {
+        background: #eef9f0;
+      }
 
+      .card-content strong {
+        color: #1e8449;
+      }
+    </style>
 
+    <link rel="stylesheet" href="./CSS/about.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      /* ✅ Restore Grid for Villages */
+      .villages {
+        display: grid !important;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+        gap: 2rem !important;
+        padding: 3rem 2rem !important;
+        max-width: 1300px !important;
+        margin: auto !important;
+      }
 
-  <link rel="stylesheet" href="./CSS/about.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-<style>
- 
- 
+      /* ✅ Ensure Cards Show */
+      .card {
+        display: block !important;
+        position: relative !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: scale(0.95) !important;
+        transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>🇮🇳 Rural Retreats</h1>
+      <p>Experience the soul of India through its villages</p>
+    </header>
 
-
-  /* ✅ Restore Grid for Villages */
-  .villages {
-    display: grid !important;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
-    gap: 2rem !important;
-    padding: 3rem 2rem !important;
-    max-width: 1300px !important;
-    margin: auto !important;
-  }
-
-  /* ✅ Ensure Cards Show */
-  .card {
-    display: block !important;
-    position: relative !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: scale(0.95) !important;
-    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
-  }
-</style>
-
- 
-</head>
-<body>
-  <header>
-    <h1>🇮🇳 Rural Retreats</h1>
-    <p>Experience the soul of India through its villages</p>
-  </header>
-
-  <section class="villages">
-    <div class="card">
-      <img src="img/meghalaya-s-mawlynnong.jpg" alt="Scenic view of Mawlynnong village in Meghalaya">
-      <div class="card-content">
-        <h2>Mawlynnong, Meghalaya</h2>
-        <p><b>Why Visit:</b> Asia’s cleanest village 🌿</p>
-        <p><b>Language:</b> Khasi</p>
-        <p><b>Food:</b> Jadoh (rice with meat), bamboo shoot dishes</p>
-        <p><b>Culture:</b> Matrilineal society where women lead</p>
-        <p><b>Festival:</b> Wangala – harvest dance & music</p>
-        <p><b>Weather:</b> Misty mornings, monsoon magic 🌧️</p>
-        <p><b>Attraction:</b> Living root bridges & sky view tower</p>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="img/imgonline-com-ua-compressed-sDdq2b0ug8jvKY.webp" alt="Khonoma green village in Nagaland">
-      <div class="card-content">
-        <h2>Khonoma, Nagaland</h2>
-        <p><b>Why Visit:</b> India’s first green village 🌱</p>
-        <p><b>Language:</b> Angami</p>
-        <p><b>Food:</b> Smoked pork, axone chutney</p>
-        <p><b>Culture:</b> Proud warrior traditions</p>
-        <p><b>Festival:</b> Sekrenyi – cleansing rituals & dances</p>
-        <p><b>Weather:</b> Pleasantly cool all year</p>
-        <p><b>Attraction:</b> Nature trails & Angami heritage</p>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="img/Pragpur-Heritage-Village-Himachal-Pradesh.jpg" alt="Heritage streets of Pragpur in Himachal Pradesh">
-      <div class="card-content">
-        <h2>Pragpur, Himachal Pradesh</h2>
-        <p><b>Why Visit:</b> India’s first heritage village 🏛️</p>
-        <p><b>Language:</b> Hindi, Kangri</p>
-        <p><b>Food:</b> Himachali Dham feast</p>
-        <p><b>Culture:</b> Ancient mansions & cobblestone streets</p>
-        <p><b>Festival:</b> Lohri & Holi with folk dances</p>
-        <p><b>Weather:</b> Crisp winters & breezy summers</p>
-        <p><b>Attraction:</b> Heritage walks & craft bazaars</p>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="img/images (1).jpg" alt="Poovar backwaters in Kerala">
-      <div class="card-content">
-        <h2>Poovar, Kerala</h2>
-        <p><b>Why Visit:</b> Where river meets the sea 🌊</p>
-        <p><b>Language:</b> Malayalam</p>
-        <p><b>Food:</b> Appam with fish curry</p>
-        <p><b>Culture:</b> Backwater traditions & Ayurveda</p>
-        <p><b>Festival:</b> Onam with boat races</p>
-        <p><b>Weather:</b> Tropical, breezy evenings</p>
-        <p><b>Attraction:</b> Poovar backwaters, golden beach</p>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="img/hodka_gujrat.jpg" alt="Traditional mud huts in Hodka village, Gujarat">
-      <div class="card-content">
-        <h2>Hodka, Gujarat</h2>
-        <p><b>Why Visit:</b> Experience Rann Utsav 🎉</p>
-        <p><b>Language:</b> Kutchi, Gujarati</p>
-        <p><b>Food:</b> Bajra roti, Kachchhi dabeli</p>
-        <p><b>Culture:</b> Crafts, embroidery & mud huts</p>
-        <p><b>Festival:</b> White desert carnival</p>
-        <p><b>Weather:</b> Desert climate, starlit skies ✨</p>
-        <p><b>Attraction:</b> White Rann of Kutch & folk music</p>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="img/ziro.jpg" alt="Scenic view of Ziro valley in Arunachal Pradesh">
-      <div class="card-content">
-        <h2>Ziro, Arunachal Pradesh</h2>
-        <p><b>Why Visit:</b> UNESCO tentative heritage site 🌄</p>
-        <p><b>Language:</b> Apatani</p>
-        <p><b>Food:</b> Bamboo shoot pickle, rice beer</p>
-        <p><b>Culture:</b> Apatani tribe with unique farming techniques</p>
-        <p><b>Festival:</b> Ziro Festival of Music 🎶</p>
-        <p><b>Weather:</b> Pleasant summers, chilly winters</p>
-        <p><b>Attraction:</b> Pine-clad valleys & cultural immersion</p>
-      </div>
-    </div>
-  </section>
-
-
-  <footer class="footer">
-    <div class="footer-container">
-      <div class="footer-row">
-        <div class="footer-section about">
-          <h3 class="footer-title">Rural Retreats</h3>
-          <p>We offer budget-friendly tours, curated travel experiences, and luxury escapes worldwide.</p>
-        </div>
-
-        <div class="footer-section links">
-          <h4>Quick Links</h4>
+    <section class="villages">
+      <div class="card">
+        <img
+          src="img/meghalaya-s-mawlynnong.jpg"
+          alt="Scenic view of Mawlynnong village in Meghalaya"
+        />
+        <div class="card-content">
+          <h2>🌿 Mawlynnong, Meghalaya</h2>
           <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="homestays.html">Hotels & Homestays</a></li>
-            <li><a href="#blog-highlights">Travel Guides</a></li>
-            <li><a href="faq.html">FAQs</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
+            <li><strong>Why Visit:</strong> Asia’s cleanest village</li>
+            <li><strong>Language:</strong> Khasi 🗣️</li>
+            <li>
+              <strong>Food:</strong> Jadoh (rice with meat), bamboo shoot dishes
+              🍲
+            </li>
+            <li>
+              <strong>Culture:</strong> Matrilineal society where women lead 👩‍👩‍👧
+            </li>
+            <li>
+              <strong>Festival:</strong> Wangala – harvest dance & music 🎶
+            </li>
+            <li><strong>Weather:</strong> Misty mornings, monsoon magic 🌧️</li>
+            <li>
+              <strong>Attraction:</strong> Living root bridges & sky view tower
+              🌉
+            </li>
           </ul>
         </div>
+      </div>
 
-        <div class="footer-section contact">
-          <h4>Customer Support</h4>
-          <p>Email: <a href="mailto:support@ruralretreats.com">support@ruralretreats.com</a></p>
-          <p>Phone: <a href="tel:+91629XXXXXXX">+91 629XX XXXXX</a></p>
-          <p>Address: Q University Institute Of Technology, Burdwan-713104, West Bengal</p>
+      <div class="card">
+        <img
+          src="img/imgonline-com-ua-compressed-sDdq2b0ug8jvKY.webp"
+          alt="Khonoma green village in Nagaland"
+        />
+        <div class="card-content">
+          <h2>🌱 Khonoma, Nagaland</h2>
+          <ul>
+            <li><strong>Why Visit:</strong> India’s first green village</li>
+            <li><strong>Language:</strong> Angami 🗣️</li>
+            <li><strong>Food:</strong> Smoked pork, axone chutney 🍲</li>
+            <li><strong>Culture:</strong> Proud warrior traditions ⚔️</li>
+            <li>
+              <strong>Festival:</strong> Sekrenyi – cleansing rituals & dances
+              🎶
+            </li>
+            <li><strong>Weather:</strong> Pleasantly cool all year ❄️</li>
+            <li>
+              <strong>Attraction:</strong> Nature trails & Angami heritage 🌿
+            </li>
+          </ul>
         </div>
       </div>
 
-      <div class="footer-row">
-        <div class="footer-section social-media">
-          <h4>Follow Us</h4>
-          <div class="social-icons">
-            <a href="#" class="youtube" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
-            <a href="#" class="instagram" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#" class="twitter" title="Twitter"><i class="fa-brands fa-twitter"></i></a>
-            <a href="#" class="linkedin" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+      <div class="card">
+        <img
+          src="img/Pragpur-Heritage-Village-Himachal-Pradesh.jpg"
+          alt="Heritage streets of Pragpur in Himachal Pradesh"
+        />
+        <div class="card-content">
+          <h2>🏛️ Pragpur, Himachal Pradesh</h2>
+          <ul>
+            <li><strong>Why Visit:</strong> India’s first heritage village</li>
+            <li><strong>Language:</strong> Hindi, Kangri 🗣️</li>
+            <li><strong>Food:</strong> Himachali Dham feast 🍲</li>
+            <li>
+              <strong>Culture:</strong> Ancient mansions & cobblestone streets
+              🏘️
+            </li>
+            <li><strong>Festival:</strong> Lohri & Holi with folk dances 🎶</li>
+            <li>
+              <strong>Weather:</strong> Crisp winters & breezy summers ❄️☀️
+            </li>
+            <li>
+              <strong>Attraction:</strong> Heritage walks & craft bazaars 🛍️
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="img/images (1).jpg" alt="Poovar backwaters in Kerala" />
+        <div class="card-content">
+          <h2>🌊 Poovar, Kerala</h2>
+          <ul>
+            <li><strong>Why Visit:</strong> Where river meets the sea</li>
+            <li><strong>Language:</strong> Malayalam 🗣️</li>
+            <li><strong>Food:</strong> Appam with fish curry 🍛</li>
+            <li>
+              <strong>Culture:</strong> Backwater traditions & Ayurveda 🌿
+            </li>
+            <li><strong>Festival:</strong> Onam with boat races 🚣‍♂️</li>
+            <li><strong>Weather:</strong> Tropical, breezy evenings 🌴</li>
+            <li>
+              <strong>Attraction:</strong> Poovar backwaters, golden beach 🏖️
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <img
+          src="img/hodka_gujrat.jpg"
+          alt="Traditional mud huts in Hodka village, Gujarat"
+        />
+        <div class="card-content">
+          <h2>🎉 Hodka, Gujarat</h2>
+          <ul>
+            <li><strong>Why Visit:</strong> Experience Rann Utsav</li>
+            <li><strong>Language:</strong> Kutchi, Gujarati 🗣️</li>
+            <li><strong>Food:</strong> Bajra roti, Kachchhi dabeli 🍴</li>
+            <li><strong>Culture:</strong> Crafts, embroidery & mud huts 🏡</li>
+            <li><strong>Festival:</strong> White desert carnival 🎶</li>
+            <li><strong>Weather:</strong> Desert climate, starlit skies ✨</li>
+            <li>
+              <strong>Attraction:</strong> White Rann of Kutch & folk music 🏜️
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <img
+          src="img/ziro.jpg"
+          alt="Scenic view of Ziro valley in Arunachal Pradesh"
+        />
+        <div class="card-content">
+          <h2>🌄 Ziro, Arunachal Pradesh</h2>
+          <ul>
+            <li><strong>Why Visit:</strong> UNESCO tentative heritage site</li>
+            <li><strong>Language:</strong> Apatani 🗣️</li>
+            <li><strong>Food:</strong> Bamboo shoot pickle, rice beer 🍲</li>
+            <li>
+              <strong>Culture:</strong> Apatani tribe with unique farming
+              techniques 🌾
+            </li>
+            <li><strong>Festival:</strong> Ziro Festival of Music 🎶</li>
+            <li>
+              <strong>Weather:</strong> Pleasant summers, chilly winters ❄️☀️
+            </li>
+            <li>
+              <strong>Attraction:</strong> Pine-clad valleys & cultural
+              immersion 🌲
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-row">
+          <div class="footer-section about">
+            <h3 class="footer-title">Rural Retreats</h3>
+            <p>
+              We offer budget-friendly tours, curated travel experiences, and
+              luxury escapes worldwide.
+            </p>
+          </div>
+
+          <div class="footer-section links">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="homestays.html">Hotels & Homestays</a></li>
+              <li><a href="#blog-highlights">Travel Guides</a></li>
+              <li><a href="faq.html">FAQs</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section contact">
+            <h4>Customer Support</h4>
+            <p>
+              Email:
+              <a href="mailto:support@ruralretreats.com"
+                >support@ruralretreats.com</a
+              >
+            </p>
+            <p>Phone: <a href="tel:+91629XXXXXXX">+91 629XX XXXXX</a></p>
+            <p>
+              Address: Q University Institute Of Technology, Burdwan-713104,
+              West Bengal
+            </p>
           </div>
         </div>
 
-        <div class="footer-section language-selector">
-          <h4>Language</h4>
-          <label for="language-select">Choose Language:</label>
-          <select id="language-select">
-            <option>English</option>
-            <option>Bengali</option>
-            <option>Hindi</option>
-            <option>French</option>
-            <option>Spanish</option>
-            <option>German</option>
-          </select>
-        </div>
+        <div class="footer-row">
+          <div class="footer-section social-media">
+            <h4>Follow Us</h4>
+            <div class="social-icons">
+              <a href="#" class="youtube" title="YouTube"
+                ><i class="fa-brands fa-youtube"></i
+              ></a>
+              <a href="#" class="instagram" title="Instagram"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+              <a href="#" class="twitter" title="Twitter"
+                ><i class="fa-brands fa-twitter"></i
+              ></a>
+              <a href="#" class="linkedin" title="LinkedIn"
+                ><i class="fa-brands fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
 
-        <div class="footer-section">
-          <h4>Newsletter</h4>
-          <p>Subscribe for exclusive travel deals!</p>
-          <div class="newsletter">
-            <input type="email" placeholder="Enter your email" id="newsletter-email" required />
-            <button type="submit" class="footer-newsletter-btn" onclick="subscribeNewsletter()"><b>Subscribe</b></button>
+          <div class="footer-section language-selector">
+            <h4>Language</h4>
+            <label for="language-select">Choose Language:</label>
+            <select id="language-select">
+              <option>English</option>
+              <option>Bengali</option>
+              <option>Hindi</option>
+              <option>French</option>
+              <option>Spanish</option>
+              <option>German</option>
+            </select>
+          </div>
+
+          <div class="footer-section">
+            <h4>Newsletter</h4>
+            <p>Subscribe for exclusive travel deals!</p>
+            <div class="newsletter">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                id="newsletter-email"
+                required
+              />
+              <button
+                type="submit"
+                class="footer-newsletter-btn"
+                onclick="subscribeNewsletter()"
+              >
+                <b>Subscribe</b>
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="footer-bottom">
-      <p>&copy; 2025 Rural Retreats. All rights reserved. |
-        <a href="pp.html">Privacy Policy</a> |
-        <a href="t&c.html">Terms & Conditions</a>
-      </p>
-    </div>
-  </footer>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 Rural Retreats. All rights reserved. |
+          <a href="pp.html">Privacy Policy</a> |
+          <a href="t&c.html">Terms & Conditions</a>
+        </p>
+      </div>
+    </footer>
 
-  <button id="backToTop" class="back-to-top-btn" aria-label="Go to top">↑</button>
+    <button id="backToTop" class="back-to-top-btn" aria-label="Go to top">
+      ↑
+    </button>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
-  <script>
-    gsap.from("header h1", { y: -100, opacity: 0, duration: 1, ease: "bounce" });
-    gsap.from("header p", { y: 50, opacity: 0, duration: 1.2, delay: 0.5, ease: "power2.out" });
-
-    gsap.utils.toArray(".card").forEach((card, i) => {
-      gsap.from(card, {
-        scrollTrigger: { trigger: card, start: "top 85%" },
+    <script>
+      gsap.from("header h1", {
+        y: -100,
         opacity: 0,
-        y: 80,
         duration: 1,
-        delay: i * 0.1,
-        ease: "power3.out"
+        ease: "bounce",
       });
-    });
+      gsap.from("header p", {
+        y: 50,
+        opacity: 0,
+        duration: 1.2,
+        delay: 0.5,
+        ease: "power2.out",
+      });
 
-    gsap.from(".map-section", {
-      scrollTrigger: { trigger: ".map-section", start: "top 90%" },
-      opacity: 0,
-      y: 100,
-      duration: 1.2,
-      ease: "power3.out"
-    });
+      gsap.utils.toArray(".card").forEach((card, i) => {
+        gsap.from(card, {
+          scrollTrigger: { trigger: card, start: "top 85%" },
+          opacity: 0,
+          y: 80,
+          duration: 1,
+          delay: i * 0.1,
+          ease: "power3.out",
+        });
+      });
 
-    var map = L.map("map").setView([22.9734, 78.6569], 5);
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      attribution: "&copy; OpenStreetMap contributors"
-    }).addTo(map);
+      gsap.from(".map-section", {
+        scrollTrigger: { trigger: ".map-section", start: "top 90%" },
+        opacity: 0,
+        y: 100,
+        duration: 1.2,
+        ease: "power3.out",
+      });
 
-    var villages = [
-      { name: "Mawlynnong, Meghalaya", coords: [25.2976, 91.7196], info: "Asia’s cleanest village 🌿" },
-      { name: "Khonoma, Nagaland", coords: [25.6742, 94.0700], info: "India’s first green village 🌱" },
-      { name: "Pragpur, Himachal Pradesh", coords: [31.8236, 76.2181], info: "India’s first heritage village 🏛️" },
-      { name: "Poovar, Kerala", coords: [8.3167, 77.0833], info: "Where river meets the sea 🌊" },
-      { name: "Hodka, Gujarat", coords: [23.7337, 69.6476], info: "Experience Rann Utsav 🎉" },
-      { name: "Ziro, Arunachal Pradesh", coords: [27.5938, 93.8196], info: "UNESCO tentative heritage site 🌄" }
-    ];
+      var map = L.map("map").setView([22.9734, 78.6569], 5);
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: "&copy; OpenStreetMap contributors",
+      }).addTo(map);
 
-    villages.forEach(v => {
-      L.marker(v.coords).addTo(map)
-        .bindPopup("<b>" + v.name + "</b><br>" + v.info);
-    });
-  </script>
-</body>
+      var villages = [
+        {
+          name: "Mawlynnong, Meghalaya",
+          coords: [25.2976, 91.7196],
+          info: "Asia’s cleanest village 🌿",
+        },
+        {
+          name: "Khonoma, Nagaland",
+          coords: [25.6742, 94.07],
+          info: "India’s first green village 🌱",
+        },
+        {
+          name: "Pragpur, Himachal Pradesh",
+          coords: [31.8236, 76.2181],
+          info: "India’s first heritage village 🏛️",
+        },
+        {
+          name: "Poovar, Kerala",
+          coords: [8.3167, 77.0833],
+          info: "Where river meets the sea 🌊",
+        },
+        {
+          name: "Hodka, Gujarat",
+          coords: [23.7337, 69.6476],
+          info: "Experience Rann Utsav 🎉",
+        },
+        {
+          name: "Ziro, Arunachal Pradesh",
+          coords: [27.5938, 93.8196],
+          info: "UNESCO tentative heritage site 🌄",
+        },
+      ];
+
+      villages.forEach((v) => {
+        L.marker(v.coords)
+          .addTo(map)
+          .bindPopup("<b>" + v.name + "</b><br>" + v.info);
+      });
+    </script>
+  </body>
 </html>

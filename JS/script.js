@@ -578,6 +578,36 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+// --- Newsletter Email Validation START ---
+const emailInput = document.getElementById("newsletter-email");
+const errorDiv = document.getElementById("newsletter-email-error");
+
+// Reserve space for one line
+Object.assign(errorDiv.style, {
+  minHeight: "1.5em",
+  maxHeight: "1.5em",
+  overflow: "hidden"
+});
+
+// Email regex check
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+// Real-time validation 
+emailInput.addEventListener("input", () => {
+  const email = emailInput.value.trim();
+
+  if (!email) {
+    errorDiv.textContent = "";
+    errorDiv.className = ""; // remove previous class
+    return;
+  }
+
+  const isValid = emailPattern.test(email);
+  errorDiv.textContent = isValid ? "✅ Looks good!" : "❌ Invalid email format";
+  errorDiv.className = isValid ? "valid" : "invalid";
+});
+// --- Newsletter Email Validation END ---
+
 document.addEventListener("DOMContentLoaded", function () {
   // ❌ OLD SEARCH SYSTEM COMPLETELY DISABLED
   // Enhanced search popup system handles all search functionality

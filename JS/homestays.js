@@ -313,15 +313,76 @@ document.addEventListener("DOMContentLoaded", function () {
         bookingConfirmationModal.classList.add("show");
     }
     function confirmBooking() {
-        const referenceNumber = Math.floor(100000 + Math.random() * 900000);
-        bookingReferenceNumber.textContent = referenceNumber;
-        confirmationMessage.style.display = "block";
-        setTimeout(() => {
-            bookingConfirmationModal.classList.remove("show");
-            confirmationMessage.style.display = "none";
-            bookingForm.reset();
-            priceDisplay.textContent = "₹0.00";
-        }, 4000);
+        // Get booking details
+        const checkIn = checkInDate.value;
+        const checkOut = checkOutDate.value;
+        const guests = parseInt(guestCount.value, 10);
+        const room = roomType.value;
+        const location = selectedLocation.value;
+        const requests = specialRequests.value || "None";
+        
+        // Calculate total amount
+        const checkInDateObj = new Date(checkIn);
+        const checkOutDateObj = new Date(checkOut);
+        const days = (checkOutDateObj - checkInDateObj) / (1000 * 60 * 60 * 24);
+        
+        const roomPrices = {
+            deluxe: 3000,
+            suite: 5000,
+            cottage: 7000,
+            villa: 10000
+        };
+        
+        const baseAmount = (roomPrices[room] || 0) * days + guests * 500;
+        const gstAmount = Math.round(baseAmount * 0.12); // 12% GST for accommodation
+        const totalAmount = baseAmount + gstAmount;
+        
+        // Create homestay booking data
+        const homestayBookingData = {
+            stay: {
+                location: location,
+                checkIn: checkIn,
+                checkOut: checkOut,
+                days: days
+            },
+            room: {
+                type: room,
+                guests: guests
+            },
+            pricing: {
+                baseAmount: baseAmount,
+                gstAmount: gstAmount,
+                totalAmount: totalAmount
+            },
+            specialRequests: requests,
+            customerDetails: {
+                // These will be collected in the payment handler
+                name: '',
+                email: '',
+                phone: ''
+            }
+        };
+
+        // Close the modal first
+        bookingConfirmationModal.classList.remove("show");
+        
+        // Initialize PaymentHandler if not available
+        if (typeof PaymentHandler === 'undefined') {
+            console.log('Loading PaymentHandler...');
+            const script = document.createElement('script');
+            script.src = './JS/payment-handler.js';
+            script.onload = function() {
+                const paymentHandler = new PaymentHandler();
+                paymentHandler.processHomestayPayment(homestayBookingData);
+            };
+            script.onerror = function() {
+                alert('Payment system could not be loaded. Please try again.');
+            };
+            document.head.appendChild(script);
+        } else {
+            const paymentHandler = new PaymentHandler();
+            paymentHandler.processHomestayPayment(homestayBookingData);
+        }
     }
     function closeModal() {
         bookingConfirmationModal.classList.remove("show");

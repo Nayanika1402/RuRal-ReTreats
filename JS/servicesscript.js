@@ -428,68 +428,80 @@ document.addEventListener("DOMContentLoaded", function () {
         const email = document.getElementById("email").value.trim();
         const adults = document.getElementById("adults").value;
         const children = document.getElementById("children").value;
+
         if (!name || !phone || !email || !adults || !children) {
             alert("Please fill in all passenger details before proceeding.");
             return;
         }
+
+        // Validate email format
+        if (!/\S+@\S+\.\S+/.test(email)) {
+            alert('Please enter a valid email address.');
+            return;
+        }
+
         const finalPrice = parseFloat(priceInput.value.replace("₹", ""));
-        const pnr = "PNR" + Math.floor(100000 + Math.random() * 900000);
         let selectedAmenities = [];
         let totalAmenitiesCost = 0;
         amenitiesCheckboxes.forEach(checkbox => {
             if (checkbox.checked) {
-                selectedAmenities.push(`${checkbox.value} (₹${amenitiesPricing[checkbox.value]})`);
+                selectedAmenities.push(checkbox.value);
                 totalAmenitiesCost += amenitiesPricing[checkbox.value] || 0;
             }
         });
-        let selectedAmenitiesText = selectedAmenities.length > 0 ? selectedAmenities.join(", ") : "None";
-        const gstRate = 18;
-        const gstAmount = (finalPrice * gstRate) / 100;
-        const totalInvoiceValue = finalPrice + gstAmount + totalAmenitiesCost;
-        const ticketContent = `
-        ======================================================
-                 🚌  RURAL RETREATS BUS TICKET  🎟️
-        ======================================================
-        🆔  **PNR No:**        ${pnr}
-        📍  **FROM:**          ${fromSelect.value}  
-        🎯  **TO:**            ${toSelect.value}
-        🚌  **BUS TYPE:**      ${busTypeSelect.value}
-        📅  **DATE:**          ${document.getElementById("date").value}  
-        ⏰  **TIME:**          ${document.getElementById("time").value}
-        =====================================================
-                      📄  PASSENGER DETAILS
-        =====================================================
-        👤  **NAME:**          ${name}
-        📞  **PHONE:**         ${document.getElementById("phone").value}
-        📧  **EMAIL:**         ${document.getElementById("email").value}
-        👥  **ADULTS:**        ${document.getElementById("adults").value}    
-        🧒  **CHILDREN:**      ${document.getElementById("children").value}
-        =====================================================
-                  🚏  BUS OPERATOR INFORMATION
-        =====================================================
-        🏢  **OPERATOR NAME:**  Rural Retreats Travels Pvt Ltd
-        📍  **ADDRESS:**         University Institute Of Technology, 
-                                 The University of Burdwan, Golapbag (North),    
-                                 Burdwan-713104, West Bengal.
-        📞  **CONTACT:**        +91 62XXX XXXXX
-        =====================================================
-                     💰  PAYMENT BREAKDOWN
-        =====================================================
-        💲  **BASE FARE:**          ₹${(finalPrice - totalAmenitiesCost).toFixed(2)}
-        💲  **SELECTED AMENITIES:** ${selectedAmenitiesText}
-        💲  **AMENITIES COST:**     ₹${totalAmenitiesCost.toFixed(2)}
-        💲  **GST (${gstRate}%):**    ₹${gstAmount.toFixed(2)}
-        -----------------------------------------------------
-        🏷  **TOTAL INVOICE VALUE:**  ₹${totalInvoiceValue.toFixed(2)}
-                ✅  **BOOKING CONFIRMED!**  🎉
-            THANK YOU FOR CHOOSING RURAL RETREATS!
-        =====================================================
-        `;
-        const blob = new Blob([ticketContent], { type: "text/plain" });
-        const anchor = document.createElement("a");
-        anchor.href = URL.createObjectURL(blob);
-        anchor.download = `Bus_Ticket_${name.replace(/\s+/g, "_")}.txt`;
-        anchor.click();
+
+        const gstRate = 5; // 5% GST for transportation
+        const subtotal = finalPrice + totalAmenitiesCost;
+        const gstAmount = Math.round(subtotal * 0.05);
+        const totalAmount = subtotal + gstAmount;
+
+        // Create booking data for payment
+        const busBookingData = {
+            journey: {
+                from: fromSelect.value,
+                to: toSelect.value,
+                date: document.getElementById("date").value,
+                time: document.getElementById("time").value
+            },
+            busDetails: {
+                type: busTypeSelect.value,
+                amenities: selectedAmenities
+            },
+            passengers: {
+                adults: parseInt(adults),
+                children: parseInt(children)
+            },
+            pricing: {
+                baseFare: finalPrice - totalAmenitiesCost,
+                fareAmount: finalPrice,
+                amenitiesCost: totalAmenitiesCost,
+                gstAmount: gstAmount,
+                totalAmount: totalAmount
+            },
+            customerDetails: {
+                name: name,
+                email: email,
+                phone: phone
+            }
+        };
+
+        // Initialize PaymentHandler if not available
+        if (typeof PaymentHandler === 'undefined') {
+            console.log('Loading PaymentHandler...');
+            const script = document.createElement('script');
+            script.src = './JS/payment-handler.js';
+            script.onload = function() {
+                const paymentHandler = new PaymentHandler();
+                paymentHandler.processBusPayment(busBookingData);
+            };
+            script.onerror = function() {
+                alert('Payment system could not be loaded. Please try again.');
+            };
+            document.head.appendChild(script);
+        } else {
+            const paymentHandler = new PaymentHandler();
+            paymentHandler.processBusPayment(busBookingData);
+        }
     });
 });
 document.addEventListener("DOMContentLoaded", function () {
@@ -500,7 +512,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let currentIndex = 0;
     function updateCarousel() {
         const cardWidth = packageCards[0].offsetWidth;
-        carouselWrapper.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+        carouselWrapper.style.transform = "translateX(0)";
     }
     nextBtn.addEventListener("click", function () {
         if (currentIndex < packageCards.length - 1) {
@@ -615,4 +627,222 @@ function fixGoogleTranslateStyles() {
     });
 }
 window.addEventListener("load", loadGoogleTranslate);
+
+// Holiday Package Booking Functionality
+document.addEventListener("DOMContentLoaded", function() {
+    console.log('Services script loaded');
+    
+    // Wait a bit for DOM to be fully ready
+    setTimeout(function() {
+        // Add click handlers for all Book Now buttons
+        const bookButtons = document.querySelectorAll('.book-btn');
+        console.log('Found book buttons:', bookButtons.length);
+        
+        if (bookButtons.length === 0) {
+            console.error('No book buttons found! Checking selectors...');
+            const allLinks = document.querySelectorAll('a');
+            console.log('All links found:', allLinks.length);
+            allLinks.forEach((link, i) => {
+                if (link.textContent.includes('Book Now')) {
+                    console.log('Found Book Now link:', i, link);
+                }
+            });
+        }
+        
+        bookButtons.forEach((button, index) => {
+            console.log('Adding listener to button', index, button);
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                console.log('Book button clicked!');
+                
+                // Check if user is logged in first
+                const authToken = localStorage.getItem('authToken');
+                if (!authToken) {
+                    alert('Please login to book a package');
+                    window.location.href = 'login.html';
+                    return;
+                }
+                
+                // Get package details from the parent card
+                const packageCard = this.closest('.package-card');
+                if (!packageCard) {
+                    console.error('Package card not found');
+                    return;
+                }
+                
+                const packageTitle = packageCard.querySelector('h2').textContent;
+                const packagePriceElement = packageCard.querySelector('.price strong');
+                const packageDurationElement = packageCard.querySelector('p');
+                
+                if (!packagePriceElement || !packageDurationElement) {
+                    console.error('Package details not found');
+                    return;
+                }
+                
+                const packagePrice = packagePriceElement.textContent;
+                const packageDuration = packageDurationElement.textContent;
+                
+                // Create booking data
+                const bookingData = {
+                    type: 'package',
+                    title: packageTitle,
+                    price: packagePrice,
+                    duration: packageDuration,
+                    amount: parseFloat(packagePrice.replace('₹', '').replace(',', ''))
+                };
+                
+                console.log('Booking data:', bookingData);
+                
+                // Show confirmation and proceed with payment
+                if (confirm(`Book ${packageTitle} for ${packagePrice}?`)) {
+                    initiatePackagePayment(bookingData);
+                }
+            });
+        });
+        
+        // Also add a global click listener to test
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('book-btn') || e.target.textContent.includes('Book Now')) {
+                console.log('Global click detected on book button');
+            }
+        });
+    }, 1000);
+});
+
+function initiatePackagePayment(bookingData) {
+    console.log('Initiating payment for:', bookingData);
+    
+    // Check if PaymentHandler is available
+    if (typeof PaymentHandler === 'undefined') {
+        console.log('PaymentHandler not found, loading script...');
+        // Load payment handler script dynamically
+        const script = document.createElement('script');
+        script.src = './JS/payment-handler.js';
+        script.onload = function() {
+            console.log('Payment handler script loaded');
+            processPackagePayment(bookingData);
+        };
+        script.onerror = function() {
+            console.error('Failed to load payment handler script');
+            showBookingError('Payment system could not be loaded. Please try again.');
+        };
+        document.head.appendChild(script);
+    } else {
+        console.log('PaymentHandler available, processing payment...');
+        processPackagePayment(bookingData);
+    }
+}
+
+async function processPackagePayment(bookingData) {
+    try {
+        console.log('Creating PaymentHandler instance...');
+        
+        // First, test if the server is running
+        try {
+            const healthCheck = await fetch('http://localhost:3001/health');
+            if (!healthCheck.ok) {
+                throw new Error('Server not responding');
+            }
+            console.log('Server health check passed');
+        } catch (serverError) {
+            console.error('Server connection error:', serverError);
+            showBookingError('Server is not running. Please start the server first.');
+            return;
+        }
+        
+        const paymentHandler = new PaymentHandler();
+        
+        // Get user data from localStorage if available
+        const userData = JSON.parse(localStorage.getItem('user') || '{}');
+        
+        // Create package data in the format expected by PaymentHandler
+        const packageData = {
+            packageName: bookingData.title,
+            pricing: {
+                totalAmount: bookingData.amount // Amount should already be in rupees, not paise
+            },
+            customerName: userData.username || userData.name || 'Guest User',
+            email: userData.email || 'guest@example.com',
+            phone: userData.phone || '9999999999',
+            bookingType: 'package'
+        };
+        
+        console.log('Package data:', packageData);
+        
+        // Use the correct method name from PaymentHandler
+        await paymentHandler.processPackagePayment(packageData);
+        
+    } catch (error) {
+        console.error('Payment processing error:', error);
+        showBookingError('Payment system error: ' + error.message);
+    }
+}
+
+function showBookingSuccess(bookingData, paymentResponse) {
+    const modal = document.createElement('div');
+    modal.className = 'booking-success-modal';
+    modal.innerHTML = `
+        <div class="modal-content">
+            <div class="success-header">
+                <h2>🎉 Booking Confirmed!</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="booking-details">
+                <h3>${bookingData.title}</h3>
+                <p><strong>Duration:</strong> ${bookingData.duration}</p>
+                <p><strong>Amount Paid:</strong> ${bookingData.price}</p>
+                <p><strong>Payment ID:</strong> ${paymentResponse.razorpay_payment_id}</p>
+                <p><strong>Booking Reference:</strong> PKG${Date.now()}</p>
+            </div>
+            <div class="next-steps">
+                <p>📧 Confirmation email will be sent shortly</p>
+                <p>📞 Our team will contact you within 24 hours</p>
+            </div>
+            <button class="close-btn" onclick="closeBookingModal()">Close</button>
+        </div>
+    `;
+    
+    modal.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 10000;
+    `;
+    
+    modal.querySelector('.modal-content').style.cssText = `
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        max-width: 500px;
+        width: 90%;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    `;
+    
+    document.body.appendChild(modal);
+    
+    // Close modal handlers
+    modal.querySelector('.close-modal').onclick = closeBookingModal;
+    modal.querySelector('.close-btn').onclick = closeBookingModal;
+    modal.onclick = function(e) {
+        if (e.target === modal) closeBookingModal();
+    };
+}
+
+function showBookingError(errorMessage) {
+    alert(`Booking failed: ${errorMessage}`);
+}
+
+function closeBookingModal() {
+    const modal = document.querySelector('.booking-success-modal');
+    if (modal) {
+        modal.remove();
+    }
+}
 

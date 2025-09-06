@@ -61,7 +61,7 @@
     <link rel="apple-touch-icon" sizes="120x120" href="./favicon/favicon-120x120.png" type="image/png" />
     <link rel="apple-touch-icon" sizes="144x144" href="./favicon/favicon-144x144.png" type="image/png" />
     <link rel="apple-touch-icon" sizes="152x152" href="./favicon/favicon-152x152.png" type="image/png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/favicon_180x180.png" type="image/png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/favicon-180x180.png" type="image/png" />
     <link rel="icon" sizes="16x16" href="./favicon/favicon-16x16.png" type="image/png" />
     <link rel="icon" sizes="32x32" href="./favicon/favicon-32x32.png" type="image/png" />
     <link rel="icon" sizes="96x96" href="./favicon/favicon-96x96.png" type="image/png" />
@@ -101,7 +101,8 @@
     <script defer src="./JS/splash.js"></script>
     <script defer src="./JS/enhanced-search-popup.js"></script>
     <script defer src="./JS/navbar.js"></script>
-    
+    <script defer src="./JS/newsletter-validation.js"></script>
+
     <!-- Structured Data - Organization -->
     <script type="application/ld+json">
     {
@@ -110,7 +111,7 @@
       "name": "Rural Retreats",
       "alternateName": "RuralRetreats",
       "url": "https://ruralretreats.com",
-      "logo": "https://ruralretreats.com/favicon/favicon_192x192.png",
+      "logo": "https://ruralretreats.com/favicon/favicon-192x192.png",
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+91-629XX-XXXXX",
@@ -1063,6 +1064,7 @@
                 <b>Subscribe</b>
               </button>
             </div>
+            <div id="newsletter-email-error"></div>
           </div>
         </div>
       </div>
@@ -1113,9 +1115,8 @@
         Rural Retreats - Your gateway to authentic homestays and cultural tourism experiences across India. 
         Discover peaceful villages, stunning landscapes, and warm hospitality while supporting sustainable tourism.
     </div>
-
-    
-    
-
-</body>
+    <div class="package-card enhanced-package" data-package-id="rustic-village" style="background-image: url('https://miro.medium.com/v2/resize:fit:640/format:webp/1*RIkyhoNh5ZDPQDri.jpg')"></div>
+    <script src="./JS/payment-handler.js" defer></script>
+    <script src="./JS/homestays-payment.js" defer></script>
+  </body>
 </html>

@@ -5,6 +5,9 @@
     "express": "^4.18.2",
     "bcryptjs": "^2.4.3",
     "jsonwebtoken": "^9.0.2",
-    "validator": "^13.11.0"
+    "validator": "^13.11.0",
+    "razorpay": "^2.9.2",
+    "crypto": "^1.0.1",
+    "cors": "^2.8.5"
   }
 }

@@ -4221,6 +4221,19 @@ body {
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.28);
 }
 
+/* --- Newsletter Email Error Styles START --- */
+#newsletter-email-error {
+  color: #00bcd4;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+#newsletter-email-error.valid,
+#newsletter-email-error.invalid {
+  color: #00bcd4;
+}
+/* --- Newsletter Email Error Styles END --- */
+
 .footer-bottom {
   text-align: center;
   padding-top: 18px;
