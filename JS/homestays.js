@@ -231,18 +231,24 @@ document.addEventListener("DOMContentLoaded", function () {
         const selectedRating = ratingFilter.value;
         const selectedAvailability = availabilityFilter.value;
         const selectedSort = sortBy.value;
+        // Get selected amenities
+        const amenitiesCheckboxes = document.querySelectorAll('#amenitiesFilter input[type="checkbox"]:checked');
+        const selectedAmenities = Array.from(amenitiesCheckboxes).map(cb => cb.value);
         let filteredCards = Array.from(homestayCards).filter(card => {
             const cardPrice = parseInt(card.dataset.price, 10);
             const cardBedrooms = card.dataset.bedrooms;
             const cardLocation = card.dataset.location;
             const cardRating = parseFloat(card.dataset.rating);
             const cardStatus = card.dataset.status;
+            // Get amenities from card
+            const amenitiesList = Array.from(card.querySelectorAll('.amenities li')).map(li => li.textContent.trim());
             let matchesLocation = selectedLocation === "all" || cardLocation === selectedLocation;
             let matchesPrice = cardPrice <= selectedPrice;
             let matchesBedrooms = selectedBedrooms === "all" || cardBedrooms === selectedBedrooms;
             let matchesRating = selectedRating === "all" || cardRating >= parseFloat(selectedRating);
             let matchesAvailability = selectedAvailability === "all" || cardStatus === selectedAvailability;
-            return matchesLocation && matchesPrice && matchesBedrooms && matchesRating && matchesAvailability;
+            let matchesAmenities = selectedAmenities.length === 0 || selectedAmenities.every(a => amenitiesList.some(cardAmenity => cardAmenity.includes(a)));
+            return matchesLocation && matchesPrice && matchesBedrooms && matchesRating && matchesAvailability && matchesAmenities;
         });
         if (selectedSort === "priceLowHigh") {
             filteredCards.sort((a, b) => parseInt(a.dataset.price, 10) - parseInt(b.dataset.price, 10));
