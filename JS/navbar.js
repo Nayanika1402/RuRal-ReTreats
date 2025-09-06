@@ -1,9 +1,21 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const menuToggle = document.getElementById("menu-toggle");
-    const menuClose = document.getElementById("menu-close");
-    const mobileMenu = document.getElementById("mobile-menu");
-    const navLinks = document.querySelectorAll(".mobile-menu ul li a");
-    const navbar = document.querySelector(".navbar");
+    // --- Configuration ---
+    const SELECTORS = {
+        menuToggle: "#menu-toggle",
+        menuClose: "#menu-close",
+        mobileMenu: "#mobile-menu",
+        navLinks: ".mobile-menu ul li a",
+        navbar: ".navbar",
+    };
+    const STICKY_SCROLL_THRESHOLD = 50;
+
+ main
+    // --- Element Selection ---
+    const menuToggle = document.querySelector(SELECTORS.menuToggle);
+    const menuClose = document.querySelector(SELECTORS.menuClose);
+    const mobileMenu = document.querySelector(SELECTORS.mobileMenu);
+    const navLinks = document.querySelectorAll(SELECTORS.navLinks);
+    const navbar = document.querySelector(SELECTORS.navbar);
 
     // Check login status and update UI
     checkLoginStatus();
@@ -11,59 +23,83 @@ document.addEventListener("DOMContentLoaded", function () {
     // Initialize ARIA attributes for accessibility
     if (menuToggle) menuToggle.setAttribute("aria-expanded", "false");
     if (mobileMenu) mobileMenu.setAttribute("aria-hidden", "true");
+dev
 
-    menuToggle.addEventListener("click", () => {
+    // --- Guard Clause ---
+    // Exit if essential navigation elements are not found to prevent errors.
+    if (!menuToggle || !mobileMenu || !navbar) {
+        console.warn("Essential navigation elements not found. Menu script will not run.");
+        return;
+    }
+
+    // --- Reusable Functions for Menu State ---
+    const openMenu = () => {
         mobileMenu.classList.add("active");
         menuToggle.setAttribute("aria-expanded", "true");
         mobileMenu.setAttribute("aria-hidden", "false");
-    });
+    };
 
-    menuClose.addEventListener("click", () => {
+    const closeMenu = (options = { focusToggle: false }) => {
         mobileMenu.classList.remove("active");
         menuToggle.setAttribute("aria-expanded", "false");
         mobileMenu.setAttribute("aria-hidden", "true");
-    });
-
-    navLinks.forEach(link => {
-        link.addEventListener("click", () => {
-            mobileMenu.classList.remove("active");
-            menuToggle.setAttribute("aria-expanded", "false");
-            mobileMenu.setAttribute("aria-hidden", "true");
-        });
-    });
-
-    // Close the menu when clicking outside of it
-    document.addEventListener("click", (event) => {
-        const isMenuOpen = mobileMenu.classList.contains("active");
-        if (!isMenuOpen) return;
-        const clickedInsideMenu = mobileMenu.contains(event.target);
-        const clickedToggle = menuToggle === event.target || menuToggle.contains(event.target);
-        if (!clickedInsideMenu && !clickedToggle) {
-            mobileMenu.classList.remove("active");
-            menuToggle.setAttribute("aria-expanded", "false");
-            mobileMenu.setAttribute("aria-hidden", "true");
-        }
-    });
-
-    // Close the menu on Escape key
-    document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape" && mobileMenu.classList.contains("active")) {
-            mobileMenu.classList.remove("active");
-            menuToggle.setAttribute("aria-expanded", "false");
-            mobileMenu.setAttribute("aria-hidden", "true");
+        // For accessibility, return focus to the toggle button after closing with Esc key.
+        if (options.focusToggle) {
             menuToggle.focus();
         }
-    });
+    };
 
-    window.addEventListener("scroll", function () {
-        if (window.scrollY > 50) {
-            navbar.classList.add("sticky");
+    // --- Event Handler Functions ---
+    const handleScroll = () => {
+        // Use a single class for styling the sticky state for simplicity.
+        if (window.scrollY > STICKY_SCROLL_THRESHOLD) {
             navbar.classList.add("scrolled");
         } else {
-            navbar.classList.remove("sticky");
             navbar.classList.remove("scrolled");
         }
+    };
+
+    const handleEscapeKey = (event) => {
+        if (event.key === "Escape" && mobileMenu.classList.contains("active")) {
+            closeMenu({ focusToggle: true });
+        }
+    };
+
+    const handleClickOutside = (event) => {
+        const isMenuOpen = mobileMenu.classList.contains("active");
+        // Ensure menu is open before proceeding
+        if (!isMenuOpen) return;
+
+        const clickedInsideMenu = mobileMenu.contains(event.target);
+        const clickedOnToggle = menuToggle.contains(event.target);
+        
+        if (!clickedInsideMenu && !clickedOnToggle) {
+            closeMenu();
+        }
+    };
+
+    // --- Initial Setup ---
+    menuToggle.setAttribute("aria-expanded", "false");
+    mobileMenu.setAttribute("aria-hidden", "true");
+
+    // --- Event Listener Attachments ---
+    menuToggle.addEventListener("click", openMenu);
+    
+    if (menuClose) {
+        menuClose.addEventListener("click", closeMenu);
+    }
+
+    navLinks.forEach(link => {
+        link.addEventListener("click", closeMenu);
     });
+
+ main
+    document.addEventListener("keydown", handleEscapeKey);
+    document.addEventListener("click", handleClickOutside);
+    window.addEventListener("scroll", handleScroll);
+    // Initial check in case the page is loaded with a scroll position beyond the threshold
+    handleScroll(); 
+    
 
     // Function to check login status and update navbar
     function checkLoginStatus() {
@@ -159,4 +195,5 @@ document.addEventListener("DOMContentLoaded", function () {
             message.remove();
         }, 1500);
     }
+ dev
 });
