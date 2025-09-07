@@ -56,7 +56,57 @@
         <button type="submit" class="btn">Login</button>
         <p>or Login with Social Platforms</p>
         <div class="social-icons">
-          <a href="#"><i class="fa-brands fa-google"></i></a>
+          <!-- Google Login Button -->
+<button id="http://localhost:5000/api/auth/google" class="google-btn">
+  <i class="fa-brands fa-google"></i>
+</button>
+
+<script type="module">
+  // Import Firebase Auth
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import { getAuth, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+  // Your Firebase config (replace with your actual values)
+  const firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_PROJECT_ID.appspot.com",
+    messagingSenderId: "YOUR_SENDER_ID",
+    appId: "YOUR_APP_ID"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const provider = new GoogleAuthProvider();
+
+  // Google login button handler
+  document.getElementById("googleLogin").addEventListener("click", () => {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        console.log("✅ Logged in:", result.user);
+        alert("Welcome " + result.user.displayName);
+      })
+      .catch((error) => {
+        console.error("❌ Login failed:", error);
+      });
+  });
+</script>
+
+<style>
+  .google-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: #db4437; /* Google red */
+  }
+  .google-btn:hover {
+    color: #a33226;
+  }
+</style>
+
           <a href="#"><i class="fa-brands fa-facebook"></i></a>
           <a href="#"><i class="fa-brands fa-github"></i></a>
           <a href="#"><i class="fa-brands fa-linkedin"></i></a>

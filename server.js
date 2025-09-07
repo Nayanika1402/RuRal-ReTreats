@@ -4,6 +4,9 @@ const cors = require('cors');
 const connectDB = require('./config/database');
 const paymentRoutes = require('./routes/payment');
 const authRoutes = require('./routes/auth');
+const passport = require('passport');
+const session = require('express-session');
+require('./config/passport'); // Google OAuth strategy
 
 const app = express();
 
@@ -34,6 +37,17 @@ app.use(cors({
   credentials: true
 }));
 
+// Sessions for Google OAuth
+app.use(session({
+  secret: process.env.SESSION_SECRET || 'supersecret',
+  resave: false,
+  saveUninitialized: true,
+}));
+
+// Passport init
+app.use(passport.initialize());
+app.use(passport.session());
+
 // For webhook endpoint - raw body needed
 app.use('/api/payments/webhook', express.raw({ type: 'application/json' }));
 
@@ -46,13 +60,26 @@ app.use(express.static('.'));
 app.use('/api/payments', paymentRoutes);
 app.use('/api/auth', authRoutes);
 
+// Google OAuth routes
+app.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
+
+app.get(
+  '/auth/google/callback',
+  passport.authenticate('google', { failureRedirect: '/login' }),
+  (req, res) => {
+    // Successful auth
+    res.redirect('/dashboard'); 
+  }
+);
+
 // Health check
 app.get('/health', (req, res) => {
   res.json({ status: 'Server is running', timestamp: new Date().toISOString() });
 });
 
+// Start server
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-  console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
+  console.log(`✅ Server running on port ${PORT}`);
+  console.log(`🌍 Environment: ${process.env.NODE_ENV || 'development'}`);
 });

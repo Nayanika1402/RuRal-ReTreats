@@ -2,6 +2,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const container = document.querySelector('.container');
     const registerbtn = document.querySelector('.register-btn');
     const loginbtn = document.querySelector('.login-btn');
+    const urlParams = new URLSearchParams(window.location.search);
+    const token = urlParams.get('token');
+    if (token) {
+        localStorage.setItem('token', token); // Save JWT
+        alert("✅ Logged in with Google!");
+        window.location.href = "/dashboard.html"; // Redirect to app
+        }
 
     // Toggle between login and register forms
     if (registerbtn && container) {
