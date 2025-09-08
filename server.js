@@ -6,7 +6,7 @@ const paymentRoutes = require('./routes/payment');
 const authRoutes = require('./routes/auth');
 
 const app = express();
-
+z
 // Connect to database
 connectDB();
 
