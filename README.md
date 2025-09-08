@@ -1,3 +1,5 @@
+# <a id="top"></a>
+
 <div align="center">
   
 [![Open Source Love](https://firstcontributions.github.io/open-source-badges/badges/open-source-v1/open-source.svg)](https://github.com/firstcontributions/open-source-badges)
@@ -96,30 +98,8 @@ If you have any questions, feel free to open an issue or reach out to the projec
 
 **Please ⭐ this repository to show some love. Your support is appreciated!**
 
-<div align="right">
-  <button id="scrollTopBtn">🔝 Back to Top</button>
-</div>
+---
 
-<script>
-  // Scroll to top functionality
-  const btn = document.getElementById("scrollTopBtn");
-  btn.onclick = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-</script>
+<!-- [🔝 Back to Top](#top) -->
 
-<style>
-#scrollTopBtn {
-  padding: 8px 12px;
-  background-color: #0b7cbd;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
-}
-#scrollTopBtn:hover {
-  background-color: #095a8c;
-}
-</style>
-<!-- Scroll-to-top button implemented by Shubham -->
+[<kbd>🔝 Back to Top</kbd>](#top)
