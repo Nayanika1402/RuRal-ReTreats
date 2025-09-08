@@ -97,5 +97,28 @@ If you have any questions, feel free to open an issue or reach out to the projec
 **Please ⭐ this repository to show some love. Your support is appreciated!**
 
 <div align="right">
-  <a href="#readme-top">🔝back to top</a>
+  <button id="scrollTopBtn">🔝 Back to Top</button>
 </div>
+
+<script>
+  // Scroll to top functionality
+  const btn = document.getElementById("scrollTopBtn");
+  btn.onclick = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+</script>
+
+<style>
+#scrollTopBtn {
+  padding: 8px 12px;
+  background-color: #0b7cbd;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+#scrollTopBtn:hover {
+  background-color: #095a8c;
+}
+</style>
