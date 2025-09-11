@@ -198,14 +198,15 @@
     }
 
     .form-box {
-      flex: 1;
-      background: var(--card-bg);
-      backdrop-filter: blur(20px);
-      border: 1px solid var(--border-color);
-      border-radius: 20px;
-      padding: 40px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    }
+  flex: 1;
+  background: var(--card-bg);
+  backdrop-filter: blur(20px);          /* added */
+  -webkit-backdrop-filter: blur(20px);  /* kept */
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
 
     .form-box h2 {
       font-size: 1.8rem;
