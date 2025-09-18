@@ -402,7 +402,6 @@ ul {
   .auth-buttons {
     gap: 10px;
   }
-  
 }
 
 @media only screen and (min-width: 768px) {
@@ -598,7 +597,6 @@ ul {
   .cta-button {
     font-size: 0.9rem;
     padding: 8px 18px;
-    
   }
 }
 
@@ -975,7 +973,6 @@ ul {
 }
 
 @keyframes bounce {
-
   0%,
   100% {
     transform: translateY(0);
@@ -1007,7 +1004,6 @@ ul {
   .destination-card .rating {
     font-size: 1rem;
   }
-
 
   .carousel-sections h2 {
     font-size: 2rem;
@@ -1074,7 +1070,7 @@ ul {
   .destination-card .rating {
     font-size: 0.9rem;
   }
-  
+
   .destination-image {
     width: 90%;
     height: 70%;
@@ -1104,6 +1100,13 @@ ul {
 
   .button.next {
     right: 10px;
+  }
+  .chatButton {
+    position: absolute;
+    width: calc(100% - 24px);
+    right: 12px;
+    left: auto; /* ensure it sticks to right side */
+    border-radius: 10px;
   }
 }
 
@@ -1441,7 +1444,6 @@ ul {
 }
 
 @keyframes bounce {
-
   0%,
   100% {
     transform: translateY(0);
@@ -1524,6 +1526,10 @@ ul {
   .button.next {
     right: 10px;
   }
+}
+.chatbot-modal.active {
+  width: 50%;
+  height: 70%;
 }
 
 @media screen and (max-width: 480px) {
@@ -1747,7 +1753,6 @@ ul {
 }
 
 @keyframes blink {
-
   0%,
   100% {
     opacity: 0.5;
@@ -2176,7 +2181,6 @@ chatbot-body .author {
   opacity: 1;
 } */
 
-
 .chatbot-button {
   bottom: 60px;
   right: 10px;
@@ -2205,7 +2209,6 @@ chatbot-body .author {
   padding: 8px 12px;
   font-size: 14px;
 }
-
 
 @media (max-width: 480px) {
   .chatbot-modal {
@@ -2384,7 +2387,6 @@ chatbot-body .author {
   background-color: #008e72;
 }
 
-
 .newsletter input:hover {
   border-color: #00b894;
 }
@@ -2486,30 +2488,11 @@ chatbot-body .author {
   text-decoration: underline;
 }
 
-
 .footer-section ul li a:hover {
   color: #00b894;
   transform: translateX(5px);
   text-decoration: underline;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .goog-te-banner-frame {
   display: none !important;
@@ -2891,14 +2874,16 @@ body {
   background-image: url("https://www.transparenttextures.com/patterns/aged-paper.png");
   background-blend-mode: multiply;
 
-  clip-path: polygon(5% 0%,
-      95% 0%,
-      100% 20%,
-      100% 80%,
-      95% 100%,
-      5% 100%,
-      0% 80%,
-      0% 20%);
+  clip-path: polygon(
+    5% 0%,
+    95% 0%,
+    100% 20%,
+    100% 80%,
+    95% 100%,
+    5% 100%,
+    0% 80%,
+    0% 20%
+  );
 }
 
 .header::before,
@@ -3216,7 +3201,6 @@ body {
   text-align: start;
 }
 
-
 .blog-post {
   background: #fff;
   border-radius: 15px;
@@ -3231,7 +3215,7 @@ body {
 }
 
 .blog-post::before {
-  content: '';
+  content: "";
   position: absolute;
   top: -2px;
   left: -2px;
@@ -3600,12 +3584,12 @@ body {
   padding: 0 10px;
 }
 
-  .read-more1 {
-    font-size: 0.9em;
-    padding: 8px;
-  }
+.read-more1 {
+  font-size: 0.9em;
+  padding: 8px;
+}
 
-  .footer {
+.footer {
   background: linear-gradient(135deg, #0077b6, #1e3a5f);
   color: #f2f5f7;
   padding: 60px 28px 20px;
@@ -3659,7 +3643,7 @@ body {
   margin-bottom: 14px;
   color: #e2e6ea;
   font-weight: 700;
-  border-bottom: 2px solid rgba(255,255,255,0.12);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.12);
   display: inline-block;
   padding-bottom: 6px;
 }
@@ -3704,7 +3688,7 @@ body {
   place-items: center;
   border-radius: 50%;
   font-size: 1.1rem;
-  background: rgba(255,255,255,0.08);
+  background: rgba(255, 255, 255, 0.08);
   color: #f8f9fa;
   transition: background 0.25s ease, transform 0.25s ease, color 0.25s ease;
 }
@@ -3727,7 +3711,7 @@ body {
   border: none;
   font-size: 0.95rem;
   outline: none;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.15) inset;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15) inset;
   background: #f8f9fa;
   color: #333;
 }
@@ -3744,15 +3728,15 @@ body {
 .newsletter input[type="email"] {
   flex: 1;
   height: 44px;
-  border-radius: 8px 0 0 8px; 
+  border-radius: 8px 0 0 8px;
   border: none;
   outline: none;
   padding: 0 12px;
   font-size: 0.95rem;
   background: #f8f9fa;
-  box-shadow: inset 0 3px 10px rgba(0,0,0,0.15);
+  box-shadow: inset 0 3px 10px rgba(0, 0, 0, 0.15);
   margin: 0;
-  border-right: none;         
+  border-right: none;
 }
 
 .footer-newsletter-btn {
@@ -3765,20 +3749,20 @@ body {
   color: #fff;
   border: none;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
-  border-left: none;         
+  border-left: none;
 }
 
 .footer-newsletter-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.28);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.28);
 }
 
 .footer-bottom {
   text-align: center;
   padding-top: 18px;
-  border-top: 1px solid rgba(255,255,255,0.15);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
   font-size: 0.9rem;
   color: #cdd4db;
 }
@@ -3822,7 +3806,7 @@ body {
   font-size: 1.2rem;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
   transition: all 0.3s ease;
-  display: none; 
+  display: none;
 }
 
 .back-to-top-btn:hover {
@@ -3872,8 +3856,14 @@ body {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .chatbot-header {
@@ -3976,13 +3966,27 @@ body {
 }
 
 @media (max-width: 480px) {
+}
+@media (max-width: 768px) {
+  .chatbot-button {
+    right: 24px;
+    margin-right: -60px;
+  }
+
+  .hero {
+    padding-bottom: 140px; /* approx. chatbox height + safe spacing */
+  }
+
   .chatbot-modal {
-    width: 90%;
-    right: 5%;
-    bottom: 90px;
+    right: 12px;
+    left: auto; /* ensure it sticks to right side */
+    width: calc(100% - 24px);
+    max-width: 370px;
+    /* adjust if needed */
+    bottom: 100px; /* keep above button */
   }
 }
-
+ 
 #language-select {
   width: 100%;
   padding: 8px;
@@ -3999,11 +4003,11 @@ body {
   background: #f4f4f4;
 }
 
-.footer-bottom p{
-    color: #0056b3;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
+.footer-bottom p {
+  color: #0056b3;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 .footer-bottom a {
@@ -4043,7 +4047,6 @@ body {
   transform: translateX(5px);
   text-decoration: underline;
 }
-
 
 .footer-section ul li a:hover {
   color: #00b894;
@@ -4190,15 +4193,15 @@ body {
 .newsletter input[type="email"] {
   flex: 1;
   height: 44px;
-  border-radius: 8px 0 0 8px; 
+  border-radius: 8px 0 0 8px;
   border: none;
   outline: none;
   padding: 0 12px;
   font-size: 0.95rem;
   background: #f8f9fa;
-  box-shadow: inset 0 3px 10px rgba(0,0,0,0.15);
+  box-shadow: inset 0 3px 10px rgba(0, 0, 0, 0.15);
   margin: 0;
-  border-right: none;         
+  border-right: none;
 }
 
 .footer-newsletter-btn {
@@ -4211,9 +4214,9 @@ body {
   color: #fff;
   border: none;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
-  border-left: none;         
+  border-left: none;
 }
 
 .footer-newsletter-btn:hover {
