@@ -4445,3 +4445,151 @@ select:focus {
     bottom: 90px;
   }
 }
+@media (max-width: 768px) {
+  .nav-menu,
+  .footer-row,
+  .mission-vision-container,
+  .impact-container,
+  .impact-stats,
+  .gallery-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  .navbar,
+  .footer,
+  .hero,
+  .brand-intro,
+  .cta-section,
+  .mission-vision-section,
+  .impact-section,
+  .gallery-section {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    border-radius: 0 !important;
+  }
+}
+@media (max-width: 480px) {
+  html, body {
+    width: 100vw !important;
+    overflow-x: hidden !important;
+  }
+
+  .hero-content h1,
+  .section-title,
+  .brand-content h2,
+  .cta-content h2,
+  .gallery-section h2 {
+    font-size: 1.2rem !important;
+  }
+
+  .cta-btn,
+  .filter-btn,
+  .login-btn {
+    font-size: 1rem !important;
+    padding: 8px 12px !important;
+  }
+
+  .gallery-item img,
+  .video-container iframe {
+    width: 100% !important;
+    height: auto !important;
+    border-radius: 6px !important;
+  }
+}
+@media (max-width: 480px) {
+  html, body {
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow-x: hidden !important;
+    width: 100vw !important;
+  }
+
+  .navbar,
+  .nav-container,
+  .footer,
+  .hero,
+  .cta-section,
+  .brand-intro,
+  .mission-vision-section,
+  .impact-section,
+  .gallery-section {
+    padding: 8px 6px !important;
+    margin: 8px 0 !important;
+    border-radius: 0 !important;
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+  }
+
+  .nav-menu,
+  .mission-vision-container,
+  .impact-container,
+  .gallery-grid,
+  .impact-stats,
+  .footer-row {
+    grid-template-columns: 1fr !important;
+    gap: 6px !important;
+    padding: 0 !important;
+  }
+
+  .gallery-item img,
+  .brand-intro img,
+  .video-container iframe {
+    width: 100% !important;
+    max-width: 100vw !important;
+    height: auto !important;
+    object-fit: cover !important;
+    border-radius: 6px !important;
+  }
+
+  .hero-content h1,
+  .gallery-section h2,
+  .section-title,
+  .cta-content h2,
+  .brand-content h2 {
+    font-size: 1.25rem !important;
+  }
+
+  .cta-btn,
+  .login-btn,
+  .filter-btn {
+    font-size: 1rem !important;
+    padding: 8px 12px !important;
+  }
+}
+@media (max-width: 768px) {
+  .chatbot-modal {
+    width: 280px;
+    bottom: 80px;
+    right: 10px;
+  }
+  .chatbot-button {
+    bottom: 80px;
+    right: 10px;
+    width: 45px;
+    height: 45px;
+    font-size: 18px;
+  }
+  .back-to-top-btn {
+    bottom: 8px;
+    right: 8px;
+    padding: 10px 14px;
+    font-size: 12px;
+  }
+  .chatbot-body {
+    height: 250px;
+  }
+  .chat-input input {
+    font-size: 13px;
+    padding: 8px;
+  }
+  .chat-input button {
+    padding: 7px 10px;
+    font-size: 12px;
+  }
+  .close-chatbot {
+    font-size: 20px;
+  }
+}
