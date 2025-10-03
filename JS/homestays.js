@@ -426,48 +426,182 @@ document.addEventListener("DOMContentLoaded", function () {
     const searchBtn = document.querySelector(".search-bar button");
     const mobileSearchInput = document.getElementById("mobile-search-input");
     const mobileSearchBtn = document.querySelector(".mobile-search-bar button");
-    function handleSearch(query) {
-        query = query.trim().toLowerCase();
-        const pages = {
-            "home": "../index.html",
-            "services": "../services.html",
-            "homestays": "../homestays.html",
-            "faq": "../faq.html",
-            "contact": "../contact.html",
-            "privacy policy": "../pp.html",
-            "terms and condition": "../t&c.html",
-            "service": "../services.html",
-            "homestay": "../homestays.html",
-            "faqs": "../faq.html",
-            "blogs": "../blog.html",
-            "blog": "../blog.html",
-            "Adventure": "../Adventure.html",
-            "Adventures": "../Adventure.html",
-            "pp": "../pp.html",
-            "t&c": "../t&c.html"
-        };
-        if (pages[query]) {
-            window.location.href = pages[query];
-        } else {
-            alert("No results found for: " + query);
+    const cardContainer = document.querySelector(".card-container");
+    const loadingIndicator = document.createElement("div");
+    loadingIndicator.className = "loading-indicator";
+    loadingIndicator.innerHTML = `
+        <div class="spinner"></div>
+        <p>Searching homestays...</p>
+    `;
+
+    let searchTimeout;
+
+    // Fallback data when server is not available
+    const fallbackHomestays = [
+        {
+            name: "Traditional Haveli in Rajasthan",
+            location: "Rajasthan",
+            price: 2500,
+            bedrooms: 3,
+            rating: 4.5,
+            status: "available",
+            image: "./assets/haveli.jpg",
+            details: {
+                bathrooms: 2,
+                sqft: 1500
+            },
+            amenities: ["WiFi", "AC", "Parking", "Traditional Decor"]
+        },
+        {
+            name: "Cozy Cottage in Kerala",
+            location: "Kerala",
+            price: 1800,
+            bedrooms: 2,
+            rating: 4.8,
+            status: "available",
+            image: "./assets/cottage.jpg",
+            details: {
+                bathrooms: 1,
+                sqft: 800
+            },
+            amenities: ["Garden", "Lake View", "Kitchen", "WiFi"]
+        },
+        {
+            name: "Mountain Retreat in Himachal",
+            location: "Himachal Pradesh",
+            price: 4000,
+            bedrooms: 4,
+            rating: 4.7,
+            status: "available",
+            image: "./assets/mountain.jpg",
+            details: {
+                bathrooms: 3,
+                sqft: 2000
+            },
+            amenities: ["Mountain View", "Fireplace", "Heated Rooms", "Trekking"]
+        }
+    ];
+
+    async function fetchHomestays(searchParams = {}) {
+        try {
+            const queryParams = new URLSearchParams(searchParams);
+            const response = await fetch(`http://localhost:3000/api/homestays/search?${queryParams}`);
+            const data = await response.json();
+            
+            if (!data.success) {
+                throw new Error(data.error || 'Failed to fetch homestays');
+            }
+            
+            return data.data;
+        } catch (error) {
+            console.log('Server not available, using fallback data');
+            // Filter fallback data based on search query
+            const query = searchParams.query ? searchParams.query.toLowerCase() : '';
+            return fallbackHomestays.filter(homestay => 
+                homestay.name.toLowerCase().includes(query) ||
+                homestay.location.toLowerCase().includes(query) ||
+                homestay.amenities.some(amenity => amenity.toLowerCase().includes(query))
+            );
         }
     }
-    searchBtn.addEventListener("click", function () {
-        if (searchInput.value.trim() !== "") {
-            handleSearch(searchInput.value);
+
+    async function handleSearch(query) {
+        // Show loading indicator
+        cardContainer.appendChild(loadingIndicator);
+
+        try {
+            // Fetch filtered homestays from API
+            const homestays = await fetchHomestays({ query });
+            
+            // Clear existing cards
+            cardContainer.innerHTML = '';
+            
+            if (homestays.length === 0) {
+                cardContainer.innerHTML = `
+                    <div class="no-results">
+                        <i class="fas fa-home"></i>
+                        <h3>No homestays found</h3>
+                        <p>Try adjusting your search criteria</p>
+                    </div>
+                `;
+                return;
+            }
+
+            // Render homestay cards
+            homestays.forEach(homestay => {
+                const card = createHomestayCard(homestay);
+                cardContainer.appendChild(card);
+            });
+
+        } catch (error) {
+            cardContainer.innerHTML = `
+                <div class="error-message">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <h3>Error loading homestays</h3>
+                    <p>Please try again later</p>
+                </div>
+            `;
+        } finally {
+            loadingIndicator.remove();
         }
-    });
-    mobileSearchBtn.addEventListener("click", function () {
-        if (mobileSearchInput.value.trim() !== "") {
-            handleSearch(mobileSearchInput.value);
-        }
-    });
-    searchInput.addEventListener("keypress", function (event) {
-        if (event.key === "Enter") {
-            event.preventDefault();
-            handleSearch(searchInput.value);
-        }
-    });
+    }
+
+    function createHomestayCard(homestay) {
+        const card = document.createElement('div');
+        card.className = 'homestay-card';
+        card.dataset.price = homestay.price;
+        card.dataset.bedrooms = homestay.bedrooms;
+        card.dataset.location = homestay.location;
+        card.dataset.status = homestay.status;
+        card.dataset.rating = homestay.rating;
+
+        card.innerHTML = `
+            <div class="image-wrapper">
+                <img src="${homestay.image}" alt="${homestay.name}">
+                <span class="rating-badge">⭐ ${homestay.rating}</span>
+            </div>
+            <div class="card-content">
+                <h3>${homestay.name}</h3>
+                <p><strong>Location:</strong> ${homestay.location}</p>
+                <p><strong>Price:</strong> ₹${homestay.price}/Day</p>
+                <p><strong>Details:</strong> ${homestay.bedrooms} Bedrooms • ${homestay.details.bathrooms} Bathroom • ${homestay.details.sqft} sq ft</p>
+                <ul class="amenities">
+                    ${homestay.amenities.map(amenity => `<li>${amenity}</li>`).join('')}
+                </ul>
+                <span class="status-badge ${homestay.status}">
+                    ${homestay.status === 'available' ? '✅ Available | Booking Open' : '❌ Not Available'}
+                </span>
+            </div>
+            <div class="card-actions">
+                <button class="view-details-btn">View Details</button>
+                <button class="add-to-wishlist-btn" title="Add to Wishlist">
+                    <i class="far fa-heart"></i>
+                </button>
+            </div>
+        `;
+
+        return card;
+    }
+    // Debounced search function for both inputs
+    function debounceSearch(input) {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(() => {
+            const query = input.value.trim();
+            if (query !== "") {
+                handleSearch(query);
+            } else {
+                // If search is cleared, show all homestays
+                handleSearch("");
+            }
+        }, 300); // Wait 300ms after user stops typing
+    }
+
+    // Event listeners for real-time search
+    searchInput.addEventListener("input", () => debounceSearch(searchInput));
+    mobileSearchInput.addEventListener("input", () => debounceSearch(mobileSearchInput));
+
+    // Initial load of all homestays
+    handleSearch("");
     mobileSearchInput.addEventListener("keypress", function (event) {
         if (event.key === "Enter") {
             event.preventDefault();
