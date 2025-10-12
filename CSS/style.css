@@ -4450,3 +4450,424 @@ body {
     bottom: 90px;
   }
 }
+
+/* Dark Mode Styles */
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.dark-mode .navbar {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+}
+
+body.dark-mode .nav-menu a,
+body.dark-mode .logo a {
+  color: #e0e0e0;
+}
+
+body.dark-mode .nav-menu a:hover {
+  color: #56b4d7;
+}
+
+body.dark-mode .search-bar input {
+  background-color: #2d2d2d;
+  color: #e0e0e0;
+  border-color: #444;
+}
+
+body.dark-mode .destination-card,
+body.dark-mode .testimonial-item,
+body.dark-mode .blog-card {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+  border-color: #444;
+}
+
+body.dark-mode .about-section {
+  background-color: #121212;
+}
+
+body.dark-mode .about-section h2 {
+  color: #ffffff;
+}
+
+body.dark-mode .about-section h3 {
+  color: #e0e0e0;
+}
+
+body.dark-mode .about-section p {
+  color: #c2bcbc;
+}
+
+body.dark-mode .footer {
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+}
+
+body.dark-mode .footer-section h3,
+body.dark-mode .footer-section h4 {
+  color: #e0e0e0;
+}
+
+body.dark-mode .footer-section p,
+body.dark-mode .footer-section a {
+  color: #a0a0a0;
+}
+
+body.dark-mode .mobile-menu {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+}
+
+body.dark-mode .mobile-menu a {
+  color: #e0e0e0;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  margin-left: 10px;
+}
+
+#theme-toggle {
+  background: transparent;
+  border: 2px solid #5eb6dc;
+  color: #3c8ae2;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+#theme-toggle:hover {
+  background: #515251;
+  color: white;
+  transform: rotate(15deg);
+}
+
+body.dark-mode #theme-toggle {
+  border-color: #ffa726;
+  color: #ffa726;
+}
+
+body.dark-mode #theme-toggle:hover {
+  background: #ffa726;
+  color: #121212;
+}
+
+/* Search Bar Styling Fix */
+.search-bar,
+.mobile-search-bar {
+  display: flex;
+  background: #f8f9fa;
+  border-radius: 30px;
+  padding: 5px;
+  border: 2px solid #e9ecef;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar:hover,
+.mobile-search-bar:hover {
+  border-color: #121212;
+  box-shadow: 0 4px 15px rgba(58, 59, 58, 0.2);
+}
+
+.search-bar input,
+.mobile-search-bar input {
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 12px 20px;
+  color: #333;
+  font-size: 16px;
+  width: 250px;
+  border-radius: 25px 0 0 25px;
+}
+
+.search-bar button,
+.mobile-search-bar button {
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  border: none;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 0 25px 25px 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-bar button:hover,
+.mobile-search-bar button:hover {
+  background: #f1f1f1;
+  transform: scale(1.05);
+}
+
+/* Dark Mode Search */
+body.dark-mode .search-bar,
+body.dark-mode .mobile-search-bar {
+  background: #2d2d2d;
+  border-color: #444;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .search-bar:hover,
+body.dark-mode .mobile-search-bar:hover {
+  border-color: #4CAF50;
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+body.dark-mode .search-bar input,
+body.dark-mode .mobile-search-bar input {
+  color: #ffffff;
+}
+
+body.dark-mode .search-bar input::placeholder,
+body.dark-mode .mobile-search-bar input::placeholder {
+  color: #888;
+}
+
+body.dark-mode .search-bar button:hover,
+body.dark-mode .mobile-search-bar button:hover {
+  background: #2d2d2d;
+  transform: scale(1.05);
+}
+
+/* Blog Section Dark Mode Fix */
+body.dark-mode .blog-section {
+  background: #1a1a1a;
+}
+
+body.dark-mode .blog-section h2 {
+  color: #ffffff;
+}
+
+body.dark-mode .blog-section>p {
+  color: #cccccc;
+}
+
+body.dark-mode .blog-card {
+  background: #2d2d2d;
+  border: 1px solid #444;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .blog-card:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  border-color: #4CAF50;
+}
+
+body.dark-mode .blog-content h3 {
+  color: #211e1e;
+}
+
+body.dark-mode .blog-content p {
+  color: #312c2c;
+}
+
+body.dark-mode .blog-meta {
+  color: #888888;
+}
+
+body.dark-mode .blog-meta i {
+  color: #4CAF50;
+}
+
+body.dark-mode .tab-button {
+  background: #2d2d2d;
+  color: #ffffff;
+  border: 2px solid #4CAF50;
+}
+
+body.dark-mode .tab-button:hover {
+  background: #4CAF50;
+  color: #ffffff;
+}
+
+body.dark-mode .tab-button.active {
+  background: #4CAF50;
+  color: #ffffff;
+}
+
+body.dark-mode .read-more {
+  color: #4CAF50;
+}
+
+body.dark-mode .read-more:hover {
+  color: #81C784;
+}
+
+body.dark-mode .header {
+  background: linear-gradient(135deg, #2E7D32, #4CAF50);
+}
+
+/* Enhanced Dark Mode for Sections */
+body.dark-mode .carousel-sections {
+  background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+}
+
+body.dark-mode .carousel-sections h2 {
+  color: #ffffff;
+  font-size: 2.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  margin-bottom: 2rem;
+}
+
+body.dark-mode .destination-card {
+  background: #2d2d2d;
+  border: 1px solid #444;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .destination-card:hover {
+  border-color: #4CAF50;
+  box-shadow: 0 8px 25px rgba(76, 175, 80, 0.2);
+}
+
+body.dark-mode .destination-card h3 {
+  color: #ffffff;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+body.dark-mode .destination-card .location {
+  color: #4CAF50 !important;
+  font-weight: 600;
+}
+
+body.dark-mode .destination-card .location b {
+  color: #4CAF50 !important;
+}
+
+body.dark-mode .destination-card p {
+  color: #b8b8b8;
+  line-height: 1.6;
+}
+
+body.dark-mode .destination-card .learn-more {
+  color: #fbfbfb;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+body.dark-mode .destination-card .learn-more:hover {
+  color: #d1e3ea;
+  transform: translateX(5px);
+}
+
+/* Testimonials Section */
+body.dark-mode .carousel-container {
+  background: linear-gradient(135deg, #2d2d2d, #1a1a1a);
+}
+
+body.dark-mode .carousel-container h2 {
+  color: #4b4848;
+  font-size: 2.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .testimonial-item {
+  background: #2d2d2d;
+  border: 1px solid #444;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .testimonial-item:hover {
+  border-color: #4CAF50;
+  box-shadow: 0 8px 25px rgba(76, 175, 80, 0.2);
+}
+
+body.dark-mode .testimonial-item h4 {
+  color: #ffffff;
+  font-size: 1.3rem;
+}
+
+body.dark-mode .testimonial-item h4 b {
+  color: #ffffff;
+}
+
+body.dark-mode .testimonial-item p {
+  color: #b8b8b8;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+body.dark-mode .testimonial-item .author {
+  color: #4CAF50 !important;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* Carousel Controls */
+body.dark-mode .carousel-controls button,
+body.dark-mode .button.prev,
+body.dark-mode .button.next {
+  background: linear-gradient(135deg, #4CAF50, #2E7D32);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+body.dark-mode .carousel-controls button:hover,
+body.dark-mode .button.prev:hover,
+body.dark-mode .button.next:hover {
+  background: linear-gradient(135deg, #45a049, #4CAF50);
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+}
+
+/* Enhanced Services Dropdown - Dark Mode */
+body.dark-mode .dropdown-menu {
+  background: #2d2d2d;
+  border: 1px solid #444;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+body.dark-mode .dropdown-menu a {
+  color: #e0e0e0;
+  padding: 12px 20px;
+  border-bottom: 1px solid #3d3d3d;
+  transition: all 0.3s ease;
+  display: block;
+  text-decoration: none;
+}
+
+body.dark-mode .dropdown-menu a:hover {
+  background: linear-gradient(135deg, #3d3d3d, #4d4d4d);
+  color: #9fa2a4;
+  padding-left: 25px;
+  transform: translateX(5px);
+}
+
+body.dark-mode .dropdown-menu a:last-child {
+  border-bottom: none;
+  border-radius: 0 0 8px 8px;
+}
+
+body.dark-mode .dropdown-menu a:first-child {
+  border-radius: 8px 8px 0 0;
+}
+
+body.dark-mode .dropdown:hover>a {
+  color: #56b4d7;
+}
+
+body.dark-mode .dropdown i.fa-chevron-down {
+  color: #56b4d7;
+  transition: transform 0.3s ease;
+}
+
+body.dark-mode .dropdown:hover i.fa-chevron-down {
+  transform: rotate(180deg);
+}
